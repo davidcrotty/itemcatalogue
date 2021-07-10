@@ -16,7 +16,7 @@ import net.davidcrotty.itemcatalogue.R
 // TODO move to listFeature, atoms lower into a styleguide/catalogue
 @Preview
 @Composable
-fun ItemCard(item: ItemModel = ItemModel("https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large")) {
+fun ItemCard(item: ItemModel = ItemModel(url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large", type = "Type", title = "Title", description = ITEM_DESCRIPTION_PREVIEW)) {
     Surface(color = Color.Red) {
         Row(modifier = Modifier
             .height(160.dp)
@@ -29,12 +29,14 @@ fun ItemCard(item: ItemModel = ItemModel("https://pbs.twimg.com/media/Eg9TpoLU8A
                 modifier = Modifier.aspectRatio(1f)
             )
             Column(modifier = Modifier.padding(start = 16.dp)) {
-                Text("Type", maxLines = 1)
-                Text("Title", maxLines = 1)
-                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam diam turpis, tincidunt ut rhoncus nec, iaculis ac ante. Maecenas eu tempor metus. Nunc ac sapien viverra, suscipit purus nec, convallis nis", maxLines = 3)
+                Text(item.type, maxLines = 1)
+                Text(item.title, maxLines = 1)
+                Text(item.description, maxLines = 3)
             }
         }
     }
 }
 
-class ItemModel(val url: String)
+class ItemModel(val url: String, val type: String, val title: String, val description: String)
+
+private const val ITEM_DESCRIPTION_PREVIEW = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam diam turpis, tincidunt ut rhoncus nec, iaculis ac ante. Maecenas eu tempor metus. Nunc ac sapien viverra, suscipit purus nec, convallis nis"
