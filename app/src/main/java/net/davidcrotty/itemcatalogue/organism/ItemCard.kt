@@ -12,10 +12,10 @@ import com.google.accompanist.coil.rememberCoilPainter
 @Composable
 fun ItemCard() {
     Row {
-        Image(
-            painter = rememberCoilPainter("https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large"),
-            contentDescription = "Image description"
-        )
+//        Image(
+//            painter = rememberCoilPainter("https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large"),
+//            contentDescription = "Image description"
+//        )
         Column {
             Text("Type")
             Text("Title")
