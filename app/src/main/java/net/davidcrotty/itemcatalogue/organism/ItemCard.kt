@@ -37,6 +37,7 @@ fun ItemCard(item: ItemModel = ItemModel(url = "https://pbs.twimg.com/media/Eg9T
     }
 }
 
+// TODO separate package folder for this
 class ItemModel(val url: String, val type: String, val title: String, val description: String)
 
 private const val ITEM_DESCRIPTION_PREVIEW = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam diam turpis, tincidunt ut rhoncus nec, iaculis ac ante. Maecenas eu tempor metus. Nunc ac sapien viverra, suscipit purus nec, convallis nis"
