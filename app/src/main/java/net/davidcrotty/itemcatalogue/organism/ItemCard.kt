@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.coil.rememberCoilPainter
 
@@ -24,9 +25,9 @@ fun ItemCard() {
                 modifier = Modifier.height(240.dp)
             )
             Column {
-                Text("Type")
-                Text("Title")
-                Text("Description")
+                Text("Type", maxLines = 1)
+                Text("Title", maxLines = 1)
+                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam diam turpis, tincidunt ut rhoncus nec, iaculis ac ante. Maecenas eu tempor metus. Nunc ac sapien viverra, suscipit purus nec, convallis nis")
             }
         }
     }
