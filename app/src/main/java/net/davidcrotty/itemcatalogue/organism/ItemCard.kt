@@ -2,9 +2,11 @@ package net.davidcrotty.itemcatalogue.organism
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.coil.rememberCoilPainter
@@ -13,16 +15,19 @@ import com.google.accompanist.coil.rememberCoilPainter
 // https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large
 @Composable
 fun ItemCard() {
-    Row(modifier = Modifier.height(240.dp)) {
-        Image(
-            painter = rememberCoilPainter("https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large"),
-            contentDescription = "Image description", // TODO resources
-            modifier = Modifier.aspectRatio(3f/16f)
-        )
-        Column {
-            Text("Type")
-            Text("Title")
-            Text("Description")
+    Surface(color = Color.Red) {
+        Row(modifier = Modifier.height(160.dp).fillMaxWidth()) {
+            Image(
+                painter = rememberCoilPainter("https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large"),
+                contentDescription = "Image description", // TODO resources
+                // will constrain its height to tow height
+                modifier = Modifier.height(240.dp)
+            )
+            Column {
+                Text("Type")
+                Text("Title")
+                Text("Description")
+            }
         }
     }
 }
