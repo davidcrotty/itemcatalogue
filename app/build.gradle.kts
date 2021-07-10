@@ -55,5 +55,6 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling:${rootProject.extra["compose_version"]}")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
     implementation("androidx.activity:activity-compose:1.3.0-rc01")
+    implementation("com.google.accompanist:accompanist-coil:0.10.0.compose-7321851-SNAPSHOT") // googles beta sonatype repo
     testImplementation("junit:junit:5.0.0")
 }
