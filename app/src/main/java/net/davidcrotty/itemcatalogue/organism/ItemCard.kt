@@ -22,7 +22,7 @@ fun ItemCard() {
                 painter = rememberCoilPainter("https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large"),
                 contentDescription = "Image description", // TODO resources
                 // will constrain its height to tow height
-                modifier = Modifier.height(240.dp)
+                modifier = Modifier.height(240.dp) // TODO revist this
             )
             Column {
                 Text("Type", maxLines = 1)
