@@ -45,7 +45,6 @@ fun CatalogueTemplateTheme(
 
     val systemUiController = rememberSystemUiController()
 
-    // TODO match a default with resources and update theme (flickering on load)
     val context = LocalContext.current
     SideEffect {
         systemUiController.setStatusBarColor(
