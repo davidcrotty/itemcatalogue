@@ -7,6 +7,7 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 // TODO KMM exposing this as an accessable website for designers is a great idea
@@ -45,9 +46,10 @@ fun CatalogueTemplateTheme(
     val systemUiController = rememberSystemUiController()
 
     // TODO match a default with resources and update theme (flickering on load)
+    val context = LocalContext.current
     SideEffect {
         systemUiController.setStatusBarColor(
-            color = Color.Black,
+            color = Black800(context),
             darkIcons = !darkTheme
         )
     }
