@@ -14,6 +14,7 @@ import coil.transform.RoundedCornersTransformation
 import com.google.accompanist.coil.rememberCoilPainter
 import net.davidcrotty.itemcatalogue.R
 
+// TODO design in a search feature, this is usually a common requirement
 // TODO move to listFeature, atoms lower into a styleguide/catalogue
 @Preview
 @Composable

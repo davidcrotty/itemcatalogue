@@ -55,7 +55,8 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling:${rootProject.extra["compose_version"]}")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
     implementation("androidx.activity:activity-compose:${rootProject.extra["compose_version"]}")
-    // 0.13.0 refers to non existing compose method: startReplaceableGroup
-    implementation("com.google.accompanist:accompanist-coil:0.13.0") // Utils around compose
+    // Official Utils around compose
+    implementation("com.google.accompanist:accompanist-coil:0.13.0")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.13.0")
     testImplementation("junit:junit:5.0.0")
 }
