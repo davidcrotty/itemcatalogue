@@ -32,7 +32,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun MyApplicationTheme(
+fun CatalogueTemplateTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable() () -> Unit
 ) {
