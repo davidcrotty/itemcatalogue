@@ -29,7 +29,7 @@ val Typography = Typography(
     */
 )
 
-// Sans-serif
+// Sans-serif, TODO pair with roboto
 val tiamat = FontFamily(
     Font(R.font.tiamat_light, FontWeight.Light),
     Font(R.font.tiamat_regular, FontWeight.Normal),
