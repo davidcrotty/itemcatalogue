@@ -8,7 +8,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import net.davidcrotty.itemcatalogue.R
 
-// Sans-serif, TODO pair with roboto
+// serif to pair with roboto sans-serif
 val tiamat = FontFamily(
     Font(R.font.tiamat_light, FontWeight.Light),
     Font(R.font.tiamat_regular, FontWeight.Normal),
