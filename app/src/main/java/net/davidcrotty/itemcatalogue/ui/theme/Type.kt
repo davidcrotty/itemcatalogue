@@ -8,30 +8,28 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import net.davidcrotty.itemcatalogue.R
 
+// Sans-serif, TODO pair with roboto
+val tiamat = FontFamily(
+    Font(R.font.tiamat_light, FontWeight.Light),
+    Font(R.font.tiamat_regular, FontWeight.Normal),
+    Font(R.font.tiamat_medium, FontWeight.Medium)
+)
+
 // Set of Material typography styles to start with
 val Typography = Typography(
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp
-    )
-    /* Other default text styles to override
-    button = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W500,
-        fontSize = 14.sp
     ),
-    caption = TextStyle(
-        fontFamily = FontFamily.Default,
+    h1 = TextStyle(
+        fontFamily = tiamat,
         fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
+        fontSize = 48.sp
+    ),
+    h2 = TextStyle(
+        fontFamily = tiamat,
+        fontWeight = FontWeight.Normal,
+        fontSize = 34.sp
     )
-    */
-)
-
-// Sans-serif, TODO pair with roboto
-val tiamat = FontFamily(
-    Font(R.font.tiamat_light, FontWeight.Light),
-    Font(R.font.tiamat_regular, FontWeight.Normal),
-    Font(R.font.tiamat_medium, FontWeight.Medium)
 )
