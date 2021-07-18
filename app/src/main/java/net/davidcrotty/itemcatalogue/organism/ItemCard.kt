@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import coil.transform.RoundedCornersTransformation
 import com.google.accompanist.coil.rememberCoilPainter
 import net.davidcrotty.itemcatalogue.R
+import net.davidcrotty.itemcatalogue.ui.theme.Typography
 
 // TODO design in a search feature, this is usually a common requirement
 // TODO move to listFeature, atoms lower into a styleguide/catalogue
@@ -34,7 +35,7 @@ fun ItemCard(item: ItemModel = ItemModel(url = "https://pbs.twimg.com/media/Eg9T
             )
             Column(modifier = Modifier.padding(start = 16.dp)) {
                 Text(item.type, maxLines = 1)
-                Text(item.title, maxLines = 1)
+                Text(item.title, maxLines = 1, style = Typography.h2)
                 Text(item.description, maxLines = 3)
             }
         }
