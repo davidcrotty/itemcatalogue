@@ -4,8 +4,7 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -31,6 +30,31 @@ private val LightColorPalette = lightColors(
     onSurface = Color.Black,
     */
 )
+
+val ListItemTheme = staticCompositionLocalOf {
+    ListItemColors(
+        content = Color.Unspecified
+    )
+}
+
+@Immutable // annotation provides compiler optimisations
+data class ListItemColors(
+    val content: Color
+)
+
+@Composable
+fun ListItemTheme(
+    content: @Composable () -> Unit
+) {
+    val customColors = ListItemColors(
+        content = White300
+    )
+
+    CompositionLocalProvider(
+        ListItemTheme provides customColors,
+        content = content
+    )
+}
 
 @Composable
 fun CatalogueTemplateTheme(
@@ -59,6 +83,6 @@ fun CatalogueTemplateTheme(
         colors = colors,
         typography = Typography,
         shapes = Shapes,
-        content = content,
+        content = content
     )
 }
