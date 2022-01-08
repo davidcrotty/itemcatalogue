@@ -10,8 +10,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberImagePainter
 import coil.transform.RoundedCornersTransformation
-import com.google.accompanist.coil.rememberCoilPainter
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
 
@@ -26,9 +26,7 @@ fun ItemCard(item: ItemModel = ItemModel(url = "https://pbs.twimg.com/media/Eg9T
             .padding(16.dp)
             .fillMaxWidth()) {
             Image( // TODO as atom
-                painter = rememberCoilPainter(request = item.url, requestBuilder = {
-                    transformations(RoundedCornersTransformation(32f)) // TODO should come from style?
-                }),
+                painter = rememberImagePainter(item.url),
                 contentDescription = stringResource(id = R.string.list_item),
                 // will constrain its height to tow height
                 modifier = Modifier.aspectRatio(1f)

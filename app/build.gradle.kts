@@ -55,7 +55,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
     implementation("androidx.activity:activity-compose:${rootProject.extra["compose_version"]}")
     // Official Utils around compose
-    implementation("com.google.accompanist:accompanist-coil:0.13.0")
+    implementation("io.coil-kt:coil-compose:1.4.0")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.13.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
 }
