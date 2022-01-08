@@ -42,12 +42,13 @@ data class ListItemColors(
     val content: Color
 )
 
+// TODO red colour not showing on text when compiling
 @Composable
 fun ListItemTheme(
     content: @Composable () -> Unit
 ) {
     val customColors = ListItemColors(
-        content = White300
+        content = Color.Red
     )
 
     CompositionLocalProvider(

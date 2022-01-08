@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import coil.transform.RoundedCornersTransformation
 import net.davidcrotty.itemcatalogue.R
+import net.davidcrotty.itemcatalogue.ui.theme.ListItemTheme
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
 
 // TODO design in a search feature, this is usually a common requirement
@@ -20,27 +21,28 @@ import net.davidcrotty.itemcatalogue.ui.theme.Typography
 @Preview
 @Composable
 fun ItemCard(item: ItemModel = ItemModel(url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large", type = "Type", title = "Title", description = ITEM_DESCRIPTION_PREVIEW)) {
-    val white300 = 0xfdfbfa
-    Surface() { // TODO should be a theme
-        Row(modifier = Modifier
-            .height(160.dp)
-            .padding(16.dp)
-            .fillMaxWidth()) {
-            Image( // TODO as atom
-                painter = rememberImagePainter(item.url, builder = {
-                    transformations(RoundedCornersTransformation(32f))
-                }),
-                contentDescription = stringResource(id = R.string.list_item),
-                // will constrain its height to tow height
-                modifier = Modifier.aspectRatio(1f),
-            )
-            Column(modifier = Modifier.padding(start = 16.dp)) {
-                Text(item.type, maxLines = 1)
-                Text(item.title, maxLines = 1, style = Typography.h2)
-                Text(item.description, maxLines = 3)
+//    ListItemTheme {
+        Surface { // TODO should be a theme
+            Row(modifier = Modifier
+                .height(160.dp)
+                .padding(16.dp)
+                .fillMaxWidth()) {
+                Image( // TODO as atom
+                    painter = rememberImagePainter(item.url, builder = {
+                        transformations(RoundedCornersTransformation(32f))
+                    }),
+                    contentDescription = stringResource(id = R.string.list_item),
+                    // will constrain its height to tow height
+                    modifier = Modifier.aspectRatio(1f),
+                )
+                Column(modifier = Modifier.padding(start = 16.dp)) {
+                    Text(item.type, maxLines = 1)
+                    Text(item.title, maxLines = 1, style = Typography.h2)
+                    Text(item.description, maxLines = 3)
+                }
             }
         }
-    }
+//    }
 }
 
 // TODO separate package folder for this
