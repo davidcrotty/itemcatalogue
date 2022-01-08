@@ -41,7 +41,6 @@ android {
     }
     composeOptions {
         kotlinCompilerExtensionVersion = rootProject.extra["compose_version"] as String
-        kotlinCompilerVersion = "1.5.10"
     }
 }
 
@@ -58,5 +57,5 @@ dependencies {
     // Official Utils around compose
     implementation("com.google.accompanist:accompanist-coil:0.13.0")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.13.0")
-    testImplementation("junit:junit:5.0.0")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
 }
