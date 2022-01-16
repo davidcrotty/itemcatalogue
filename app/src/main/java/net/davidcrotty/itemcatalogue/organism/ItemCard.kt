@@ -21,7 +21,7 @@ import net.davidcrotty.itemcatalogue.ui.theme.Typography
 @Preview
 @Composable
 fun ItemCard(item: ItemModel = ItemModel(url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large", type = "Type", title = "Title", description = ITEM_DESCRIPTION_PREVIEW)) {
-//    ListItemTheme {
+    ListItemTheme {
         Surface { // TODO should be a theme
             Row(modifier = Modifier
                 .height(160.dp)
@@ -42,7 +42,7 @@ fun ItemCard(item: ItemModel = ItemModel(url = "https://pbs.twimg.com/media/Eg9T
                 }
             }
         }
-//    }
+    }
 }
 
 // TODO separate package folder for this
