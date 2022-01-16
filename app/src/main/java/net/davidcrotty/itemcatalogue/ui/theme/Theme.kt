@@ -1,6 +1,7 @@
 package net.davidcrotty.itemcatalogue.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
@@ -38,50 +39,6 @@ private val LightColorPalette = lightColors(
     */
 )
 
-@Immutable
-data class CustomColors(
-    val content: Color,
-    val component: Color,
-    val background: List<Color>,
-    val surface: Color,
-    val color: Color
-)
-
-@Immutable
-data class CustomTypography(
-    val body: TextStyle,
-    val title: TextStyle
-)
-
-@Immutable
-data class CustomElevation(
-    val default: Dp,
-    val pressed: Dp
-)
-
-val LocalCustomColors = staticCompositionLocalOf {
-    CustomColors(
-        content = Color.Unspecified,
-        component = Color.Unspecified,
-        background = emptyList(),
-        surface = Color.Unspecified,
-        color = Color.Unspecified
-    )
-}
-val LocalCustomTypography = staticCompositionLocalOf {
-    CustomTypography(
-        body = TextStyle.Default,
-        title = TextStyle.Default
-    )
-}
-val LocalCustomElevation = staticCompositionLocalOf {
-    CustomElevation(
-        default = Dp.Unspecified,
-        pressed = Dp.Unspecified
-    )
-}
-
-
 @Deprecated("Not used currently, was used as an example of custom theming", replaceWith = ReplaceWith("CatalogueTemplateTheme"))
 @Composable
 fun ListItemTheme(
@@ -97,27 +54,7 @@ fun ListItemTheme(
     val customThemeColors = colors.copy(
         surface = Color.Red
     )
-
-    val customColors = CustomColors(
-        content = Color(0xFFDD0D3C),
-        component = Color(0xFFC20029),
-        background = listOf(Color.White, Color(0xFFF8BBD0)),
-        surface = Color.Red,
-        color = Color.Blue
-    )
-    val customTypography = CustomTypography(
-        body = TextStyle(fontSize = 16.sp),
-        title = TextStyle(fontSize = 32.sp)
-    )
-    val customElevation = CustomElevation(
-        default = 4.dp,
-        pressed = 8.dp
-    )
-    CompositionLocalProvider(
-        LocalCustomColors provides customColors,
-        LocalCustomTypography provides customTypography,
-        LocalCustomElevation provides customElevation
-    ) {
+    CompositionLocalProvider{
         MaterialTheme(
             content = content,
             colors = customThemeColors
@@ -146,12 +83,18 @@ fun CatalogueTemplateTheme(
         )
     }
 
+    val values = CornerRadiusSizes() // TODO wrap as this becomes more complex
+
     // This is good for a basic default for a simple / prototype app
     // but real world scenarios will have the demand for custom components with ambients
-    MaterialTheme(
-        colors = colors,
-        typography = Typography,
-        shapes = Shapes,
-        content = content
-    )
+    CompositionLocalProvider(
+        LocalValues provides values
+    ) {
+        MaterialTheme(
+            colors = colors,
+            typography = Typography,
+            shapes = Shapes,
+            content = content
+        )
+    }
 }

@@ -11,10 +11,11 @@ import coil.compose.rememberImagePainter
 import coil.transform.RoundedCornersTransformation
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.ui.theme.CornerRadius
+import net.davidcrotty.itemcatalogue.ui.theme.LocalValues
 
 @Composable
 fun Thumbnail(imageSource: String,
-             cornerRadius: CornerRadius = MaterialTheme.shapes.large) {
+             cornerRadius: CornerRadius = LocalValues.current.large) {
     Image(
         // TODO as atom
         painter = rememberImagePainter(imageSource, builder = {

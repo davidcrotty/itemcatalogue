@@ -1,21 +1,13 @@
 package net.davidcrotty.itemcatalogue.organism
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.compose.rememberImagePainter
-import coil.transform.RoundedCornersTransformation
-import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.Thumbnail
-import net.davidcrotty.itemcatalogue.ui.theme.ListItemTheme
-import net.davidcrotty.itemcatalogue.ui.theme.LocalCustomColors
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
 
 // TODO design in a search feature, this is usually a common requirement
