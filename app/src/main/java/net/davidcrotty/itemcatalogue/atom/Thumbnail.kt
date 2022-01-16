@@ -17,7 +17,6 @@ import net.davidcrotty.itemcatalogue.ui.theme.LocalValues
 fun Thumbnail(imageSource: String,
              cornerRadius: CornerRadius = LocalValues.current.large) {
     Image(
-        // TODO as atom
         painter = rememberImagePainter(imageSource, builder = {
             transformations(RoundedCornersTransformation(cornerRadius.value))
         }),
