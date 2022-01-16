@@ -22,7 +22,7 @@ import net.davidcrotty.itemcatalogue.ui.theme.Typography
 @Composable
 fun ItemCard(item: ItemModel = ItemModel(url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large", type = "Type", title = "Title", description = ITEM_DESCRIPTION_PREVIEW)) {
     ListItemTheme {
-        Surface { // TODO should be a theme, try wrapping material then supplying own values
+        Surface {
             Row(modifier = Modifier
                 .height(160.dp)
                 .padding(16.dp)
