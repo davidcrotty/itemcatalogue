@@ -22,9 +22,7 @@ import net.davidcrotty.itemcatalogue.ui.theme.Typography
 @Preview
 @Composable
 fun ItemCard(item: ItemModel = ItemModel(url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large", type = "Type", title = "Title", description = ITEM_DESCRIPTION_PREVIEW)) {
-    val customColor = LocalCustomColors.current.color
-
-    Surface(color = customColor) {
+    Surface {
         Row(modifier = Modifier
             .height(160.dp)
             .padding(16.dp)
