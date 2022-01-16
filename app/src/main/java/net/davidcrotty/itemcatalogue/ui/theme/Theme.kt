@@ -80,7 +80,7 @@ val LocalCustomElevation = staticCompositionLocalOf {
 }
 
 
-@Deprecated("Not used currently, was used as an example of custom theming")
+@Deprecated("Not used currently, was used as an example of custom theming", replaceWith = ReplaceWith("CatalogueTemplateTheme"))
 @Composable
 fun ListItemTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
