@@ -4,10 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import net.davidcrotty.itemcatalogue.model.ItemModel
-import net.davidcrotty.itemcatalogue.organism.ITEM_DESCRIPTION_PREVIEW
 
 class ListItemViewModel : ViewModel() {
 
