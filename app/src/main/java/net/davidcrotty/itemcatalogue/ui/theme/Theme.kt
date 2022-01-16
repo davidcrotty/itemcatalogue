@@ -80,7 +80,7 @@ val LocalCustomElevation = staticCompositionLocalOf {
 }
 
 
-// TODO red colour not showing on text when compiling
+@Deprecated("Not used currently, was used as an example of custom theming")
 @Composable
 fun ListItemTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
