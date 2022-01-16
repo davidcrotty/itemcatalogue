@@ -101,7 +101,7 @@ fun ListItemTheme(
         component = Color(0xFFC20029),
         background = listOf(Color.White, Color(0xFFF8BBD0)),
         surface = Color.Red,
-        color = Color.Red
+        color = Color.Blue
     )
     val customTypography = CustomTypography(
         body = TextStyle(fontSize = 16.sp),

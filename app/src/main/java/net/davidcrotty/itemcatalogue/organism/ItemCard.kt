@@ -14,6 +14,7 @@ import coil.compose.rememberImagePainter
 import coil.transform.RoundedCornersTransformation
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.ui.theme.ListItemTheme
+import net.davidcrotty.itemcatalogue.ui.theme.LocalCustomColors
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
 
 // TODO design in a search feature, this is usually a common requirement
@@ -21,7 +22,9 @@ import net.davidcrotty.itemcatalogue.ui.theme.Typography
 @Preview
 @Composable
 fun ItemCard(item: ItemModel = ItemModel(url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large", type = "Type", title = "Title", description = ITEM_DESCRIPTION_PREVIEW)) {
-    Surface {
+    val customColor = LocalCustomColors.current.color
+
+    Surface(color = customColor) {
         Row(modifier = Modifier
             .height(160.dp)
             .padding(16.dp)
