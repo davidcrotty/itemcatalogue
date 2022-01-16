@@ -1,10 +1,13 @@
 package net.davidcrotty.itemcatalogue.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import net.davidcrotty.itemcatalogue.model.ItemModel
+import net.davidcrotty.itemcatalogue.organism.ITEM_DESCRIPTION_PREVIEW
 
 class ListItemViewModel : ViewModel() {
 
@@ -15,6 +18,23 @@ class ListItemViewModel : ViewModel() {
         get() = _items
 
     fun fetchItems() {
-
+        viewModelScope.launch {
+            _items.emit(
+                listOf(
+                    ItemModel(
+                        url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large",
+                        type = "Type",
+                        title = "Title",
+                        description = "1"
+                    ),
+                    ItemModel(
+                        url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large",
+                        type = "Type",
+                        title = "Title",
+                        description = "2"
+                    )
+                )
+            )
+        }
     }
 }
