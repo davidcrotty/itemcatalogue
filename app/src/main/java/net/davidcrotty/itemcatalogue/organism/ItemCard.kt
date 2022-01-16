@@ -31,7 +31,7 @@ fun ItemCard(
         ) {
             Thumbnail(imageSource = item.url)
             Column(modifier = Modifier.padding(start = 16.dp)) {
-                Text(item.type, maxLines = 1)
+                Text(item.type, maxLines = 1, style = Typography.body2)
                 Text(item.title, maxLines = 1, style = Typography.h2)
                 Text(item.description, maxLines = 3)
             }

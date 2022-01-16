@@ -13,3 +13,6 @@ fun Black800(context: Context): Color = Color(ContextCompat.getColor(context, R.
 
 val White300 = Color(0xFCFAF9)
 val White100 = Color(0xFFFFFF)
+
+val Grey500 = Color(0xFF48494b)
+val Grey800 = Color(0xFFb3b3b3)
