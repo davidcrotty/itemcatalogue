@@ -1,6 +1,7 @@
 package net.davidcrotty.itemcatalogue.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
@@ -82,8 +83,19 @@ val LocalCustomElevation = staticCompositionLocalOf {
 // TODO red colour not showing on text when compiling
 @Composable
 fun ListItemTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
+    val colors = if (darkTheme) {
+        DarkColorPalette
+    } else {
+        LightColorPalette
+    }
+
+    val customThemeColors = colors.copy(
+        surface = Color.Red
+    )
+
     val customColors = CustomColors(
         content = Color(0xFFDD0D3C),
         component = Color(0xFFC20029),
@@ -102,9 +114,13 @@ fun ListItemTheme(
     CompositionLocalProvider(
         LocalCustomColors provides customColors,
         LocalCustomTypography provides customTypography,
-        LocalCustomElevation provides customElevation,
-        content = content
-    )
+        LocalCustomElevation provides customElevation
+    ) {
+        MaterialTheme(
+            content = content,
+            colors = customThemeColors
+        )
+    }
 }
 
 @Composable
