@@ -9,7 +9,6 @@ import net.davidcrotty.itemcatalogue.di.ItemListGraphImpl
 import net.davidcrotty.itemcatalogue.organism.ItemCard
 import net.davidcrotty.itemcatalogue.template.ListTemplate
 import net.davidcrotty.itemcatalogue.ui.theme.CatalogueTemplateTheme
-import net.davidcrotty.itemcatalogue.viewmodel.ItemsViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
