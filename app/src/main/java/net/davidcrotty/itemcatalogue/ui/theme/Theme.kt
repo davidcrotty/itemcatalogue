@@ -85,8 +85,6 @@ fun CatalogueTemplateTheme(
 
     val values = CornerRadiusSizes() // TODO wrap as this becomes more complex
 
-    // This is good for a basic default for a simple / prototype app
-    // but real world scenarios will have the demand for custom components with ambients
     CompositionLocalProvider(
         LocalValues provides values
     ) {
