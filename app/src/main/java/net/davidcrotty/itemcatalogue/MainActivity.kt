@@ -11,6 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import net.davidcrotty.itemcatalogue.atom.ListDivider
 import net.davidcrotty.itemcatalogue.model.ItemModel
 import net.davidcrotty.itemcatalogue.organism.ItemCard
+import net.davidcrotty.itemcatalogue.template.ListTemplate
 import net.davidcrotty.itemcatalogue.ui.theme.CatalogueTemplateTheme
 import net.davidcrotty.itemcatalogue.viewmodel.ItemsViewModel
 
@@ -20,30 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CatalogueTemplateTheme {
                 val itemsViewModel = ItemsViewModel()
-                Surface {
-                    // TODO start publishing this from a viewmodel
-                    val items = listOf(
-                        ItemModel(
-                            url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large",
-                            type = "Type",
-                            title = "Title",
-                            description = "ffff"
-                        ),
-                        ItemModel(
-                            url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large",
-                            type = "Type",
-                            title = "Title",
-                            description = "ffff"
-                        ))
-                    LazyColumn {
-                        itemsIndexed(items) { index, item ->
-                                ItemCard(item)
-                                if (index < items.lastIndex) {
-                                    ListDivider()
-                                }
-                            }
-                    }
-                }
+                ListTemplate(itemsViewModel)
             }
         }
     }
