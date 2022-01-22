@@ -1,6 +1,8 @@
 package net.davidcrotty.itemcatalogue.organism
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -14,6 +16,7 @@ import net.davidcrotty.itemcatalogue.ui.theme.Typography
 
 // TODO design in a search feature, this is usually a common requirement
 // TODO move to listFeature, atoms lower into a styleguide/catalogue
+@OptIn(ExperimentalMaterialApi::class)
 @Preview
 @Composable
 fun ItemCard(
@@ -25,7 +28,9 @@ fun ItemCard(
         description = ITEM_DESCRIPTION_PREVIEW
     )
 ) {
-    Surface {
+    Surface(onClick = {
+        Log.d("ItemCard", "clicked")
+    }) {
         Row(
             modifier = Modifier
                 .height(160.dp)
