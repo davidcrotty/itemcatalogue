@@ -5,7 +5,7 @@ import net.davidcrotty.itemcatalogue.domain.model.ID
 
 class ItemMemoryDataSource : ItemDataSource {
     override fun fetchAfter(id: ID): List<Item> {
-        return listOf(
+        return listOf( // TODO these should be DTOs
             Item(
                 id = ID(1),
                 url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large",
