@@ -17,7 +17,7 @@ class ItemsViewModel(private val itemRepository: ItemRepository) : ViewModel() {
     val items: Flow<List<Item>>
         get() = _items
 
-    fun fetchItems(id: ID) {
+    fun fetchItems(id: ID = ID(0)) {
         viewModelScope.launch {
             _items.emit(
                 itemRepository.getItems(Query(id))
