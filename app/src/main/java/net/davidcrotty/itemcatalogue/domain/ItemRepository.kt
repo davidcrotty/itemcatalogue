@@ -1,7 +1,7 @@
 package net.davidcrotty.itemcatalogue.domain
 
-import net.davidcrotty.itemcatalogue.domain.model.Cursor
+import net.davidcrotty.itemcatalogue.domain.model.Query
 
 interface ItemRepository {
-    fun fetch(cursor: Cursor)
+    fun get(cursor: Query)
 }
