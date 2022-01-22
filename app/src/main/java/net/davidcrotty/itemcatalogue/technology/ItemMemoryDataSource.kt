@@ -43,7 +43,7 @@ class ItemMemoryDataSource : ItemDataSource {
             ),
             Item(
                 id = ID(6),
-                url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi80TzggN0QndC5SYgs3nexuHVW2LPL6I6xVSvOKffDrrsJjoH6fv0skXUidIOV00FPFw&usqp=CAU",
+                url = "https://www.aidedd.org/dnd/images-om/dragon-slayer.jpg",
                 type = "Weapon (dagger)",
                 title = "Blade of Broken Mirrors",
                 description = "A weapon of Tharizdun, this dagger is a piece of jagged stone whose blade is scribed with a maze-like pattern with no beginning or end."
