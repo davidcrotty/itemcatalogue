@@ -9,7 +9,6 @@ import net.davidcrotty.itemcatalogue.model.ItemModel
 
 class ItemsViewModel : ViewModel() {
 
-    // TODO perhaps add a state to this
     private val _items = MutableStateFlow<List<ItemModel>>(emptyList())
 
     val items: Flow<List<ItemModel>>
