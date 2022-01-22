@@ -11,6 +11,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import net.davidcrotty.itemcatalogue.atom.ListDivider
 import net.davidcrotty.itemcatalogue.organism.ItemCard
 import net.davidcrotty.itemcatalogue.ui.theme.CatalogueTemplateTheme
 import net.davidcrotty.itemcatalogue.ui.theme.Grey900
@@ -30,9 +31,7 @@ class MainActivity : ComponentActivity() {
                             ItemCard()
                         }
                         item {
-                            Divider(
-                                color = Grey900
-                            )
+                            ListDivider()
                         }
                         item {
                             ItemCard()
