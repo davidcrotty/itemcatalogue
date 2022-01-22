@@ -19,6 +19,7 @@ fun ListTemplate(viewModel: ItemsViewModel) {
 
         LazyColumn(state = listState) {
             itemsIndexed(itemList) { index, item ->
+                // TODO factory to abstract render details
                 ItemCard(item)
                 if (index < itemList.lastIndex) {
                     ListDivider()
@@ -26,7 +27,8 @@ fun ListTemplate(viewModel: ItemsViewModel) {
             }
         }
 
-        if(listState.layoutInfo.visibleItemsInfo.isEmpty()) {
+        // TODO should this logic be abstracted?
+        if (listState.layoutInfo.visibleItemsInfo.isEmpty()) {
             viewModel.fetchItems()
         }
     }
