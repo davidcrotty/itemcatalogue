@@ -1,5 +1,6 @@
 package net.davidcrotty.itemcatalogue.screen
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -8,7 +9,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
@@ -21,7 +24,11 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
             Image(
                 painter = rememberImagePainter(url),
                 contentDescription = stringResource(id = R.string.item_background),
-                contentScale = ContentScale.Crop
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.onSizeChanged { size ->
+                    // here is how we can recompose on size change to adapt the ui
+                    Log.d("ItemDetailScreen", "size changed ${size.height}")
+                }
             )
         }
         Column {
