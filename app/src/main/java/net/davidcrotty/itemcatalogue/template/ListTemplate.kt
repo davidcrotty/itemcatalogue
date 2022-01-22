@@ -2,6 +2,7 @@ package net.davidcrotty.itemcatalogue.template
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -14,13 +15,19 @@ import net.davidcrotty.itemcatalogue.viewmodel.ItemsViewModel
 fun ListTemplate(viewModel: ItemsViewModel) {
     Surface {
         val itemList = viewModel.items.collectAsState(initial = emptyList()).value
-        LazyColumn {
+        val listState = rememberLazyListState()
+
+        LazyColumn(state = listState) {
             itemsIndexed(itemList) { index, item ->
                 ItemCard(item)
                 if (index < itemList.lastIndex) {
                     ListDivider()
                 }
             }
+        }
+
+        if(listState.layoutInfo.visibleItemsInfo.isEmpty()) {
+            viewModel.fetchItems()
         }
     }
 }
