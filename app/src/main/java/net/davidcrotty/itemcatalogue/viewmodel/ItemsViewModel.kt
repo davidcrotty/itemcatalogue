@@ -5,26 +5,26 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-import net.davidcrotty.itemcatalogue.model.ItemModel
+import net.davidcrotty.itemcatalogue.domain.entity.Item
 
 class ItemsViewModel : ViewModel() {
 
-    private val _items = MutableStateFlow<List<ItemModel>>(emptyList())
+    private val _items = MutableStateFlow<List<Item>>(emptyList())
 
-    val items: Flow<List<ItemModel>>
+    val items: Flow<List<Item>>
         get() = _items
 
     fun fetchItems() {
         viewModelScope.launch {
             _items.emit(
                 listOf(
-                    ItemModel(
+                    Item(
                         url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large",
                         type = "Type",
                         title = "Title",
                         description = "1"
                     ),
-                    ItemModel(
+                    Item(
                         url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large",
                         type = "Type",
                         title = "Title",

@@ -7,7 +7,6 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import net.davidcrotty.itemcatalogue.atom.ListDivider
-import net.davidcrotty.itemcatalogue.model.ItemModel
 import net.davidcrotty.itemcatalogue.organism.ItemCard
 import net.davidcrotty.itemcatalogue.viewmodel.ItemsViewModel
 
