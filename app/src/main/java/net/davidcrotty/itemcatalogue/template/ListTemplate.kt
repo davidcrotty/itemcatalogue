@@ -16,6 +16,8 @@ fun ListTemplate(viewModel: ItemsViewModel) {
         val itemList = viewModel.items.collectAsState(initial = emptyList()).value
         val listState = rememberLazyListState()
 
+        // TODO this logic should be passed to by a contract from the appropriate feature, this way items stay pure UI components
+
         LazyColumn(state = listState) {
             itemsIndexed(itemList) { index, item ->
                 // TODO factory to abstract render details
