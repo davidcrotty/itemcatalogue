@@ -19,8 +19,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CatalogueTemplateTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
+                Surface {
                     // TODO start publishing this from a viewmodel
                     val items = listOf(
                         ItemModel(
@@ -35,14 +34,13 @@ class MainActivity : ComponentActivity() {
                             title = "Title",
                             description = "ffff"
                         ))
-                    LazyColumn { // TODO template
+                    LazyColumn {
                         itemsIndexed(items) { index, item ->
                                 ItemCard(item)
                                 if (index < items.lastIndex) {
                                     ListDivider()
                                 }
                             }
-                        // TODO if last item dont show spacer
                     }
                 }
             }
