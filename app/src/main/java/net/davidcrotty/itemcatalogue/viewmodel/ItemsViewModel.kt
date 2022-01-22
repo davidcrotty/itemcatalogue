@@ -17,20 +17,7 @@ class ItemsViewModel : ViewModel() {
     fun fetchItems() {
         viewModelScope.launch {
             _items.emit(
-                listOf(
-                    Item(
-                        url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large",
-                        type = "Type",
-                        title = "Title",
-                        description = "1"
-                    ),
-                    Item(
-                        url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large",
-                        type = "Type",
-                        title = "Title",
-                        description = "2"
-                    )
-                )
+                emptyList()
             )
         }
     }

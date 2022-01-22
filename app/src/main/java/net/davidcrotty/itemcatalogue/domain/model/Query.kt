@@ -1,3 +1,3 @@
 package net.davidcrotty.itemcatalogue.domain.model
 
-class Query(current: ID)
+class Query(val lastID: ID)
