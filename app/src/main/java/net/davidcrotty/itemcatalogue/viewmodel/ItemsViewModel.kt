@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import net.davidcrotty.itemcatalogue.model.ItemModel
 
-class ListItemViewModel : ViewModel() {
+class ItemsViewModel : ViewModel() {
 
     // TODO perhaps add a state to this
     private val _items = MutableStateFlow<List<ItemModel>>(emptyList())
