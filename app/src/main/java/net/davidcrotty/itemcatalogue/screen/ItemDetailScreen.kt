@@ -1,23 +1,33 @@
 package net.davidcrotty.itemcatalogue.screen
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.BackgroundImage
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
-import net.davidcrotty.itemcatalogue.R
-import net.davidcrotty.itemcatalogue.ui.theme.Grey500
 
 @Composable
 fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-wallpaper/Dungeon-Masters-Guide-Dungeons-and-Dragons.jpg") {
     Box {
-        BackgroundImage(url)
+        var sizeImage by remember { mutableStateOf(IntSize.Zero) }
+        val gradient = Brush.verticalGradient(
+            colors = listOf(Color.Transparent, MaterialTheme.colors.background),
+            startY = sizeImage.height.toFloat() / 3,
+            endY = sizeImage.height.toFloat()
+        )
+        BackgroundImage(url, gradient) { size ->
+            sizeImage = size
+        }
         Box(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium))) {
             Column {
                 Text("Items > Weapons", style = Typography.caption) // allcaps // TODO write bread crumbs function/widget
