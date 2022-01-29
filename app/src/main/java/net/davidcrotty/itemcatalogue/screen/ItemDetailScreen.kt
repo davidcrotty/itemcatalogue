@@ -4,16 +4,17 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 import net.davidcrotty.itemcatalogue.atom.BackgroundImage
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
+import net.davidcrotty.itemcatalogue.R
 
 @Composable
 fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-wallpaper/Dungeon-Masters-Guide-Dungeons-and-Dragons.jpg") {
     Box {
         BackgroundImage(url)
-        Box(modifier = Modifier.padding(16.dp)) { // TODO standard value
+        Box(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium))) {
             Column {
                 Text("Items > Weapons", style = Typography.caption) // allcaps // TODO write bread crumbs function/widget
                 Text("Battleaxe") // https://handstandsam.com/2021/08/09/jetpack-compose-text-shadows/ bottom shows text shadows
