@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -26,7 +27,7 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
     Box {
         var sizeImage by remember { mutableStateOf(IntSize.Zero) }
         val gradient = Brush.verticalGradient(
-            colors = listOf(Color.Transparent, Color.Black),
+            colors = listOf(Color.Transparent, MaterialTheme.colors.background),
             startY = sizeImage.height.toFloat()/3,
             endY = sizeImage.height.toFloat()
         )
