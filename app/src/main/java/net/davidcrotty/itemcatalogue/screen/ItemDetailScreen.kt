@@ -28,7 +28,7 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
         var sizeImage by remember { mutableStateOf(IntSize.Zero) }
         val gradient = Brush.verticalGradient(
             colors = listOf(Color.Transparent, MaterialTheme.colors.background),
-            startY = sizeImage.height.toFloat()/3,
+            startY = sizeImage.height.toFloat()/6,
             endY = sizeImage.height.toFloat()
         )
 
