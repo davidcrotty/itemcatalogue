@@ -60,7 +60,7 @@ val Typography = Typography(
     subtitle2 = TextStyle(
         fontFamily = roboto,
         fontSize = 14.sp,
-        color = Yellow300,
+        color = Yellow100,
         fontWeight = FontWeight.Light,
         fontStyle = FontStyle.Italic
     ), // TODO looks like smaller subthemes depending on component, redothis

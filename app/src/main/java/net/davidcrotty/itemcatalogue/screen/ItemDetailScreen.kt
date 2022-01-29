@@ -33,34 +33,36 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
             sizeImage = size
         }
         Box(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium))) {
+            Box {
+                Column {
+                    Text("Items > Weapons", style = Typography.caption) // allcaps // TODO write bread crumbs function/widget
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+                    Text("Battleaxe", style = Typography.h1.copy(
+                        shadow = Shadow(
+                            color = Color.Black,
+                            offset = Offset(4f, 4f),
+                            blurRadius = 8f
+                        )
+                    ))
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+                    Text("Damage Combat", style = Typography.subtitle1.copy(
+                        shadow = Shadow(
+                            color = Color.Black,
+                            offset = Offset(4f, 4f),
+                            blurRadius = 8f
+                        )
+                    ))
+                }
+            }
             Column {
-                Text("Items > Weapons", style = Typography.caption) // allcaps // TODO write bread crumbs function/widget
-                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
-                Text("Battleaxe", style = Typography.h1.copy(
-                    shadow = Shadow(
-                        color = Color.Black,
-                        offset = Offset(4f, 4f),
-                        blurRadius = 8f
-                    )
+                Spacer(modifier = Modifier.height(
+                    with(LocalDensity.current) {
+                        sizeImage.height.toDp()
+                    }
                 ))
                 Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
-                Text("Damage Combat", style = Typography.subtitle1.copy(
-                    shadow = Shadow(
-                        color = Color.Black,
-                        offset = Offset(4f, 4f),
-                        blurRadius = 8f
-                    )
-                ))
+                Text(LoremIpsum().values.reduce { prev, current -> "$prev $current" }, style = Typography.subtitle2)
             }
-        }
-        Column {
-            Spacer(modifier = Modifier.height(
-                with(LocalDensity.current) {
-                    sizeImage.height.toDp()
-                }
-            ))
-            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
-            Text(LoremIpsum().values.reduce { prev, current -> "$prev $current" }, style = Typography.subtitle2)
         }
     }
 }
