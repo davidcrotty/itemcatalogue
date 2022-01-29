@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import net.davidcrotty.itemcatalogue.R
@@ -56,6 +57,13 @@ val Typography = Typography(
         fontWeight = FontWeight.Light,
         fontFeatureSettings = "c2sc, smcp" // compose does not have all caps functionality yet in styles, sets font feature directly
     ),
+    subtitle2 = TextStyle(
+        fontFamily = roboto,
+        fontSize = 14.sp,
+        color = Yellow300,
+        fontWeight = FontWeight.Light,
+        fontStyle = FontStyle.Italic
+    ), // TODO looks like smaller subthemes depending on component, redothis
     caption = TextStyle(
         fontFamily = roboto,
         fontSize = 14.sp,

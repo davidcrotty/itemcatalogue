@@ -9,12 +9,16 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.BackgroundImage
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
+
+
 
 @Composable
 fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-wallpaper/Dungeon-Masters-Guide-Dungeons-and-Dragons.jpg") {
@@ -47,11 +51,16 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
                         blurRadius = 8f
                     )
                 ))
-                Spacer(modifier = Modifier.height(60.dp)) // TODO dynamic based on real estate
-                Text("Description") // TODO behaviour based on scrolling
-                Spacer(modifier = Modifier.height(30.dp)) // TODO dynamic based on real estate
-                Text("Battleaxe")
             }
+        }
+        Column {
+            Spacer(modifier = Modifier.height(
+                with(LocalDensity.current) {
+                    sizeImage.height.toDp()
+                }
+            ))
+            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+            Text(LoremIpsum().values.reduce { prev, current -> "$prev $current" }, style = Typography.subtitle2)
         }
     }
 }
