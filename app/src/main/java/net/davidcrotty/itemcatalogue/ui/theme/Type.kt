@@ -49,6 +49,13 @@ val Typography = Typography(
         fontSize = 34.sp,
         color = Grey500
     ),
+    subtitle1 = TextStyle(
+        fontFamily = roboto,
+        fontSize = 16.sp,
+        color = Yellow300,
+        fontWeight = FontWeight.Light,
+        fontFeatureSettings = "c2sc, smcp" // compose does not have all caps functionality yet in styles, sets font feature directly
+    ),
     caption = TextStyle(
         fontFamily = roboto,
         fontSize = 14.sp,

@@ -28,8 +28,15 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
                         offset = Offset(4f, 4f),
                         blurRadius = 8f
                     )
-                )) // https://handstandsam.com/2021/08/09/jetpack-compose-text-shadows/ bottom shows text shadows
-                Text("Damage Combat") // allcaps
+                ))
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
+                Text("Damage Combat", style = Typography.subtitle1.copy(
+                    shadow = Shadow(
+                        color = Color.Black,
+                        offset = Offset(4f, 4f),
+                        blurRadius = 8f
+                    )
+                ))
                 Spacer(modifier = Modifier.height(60.dp)) // TODO dynamic based on real estate
                 Text("Description") // TODO behaviour based on scrolling
                 Spacer(modifier = Modifier.height(30.dp)) // TODO dynamic based on real estate
