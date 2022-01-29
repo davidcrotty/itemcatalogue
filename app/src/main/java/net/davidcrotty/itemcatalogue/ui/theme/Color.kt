@@ -11,6 +11,7 @@ val Purple700 = Color(0xFF3700B3)
 val Teal200 = Color(0xFF03DAC5)
 fun Black800(context: Context): Color = Color(ContextCompat.getColor(context, R.color.black800))
 
+val White500 = Color(0xFFFBFBFC)
 val White300 = Color(0xFFFCFAF9)
 val White100 = Color(0xFFFFFFFF)
 

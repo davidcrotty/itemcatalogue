@@ -16,7 +16,6 @@ val tiamat = FontFamily(
     Font(R.font.tiamat_medium, FontWeight.Medium)
 )
 
-// Set of Material typography styles to start with
 val Typography = Typography(
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
@@ -40,5 +39,12 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 34.sp,
         color = Grey500
+    ),
+    caption = TextStyle(
+        fontFamily = tiamat,
+        fontSize = 18.sp,
+        color = White500,
+        fontWeight = FontWeight.Light,
+        fontFeatureSettings = "c2sc, smcp" // compose does not have all caps functionality yet in styles, sets font feature directly
     )
 )

@@ -20,7 +20,7 @@ fun BackgroundImage(url: String) {
     var sizeImage by remember { mutableStateOf(IntSize.Zero) }
     val gradient = Brush.verticalGradient(
         colors = listOf(Color.Transparent, MaterialTheme.colors.background),
-        startY = sizeImage.height.toFloat() / 6,
+        startY = sizeImage.height.toFloat() / 3,
         endY = sizeImage.height.toFloat()
     )
 
