@@ -44,7 +44,6 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
                             blurRadius = 8f
                         )
                     ))
-                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
                     Text("Damage Combat", style = Typography.subtitle1.copy(
                         shadow = Shadow(
                             color = Color.Black,
