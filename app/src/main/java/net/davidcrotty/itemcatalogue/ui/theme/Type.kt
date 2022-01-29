@@ -20,6 +20,10 @@ val roboto = FontFamily(
     Font(R.font.roboto_light, FontWeight.Light)
 )
 
+val mrseaves = FontFamily(
+    Font(R.font.mrseave_regular, FontWeight.Normal)
+)
+
 val Typography = Typography(
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
@@ -34,9 +38,10 @@ val Typography = Typography(
         color = Grey800
     ),
     h1 = TextStyle(
-        fontFamily = tiamat,
+        fontFamily = mrseaves,
         fontWeight = FontWeight.Normal,
-        fontSize = 48.sp
+        fontSize = 48.sp,
+        color = White500
     ),
     h2 = TextStyle(
         fontFamily = tiamat,
