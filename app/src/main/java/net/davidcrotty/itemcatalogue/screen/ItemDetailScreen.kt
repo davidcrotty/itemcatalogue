@@ -1,9 +1,6 @@
 package net.davidcrotty.itemcatalogue.screen
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,14 +13,16 @@ import net.davidcrotty.itemcatalogue.ui.theme.Typography
 fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-wallpaper/Dungeon-Masters-Guide-Dungeons-and-Dragons.jpg") {
     Box {
         BackgroundImage(url)
-        Column {
-            Text("Items > Weapons", style = Typography.caption) // allcaps
-            Text("Battleaxe") // https://handstandsam.com/2021/08/09/jetpack-compose-text-shadows/ bottom shows text shadows
-            Text("Damage Combat") // allcaps
-            Spacer(modifier = Modifier.height(60.dp)) // TODO dynamic based on real estate
-            Text("Description") // TODO behaviour based on scrolling
-            Spacer(modifier = Modifier.height(30.dp)) // TODO dynamic based on real estate
-            Text("Battleaxe")
+        Box(modifier = Modifier.padding(16.dp)) { // TODO standard value
+            Column {
+                Text("Items > Weapons", style = Typography.caption) // allcaps // TODO write bread crumbs function/widget
+                Text("Battleaxe") // https://handstandsam.com/2021/08/09/jetpack-compose-text-shadows/ bottom shows text shadows
+                Text("Damage Combat") // allcaps
+                Spacer(modifier = Modifier.height(60.dp)) // TODO dynamic based on real estate
+                Text("Description") // TODO behaviour based on scrolling
+                Spacer(modifier = Modifier.height(30.dp)) // TODO dynamic based on real estate
+                Text("Battleaxe")
+            }
         }
     }
 }
