@@ -28,9 +28,7 @@ fun ItemCard(
         description = ITEM_DESCRIPTION_PREVIEW
     )
 ) {
-    Surface(onClick = {
-        Log.d("ItemCard", "clicked")
-    }) {
+    Surface {
         Row(
             modifier = Modifier
                 .height(160.dp)
