@@ -19,5 +19,6 @@ class ItemCardTest {
         }
 
         composeTestRule.onNodeWithText("Type").assertIsDisplayed()
+        composeTestRule.onNodeWithText("Title").assertIsDisplayed()
     }
 }
