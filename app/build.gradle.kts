@@ -43,6 +43,10 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = rootProject.extra["compose_version"] as String
     }
+    packagingOptions {
+        resources.excludes.add("META-INF/AL2.0")
+        resources.excludes.add("META-INF/LGPL2.1")
+    }
 }
 
 dependencies {
@@ -59,4 +63,7 @@ dependencies {
     implementation("io.coil-kt:coil-compose:1.4.0")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.13.0")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
+
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:${rootProject.extra["compose_version"]}")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:${rootProject.extra["compose_version"]}")
 }
