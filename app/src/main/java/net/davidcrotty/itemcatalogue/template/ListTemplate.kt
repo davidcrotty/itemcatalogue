@@ -21,7 +21,9 @@ fun ListTemplate(viewModel: ItemsViewModel) {
         LazyColumn(state = listState) {
             itemsIndexed(itemList) { index, item ->
                 // TODO factory to abstract render details
-                ItemCard(item)
+                ItemCard(item, onClick = {
+                    // navigate and item id
+                })
                 if (index < itemList.lastIndex) {
                     ListDivider()
                 }

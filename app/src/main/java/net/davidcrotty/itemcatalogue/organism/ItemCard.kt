@@ -25,9 +25,12 @@ fun ItemCard(
         type = "Type",
         title = "Title",
         description = ITEM_DESCRIPTION_PREVIEW
-    )
+    ),
+    onClick: () -> Unit
 ) {
-    Surface {
+    Surface (onClick = {
+        onClick()
+    }){
         Row(
             modifier = Modifier
                 .height(160.dp)
