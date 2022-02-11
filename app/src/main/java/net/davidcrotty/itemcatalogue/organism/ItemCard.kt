@@ -26,10 +26,10 @@ fun ItemCard(
         title = "Title",
         description = ITEM_DESCRIPTION_PREVIEW
     ),
-    onClick: () -> Unit
+    onClick: (() -> Unit)? = null
 ) {
     Surface (onClick = {
-        onClick()
+        onClick?.invoke()
     }){
         Row(
             modifier = Modifier
