@@ -23,11 +23,14 @@ class ItemCardTest {
 
     @Test
     fun when_clicking_item() {
+        val onClick: () -> Unit = { }
         composeTestRule.setContent {
-            ItemCard()
+            ItemCard(
+                onClick = onClick
+            )
         }
 
-        // printing will help debugging
+        // print will provide semantics tree for matching for accessibility
         composeTestRule.onRoot().printToLog("ItemCardTest")
 
         composeTestRule.onNodeWithContentDescription("List item").performClick()

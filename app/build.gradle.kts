@@ -47,6 +47,11 @@ android {
         resources.excludes.add("META-INF/AL2.0")
         resources.excludes.add("META-INF/LGPL2.1")
     }
+    configurations {
+        androidTestImplementation {
+            exclude("io.mockk", "mockk-agent-jvm")
+        }
+    }
 }
 
 dependencies {
@@ -66,4 +71,7 @@ dependencies {
 
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:${rootProject.extra["compose_version"]}")
     debugImplementation("androidx.compose.ui:ui-test-manifest:${rootProject.extra["compose_version"]}")
+
+    androidTestImplementation("io.mockk:mockk-android:1.12.2")
+    androidTestImplementation("io.mockk:mockk-agent-jvm:1.12.2")
 }
