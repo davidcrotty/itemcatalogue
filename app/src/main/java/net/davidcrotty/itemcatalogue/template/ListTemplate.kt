@@ -5,6 +5,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import net.davidcrotty.itemcatalogue.atom.ListDivider
 import net.davidcrotty.itemcatalogue.organism.ItemCard
 import net.davidcrotty.itemcatalogue.viewmodel.ItemsViewModel
 
@@ -17,22 +18,19 @@ fun ListTemplate(viewModel: ItemsViewModel) {
         // TODO this logic should be passed to by a contract from the appropriate feature, this way items stay pure UI components
 
         LazyColumn {
-            itemList.forEach { dungeonItem ->
+            itemList.forEachIndexed { index, dungeonItem ->
                 item {
                     ItemCard(dungeonItem)
                 }
+
                 // TODO factory to abstract render details
-//                if (index < itemList.lastIndex) {
-//                    ListDivider()
-//                }
+                if (index < itemList.lastIndex) {
+                    item {
+                        ListDivider()
+                    }
+                }
+
             }
-//            itemsIndexed(itemList) { index, item ->
-//                ItemCard(item)
-//                // TODO factory to abstract render details
-//                if (index < itemList.lastIndex) {
-//                    ListDivider()
-//                }
-//            }
         }
 
         // TODO should this logic be abstracted?
