@@ -20,15 +20,13 @@ fun ListTemplate(viewModel: ItemsViewModel) {
         // TODO this logic should be passed to by a contract from the appropriate feature, this way items stay pure UI components
 
         LazyColumn(state = listState) {
-//            itemsIndexed(itemList) { index, item ->
+            itemsIndexed(itemList) { index, item ->
+                ItemCard(item)
                 // TODO factory to abstract render details
-//                ItemCard(item, onClick = {
-//                    // navigate and item id
-//                })
-//                if (index < itemList.lastIndex) {
-//                    ListDivider()
-//                }
-//            }
+                if (index < itemList.lastIndex) {
+                    ListDivider()
+                }
+            }
         }
 
         // TODO should this logic be abstracted?
