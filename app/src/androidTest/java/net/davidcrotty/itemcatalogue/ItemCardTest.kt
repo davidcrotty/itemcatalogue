@@ -25,7 +25,7 @@ class ItemCardTest {
     }
 
     @Test
-    fun when_clicking_item() {
+    fun when_tapping_item() {
         val onClick = mockk<(() -> Unit)>(relaxed = true)
         composeTestRule.setContent {
             ItemCard(
@@ -40,4 +40,5 @@ class ItemCardTest {
 
         verify { onClick.invoke() }
     }
+
 }

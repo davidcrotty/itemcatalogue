@@ -18,10 +18,10 @@ class ItemsViewModel(private val itemRepository: ItemRepository) : ViewModel() {
         get() = _items
 
     fun fetchItems(id: ID = ID(0)) {
-        viewModelScope.launch {
-            _items.emit(
-                itemRepository.getItems(Query(id))
-            )
-        }
+//        viewModelScope.launch {
+//            _items.emit(
+//                itemRepository.getItems(Query(id))
+//            )
+//        }
     }
 }
