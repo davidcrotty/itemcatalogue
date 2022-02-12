@@ -6,13 +6,13 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import net.davidcrotty.itemcatalogue.atom.ListDivider
+import net.davidcrotty.itemcatalogue.domain.entity.Item
 import net.davidcrotty.itemcatalogue.organism.ItemCard
 import net.davidcrotty.itemcatalogue.viewmodel.ItemsViewModel
 
 @Composable
-fun ListTemplate(viewModel: ItemsViewModel) {
+fun ListTemplate(itemList: List<Item>, fetchMore: (() -> Unit)? = null) {
     Surface {
-        val itemList = viewModel.items.collectAsState(initial = emptyList()).value
         val listState = rememberLazyListState()
 
         // TODO this logic should be passed to by a contract from the appropriate feature, this way items stay pure UI components
@@ -35,7 +35,7 @@ fun ListTemplate(viewModel: ItemsViewModel) {
 
         // TODO should this logic be abstracted?
         if (listState.layoutInfo.visibleItemsInfo.isEmpty()) {
-            viewModel.fetchItems()
+            fetchMore?.invoke()
         }
     }
 }
