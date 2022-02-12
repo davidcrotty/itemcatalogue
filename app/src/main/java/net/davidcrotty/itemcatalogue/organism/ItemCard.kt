@@ -47,5 +47,5 @@ fun ItemCard(
     }
 }
 
-private const val ITEM_DESCRIPTION_PREVIEW =
+const val ITEM_DESCRIPTION_PREVIEW =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam diam turpis, tincidunt ut rhoncus nec, iaculis ac ante. Maecenas eu tempor metus. Nunc ac sapien viverra, suscipit purus nec, convallis nis"
