@@ -18,8 +18,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             CatalogueTemplateTheme {
                 val controller = rememberNavController()
+
+                // TODO does this work across multiple modules ?
+                // TODO DRY up the nav pathing (Sealed class)
                 NavHost(navController = controller, startDestination = "itemList") {
-                    composable("itemList") { ItemListScreen(ItemScreenGraphImpl()) }
+                    composable("itemList") {
+                        ItemListScreen(itemScreenGraph = ItemScreenGraphImpl(), navigate = { controller.navigate(it) })
+                    }
                     composable("item") { ItemDetailScreen() }
                 }
             }

@@ -11,7 +11,7 @@ import net.davidcrotty.itemcatalogue.organism.ItemCard
 import net.davidcrotty.itemcatalogue.viewmodel.ItemsViewModel
 
 @Composable
-fun ListTemplate(itemList: List<Item>, fetchMore: (() -> Unit)? = null) {
+fun ListTemplate(itemList: List<Item>, navigate: (path: String) -> Unit, fetchMore: (() -> Unit)? = null) {
     Surface {
         val listState = rememberLazyListState()
 
@@ -20,7 +20,9 @@ fun ListTemplate(itemList: List<Item>, fetchMore: (() -> Unit)? = null) {
         LazyColumn {
             itemList.forEachIndexed { index, dungeonItem ->
                 item {
-                    ItemCard(dungeonItem)
+                    ItemCard(dungeonItem, onClick = {
+                        navigate("item")
+                    })
                 }
 
                 // TODO factory to abstract render details
