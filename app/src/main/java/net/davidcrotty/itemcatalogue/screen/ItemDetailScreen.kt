@@ -14,6 +14,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ConstraintLayout
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.BackgroundImage
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
@@ -34,24 +35,32 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
         }
         Box(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium))) {
             Box {
-                Column {
-                    Text("Items > Weapons", style = Typography.caption) // allcaps // TODO write bread crumbs function/widget
-                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+                ConstraintLayout {
+                    val (breadcrumbs, spacer, title) = createRefs()
+                    Text("Items > Weapons", style = Typography.caption, modifier = Modifier.constrainAs(breadcrumbs) {
+                        top.linkTo(parent.top)
+                    }) // TODO write bread crumbs function/widget
+                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)).constrainAs(spacer) {
+                        top.linkTo(breadcrumbs.bottom)
+                    })
                     Text("Battleaxe", style = Typography.h1.copy(
                         shadow = Shadow(
                             color = Color.Black,
                             offset = Offset(4f, 4f),
                             blurRadius = 8f
                         )
-                    ))
-                    Text("Damage Combat", style = Typography.subtitle1.copy(
-                        shadow = Shadow(
-                            color = Color.Black,
-                            offset = Offset(4f, 4f),
-                            blurRadius = 8f
-                        )
-                    ))
+                    ),
+                    modifier = Modifier.constrainAs(title) {
+                        top.linkTo(spacer.bottom)
+                    })
                 }
+//                    Text("Damage Combat", style = Typography.subtitle1.copy(
+//                        shadow = Shadow(
+//                            color = Color.Black,
+//                            offset = Offset(4f, 4f),
+//                            blurRadius = 8f
+//                        )
+//                    ))
             }
             Column {
                 Spacer(modifier = Modifier.height(
