@@ -7,7 +7,7 @@ import net.davidcrotty.itemcatalogue.di.ItemScreenGraphImpl
 import net.davidcrotty.itemcatalogue.template.ListTemplate
 
 @Composable
-fun ItemListScreen(itemScreenGraph: ItemScreenGraph, navigate: (path: String) -> Unit) {
+fun ItemListScreen(itemScreenGraph: ItemScreenGraph, navigate: ((path: String) -> Unit)? = null) {
     val itemsViewModel = itemScreenGraph.itemViewModel()
     val itemStateList = itemsViewModel.items.collectAsState(initial = emptyList()).value
     ListTemplate(itemStateList, navigate) {
