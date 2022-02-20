@@ -20,10 +20,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val controller = rememberNavController()
-            val navigator: Navigator = NavigatorImpl(controller)
-            ComposeWrapper(controller) {
-                navigator.navigate(it)
+            ComposeWrapper(ItemScreenGraphImpl()) {
+                // navigator.navigate(it)
             }
         }
     }

@@ -2,8 +2,11 @@ package net.davidcrotty.itemcatalogue
 
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.flow.flow
 import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
 import net.davidcrotty.itemcatalogue.domain.entity.Item
@@ -39,15 +42,16 @@ class ItemListScreenTest {
         val itemGraph = mockk<ItemScreenGraph>(relaxed = true) {
             every { itemViewModel() } returns itemViewModel
         }
+        val navigate = mockk<((path: String) -> Unit)>(relaxed = true)
 
         composeTestRule.setContent {
-            ItemListScreen(itemGraph)
+            ComposeWrapper(itemGraph, navigate = navigate)
         }
 
         // when interacting with item
         composeTestRule.onNodeWithContentDescription("List item").performClick()
 
         // then should navigate to detail screen with id
-        // verify navigator interaction
+//        verify { navigate.invoke("item") }
     }
 }
