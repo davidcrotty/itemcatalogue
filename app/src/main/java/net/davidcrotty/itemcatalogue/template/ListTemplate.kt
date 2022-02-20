@@ -22,9 +22,7 @@ fun ListTemplate(itemList: List<Item>, navigate:((path: String) -> Unit)? = null
 
         // TODO this logic should be passed to by a contract from the appropriate feature, this way items stay pure UI components
 
-        LazyColumn(Modifier.semantics {
-            set(SemanticsPropertyKey("ContentDescription"), "Item list")
-        }) {
+        LazyColumn {
             itemList.forEachIndexed { index, dungeonItem ->
                 item {
                     ItemCard(dungeonItem, onClick = {

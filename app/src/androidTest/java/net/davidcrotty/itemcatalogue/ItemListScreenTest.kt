@@ -22,13 +22,19 @@ class ItemListScreenTest {
     fun when_navigating_to_item_detail() {
         // given a rendered item
         val itemViewModel = mockk<ItemsViewModel>(relaxed = true) {
-            every { items } returns flow { listOf(Item(
-                id = ID(0),
-                url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large",
-                type = "Type",
-                title = "Title",
-                description = "test description"
-            )) }
+            every { items } returns flow {
+                emit(
+                    listOf(
+                        Item(
+                            id = ID(0),
+                            url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large",
+                            type = "Type",
+                            title = "Title",
+                            description = "test description"
+                        )
+                    )
+                )
+            }
         }
         val itemGraph = mockk<ItemScreenGraph>(relaxed = true) {
             every { itemViewModel() } returns itemViewModel
@@ -40,7 +46,7 @@ class ItemListScreenTest {
 
         // when interacting with item
         composeTestRule.onRoot().printToLog("ItemListScreenTest")
-        composeTestRule.onNodeWithContentDescription("Item list").onChildAt(0)
+        composeTestRule.onNodeWithContentDescription("List item").performClick()
 
         // then should navigate to detail screen with id
     }
