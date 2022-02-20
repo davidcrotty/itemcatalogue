@@ -33,9 +33,6 @@ class ItemCardTest {
             )
         }
 
-        // print will provide semantics tree for matching for accessibility
-        composeTestRule.onRoot().printToLog("ItemCardTest")
-
         composeTestRule.onNodeWithContentDescription("List item").performClick()
 
         verify { onClick.invoke() }

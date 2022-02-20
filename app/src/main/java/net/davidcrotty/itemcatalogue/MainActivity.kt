@@ -3,7 +3,12 @@ package net.davidcrotty.itemcatalogue
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.navigation.NavGraph
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import net.davidcrotty.itemcatalogue.di.ItemScreenGraphImpl
+import net.davidcrotty.itemcatalogue.screen.ItemDetailScreen
 import net.davidcrotty.itemcatalogue.screen.ItemListScreen
 import net.davidcrotty.itemcatalogue.ui.theme.CatalogueTemplateTheme
 
@@ -12,7 +17,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CatalogueTemplateTheme {
-                ItemListScreen(ItemScreenGraphImpl())
+                val controller = rememberNavController()
+                NavHost(navController = controller, startDestination = "itemList") {
+                    composable("itemList") { ItemListScreen(ItemScreenGraphImpl()) }
+                    composable("item") { ItemDetailScreen() }
+                }
             }
         }
     }
