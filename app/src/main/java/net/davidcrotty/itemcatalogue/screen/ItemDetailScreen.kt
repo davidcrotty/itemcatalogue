@@ -84,7 +84,7 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
                     }
                 ))
                 Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
-                Text(LoremIpsum().values.reduce { prev, current -> "$prev $current" }, style = Typography.subtitle2)
+                Text("Proficiency with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it", style = Typography.subtitle2)
             }
         }
     }
