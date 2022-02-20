@@ -1,10 +1,7 @@
 package net.davidcrotty.itemcatalogue
 
+import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.compose.ui.test.onNodeWithText
-import androidx.compose.ui.test.onRoot
-import androidx.compose.ui.test.performClick
-import androidx.compose.ui.test.printToLog
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flow
@@ -43,7 +40,7 @@ class ItemListScreenTest {
 
         // when interacting with item
         composeTestRule.onRoot().printToLog("ItemListScreenTest")
-        composeTestRule.onNodeWithText("Title").performClick()
+        composeTestRule.onNodeWithContentDescription("Item list").onChildAt(0)
 
         // then should navigate to detail screen with id
     }

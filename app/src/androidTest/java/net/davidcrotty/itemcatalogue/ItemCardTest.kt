@@ -33,6 +33,7 @@ class ItemCardTest {
             )
         }
 
+        composeTestRule.onRoot().printToLog("ItemCardTest")
         composeTestRule.onNodeWithContentDescription("List item").performClick()
 
         verify { onClick.invoke() }
