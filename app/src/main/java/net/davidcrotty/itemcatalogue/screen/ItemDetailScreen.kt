@@ -1,5 +1,6 @@
 package net.davidcrotty.itemcatalogue.screen
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -9,12 +10,16 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
+import coil.compose.rememberImagePainter
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.BackgroundImage
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
@@ -36,7 +41,7 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
         Box(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium))) {
             Box {
                 ConstraintLayout {
-                    val (breadcrumbs, spacer, title) = createRefs()
+                    val (breadcrumbs, spacer, title, image, subtitle) = createRefs()
                     Text("Items > Weapons", style = Typography.caption, modifier = Modifier.constrainAs(breadcrumbs) {
                         top.linkTo(parent.top)
                     }) // TODO write bread crumbs function/widget
@@ -53,14 +58,24 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
                     modifier = Modifier.constrainAs(title) {
                         top.linkTo(spacer.bottom)
                     })
+                    Text("Damage Combat", style = Typography.subtitle1.copy(
+                        shadow = Shadow(
+                            color = Color.Black,
+                            offset = Offset(4f, 4f),
+                            blurRadius = 8f
+                        )
+                    ), modifier = Modifier.constrainAs(subtitle) {
+                        top.linkTo(title.bottom)
+                    })
+                    Image(
+                        painter = rememberImagePainter("https://static.wikia.nocookie.net/runescape2/images/2/28/Mithril_battleaxe_detail.png/revision/latest?cb=20180713215454"),
+                        contentDescription = stringResource(id = R.string.item_detail_image),
+                        modifier = Modifier.constrainAs(image) {
+                            top.linkTo(breadcrumbs.top)
+                            start.linkTo(title.end)
+                        }.size(240.dp)
+                    )
                 }
-//                    Text("Damage Combat", style = Typography.subtitle1.copy(
-//                        shadow = Shadow(
-//                            color = Color.Black,
-//                            offset = Offset(4f, 4f),
-//                            blurRadius = 8f
-//                        )
-//                    ))
             }
             Column {
                 Spacer(modifier = Modifier.height(
