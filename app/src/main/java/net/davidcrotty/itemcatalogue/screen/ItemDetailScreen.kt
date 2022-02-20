@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
@@ -84,7 +85,9 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
                     }
                 ))
                 Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
-                Text("Proficiency with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it", style = Typography.subtitle2)
+                Text("Proficiency with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it",
+                    style = Typography.subtitle2,
+                modifier = Modifier.width((LocalConfiguration.current.screenWidthDp / 2).dp))
             }
         }
     }
