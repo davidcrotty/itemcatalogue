@@ -45,9 +45,9 @@ class ItemListScreenTest {
         }
 
         // when interacting with item
-        composeTestRule.onRoot().printToLog("ItemListScreenTest")
         composeTestRule.onNodeWithContentDescription("List item").performClick()
 
         // then should navigate to detail screen with id
+        // verify navigator interaction
     }
 }
