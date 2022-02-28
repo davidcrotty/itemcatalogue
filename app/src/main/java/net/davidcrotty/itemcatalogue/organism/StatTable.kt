@@ -7,6 +7,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import net.davidcrotty.itemcatalogue.ui.theme.Red500
 import net.davidcrotty.itemcatalogue.ui.theme.White900
@@ -24,6 +25,12 @@ fun StatTable() {
             Text(text = "Battleaxe", style = TableTypography.h1)
             Spacer(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_xsmall)))
             Divider(color = Red500, thickness = 1.dp)
+            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_xsmall)))
+            Row {
+               Text(text = "Type:", style = TableTypography.subtitle1)
+                Spacer(modifier = Modifier.width(dimensionResource(id = R.dimen.padding_xsmall)))
+               Text(text = "Martial melee weapon", style = TableTypography.body1)
+            }
         }
         Divider(color = Red500, thickness = 1.dp)
         Spacer(modifier = Modifier.height(2.dp))

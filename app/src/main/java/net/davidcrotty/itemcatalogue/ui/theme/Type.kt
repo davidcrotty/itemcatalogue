@@ -32,6 +32,18 @@ val TableTypography = Typography(
         fontWeight = FontWeight.Bold,
         fontSize = 20.sp,
         color = Red500
+    ),
+    subtitle1 = TextStyle(
+        fontFamily = mrseaves,
+        fontWeight = FontWeight.Bold,
+        fontSize = 14.sp,
+        color = Red500
+    ),
+    body1 = TextStyle(
+        fontFamily = mrseaves,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp,
+        color = Red500
     )
 )
 
