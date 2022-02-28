@@ -12,6 +12,8 @@ import net.davidcrotty.itemcatalogue.ui.theme.Red500
 import net.davidcrotty.itemcatalogue.ui.theme.White900
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.TableItem
+import net.davidcrotty.itemcatalogue.model.StatLine
+import net.davidcrotty.itemcatalogue.molecule.StatList
 import net.davidcrotty.itemcatalogue.ui.theme.TableTypography
 
 @Composable
@@ -24,17 +26,12 @@ fun StatTable() {
         Column(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium))) {
             Text(text = "Battleaxe", style = TableTypography.h1)
             Spacer(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_xsmall)))
-            Divider(color = Red500, thickness = 1.dp)
-            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
-            TableItem(category = "Type", text = "Martial Melee Weapon")
-            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_xxsmall)))
-            TableItem(category = "Cost", text = "10 gp")
-            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_xxsmall)))
-            TableItem(category = "Weight", text = "4 lbs")
-            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_xxsmall)))
-            TableItem(category = "Damage", text = "1d8 Slashing")
-            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
-            Divider(color = Red500, thickness = 1.dp)
+            StatList(listOf(
+                StatLine("Type", "Martial Melee Weapon"),
+                StatLine("Cost", "10 gp"),
+                StatLine("Weight", "4 lbs"),
+                StatLine("Damage", "1d8 Slashing")
+            ))
             Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
             Text(text = "Properties", style = TableTypography.h1)
             Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_xxsmall)))
