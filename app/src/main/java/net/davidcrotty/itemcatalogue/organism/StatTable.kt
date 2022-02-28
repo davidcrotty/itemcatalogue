@@ -19,7 +19,6 @@ import net.davidcrotty.itemcatalogue.ui.theme.LocalColors
 
 @Composable
 fun StatTable() {
-    // TODO make colours implicit
     Column(modifier = Modifier.background(color = LocalColors.current.background)) {
         Divider(color = LocalColors.current.divider, thickness = 1.dp)
         Spacer(modifier = Modifier.height(2.dp))
