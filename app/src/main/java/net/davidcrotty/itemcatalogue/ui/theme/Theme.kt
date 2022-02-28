@@ -97,3 +97,28 @@ fun CatalogueTemplateTheme(
         )
     }
 }
+
+@Composable
+fun TableTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
+) {
+    val colors = if (darkTheme) {
+        DarkColorPalette
+    } else {
+        LightColorPalette
+    }
+
+    val tableColors = TableColors()
+
+    CompositionLocalProvider(
+        LocalColors provides tableColors
+    ) {
+        MaterialTheme(
+            colors = colors,
+            typography = Typography,
+            shapes = Shapes,
+            content = content
+        )
+    }
+}

@@ -21,6 +21,7 @@ import coil.compose.rememberImagePainter
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.BackgroundImage
 import net.davidcrotty.itemcatalogue.organism.StatTable
+import net.davidcrotty.itemcatalogue.ui.theme.TableTheme
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
 
 
@@ -95,7 +96,9 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
                         (sizeImage.height * 0.25).toInt().toDp()
                     }
                 ))
-                StatTable()
+                TableTheme {
+                    StatTable()
+                }
             }
         }
     }
