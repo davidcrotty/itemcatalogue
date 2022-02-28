@@ -10,13 +10,10 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -25,7 +22,6 @@ import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.BackgroundImage
 import net.davidcrotty.itemcatalogue.organism.StatTable
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
-
 
 
 @Composable

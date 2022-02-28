@@ -22,7 +22,17 @@ val roboto = FontFamily(
 )
 
 val mrseaves = FontFamily(
-    Font(R.font.mrseave_regular, FontWeight.Normal)
+    Font(R.font.mrseave_regular, FontWeight.Normal),
+    Font(R.font.mrseave_bold, FontWeight.Bold)
+)
+
+val TableTypography = Typography(
+    h1 = TextStyle(
+        fontFamily = mrseaves,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp,
+        color = Red500
+    )
 )
 
 val Typography = Typography(
