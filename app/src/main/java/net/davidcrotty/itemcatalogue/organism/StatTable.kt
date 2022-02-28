@@ -7,13 +7,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import net.davidcrotty.itemcatalogue.ui.theme.Red500
 import net.davidcrotty.itemcatalogue.ui.theme.White900
 import net.davidcrotty.itemcatalogue.R
-import net.davidcrotty.itemcatalogue.atom.TableText
-import net.davidcrotty.itemcatalogue.molecule.TableItem
+import net.davidcrotty.itemcatalogue.atom.TableItem
 import net.davidcrotty.itemcatalogue.ui.theme.TableTypography
 
 @Composable
@@ -40,7 +38,7 @@ fun StatTable() {
             Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
             Text(text = "Properties", style = TableTypography.h1)
             Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_xxsmall)))
-            TableText(text = "Versatile (1d10)")
+            Text(text = "Versatile (1d10)", style = TableTypography.body1)
             Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
         }
         Divider(color = Red500, thickness = 1.dp)
