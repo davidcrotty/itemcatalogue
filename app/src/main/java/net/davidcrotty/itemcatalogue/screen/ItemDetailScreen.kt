@@ -69,7 +69,7 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
                         top.linkTo(title.bottom)
                     })
                     Image(
-                        painter = rememberImagePainter("https://static.wikia.nocookie.net/runescape2/images/2/28/Mithril_battleaxe_detail.png/revision/latest?cb=20180713215454"),
+                        painter = rememberImagePainter("https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450"),
                         contentDescription = stringResource(id = R.string.item_detail_image),
                         modifier = Modifier.constrainAs(image) {
                             top.linkTo(breadcrumbs.top)
@@ -87,7 +87,7 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
                 Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_small)))
                 Text("Proficiency with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it",
                     style = Typography.subtitle2,
-                modifier = Modifier.width((LocalConfiguration.current.screenWidthDp / 2).dp))
+                modifier = Modifier.width((LocalConfiguration.current.screenWidthDp * 0.45).dp))
             }
         }
     }

@@ -12,7 +12,7 @@ import net.davidcrotty.itemcatalogue.ui.theme.CatalogueTemplateTheme
 @Composable
 fun ComposeWrapper(navController: NavHostController, itemScreenGraph: ItemScreenGraph, navigate: (path: String) -> Unit) {
     CatalogueTemplateTheme {
-        NavHost(navController = navController, startDestination = "itemList") {
+        NavHost(navController = navController, startDestination = "item") {
             composable("itemList") {
                 ItemListScreen(itemScreenGraph = itemScreenGraph, navigate = { navigate(it) })
             }
