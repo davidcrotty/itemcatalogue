@@ -23,6 +23,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import coil.compose.rememberImagePainter
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.BackgroundImage
+import net.davidcrotty.itemcatalogue.organism.StatTable
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
 
 
@@ -46,9 +47,11 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
                     Text("Items > Weapons", style = Typography.caption, modifier = Modifier.constrainAs(breadcrumbs) {
                         top.linkTo(parent.top)
                     }) // TODO write bread crumbs function/widget
-                    Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)).constrainAs(spacer) {
-                        top.linkTo(breadcrumbs.bottom)
-                    })
+                    Spacer(modifier = Modifier
+                        .height(dimensionResource(id = R.dimen.padding_medium))
+                        .constrainAs(spacer) {
+                            top.linkTo(breadcrumbs.bottom)
+                        })
                     Text("Battleaxe", style = Typography.h1.copy(
                         shadow = Shadow(
                             color = Color.Black,
@@ -68,13 +71,16 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
                     ), modifier = Modifier.constrainAs(subtitle) {
                         top.linkTo(title.bottom)
                     })
+                    // TODO fix image bounds so layout is stable and can be done in one pass
                     Image(
                         painter = rememberImagePainter("https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450"),
                         contentDescription = stringResource(id = R.string.item_detail_image),
-                        modifier = Modifier.constrainAs(image) {
-                            top.linkTo(breadcrumbs.top)
-                            start.linkTo(title.end)
-                        }.size(240.dp)
+                        modifier = Modifier
+                            .constrainAs(image) {
+                                top.linkTo(breadcrumbs.top)
+                                start.linkTo(title.end)
+                            }
+                            .size(240.dp)
                     )
                 }
             }
@@ -88,6 +94,12 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
                 Text("Proficiency with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it",
                     style = Typography.subtitle2,
                 modifier = Modifier.width((LocalConfiguration.current.screenWidthDp * 0.45).dp))
+                Spacer(modifier = Modifier.height(
+                    with(LocalDensity.current) {
+                        (sizeImage.height * 0.25).toInt().toDp()
+                    }
+                ))
+                StatTable()
             }
         }
     }
