@@ -13,6 +13,7 @@ import net.davidcrotty.itemcatalogue.domain.entity.Item
 import net.davidcrotty.itemcatalogue.domain.model.ID
 import net.davidcrotty.itemcatalogue.screen.ItemListScreen
 import net.davidcrotty.itemcatalogue.viewmodel.ItemsViewModel
+import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 
@@ -21,6 +22,7 @@ class ItemListScreenTest {
     @get:Rule
     val composeTestRule = createComposeRule()
 
+    @Ignore("Come back to this once we have a real feed, should try the theory of a navigator per list item that can be injected to make this a unit test of behaviour")
     @Test
     fun when_navigating_to_item_detail() {
         // given a rendered item
@@ -45,7 +47,7 @@ class ItemListScreenTest {
         val navigate = mockk<((path: String) -> Unit)>(relaxed = true)
 
         composeTestRule.setContent {
-            ComposeWrapper(itemGraph, navigate = navigate)
+            // TODO scope to a single item and verify interaction with navigator interface
         }
 
         // when interacting with item
