@@ -47,9 +47,8 @@ android {
         exclude "META-INF/LGPL2.1"
     }
     configurations {
-        getByName("androidTestImplementation") {
-            exclude group: "io.mock"
-            exclude group: "mockk-agent-jvm"
+        androidTestImplementation {
+            exclude group: "io.mockk", module: "mockk-agent-jvm"
         }
     }
 }
