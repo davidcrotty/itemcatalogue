@@ -24,4 +24,21 @@ class ItemsViewModel(private val itemRepository: ItemRepository) : ViewModel() {
             )
         }
     }
+
+    // usecase will fetch, contract provided by domain
+    // repo will fetch, contract provided by domain
+    // entity - provided by domain
+
+    // app provides impl for uc:
+    // fetchFeedItems -> repo
+
+    // app provides impl for repo:
+    // Repo keeps id of last item in list for fetch, next call uses that - else api call
+    // repo also stores and fetches from its cache of prior items
+
+    // other rules it may add would be setting an expiry on cache items and check expiry on cache items (on pull down to refresh or restart for example)
+
+    // data module would contain gateways and impl for retrofit call
+
+    // technologies ie: retrofit would provide their interface via their own module
 }
