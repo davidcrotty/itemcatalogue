@@ -42,15 +42,16 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = composeVersion
     }
-//    packagingOptions {
-//        resources.excludes.add("META-INF/AL2.0")
-//        resources.excludes.add("META-INF/LGPL2.1")
-//    }
-//    configurations {
-//        androidTestImplementation {
-//            exclude("io.mockk", "mockk-agent-jvm")
-//        }
-//    }
+    packagingOptions {
+        exclude "META-INF/AL2.0"
+        exclude "META-INF/LGPL2.1"
+    }
+    configurations {
+        getByName("androidTestImplementation") {
+            exclude group: "io.mock"
+            exclude group: "mockk-agent-jvm"
+        }
+    }
 }
 
 dependencies {
