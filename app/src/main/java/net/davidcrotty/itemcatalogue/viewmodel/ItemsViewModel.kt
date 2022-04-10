@@ -41,4 +41,6 @@ class ItemsViewModel(private val itemRepository: ItemRepository) : ViewModel() {
     // data module would contain gateways and impl for retrofit call
 
     // technologies ie: retrofit would provide their interface via their own module
+
+    // Questions: Would a usecase impl sit inside a domain module or the feature? (feature because it may depend on other technologies (ie will need at least delegating to)
 }
