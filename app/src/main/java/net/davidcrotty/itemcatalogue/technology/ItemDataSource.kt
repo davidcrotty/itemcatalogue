@@ -4,5 +4,5 @@ import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 
 interface ItemDataSource {
-    fun fetchAfter(id: ID): List<Item>
+    fun fetchAfter(id: String): List<Item>
 }

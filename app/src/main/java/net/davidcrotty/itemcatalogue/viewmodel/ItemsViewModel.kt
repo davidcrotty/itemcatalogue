@@ -5,10 +5,10 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-import net.davidcrotty.itemcatalogue.domain.ItemRepository
 import net.davidcrotty.itemcatalogue.domain.model.Query
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
+import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 
 class ItemsViewModel(private val itemRepository: ItemRepository) : ViewModel() {
 
@@ -20,7 +20,7 @@ class ItemsViewModel(private val itemRepository: ItemRepository) : ViewModel() {
     fun fetchItems(id: ID = ID(0)) {
         viewModelScope.launch {
             _items.emit(
-                itemRepository.getItems(Query(id))
+                itemRepository.getItems()
             )
         }
     }
@@ -42,5 +42,5 @@ class ItemsViewModel(private val itemRepository: ItemRepository) : ViewModel() {
 
     // technologies ie: retrofit would provide their interface via their own module
 
-    // Questions: Would a usecase impl sit inside a domain module or the feature? (feature because it may depend on other technologies (ie will need at least delegating to)
+    // Questions: Would a usecase impl sit inside a domain module or the feature? (My take: feature because it may depend on other technologies (ie will need at least delegating to)
 }
