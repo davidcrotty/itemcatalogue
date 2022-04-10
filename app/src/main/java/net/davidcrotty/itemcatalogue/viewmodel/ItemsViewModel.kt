@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import net.davidcrotty.itemcatalogue.domain.ItemRepository
 import net.davidcrotty.itemcatalogue.domain.model.Query
-import net.davidcrotty.itemcatalogue.items.ID
-import net.davidcrotty.itemcatalogue.items.Item
+import net.davidcrotty.itemcatalogue.items.entity.ID
+import net.davidcrotty.itemcatalogue.items.entity.Item
 
 class ItemsViewModel(private val itemRepository: ItemRepository) : ViewModel() {
 

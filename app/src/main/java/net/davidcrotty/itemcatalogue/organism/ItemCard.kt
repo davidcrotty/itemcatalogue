@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.davidcrotty.itemcatalogue.atom.Thumbnail
-import net.davidcrotty.itemcatalogue.items.ID
-import net.davidcrotty.itemcatalogue.items.Item
+import net.davidcrotty.itemcatalogue.items.entity.ID
+import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
 
 // TODO design in a search feature, this is usually a common requirement

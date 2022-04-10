@@ -6,7 +6,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import net.davidcrotty.itemcatalogue.atom.ListDivider
-import net.davidcrotty.itemcatalogue.items.Item
+import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.organism.ItemCard
 
 @Composable

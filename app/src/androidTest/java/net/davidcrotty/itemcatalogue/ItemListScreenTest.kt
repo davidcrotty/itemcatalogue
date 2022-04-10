@@ -6,8 +6,8 @@ import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.flow
 import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
-import net.davidcrotty.itemcatalogue.items.ID
-import net.davidcrotty.itemcatalogue.items.Item
+import net.davidcrotty.itemcatalogue.items.entity.ID
+import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.viewmodel.ItemsViewModel
 import org.junit.Ignore
 import org.junit.Rule
