@@ -16,6 +16,7 @@ class ItemsViewModel(private val itemRepository: ItemRepository) : ViewModel() {
     val items: Flow<List<Item>>
         get() = _items
 
+    // TODO next session, Safely create an 'Item' into a view facing model, and keep the Domain Item in its own (decouple view from entity)
     fun fetchItems(id: ID = ID(0)) {
         viewModelScope.launch {
             _items.emit(
