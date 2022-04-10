@@ -1,7 +1,7 @@
 package net.davidcrotty.itemcatalogue.technology
 
-import net.davidcrotty.itemcatalogue.domain.entity.Item
-import net.davidcrotty.itemcatalogue.domain.model.ID
+import net.davidcrotty.itemcatalogue.items.ID
+import net.davidcrotty.itemcatalogue.items.Item
 
 class ItemMemoryDataSource : ItemDataSource {
     override fun fetchAfter(id: ID): List<Item> {

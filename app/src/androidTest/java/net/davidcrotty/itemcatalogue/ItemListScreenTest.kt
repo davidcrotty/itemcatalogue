@@ -2,16 +2,12 @@ package net.davidcrotty.itemcatalogue
 
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import io.mockk.every
 import io.mockk.mockk
-import io.mockk.verify
 import kotlinx.coroutines.flow.flow
 import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
-import net.davidcrotty.itemcatalogue.domain.entity.Item
-import net.davidcrotty.itemcatalogue.domain.model.ID
-import net.davidcrotty.itemcatalogue.screen.ItemListScreen
+import net.davidcrotty.itemcatalogue.items.ID
+import net.davidcrotty.itemcatalogue.items.Item
 import net.davidcrotty.itemcatalogue.viewmodel.ItemsViewModel
 import org.junit.Ignore
 import org.junit.Rule

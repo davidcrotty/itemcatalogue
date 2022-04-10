@@ -5,14 +5,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.semantics.SemanticsPropertyKey
-import androidx.compose.ui.semantics.semantics
 import net.davidcrotty.itemcatalogue.atom.ListDivider
-import net.davidcrotty.itemcatalogue.domain.entity.Item
+import net.davidcrotty.itemcatalogue.items.Item
 import net.davidcrotty.itemcatalogue.organism.ItemCard
-import net.davidcrotty.itemcatalogue.viewmodel.ItemsViewModel
 
 @Composable
 fun ListTemplate(itemList: List<Item>, navigate:((path: String) -> Unit)? = null, fetchMore: (() -> Unit)? = null) {
