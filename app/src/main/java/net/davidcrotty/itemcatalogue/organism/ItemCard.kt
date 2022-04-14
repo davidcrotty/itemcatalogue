@@ -21,7 +21,6 @@ import net.davidcrotty.itemcatalogue.ui.theme.Typography
 @Composable
 fun ItemCard(
     item: FeedItem = FeedItem(
-        id = ID(0),
         url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large",
         type = "Type",
         title = "Title",

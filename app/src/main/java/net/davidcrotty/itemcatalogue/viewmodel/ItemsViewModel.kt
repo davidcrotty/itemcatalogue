@@ -20,7 +20,6 @@ class ItemsViewModel(
         viewModelScope.launch {
             val feedModel = itemRepository.getItems().map { entity ->
                 FeedItem(
-                    id = entity.id,
                     url = entity.url,
                     type = entity.type,
                     title = entity.title,
