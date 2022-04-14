@@ -3,6 +3,7 @@ package net.davidcrotty.itemcatalogue.viewmodel
 import fr.xgouchet.elmyr.Forge
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -12,6 +13,7 @@ import net.davidcrotty.itemcatalogue.items.entity.Item
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
+@ExperimentalCoroutinesApi
 internal class ItemsViewModelTest {
 
     private val forge = Forge()
