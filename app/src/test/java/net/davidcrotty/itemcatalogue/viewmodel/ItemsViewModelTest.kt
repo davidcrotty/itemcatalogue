@@ -1,5 +1,6 @@
 package net.davidcrotty.itemcatalogue.viewmodel
 
+import fr.xgouchet.elmyr.Forge
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.toList
@@ -15,6 +16,7 @@ import org.junit.jupiter.api.Test
 
 internal class ItemsViewModelTest : CoroutineTest {
 
+    private val forge = Forge()
     override var testScope: TestCoroutineScope = TestCoroutineScope()
     override var dispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
 
@@ -23,11 +25,11 @@ internal class ItemsViewModelTest : CoroutineTest {
         // Given a valid item list
         val itemList = listOf(
             Item(
-                id = ID(1),
-                url = "",
-                type = "",
-                title = "",
-                description = ""
+                id = ID(forge.anInt()),
+                url = forge.aString(),
+                type = forge.aString(),
+                title = forge.aString(),
+                description = forge.aString()
             )
         )
         val sut = ItemsViewModel(
@@ -48,5 +50,4 @@ internal class ItemsViewModelTest : CoroutineTest {
         assertEquals(itemList, state)
         job.cancel()
     }
-
 }

@@ -4,6 +4,9 @@ dependencyResolutionManagement {
         maven {
             url = java.net.URI("https://oss.sonatype.org/content/repositories/snapshots")
         }
+        maven {
+            url = java.net.URI("https://jitpack.io")
+        }
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
