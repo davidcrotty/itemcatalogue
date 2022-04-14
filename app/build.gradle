@@ -4,6 +4,7 @@ plugins {
 }
 
 def composeVersion = "1.1.1"
+def mockkVersion = "1.12.3"
 
 android {
     compileSdk = 31
@@ -69,13 +70,17 @@ dependencies {
 //    // Official Utils around compose
     implementation("io.coil-kt:coil-compose:1.4.0")
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.13.0")
+
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.2")
+    testImplementation "io.mockk:mockk:$mockkVersion"
+    testImplementation "io.mockk:mockk-agent-jvm:$mockkVersion"
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1'
 
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$composeVersion"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$composeVersion"
 
-    androidTestImplementation "io.mockk:mockk-android:1.12.2"
-    androidTestImplementation "io.mockk:mockk-agent-jvm:1.12.2"
+    androidTestImplementation "io.mockk:mockk-android:$mockkVersion"
+    androidTestImplementation "io.mockk:mockk-agent-jvm:$mockkVersion"
 }
 
 tasks.withType(Test) {
