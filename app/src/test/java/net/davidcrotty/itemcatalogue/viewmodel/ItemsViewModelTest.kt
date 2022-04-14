@@ -1,6 +1,5 @@
 package net.davidcrotty.itemcatalogue.viewmodel
 
-import androidx.compose.material.ListItem
 import fr.xgouchet.elmyr.Forge
 import io.mockk.every
 import io.mockk.mockk
