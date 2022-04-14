@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+    implementation project(":domain:items")
     testImplementation "org.junit.jupiter:junit-jupiter-engine:5.8.2"
     testImplementation "io.mockk:mockk:$mockkVersion"
     testImplementation "io.mockk:mockk-agent-jvm:$mockkVersion"

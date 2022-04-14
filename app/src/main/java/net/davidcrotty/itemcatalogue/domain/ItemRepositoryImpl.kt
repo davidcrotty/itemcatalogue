@@ -1,8 +1,8 @@
 package net.davidcrotty.itemcatalogue.domain
 
+import net.davidcrotty.itemcatalogue.items.data.ItemDataSource
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
-import net.davidcrotty.itemcatalogue.technology.ItemDataSource
 
 class ItemRepositoryImpl(private val itemDataSource: ItemDataSource) : ItemRepository {
     override fun getItems(): List<Item> {

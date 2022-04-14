@@ -1,6 +1,5 @@
-package net.davidcrotty.itemcatalogue.technology
+package net.davidcrotty.itemcatalogue.items.data
 
-import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 
 interface ItemDataSource {

@@ -1,5 +1,6 @@
 package net.davidcrotty.itemcatalogue.technology
 
+import net.davidcrotty.itemcatalogue.items.data.ItemDataSource
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 
