@@ -2,6 +2,7 @@ package net.davidcrotty.itemcatalogue.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -9,7 +10,9 @@ import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 
-class ItemsViewModel(private val itemRepository: ItemRepository) : ViewModel() {
+class ItemsViewModel(
+    private val dispatcher: CoroutineDispatcher,
+    private val itemRepository: ItemRepository) : ViewModel() {
 
     private val _items = MutableStateFlow<List<Item>>(emptyList())
 
@@ -18,7 +21,7 @@ class ItemsViewModel(private val itemRepository: ItemRepository) : ViewModel() {
 
     // TODO next session, Safely create an 'Item' into a view facing model, and keep the Domain Item in its own (decouple view from entity)
     fun fetchItems(id: ID = ID(0)) {
-        viewModelScope.launch {
+        viewModelScope.launch(dispatcher) {
             _items.emit(
                 itemRepository.getItems()
             )

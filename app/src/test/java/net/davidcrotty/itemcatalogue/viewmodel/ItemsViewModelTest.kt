@@ -3,25 +3,21 @@ package net.davidcrotty.itemcatalogue.viewmodel
 import fr.xgouchet.elmyr.Forge
 import io.mockk.every
 import io.mockk.mockk
-import kotlinx.coroutines.flow.toList
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.TestCoroutineScope
-import kotlinx.coroutines.test.runBlockingTest
-import net.davidcrotty.itemcatalogue.helpers.CoroutineTest
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.TestCoroutineScheduler
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-internal class ItemsViewModelTest : CoroutineTest {
+internal class ItemsViewModelTest {
 
     private val forge = Forge()
-    override var testScope: TestCoroutineScope = TestCoroutineScope()
-    override var dispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
 
     @Test
-    fun when_fetching_items() = runBlockingTest {
+    fun when_fetching_items() = runBlocking {
         // Given a valid item list
         val itemList = listOf(
             Item(
@@ -32,22 +28,20 @@ internal class ItemsViewModelTest : CoroutineTest {
                 description = forge.aString()
             )
         )
+        val testDispatcher = TestCoroutineScheduler()
         val sut = ItemsViewModel(
+            StandardTestDispatcher(testDispatcher),
             mockk {
                 every { getItems() } returns itemList
             }
         )
 
         // When fetching items
-        val results = mutableListOf<List<Item>>()
         sut.fetchItems()
-        val job = launch {
-            sut.items.toList(results)
-        }
+        testDispatcher.advanceUntilIdle()
 
         // Then should render item
-        val state = results.firstOrNull()
+        val state = sut.items.first()
         assertEquals(itemList, state)
-        job.cancel()
     }
 }
