@@ -1,5 +1,6 @@
 package net.davidcrotty.itemcatalogue.viewmodel
 
+import androidx.compose.material.ListItem
 import fr.xgouchet.elmyr.Forge
 import io.mockk.every
 import io.mockk.mockk
@@ -10,6 +11,7 @@ import kotlinx.coroutines.test.TestCoroutineScheduler
 import net.davidcrotty.itemcatalogue.helpers.CoroutineTest
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
+import net.davidcrotty.itemcatalogue.model.FeedItem
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -24,11 +26,11 @@ internal class ItemsViewModelTest : CoroutineTest {
         // Given a valid item list
         val itemList = listOf(
             Item(
-                id = ID(forge.anInt()),
-                url = forge.aString(),
-                type = forge.aString(),
-                title = forge.aString(),
-                description = forge.aString()
+                id = ID(1),
+                url = "url",
+                type = "type",
+                title = "title",
+                description = "description"
             )
         )
         val sut = ItemsViewModel(
@@ -43,6 +45,15 @@ internal class ItemsViewModelTest : CoroutineTest {
 
         // Then should render item
         val state = sut.items.first()
-        assertEquals(itemList, state)
+        val expected = listOf(
+            FeedItem(
+                id = ID(1),
+                url = "url",
+                type = "type",
+                title = "title",
+                description = "description"
+            )
+        )
+        assertEquals(expected, state)
     }
 }
