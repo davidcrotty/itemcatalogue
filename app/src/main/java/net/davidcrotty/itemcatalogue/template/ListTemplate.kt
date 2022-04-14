@@ -7,10 +7,11 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import net.davidcrotty.itemcatalogue.atom.ListDivider
 import net.davidcrotty.itemcatalogue.items.entity.Item
+import net.davidcrotty.itemcatalogue.model.FeedItem
 import net.davidcrotty.itemcatalogue.organism.ItemCard
 
 @Composable
-fun ListTemplate(itemList: List<Item>, navigate:((path: String) -> Unit)? = null, fetchMore: (() -> Unit)? = null) {
+fun ListTemplate(itemList: List<FeedItem>, navigate:((path: String) -> Unit)? = null, fetchMore: (() -> Unit)? = null) {
     Surface {
         val listState = rememberLazyListState()
         Log.d("ListTemplate", "item size: ${itemList.size}")

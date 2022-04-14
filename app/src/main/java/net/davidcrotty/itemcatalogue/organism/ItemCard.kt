@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.dp
 import net.davidcrotty.itemcatalogue.atom.Thumbnail
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
+import net.davidcrotty.itemcatalogue.model.FeedItem
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
 
 // TODO design in a search feature, this is usually a common requirement
@@ -19,7 +20,7 @@ import net.davidcrotty.itemcatalogue.ui.theme.Typography
 @Preview
 @Composable
 fun ItemCard(
-    item: Item = Item(
+    item: FeedItem = FeedItem(
         id = ID(0),
         url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large",
         type = "Type",

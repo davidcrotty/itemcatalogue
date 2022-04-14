@@ -2,27 +2,36 @@ package net.davidcrotty.itemcatalogue.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
+import net.davidcrotty.itemcatalogue.model.FeedItem
 
 class ItemsViewModel(
     private val itemRepository: ItemRepository) : ViewModel() {
 
-    private val _items = MutableStateFlow<List<Item>>(emptyList())
+    private val _items = MutableStateFlow<List<FeedItem>>(emptyList())
 
-    val items: Flow<List<Item>>
+    val items: Flow<List<FeedItem>>
         get() = _items
 
     // TODO next session, Safely create an 'Item' into a view facing model, and keep the Domain Item in its own (decouple view from entity)
     fun fetchItems() {
         viewModelScope.launch {
+            val feedModel = itemRepository.getItems().map { entity ->
+                FeedItem(
+                    id = entity.id,
+                    url = entity.url,
+                    type = entity.type,
+                    title = entity.title,
+                    description = entity.description
+                )
+            }
+
             _items.emit(
-                itemRepository.getItems()
+                feedModel
             )
         }
     }
