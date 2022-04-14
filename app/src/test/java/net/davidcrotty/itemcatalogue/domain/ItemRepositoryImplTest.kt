@@ -1,6 +1,7 @@
 package net.davidcrotty.itemcatalogue.domain
 
 import fr.xgouchet.elmyr.Forge
+import io.mockk.every
 import io.mockk.mockk
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
@@ -14,7 +15,7 @@ internal class ItemRepositoryImplTest {
     @Test
     fun `when retrieving items from remote server`() {
 
-        // Given an available remote list of items items
+        // Given an available remote list of items
         val expectedItems = listOf(
             Item(
                 id = ID(forge.anInt()),
@@ -25,7 +26,7 @@ internal class ItemRepositoryImplTest {
             )
         )
         val sut = ItemRepositoryImpl(
-            mockk()
+            mockk { every { fetchAfter(any()) } returns expectedItems }
         )
 
         // when fetching items
