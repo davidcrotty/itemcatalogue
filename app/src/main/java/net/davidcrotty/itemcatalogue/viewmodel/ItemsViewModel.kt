@@ -19,7 +19,7 @@ class ItemsViewModel(
         get() = _items
 
     // TODO next session, Safely create an 'Item' into a view facing model, and keep the Domain Item in its own (decouple view from entity)
-    fun fetchItems(id: ID = ID(0)) {
+    fun fetchItems() {
         viewModelScope.launch {
             _items.emit(
                 itemRepository.getItems()
