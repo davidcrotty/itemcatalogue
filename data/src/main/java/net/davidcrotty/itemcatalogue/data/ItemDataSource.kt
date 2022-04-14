@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.technology
+package net.davidcrotty.itemcatalogue.data
 
 import net.davidcrotty.itemcatalogue.items.data.ItemDataSource
 import net.davidcrotty.itemcatalogue.items.entity.ID
