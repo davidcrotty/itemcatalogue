@@ -1,5 +1,6 @@
 package net.davidcrotty.itemcatalogue.viewmodel
 
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
@@ -30,7 +31,9 @@ internal class ItemsViewModelTest : CoroutineTest {
             )
         )
         val sut = ItemsViewModel(
-            mockk()
+            mockk {
+                every { getItems() } returns itemList
+            }
         )
 
         // When fetching items
@@ -41,7 +44,9 @@ internal class ItemsViewModelTest : CoroutineTest {
         }
 
         // Then should render item
-        assertEquals(itemList, results)
+        val state = results.firstOrNull()
+        assertEquals(itemList, state)
         job.cancel()
     }
+
 }
