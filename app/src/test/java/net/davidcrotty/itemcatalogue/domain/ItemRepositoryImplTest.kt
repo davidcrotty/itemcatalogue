@@ -13,7 +13,7 @@ internal class ItemRepositoryImplTest {
     private val forge = Forge()
 
     @Test
-    fun `when retrieving items from remote server`() {
+    fun `when retrieving items`() {
 
         // Given an available remote list of items
         val expectedItems = listOf(
@@ -37,7 +37,7 @@ internal class ItemRepositoryImplTest {
     }
 
     @Test
-    fun `when failing to retrieve items from remote server`() {
+    fun `when failing to retrieve items`() {
 
     }
 }
