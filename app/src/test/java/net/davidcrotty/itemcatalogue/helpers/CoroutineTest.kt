@@ -1,11 +1,9 @@
 package net.davidcrotty.itemcatalogue.helpers
 
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.TestCoroutineScope
+import kotlinx.coroutines.test.TestCoroutineScheduler
 import org.junit.jupiter.api.extension.ExtendWith
 
 @ExtendWith(TestCoroutineExtension::class)
 interface CoroutineTest {
-    var testScope: TestCoroutineScope
-    var dispatcher: TestCoroutineDispatcher
+    var testScheduler: TestCoroutineScheduler
 }

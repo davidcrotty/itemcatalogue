@@ -6,16 +6,17 @@ import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.TestCoroutineScheduler
+import net.davidcrotty.itemcatalogue.helpers.CoroutineTest
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 @ExperimentalCoroutinesApi
-internal class ItemsViewModelTest {
+internal class ItemsViewModelTest : CoroutineTest {
 
+    override var testScheduler = TestCoroutineScheduler()
     private val forge = Forge()
 
     @Test
@@ -30,9 +31,7 @@ internal class ItemsViewModelTest {
                 description = forge.aString()
             )
         )
-        val testDispatcher = TestCoroutineScheduler()
         val sut = ItemsViewModel(
-            StandardTestDispatcher(testDispatcher),
             mockk {
                 every { getItems() } returns itemList
             }
@@ -40,7 +39,7 @@ internal class ItemsViewModelTest {
 
         // When fetching items
         sut.fetchItems()
-        testDispatcher.advanceUntilIdle()
+        testScheduler.advanceUntilIdle()
 
         // Then should render item
         val state = sut.items.first()

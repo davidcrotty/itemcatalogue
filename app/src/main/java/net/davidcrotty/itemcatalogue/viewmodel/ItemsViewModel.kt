@@ -11,7 +11,6 @@ import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 
 class ItemsViewModel(
-    private val dispatcher: CoroutineDispatcher,
     private val itemRepository: ItemRepository) : ViewModel() {
 
     private val _items = MutableStateFlow<List<Item>>(emptyList())
@@ -21,7 +20,7 @@ class ItemsViewModel(
 
     // TODO next session, Safely create an 'Item' into a view facing model, and keep the Domain Item in its own (decouple view from entity)
     fun fetchItems(id: ID = ID(0)) {
-        viewModelScope.launch(dispatcher) {
+        viewModelScope.launch {
             _items.emit(
                 itemRepository.getItems()
             )
