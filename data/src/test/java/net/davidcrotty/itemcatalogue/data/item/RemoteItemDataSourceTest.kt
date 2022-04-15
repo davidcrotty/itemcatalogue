@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test
 internal class RemoteItemDataSourceTest {
 
     @Test
-    fun `when fetching remote items`() {
+    fun `when retrieving items from remote api`() {
 
     }
 }
