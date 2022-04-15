@@ -1,6 +1,6 @@
 package net.davidcrotty.itemcatalogue.di
 
-import net.davidcrotty.itemcatalogue.data.ItemMemoryDataSource
+import net.davidcrotty.itemcatalogue.data.item.ItemMemoryDataSource
 import net.davidcrotty.itemcatalogue.domain.ItemRepositoryImpl
 import net.davidcrotty.itemcatalogue.viewmodel.ItemsViewModel
 
