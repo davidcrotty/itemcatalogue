@@ -7,6 +7,7 @@ def mockkVersion = "1.12.3"
 def forgeVersion = "1.3.1"
 def junitVersion = "5.8.2"
 def okReplayVersion = "1.6.0"
+def retrofitVersion = "2.9.0"
 
 android {
     compileSdk 32
@@ -37,7 +38,9 @@ android {
 dependencies {
     implementation project(":domain:items")
     implementation "com.squareup.moshi:moshi:1.13.0"
-    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+
     testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
     testImplementation "org.junit.vintage:junit-vintage-engine:$junitVersion"
     testImplementation "io.mockk:mockk:$mockkVersion"

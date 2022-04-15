@@ -5,7 +5,7 @@ import retrofit2.http.Header
 
 interface ItemAPI {
     @GET("api/item")
-    fun getItems(
+    suspend fun getItems(
         @Header("Authorization") token: String
     )
 }

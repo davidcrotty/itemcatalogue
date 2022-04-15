@@ -5,7 +5,7 @@ import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 
 class ItemMemoryDataSource : ItemDataSource {
-    override fun fetchAfter(id: String): List<Item> {
+    override suspend fun fetchAfter(id: String): List<Item> {
         return listOf( // TODO these should be DTOs
             Item(
                 id = ID(1),
