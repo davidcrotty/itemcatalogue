@@ -4,8 +4,6 @@ import com.squareup.moshi.Moshi
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import net.davidcrotty.itemcatalogue.data.item.api.ItemAPI
-import net.davidcrotty.itemcatalogue.data.item.dto.technology.ItemDTO
-import net.davidcrotty.itemcatalogue.helpers.RequestRecorder
 import okhttp3.OkHttpClient
 import okreplay.*
 import org.junit.Rule

@@ -4,6 +4,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.davidcrotty.itemcatalogue.data.item.api.ItemAPI
+import net.davidcrotty.itemcatalogue.data.item.dto.pure.ItemDTO
 import net.davidcrotty.itemcatalogue.items.data.ItemDataSource
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
@@ -24,12 +25,14 @@ class RemoteItemDataSource(
 
         // Answer, only test the data adapter layer if needed - At the moment this isn't separated
         return items.map {
-            Item(
-                id = ID(1),
-                url = "",
-                type = "",
-                title = "",
-                description = ""
+            ItemDTO(
+                id = it.id,
+                type = it.type,
+                subtype = it.subtype,
+                caption = it.caption,
+                description = it.description,
+                thumbnail = it.thumbnail,
+                detailImage = it.detailImage
             )
         }
     }

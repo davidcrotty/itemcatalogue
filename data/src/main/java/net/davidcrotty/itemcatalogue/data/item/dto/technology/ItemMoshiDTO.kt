@@ -4,7 +4,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-class ItemDTO(
+class ItemMoshiDTO(
     @Json(name = "_id") val id: String,
     val type: String,
     val subtype: String,
