@@ -36,6 +36,7 @@ android {
 
 dependencies {
     implementation project(":domain:items")
+    implementation("com.squareup.moshi:moshi:1.13.0")
     testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
     testImplementation "org.junit.vintage:junit-vintage-engine:$junitVersion"
     testImplementation "io.mockk:mockk:$mockkVersion"
