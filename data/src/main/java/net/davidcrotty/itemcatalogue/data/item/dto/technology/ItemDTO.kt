@@ -1,7 +1,9 @@
 package net.davidcrotty.itemcatalogue.data.item.dto.technology
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 class ItemDTO(
     @Json(name = "_id") val id: String,
     val type: String,
