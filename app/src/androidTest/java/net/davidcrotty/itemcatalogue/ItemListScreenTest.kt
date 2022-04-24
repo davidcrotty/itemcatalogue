@@ -38,7 +38,7 @@ class ItemListScreenTest {
             }
         }
         val itemGraph = mockk<ItemScreenGraph>(relaxed = true) {
-            every { itemViewModel() } returns itemViewModel
+            every { itemViewModel(itemAPI) } returns itemViewModel
         }
         val navigate = mockk<((path: String) -> Unit)>(relaxed = true)
 
