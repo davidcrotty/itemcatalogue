@@ -1,8 +1,10 @@
 package net.davidcrotty.itemcatalogue.items.usecase
 
 import fr.xgouchet.elmyr.Forge
+import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.runBlocking
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -27,12 +29,15 @@ internal class GetFeedUseCaseImplTest {
 
         val sut = GetFeedUseCaseImpl(
             mockk {
-                every { getItems() } returns expectedItems
+                coEvery { getItems() } returns expectedItems
             }
         )
 
         // when fetching an item feed
-        val items = sut.getFeed()
+        var items: List<Item>?
+        runBlocking {
+            items = sut.getFeed()
+        }
 
         // Then feed should be delivered
         assertEquals(expectedItems, items)
