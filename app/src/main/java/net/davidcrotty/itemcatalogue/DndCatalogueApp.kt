@@ -3,6 +3,7 @@ package net.davidcrotty.itemcatalogue
 import android.app.Application
 import net.davidcrotty.itemcatalogue.di.DndCatalogueAppGraph
 import net.davidcrotty.itemcatalogue.di.DndCatalogueAppGraphImpl
+import net.davidcrotty.itemcatalogue.di.RemoteItemAPIFactory
 
 class DndCatalogueApp : Application(), DndCatalogueAppGraph {
 

@@ -1,8 +1,6 @@
 package net.davidcrotty.itemcatalogue.di
 
 import com.squareup.moshi.Moshi
-import net.davidcrotty.itemcatalogue.RemoteItemAPIFactory
-import net.davidcrotty.itemcatalogue.RemoteItemAPIFactoryImpl
 import okhttp3.OkHttpClient
 
 class DndCatalogueAppGraphImpl : DndCatalogueAppGraph {
