@@ -1,8 +1,11 @@
 package net.davidcrotty.itemcatalogue.domain
 
 import fr.xgouchet.elmyr.Forge
+import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.runBlocking
+import net.davidcrotty.itemcatalogue.data.item.dto.pure.ItemDTO
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -16,21 +19,41 @@ internal class ItemRepositoryImplTest {
     fun `when retrieving items`() {
 
         // Given an available remote list of items
+        val thumbnail = forge.aString()
+        val type = forge.aString()
+        val caption = forge.aString()
+        val description = forge.aString()
+
+        val apiItems = listOf(
+            ItemDTO(
+                id = forge.aString(),
+                type = type,
+                subtype = forge.aString(),
+                caption = caption,
+                description = description,
+                thumbnail = thumbnail,
+                detailImage = forge.aString()
+            )
+        )
         val expectedItems = listOf(
             Item(
-                id = ID(forge.anInt()),
-                url = forge.aString(),
-                type = forge.aString(),
-                title = forge.aString(),
-                description = forge.aString()
+                id = ID(0),
+                url = thumbnail,
+                type = type,
+                title = caption,
+                description = description
             )
         )
         val sut = ItemRepositoryImpl(
-            mockk { every { fetchAfter(any()) } returns expectedItems }
+            mockk { coEvery { fetchAfter(any()) } returns apiItems }
         )
 
         // when fetching items
-        val items = sut.getItems()
+        var items: List<Item>?
+        runBlocking {
+            items = sut.getItems()
+        }
+
 
         // Then should return items
         assertEquals(expectedItems, items)
