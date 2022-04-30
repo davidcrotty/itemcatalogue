@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 import net.davidcrotty.itemcatalogue.model.FeedItem
@@ -13,7 +14,7 @@ class ItemsViewModel(
 
     private val _items = MutableStateFlow<List<FeedItem>>(emptyList())
 
-    val items: Flow<List<FeedItem>>
+    val items: StateFlow<List<FeedItem>>
         get() = _items
 
     fun fetchItems() {

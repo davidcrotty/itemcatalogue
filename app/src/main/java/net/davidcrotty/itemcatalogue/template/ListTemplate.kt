@@ -5,6 +5,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import net.davidcrotty.itemcatalogue.atom.ListDivider
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.model.FeedItem
@@ -38,7 +39,9 @@ fun ListTemplate(itemList: List<FeedItem>, navigate:((path: String) -> Unit)? = 
 
         // TODO should this logic be abstracted?
         if (listState.layoutInfo.visibleItemsInfo.isEmpty()) {
-            fetchMore?.invoke()
+            LaunchedEffect(key1 = itemList) {
+                fetchMore?.invoke()
+            }
         }
     }
 }
