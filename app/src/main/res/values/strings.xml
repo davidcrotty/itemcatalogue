@@ -3,4 +3,5 @@
     <string name="list_item">List item</string>
     <string name="item_background">Item background</string>
     <string name="item_detail_image">Item detail image</string>
+    <string name="item_feed_loading">Item Feed Loading indicator</string>
 </resources>

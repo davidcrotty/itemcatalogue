@@ -8,6 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.LoadingIndicator
 import net.davidcrotty.itemcatalogue.model.FeedItem
@@ -27,7 +30,12 @@ fun ListTemplate(itemList: List<FeedItem>,
                     .fillMaxSize()
                     .padding(dimensionResource(id = R.dimen.padding_medium))
             ) {
-                LoadingIndicator()
+                val loadingContentDescription = stringResource(id = R.string.item_feed_loading)
+                LoadingIndicator(
+                    modifier = Modifier.semantics {
+                        contentDescription = loadingContentDescription
+                    }
+                )
             }
         }
     }
