@@ -1,6 +1,8 @@
 package net.davidcrotty.itemcatalogue.viewmodel
 
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.Flow
@@ -12,10 +14,17 @@ import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 import net.davidcrotty.itemcatalogue.model.FeedItem
 import java.util.*
 
-class ItemsViewModel(
+class ListTemplateViewModel(
     private val itemRepository: ItemRepository) : ViewModel() {
 
-    val items = mutableStateListOf<FeedItem>()
+    val items: SnapshotStateList<FeedItem>
+        get() = _items
+    val isLoading: Flow<Boolean>
+        get() = _isLoading
+
+    private val _items = mutableStateListOf<FeedItem>()
+
+    private val _isLoading: MutableStateFlow<Boolean> = MutableStateFlow(true)
 
     fun fetchItems() {
         viewModelScope.launch {

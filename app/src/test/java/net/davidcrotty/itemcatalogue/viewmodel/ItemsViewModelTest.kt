@@ -2,10 +2,8 @@ package net.davidcrotty.itemcatalogue.viewmodel
 
 import fr.xgouchet.elmyr.Forge
 import io.mockk.coEvery
-import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestCoroutineScheduler
 import net.davidcrotty.itemcatalogue.helpers.CoroutineTest
@@ -33,7 +31,7 @@ internal class ItemsViewModelTest : CoroutineTest {
                 description = "description"
             )
         )
-        val sut = ItemsViewModel(
+        val sut = ListTemplateViewModel(
             mockk {
                 coEvery { getItems() } returns itemList
             }

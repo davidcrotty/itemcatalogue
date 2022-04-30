@@ -1,7 +1,7 @@
 package net.davidcrotty.itemcatalogue.di
 
-import net.davidcrotty.itemcatalogue.viewmodel.ItemsViewModel
+import net.davidcrotty.itemcatalogue.viewmodel.ListTemplateViewModel
 
 interface ItemScreenGraph {
-    fun itemViewModel(): ItemsViewModel
+    fun itemViewModel(): ListTemplateViewModel
 }
