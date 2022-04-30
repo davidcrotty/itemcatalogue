@@ -42,7 +42,7 @@ internal class ItemsViewModelTest : CoroutineTest {
         testScheduler.advanceUntilIdle()
 
         // Then should render item
-        val state = sut.items.first()
+        val state = sut.items
         val expected = listOf(
             FeedItem(
                 url = "url",
