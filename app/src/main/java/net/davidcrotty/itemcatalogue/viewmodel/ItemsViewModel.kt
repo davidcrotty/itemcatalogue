@@ -1,21 +1,21 @@
 package net.davidcrotty.itemcatalogue.viewmodel
 
+import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 import net.davidcrotty.itemcatalogue.model.FeedItem
+import java.util.*
 
 class ItemsViewModel(
     private val itemRepository: ItemRepository) : ViewModel() {
 
-    private val _items = MutableStateFlow<List<FeedItem>>(emptyList())
-
-    val items: StateFlow<List<FeedItem>>
-        get() = _items
+    val items = mutableStateListOf<FeedItem>()
 
     fun fetchItems() {
         viewModelScope.launch {
@@ -28,9 +28,7 @@ class ItemsViewModel(
                 )
             }
 
-            _items.emit(
-                feedModel
-            )
+            items.addAll(feedModel.toMutableList())
         }
     }
 
