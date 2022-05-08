@@ -11,11 +11,13 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
+import net.davidcrotty.itemcatalogue.items.usecase.GetFeedUsecase
 import net.davidcrotty.itemcatalogue.model.FeedItem
 import java.util.*
 
 class ListTemplateViewModel(
-    private val itemRepository: ItemRepository) : ViewModel() {
+    private val getFeedUsecase: GetFeedUsecase
+) : ViewModel() {
 
     val items: SnapshotStateList<FeedItem>
         get() = _items
@@ -28,7 +30,7 @@ class ListTemplateViewModel(
 
     fun fetchItems() {
         viewModelScope.launch {
-            val feedModel = itemRepository.getItems().map { entity ->
+            val feedModel = getFeedUsecase.getFeed().map { entity ->
                 FeedItem(
                     url = entity.url,
                     type = entity.type,
