@@ -1,6 +1,8 @@
 package net.davidcrotty.itemcatalogue.di
 
 import com.squareup.moshi.Moshi
+import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSource
+import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSourceImpl
 import net.davidcrotty.itemcatalogue.data.item.RemoteItemDataSource
 import net.davidcrotty.itemcatalogue.domain.ItemRepositoryImpl
 import okhttp3.OkHttpClient
@@ -15,10 +17,15 @@ class DndCatalogueAppGraphImpl : DndCatalogueAppContainer {
         )
     }
 
+    private val itemsFetchedCache: ItemCacheDataSource by lazy {
+        ItemCacheDataSourceImpl()
+    }
+
     override fun itemScreenGraph(): ItemScreenGraph {
         return ItemScreenGraphImpl(
             ItemRepositoryImpl(
-                RemoteItemDataSource(apiFactory.getInstance())
+                RemoteItemDataSource(apiFactory.getInstance()),
+                itemsFetchedCache
             )
         )
     }

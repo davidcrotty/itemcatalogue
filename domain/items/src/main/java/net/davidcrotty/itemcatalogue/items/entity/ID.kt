@@ -1,3 +1,3 @@
 package net.davidcrotty.itemcatalogue.items.entity
 
-data class ID(val value: Int)
+data class ID(val value: String)
