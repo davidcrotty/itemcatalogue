@@ -21,7 +21,7 @@ class ItemListScreenTest {
         val numberOfItems = 5
         val viewModel: ListTemplateViewModel = mockk {
             every { items } returns MutableStateFlow(
-                generateFeedItemList(5)
+                generateFeedItemList(numberOfItems)
             )
             every { fetchItems() } just Runs
         }
@@ -35,9 +35,9 @@ class ItemListScreenTest {
             )
         }
 
-        composeTestRule.onNodeWithContentDescription("Dungeon item feed").performScrollToIndex(5)
+        composeTestRule.onNodeWithContentDescription("Dungeon item feed").performScrollToIndex(numberOfItems)
 
-        verify(exactly = 1) { viewModel.fetchItems() }
+        verify(atLeast = 2) { viewModel.fetchItems() }
     }
 
     private fun generateFeedItemList(number: Int): List<FeedItem> {

@@ -37,6 +37,7 @@ fun ItemListTemplate(
 
                 if (index < itemList.lastIndex) {
                     ListDivider()
+                    fetchMore?.invoke()
                 }
 
                 Log.d("ItemList", "rendered item $index")
