@@ -20,12 +20,4 @@ class ListTemplateTest {
         composeTestRule.onNodeWithContentDescription("Item Feed Loading indicator").assertExists()
     }
 
-    @Test
-    fun when_rendering_loading_icon_not_visible() {
-        composeTestRule.setContent {
-            ListTemplate(itemList = emptyList(), canLoadMore = false)
-        }
-
-        composeTestRule.onNodeWithContentDescription("Item Feed Loading indicator").assertDoesNotExist()
-    }
 }

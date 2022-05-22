@@ -22,9 +22,11 @@ import net.davidcrotty.itemcatalogue.atom.LoadingIndicator
 import net.davidcrotty.itemcatalogue.model.FeedItem
 
 @Composable
-fun ItemList(itemList: List<FeedItem>,
-             navigate:((path: String) -> Unit)? = null,
-             fetchMore: (() -> Unit)? = null) {
+fun ItemList(
+    itemList: List<FeedItem>,
+    navigate: ((path: String) -> Unit)? = null,
+    fetchMore: (() -> Unit)? = null
+) {
     Surface {
         val listState = rememberLazyListState()
         Log.d("ListTemplate", "item size: ${itemList.size}")
@@ -46,10 +48,12 @@ fun ItemList(itemList: List<FeedItem>,
 
             item {
                 val loadingContentDescription = stringResource(id = R.string.item_feed_loading)
-                Box(contentAlignment = Alignment.TopCenter,
+                Box(
+                    contentAlignment = Alignment.TopCenter,
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(dimensionResource(id = R.dimen.padding_medium))) {
+                        .padding(dimensionResource(id = R.dimen.padding_medium))
+                ) {
                     LoadingIndicator(
                         modifier = Modifier.semantics {
                             contentDescription = loadingContentDescription
@@ -59,8 +63,6 @@ fun ItemList(itemList: List<FeedItem>,
             }
         }
 
-
-        // TODO should this logic be abstracted?
         if (listState.layoutInfo.visibleItemsInfo.isEmpty()) {
             LaunchedEffect(key1 = itemList) {
                 fetchMore?.invoke()
