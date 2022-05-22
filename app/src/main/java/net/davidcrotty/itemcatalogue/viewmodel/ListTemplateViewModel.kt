@@ -16,12 +16,8 @@ class ListTemplateViewModel(
     // TODO challenge why not emit this as an alltogether ui state? Yes, means less args passed around (clean code varadic args)
     val items: StateFlow<List<FeedItem>>
         get() = _items
-    val isLoading: Flow<Boolean>
-        get() = _isLoading
 
     private val _items = MutableStateFlow<List<FeedItem>>(emptyList())
-
-    private val _isLoading: MutableStateFlow<Boolean> = MutableStateFlow(true)
 
     fun fetchItems() {
         viewModelScope.launch {
