@@ -37,7 +37,12 @@ fun ItemListTemplate(
 
                 if (index < itemList.lastIndex) {
                     ListDivider()
-                    fetchMore?.invoke()
+                }
+
+                if (index >= itemList.size - 1) {
+                    LaunchedEffect(itemList.size) {
+                        fetchMore?.invoke()
+                    }
                 }
 
                 Log.d("ItemList", "rendered item $index")
