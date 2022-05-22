@@ -2,6 +2,7 @@ package net.davidcrotty.itemcatalogue.viewmodel
 
 import fr.xgouchet.elmyr.Forge
 import io.mockk.coEvery
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -33,7 +34,7 @@ internal class ItemsViewModelTest : CoroutineTest {
         )
         val sut = ListTemplateViewModel(
             mockk {
-                coEvery { getItems() } returns itemList
+                coEvery { getFeed() } returns itemList
             }
         )
 
@@ -42,7 +43,7 @@ internal class ItemsViewModelTest : CoroutineTest {
         testScheduler.advanceUntilIdle()
 
         // Then should render item
-        val state = sut.items
+        val state = sut.items.value
         val expected = listOf(
             FeedItem(
                 url = "url",

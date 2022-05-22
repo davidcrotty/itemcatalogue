@@ -30,10 +30,6 @@ class ListTemplateViewModel(
 
     private val _isLoading: MutableStateFlow<Boolean> = MutableStateFlow(true)
 
-    init {
-        Log.d("ListTemplateViewModel", "created")
-    }
-
     fun fetchItems() {
         viewModelScope.launch {
             val feedModels = getFeedUsecase.getFeed().map { entity ->
