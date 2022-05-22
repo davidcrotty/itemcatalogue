@@ -14,7 +14,7 @@ class ListTemplateTest {
     @Test
     fun when_rendering_loading_icon_visible() {
         composeTestRule.setContent {
-            ListTemplate(itemList = emptyList(), isLoading = true)
+            ListTemplate(itemList = emptyList(), canLoadMore = true)
         }
 
         composeTestRule.onNodeWithContentDescription("Item Feed Loading indicator").assertExists()
@@ -23,7 +23,7 @@ class ListTemplateTest {
     @Test
     fun when_rendering_loading_icon_not_visible() {
         composeTestRule.setContent {
-            ListTemplate(itemList = emptyList(), isLoading = false)
+            ListTemplate(itemList = emptyList(), canLoadMore = false)
         }
 
         composeTestRule.onNodeWithContentDescription("Item Feed Loading indicator").assertDoesNotExist()

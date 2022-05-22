@@ -13,7 +13,7 @@ class ListTemplateViewModel(
     private val getFeedUsecase: GetFeedUsecase
 ) : ViewModel() {
 
-    // TODO challenge why not emit this as an alltogether ui state?
+    // TODO challenge why not emit this as an alltogether ui state? Yes, means less args passed around (clean code varadic args)
     val items: StateFlow<List<FeedItem>>
         get() = _items
     val isLoading: Flow<Boolean>
