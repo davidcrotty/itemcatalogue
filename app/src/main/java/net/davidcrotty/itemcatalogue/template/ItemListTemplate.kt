@@ -1,29 +1,19 @@
-package net.davidcrotty.itemcatalogue.organism
+package net.davidcrotty.itemcatalogue.template
 
 import android.util.Log
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
-import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.ListDivider
-import net.davidcrotty.itemcatalogue.atom.LoadingIndicator
 import net.davidcrotty.itemcatalogue.model.FeedItem
 import net.davidcrotty.itemcatalogue.molecule.FeedLoadingIndicator
+import net.davidcrotty.itemcatalogue.organism.ItemCard
 
 @Composable
-fun ItemList(
+fun ItemListTemplate(
     itemList: List<FeedItem>,
     navigate: ((path: String) -> Unit)? = null,
     fetchMore: (() -> Unit)? = null
