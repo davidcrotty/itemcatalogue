@@ -2,6 +2,7 @@ package net.davidcrotty.itemcatalogue.organism
 
 import android.util.Log
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
@@ -18,20 +19,16 @@ fun ItemList(itemList: List<FeedItem>,
         Log.d("ListTemplate", "item size: ${itemList.size}")
 
         LazyColumn {
-            itemList.forEachIndexed { index, dungeonItem ->
-                item {
-                    ItemCard(dungeonItem, onClick = {
-                        navigate?.invoke("item")
-                    })
-                }
+            itemsIndexed(
+                itemList
+            ) { index, dungeonItem ->
+                ItemCard(dungeonItem, onClick = {
+                    navigate?.invoke("item")
+                })
 
-                // TODO factory to abstract render details
                 if (index < itemList.lastIndex) {
-                    item {
-                        ListDivider()
-                    }
+                    ListDivider()
                 }
-
             }
         }
 

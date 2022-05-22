@@ -1,26 +1,19 @@
 package net.davidcrotty.itemcatalogue.viewmodel
 
-import android.util.Log
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import net.davidcrotty.itemcatalogue.items.entity.Item
-import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 import net.davidcrotty.itemcatalogue.items.usecase.GetFeedUsecase
 import net.davidcrotty.itemcatalogue.model.FeedItem
-import java.util.*
-import kotlin.collections.ArrayList
 
 class ListTemplateViewModel(
     private val getFeedUsecase: GetFeedUsecase
 ) : ViewModel() {
 
+    // TODO challenge why not emit this as an alltogether ui state?
     val items: StateFlow<List<FeedItem>>
         get() = _items
     val isLoading: Flow<Boolean>
