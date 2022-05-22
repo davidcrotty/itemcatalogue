@@ -1,5 +1,6 @@
 package net.davidcrotty.itemcatalogue
 
+import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import io.mockk.*
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,15 +18,10 @@ class ItemListScreenTest {
 
     @Test
     fun when_fetching_more_items() {
+        val numberOfItems = 5
         val viewModel: ListTemplateViewModel = mockk {
             every { items } returns MutableStateFlow(
-                listOf(
-                    generateFeedItem(),
-                    generateFeedItem(),
-                    generateFeedItem(),
-                    generateFeedItem(),
-                    generateFeedItem()
-                )
+                generateFeedItemList(5)
             )
             every { fetchItems() } just Runs
         }
@@ -39,10 +35,16 @@ class ItemListScreenTest {
             )
         }
 
+        composeTestRule.onNodeWithContentDescription("Dungeon item feed").performScrollToIndex(5)
+
         verify(exactly = 1) { viewModel.fetchItems() }
     }
 
-    private fun generateFeedItem(): FeedItem {
-        return FeedItem("", "", "", "")
+    private fun generateFeedItemList(number: Int): List<FeedItem> {
+        val itemList = mutableListOf<FeedItem>()
+        for (item in 0..number) {
+            itemList.add(FeedItem("", "", "", ""))
+        }
+        return itemList
     }
 }
