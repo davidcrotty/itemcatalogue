@@ -8,8 +8,8 @@ import net.davidcrotty.itemcatalogue.template.ItemListTemplate
 @Composable
 fun ItemListScreen(itemScreenGraph: ItemScreenGraph, navigate: ((path: String) -> Unit)? = null) {
     val itemsViewModel = itemScreenGraph.itemViewModel()
-    val itemStateList = itemsViewModel.items.collectAsState()
-    ItemListTemplate(itemStateList.value, navigate) {
+    val feedState = itemsViewModel.listState.collectAsState()
+    ItemListTemplate(feedState.value, navigate) {
         itemsViewModel.fetchItems()
     }
 }

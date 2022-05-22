@@ -2,7 +2,6 @@ package net.davidcrotty.itemcatalogue.viewmodel
 
 import fr.xgouchet.elmyr.Forge
 import io.mockk.coEvery
-import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -18,7 +17,6 @@ import org.junit.jupiter.api.Test
 internal class ItemsViewModelTest : CoroutineTest {
 
     override var testScheduler = TestCoroutineScheduler()
-    private val forge = Forge()
 
     @Test
     fun when_fetching_items() = runBlocking {
@@ -43,7 +41,7 @@ internal class ItemsViewModelTest : CoroutineTest {
         testScheduler.advanceUntilIdle()
 
         // Then should render item
-        val state = sut.items.value
+        val state = sut.listState.value.feedItems
         val expected = listOf(
             FeedItem(
                 url = "url",

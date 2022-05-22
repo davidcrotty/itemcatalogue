@@ -12,35 +12,36 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import net.davidcrotty.itemcatalogue.atom.ListDivider
 import net.davidcrotty.itemcatalogue.model.FeedItem
+import net.davidcrotty.itemcatalogue.model.ListTemplateState
 import net.davidcrotty.itemcatalogue.molecule.FeedLoadingIndicator
 import net.davidcrotty.itemcatalogue.organism.ItemCard
 
 @Composable
 fun ItemListTemplate(
-    itemList: List<FeedItem>,
+    itemListState: ListTemplateState,
     navigate: ((path: String) -> Unit)? = null,
     fetchMore: (() -> Unit)? = null
 ) {
     Surface {
         val listState = rememberLazyListState()
-        Log.d("ListTemplate", "item size: ${itemList.size}")
+        Log.d("ListTemplate", "item size: ${itemListState.feedItems.size}")
 
         LazyColumn(Modifier.semantics {
             contentDescription = "Dungeon item feed"
         }) {
             itemsIndexed(
-                itemList
+                itemListState.feedItems
             ) { index, dungeonItem ->
                 ItemCard(dungeonItem, onClick = {
                     navigate?.invoke("item")
                 })
 
-                if (index < itemList.lastIndex) {
+                if (index < itemListState.feedItems.lastIndex) {
                     ListDivider()
                 }
 
-                if (index >= itemList.size - 1) {
-                    LaunchedEffect(itemList.size) {
+                if (index >= itemListState.feedItems.size - 1) {
+                    LaunchedEffect(itemListState.feedItems.size) {
                         fetchMore?.invoke()
                     }
                 }
@@ -54,7 +55,7 @@ fun ItemListTemplate(
         }
 
         if (listState.layoutInfo.visibleItemsInfo.isEmpty()) {
-            LaunchedEffect(key1 = itemList) {
+            LaunchedEffect(key1 = itemListState.feedItems) {
                 fetchMore?.invoke()
             }
         }

@@ -8,19 +8,24 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import net.davidcrotty.itemcatalogue.items.usecase.GetFeedUsecase
 import net.davidcrotty.itemcatalogue.model.FeedItem
+import net.davidcrotty.itemcatalogue.model.ListTemplateState
+import net.davidcrotty.itemcatalogue.model.LoadingState
 
 class ListTemplateViewModel(
     private val getFeedUsecase: GetFeedUsecase
 ) : ViewModel() {
 
     // TODO challenge why not emit this as an alltogether ui state? Yes, means less args passed around (clean code varadic args)
-    val items: StateFlow<List<FeedItem>>
+    val listState: StateFlow<ListTemplateState>
         get() = _items
 
-    private val _items = MutableStateFlow<List<FeedItem>>(emptyList())
+    private val _items = MutableStateFlow(ListTemplateState(emptyList(), LoadingState.CanLoadMore))
 
     fun fetchItems() {
         viewModelScope.launch {
+            // keep track of next set of models, each invoke picks up next set from returned
+
+            // if a 4xx response received, throw NotFoundException, state gets changed
             val feedModels = getFeedUsecase.getFeed().map { entity ->
                 FeedItem(
                     url = entity.url,
@@ -30,7 +35,12 @@ class ListTemplateViewModel(
                 )
             }
 
-            _items.emit(feedModels)
+            _items.emit(
+                ListTemplateState(
+                    feedModels,
+                    LoadingState.CanLoadMore
+                )
+            )
         }
     }
 
