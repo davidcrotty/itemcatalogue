@@ -20,6 +20,7 @@ import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.ListDivider
 import net.davidcrotty.itemcatalogue.atom.LoadingIndicator
 import net.davidcrotty.itemcatalogue.model.FeedItem
+import net.davidcrotty.itemcatalogue.molecule.FeedLoadingIndicator
 
 @Composable
 fun ItemList(
@@ -47,19 +48,7 @@ fun ItemList(
             }
 
             item {
-                val loadingContentDescription = stringResource(id = R.string.item_feed_loading)
-                Box(
-                    contentAlignment = Alignment.TopCenter,
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(dimensionResource(id = R.dimen.padding_medium))
-                ) {
-                    LoadingIndicator(
-                        modifier = Modifier.semantics {
-                            contentDescription = loadingContentDescription
-                        }
-                    )
-                }
+                FeedLoadingIndicator()
             }
         }
 
