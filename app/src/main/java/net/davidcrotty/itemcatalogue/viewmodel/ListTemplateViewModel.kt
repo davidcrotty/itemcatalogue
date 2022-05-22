@@ -1,5 +1,6 @@
 package net.davidcrotty.itemcatalogue.viewmodel
 
+import android.util.Log
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.snapshots.SnapshotStateList
@@ -14,23 +15,28 @@ import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 import net.davidcrotty.itemcatalogue.items.usecase.GetFeedUsecase
 import net.davidcrotty.itemcatalogue.model.FeedItem
 import java.util.*
+import kotlin.collections.ArrayList
 
 class ListTemplateViewModel(
     private val getFeedUsecase: GetFeedUsecase
 ) : ViewModel() {
 
-    val items: SnapshotStateList<FeedItem>
+    val items: StateFlow<List<FeedItem>>
         get() = _items
     val isLoading: Flow<Boolean>
         get() = _isLoading
 
-    private val _items = mutableStateListOf<FeedItem>()
+    private val _items = MutableStateFlow<List<FeedItem>>(emptyList())
 
     private val _isLoading: MutableStateFlow<Boolean> = MutableStateFlow(true)
 
+    init {
+        Log.d("ListTemplateViewModel", "created")
+    }
+
     fun fetchItems() {
         viewModelScope.launch {
-            val feedModel = getFeedUsecase.getFeed().map { entity ->
+            val feedModels = getFeedUsecase.getFeed().map { entity ->
                 FeedItem(
                     url = entity.url,
                     type = entity.type,
@@ -39,7 +45,7 @@ class ListTemplateViewModel(
                 )
             }
 
-            items.addAll(feedModel.toMutableList())
+            _items.emit(feedModels)
         }
     }
 

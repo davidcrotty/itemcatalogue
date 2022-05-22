@@ -9,9 +9,9 @@ import net.davidcrotty.itemcatalogue.template.ListTemplate
 @Composable
 fun ItemListScreen(itemScreenGraph: ItemScreenGraph, navigate: ((path: String) -> Unit)? = null) {
     val itemsViewModel = itemScreenGraph.itemViewModel()
-    val itemStateList = itemsViewModel.items
+    val itemStateList = itemsViewModel.items.collectAsState()
     val isLoading by itemsViewModel.isLoading.collectAsState(true)
-    ListTemplate(itemStateList, isLoading, navigate) {
+    ListTemplate(itemStateList.value, isLoading, navigate) {
         itemsViewModel.fetchItems()
     }
 }
