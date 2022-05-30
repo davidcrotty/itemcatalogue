@@ -1,6 +1,5 @@
 package net.davidcrotty.itemcatalogue.viewmodel
 
-import fr.xgouchet.elmyr.Forge
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -21,9 +20,10 @@ internal class ItemsViewModelTest : CoroutineTest {
     @Test
     fun when_fetching_items() = runBlocking {
         // Given a valid item list
+
         val itemList = listOf(
             Item(
-                id = ID(1),
+                id = ID("id"),
                 url = "url",
                 type = "type",
                 title = "title",

@@ -10,9 +10,10 @@ class ItemRepositoryImpl(private val itemDataSource: ItemDataSource,
                         private val indexCache: ItemCacheDataSource
 ) : ItemRepository {
     override suspend fun getItems(): List<Item> {
+        // two succesful calls should return different lists
         return itemDataSource.fetchAfter("next id").map { dto ->
             Item(
-                id = ID("ID"), // TODO ID to become string
+                id = ID(dto.id),
                 url = dto.thumbnail,
                 type = dto.type,
                 title = dto.caption,

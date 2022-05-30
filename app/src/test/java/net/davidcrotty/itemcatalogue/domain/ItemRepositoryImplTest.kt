@@ -17,7 +17,6 @@ internal class ItemRepositoryImplTest {
 
     @Test
     fun `when retrieving items`() {
-
         // Given an available remote list of items
         val thumbnail = forge.aString()
         val type = forge.aString()
@@ -26,7 +25,7 @@ internal class ItemRepositoryImplTest {
 
         val apiItems = listOf(
             ItemDTO(
-                id = forge.aString(),
+                id = "id",
                 type = type,
                 subtype = forge.aString(),
                 caption = caption,
@@ -37,7 +36,7 @@ internal class ItemRepositoryImplTest {
         )
         val expectedItems = listOf(
             Item(
-                id = ID(0),
+                id = ID("id"),
                 url = thumbnail,
                 type = type,
                 title = caption,
@@ -45,7 +44,8 @@ internal class ItemRepositoryImplTest {
             )
         )
         val sut = ItemRepositoryImpl(
-            mockk { coEvery { fetchAfter(any()) } returns apiItems }
+            itemDataSource = mockk { coEvery { fetchAfter(any()) } returns apiItems },
+            indexCache = mockk()
         )
 
         // when fetching items
