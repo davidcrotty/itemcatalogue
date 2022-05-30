@@ -5,7 +5,9 @@ import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
+import net.davidcrotty.itemcatalogue.data.item.ItemDataSource
 import net.davidcrotty.itemcatalogue.data.item.dto.pure.ItemDTO
+import net.davidcrotty.itemcatalogue.data.item.exception.ContentNotFound
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
@@ -61,7 +63,23 @@ internal class ItemRepositoryImplTest {
     }
 
     @Test
-    fun `when failing to retrieve items`() {
+    fun `when items cannot be found`() {
+        val api: ItemDataSource = mockk { coEvery { fetchAfter(any()) } throws ContentNotFound() }
+        val sut = ItemRepositoryImpl(
+            itemDataSource = api,
+            indexCache = mockk()
+        )
+
+        runBlocking {
+            sut.getItems()
+        }
+
+        // Then status should raise Unavailable with ItemsNotFound exception
+    }
+
+    @Test
+    fun `when server errors`() {
 
     }
+
 }
