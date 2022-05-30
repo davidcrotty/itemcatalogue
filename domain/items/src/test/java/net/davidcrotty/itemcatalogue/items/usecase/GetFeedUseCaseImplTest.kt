@@ -7,6 +7,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
+import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -17,15 +18,15 @@ internal class GetFeedUseCaseImplTest {
     @Test
     fun `when retrieving an item list`() {
         // Given a list of items
-        val expectedItems = listOf(
+        val expectedItems = ItemRepository.ItemStatus.Available(listOf(
             Item(
-                id = ID(1),
+                id = ID("id"),
                 url = forge.aString(),
                 type = forge.aString(),
                 title = forge.aString(),
                 description = forge.aString()
             )
-        )
+        ))
 
         val sut = GetFeedUseCaseImpl(
             mockk {
@@ -34,7 +35,7 @@ internal class GetFeedUseCaseImplTest {
         )
 
         // when fetching an item feed
-        var items: List<Item>?
+        var items: ItemRepository.ItemStatus
         runBlocking {
             items = sut.getFeed()
         }

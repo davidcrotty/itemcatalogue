@@ -8,6 +8,7 @@ import kotlinx.coroutines.runBlocking
 import net.davidcrotty.itemcatalogue.data.item.dto.pure.ItemDTO
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
+import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -34,7 +35,7 @@ internal class ItemRepositoryImplTest {
                 detailImage = forge.aString()
             )
         )
-        val expectedItems = listOf(
+        val expectedItems = ItemRepository.ItemStatus.Available(listOf(
             Item(
                 id = ID("id"),
                 url = thumbnail,
@@ -42,14 +43,14 @@ internal class ItemRepositoryImplTest {
                 title = caption,
                 description = description
             )
-        )
+        ))
         val sut = ItemRepositoryImpl(
             itemDataSource = mockk { coEvery { fetchAfter(any()) } returns apiItems },
             indexCache = mockk()
         )
 
         // when fetching items
-        var items: List<Item>?
+        var items: ItemRepository.ItemStatus?
         runBlocking {
             items = sut.getItems()
         }

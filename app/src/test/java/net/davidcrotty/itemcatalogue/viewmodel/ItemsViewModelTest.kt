@@ -8,6 +8,7 @@ import kotlinx.coroutines.test.TestCoroutineScheduler
 import net.davidcrotty.itemcatalogue.helpers.CoroutineTest
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
+import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 import net.davidcrotty.itemcatalogue.model.FeedItem
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -21,7 +22,7 @@ internal class ItemsViewModelTest : CoroutineTest {
     fun when_fetching_items() = runBlocking {
         // Given a valid item list
 
-        val itemList = listOf(
+        val itemList = ItemRepository.ItemStatus.Available(listOf(
             Item(
                 id = ID("id"),
                 url = "url",
@@ -29,7 +30,7 @@ internal class ItemsViewModelTest : CoroutineTest {
                 title = "title",
                 description = "description"
             )
-        )
+        ))
         val sut = ListTemplateViewModel(
             mockk {
                 coEvery { getFeed() } returns itemList

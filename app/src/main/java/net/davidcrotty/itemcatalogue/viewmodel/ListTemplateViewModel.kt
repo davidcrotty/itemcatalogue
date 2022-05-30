@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 import net.davidcrotty.itemcatalogue.items.usecase.GetFeedUsecase
 import net.davidcrotty.itemcatalogue.model.FeedItem
 import net.davidcrotty.itemcatalogue.model.ListTemplateState
@@ -26,21 +27,24 @@ class ListTemplateViewModel(
             // keep track of next set of models, each invoke picks up next set from returned
 
             // if a 4xx response received, throw NotFoundException, state gets changed
-            val feedModels = getFeedUsecase.getFeed().map { entity ->
-                FeedItem(
-                    url = entity.url,
-                    type = entity.type,
-                    title = entity.title,
-                    description = entity.description
+            val fetchResult = getFeedUsecase.getFeed()
+            if (fetchResult is ItemRepository.ItemStatus.Available) {
+                val feedModels = fetchResult.items.map { entity ->
+                    FeedItem(
+                        url = entity.url,
+                        type = entity.type,
+                        title = entity.title,
+                        description = entity.description
+                    )
+                }
+
+                _items.emit(
+                    ListTemplateState(
+                        feedModels,
+                        LoadingState.CanLoadMore
+                    )
                 )
             }
-
-            _items.emit(
-                ListTemplateState(
-                    feedModels,
-                    LoadingState.CanLoadMore
-                )
-            )
         }
     }
 
