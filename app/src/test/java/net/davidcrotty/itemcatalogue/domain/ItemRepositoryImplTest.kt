@@ -8,6 +8,7 @@ import kotlinx.coroutines.runBlocking
 import net.davidcrotty.itemcatalogue.data.item.ItemDataSource
 import net.davidcrotty.itemcatalogue.data.item.dto.pure.ItemDTO
 import net.davidcrotty.itemcatalogue.data.item.exception.ContentNotFound
+import net.davidcrotty.itemcatalogue.data.item.exception.ServerError
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
@@ -80,7 +81,18 @@ internal class ItemRepositoryImplTest {
 
     @Test
     fun `when server errors`() {
+        val api: ItemDataSource = mockk { coEvery { fetchAfter(any()) } throws ServerError() }
+        val sut = ItemRepositoryImpl(
+            itemDataSource = api,
+            indexCache = mockk()
+        )
 
+        val itemResult = runBlocking {
+            sut.getItems()
+        }
+
+        // Then status should raise Unavailable with ItemsNotFound exception
+        assertEquals(ItemRepository.ItemStatus.Unavailable, itemResult)
     }
 
 }
