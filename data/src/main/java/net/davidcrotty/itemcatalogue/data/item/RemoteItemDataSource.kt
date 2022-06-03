@@ -5,7 +5,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.davidcrotty.itemcatalogue.data.item.api.ItemAPI
 import net.davidcrotty.itemcatalogue.data.item.dto.pure.ItemDTO
+import net.davidcrotty.itemcatalogue.data.item.exception.ContentNotFound
 import net.davidcrotty.itemcatalogue.items.entity.Item
+import retrofit2.HttpException
 
 class RemoteItemDataSource(
     private val itemAPI: ItemAPI,
@@ -19,7 +21,15 @@ class RemoteItemDataSource(
     // TODO make into object for queries
     override suspend fun fetchAfter(id: String?, limit: Int): List<ItemDTO> {
         val items = withContext(dispatcher) {
-            itemAPI.getItems(apiToken, limit, id)
+            try {
+                itemAPI.getItems(apiToken, limit, id)
+            } catch (e: HttpException) {
+                if (e.code() == 404) {
+                    throw ContentNotFound()
+                } else {
+                    throw e
+                }
+            }
         }
 
         // Answer, only test the data adapter layer if needed - At the moment this isn't separated
