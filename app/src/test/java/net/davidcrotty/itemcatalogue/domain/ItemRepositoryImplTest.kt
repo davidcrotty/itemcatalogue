@@ -5,6 +5,7 @@ import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
+import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSource
 import net.davidcrotty.itemcatalogue.data.item.ItemDataSource
 import net.davidcrotty.itemcatalogue.data.item.dto.pure.ItemDTO
 import net.davidcrotty.itemcatalogue.data.item.exception.ContentNotFound
@@ -38,18 +39,10 @@ internal class ItemRepositoryImplTest {
                 detailImage = forge.aString()
             )
         )
-        val expectedItems = ItemRepository.ItemStatus.Available(listOf(
-            Item(
-                id = ID("id"),
-                url = thumbnail,
-                type = type,
-                title = caption,
-                description = description
-            )
-        ))
+
         val sut = ItemRepositoryImpl(
             itemDataSource = mockk { coEvery { fetchAfter(any(), any()) } returns apiItems },
-            indexCache = mockk(),
+            indexCache = mockk(relaxed = true),
             config = mockk(relaxed = true)
         )
 
@@ -61,6 +54,63 @@ internal class ItemRepositoryImplTest {
 
 
         // Then should return items
+        val expectedItems = ItemRepository.ItemStatus.Available(listOf(
+            Item(
+                id = ID("id"),
+                url = thumbnail,
+                type = type,
+                title = caption,
+                description = description
+            )
+        ))
+        assertEquals(expectedItems, items)
+    }
+
+    @Test
+    fun `when fetching items with previously fetched content`() {
+        val thumbnail = forge.aString()
+        val type = forge.aString()
+        val caption = forge.aString()
+        val description = forge.aString()
+        val id = forge.aString()
+
+        val apiItems = listOf(
+            ItemDTO(
+                id = id,
+                type = type,
+                subtype = forge.aString(),
+                caption = caption,
+                description = description,
+                thumbnail = thumbnail,
+                detailImage = forge.aString()
+            )
+        )
+
+        val mockDataSource: ItemDataSource = mockk {
+            coEvery { fetchAfter("next id", any()) } returns apiItems
+        }
+        val indexCache: ItemCacheDataSource = mockk {
+            every { lastID() } returns ID("next id")
+        }
+        val sut = ItemRepositoryImpl(
+            mockDataSource,
+            indexCache,
+            mockk(relaxed = true)
+        )
+
+        val items = runBlocking {
+            sut.getItems()
+        }
+
+        val expectedItems = ItemRepository.ItemStatus.Available(listOf(
+            Item(
+                id = ID(id),
+                url = thumbnail,
+                type = type,
+                title = caption,
+                description = description
+            )
+        ))
         assertEquals(expectedItems, items)
     }
 
@@ -69,7 +119,7 @@ internal class ItemRepositoryImplTest {
         val api: ItemDataSource = mockk { coEvery { fetchAfter(any(), any()) } throws ContentNotFound() }
         val sut = ItemRepositoryImpl(
             itemDataSource = api,
-            indexCache = mockk(),
+            indexCache = mockk(relaxed = true),
             config = mockk(relaxed = true)
         )
 
@@ -86,7 +136,7 @@ internal class ItemRepositoryImplTest {
         val api: ItemDataSource = mockk { coEvery { fetchAfter(any(), any()) } throws ServerError() }
         val sut = ItemRepositoryImpl(
             itemDataSource = api,
-            indexCache = mockk(),
+            indexCache = mockk(relaxed = true),
             config = mockk(relaxed = true)
         )
 
