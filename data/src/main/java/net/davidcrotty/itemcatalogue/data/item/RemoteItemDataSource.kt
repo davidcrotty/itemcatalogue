@@ -19,7 +19,7 @@ class RemoteItemDataSource(
     // TODO make into object for queries
     override suspend fun fetchAfter(id: String?, limit: Int): List<ItemDTO> {
         val items = withContext(dispatcher) {
-            itemAPI.getItems(apiToken, limit)
+            itemAPI.getItems(apiToken, limit, id)
         }
 
         // Answer, only test the data adapter layer if needed - At the moment this isn't separated
