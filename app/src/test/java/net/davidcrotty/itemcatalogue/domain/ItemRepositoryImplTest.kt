@@ -90,7 +90,7 @@ internal class ItemRepositoryImplTest {
             coEvery { fetchAfter("next id", any()) } returns apiItems
         }
         val indexCache: ItemCacheDataSource = mockk {
-            every { lastID() } returns ID("next id")
+            every { getLastID() } returns ID("next id")
         }
         val sut = ItemRepositoryImpl(
             mockDataSource,

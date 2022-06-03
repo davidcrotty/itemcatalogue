@@ -3,7 +3,14 @@ package net.davidcrotty.itemcatalogue.data.item
 import net.davidcrotty.itemcatalogue.items.entity.ID
 
 class ItemCacheDataSourceImpl : ItemCacheDataSource {
-    override fun lastID(): ID {
-        return ID("last id")
+
+    private var lastFetchedID: ID? = null
+
+    override fun getLastID(): ID? {
+        return lastFetchedID
+    }
+
+    override fun setLastID(id: ID) {
+        lastFetchedID = id
     }
 }

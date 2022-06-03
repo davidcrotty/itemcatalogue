@@ -16,7 +16,7 @@ class ItemRepositoryImpl(
 ) : ItemRepository {
     override suspend fun getItems(): ItemRepository.ItemStatus {
         val itemData = try {
-            itemDataSource.fetchAfter(indexCache.lastID().value, config.pageLimit)
+            itemDataSource.fetchAfter(indexCache.getLastID()?.value, config.pageLimit)
         } catch (e: ContentNotFound) {
             return ItemRepository.ItemStatus.Unavailable
         } catch (e: ServerError) {
