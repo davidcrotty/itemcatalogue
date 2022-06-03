@@ -1,9 +1,7 @@
 package net.davidcrotty.itemcatalogue.domain
 
 import fr.xgouchet.elmyr.Forge
-import io.mockk.coEvery
-import io.mockk.every
-import io.mockk.mockk
+import io.mockk.*
 import kotlinx.coroutines.runBlocking
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSource
 import net.davidcrotty.itemcatalogue.data.item.ItemDataSource
@@ -39,10 +37,11 @@ internal class ItemRepositoryImplTest {
                 detailImage = forge.aString()
             )
         )
+        val indexCache: ItemCacheDataSource = mockk(relaxed = true)
 
         val sut = ItemRepositoryImpl(
             itemDataSource = mockk { coEvery { fetchAfter(any(), any()) } returns apiItems },
-            indexCache = mockk(relaxed = true),
+            indexCache = indexCache,
             config = mockk(relaxed = true)
         )
 
@@ -64,6 +63,7 @@ internal class ItemRepositoryImplTest {
             )
         ))
         assertEquals(expectedItems, items)
+        verify { indexCache.setLastID(ID("id")) }
     }
 
     @Test
@@ -91,6 +91,7 @@ internal class ItemRepositoryImplTest {
         }
         val indexCache: ItemCacheDataSource = mockk {
             every { getLastID() } returns ID("next id")
+            every { setLastID(any()) } just Runs
         }
         val sut = ItemRepositoryImpl(
             mockDataSource,
@@ -112,6 +113,7 @@ internal class ItemRepositoryImplTest {
             )
         ))
         assertEquals(expectedItems, items)
+        verify { indexCache.setLastID(ID(id)) }
     }
 
     @Test

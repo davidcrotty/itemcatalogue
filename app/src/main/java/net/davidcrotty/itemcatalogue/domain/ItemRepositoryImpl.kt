@@ -24,13 +24,16 @@ class ItemRepositoryImpl(
         }
 
         val items = itemData.map { dto ->
-            Item(
-                id = ID(dto.id),
+            val id = ID(dto.id)
+            val item = Item(
+                id = id,
                 url = dto.thumbnail,
                 type = dto.type,
                 title = dto.caption,
                 description = dto.description
             )
+            indexCache.setLastID(id)
+            item
         }
 
         return ItemRepository.ItemStatus.Available(items)
