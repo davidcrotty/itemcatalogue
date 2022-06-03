@@ -70,11 +70,12 @@ internal class ItemRepositoryImplTest {
             indexCache = mockk()
         )
 
-        runBlocking {
+        val itemResult = runBlocking {
             sut.getItems()
         }
 
         // Then status should raise Unavailable with ItemsNotFound exception
+        assertEquals(ItemRepository.ItemStatus.Unavailable, itemResult)
     }
 
     @Test
