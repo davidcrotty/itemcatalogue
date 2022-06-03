@@ -2,6 +2,7 @@ package net.davidcrotty.itemcatalogue.data.item
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import net.davidcrotty.itemcatalogue.data.item.api.ItemAPI
 import net.davidcrotty.itemcatalogue.data.item.dto.pure.ItemDTO
 import net.davidcrotty.itemcatalogue.items.entity.Item
@@ -17,9 +18,9 @@ class RemoteItemDataSource(
 
     // TODO make into object for queries
     override suspend fun fetchAfter(id: String, limit: Int): List<ItemDTO> {
-//        withContext(dispatcher) {
-            val items = itemAPI.getItems(apiToken, limit)
-//        }
+        val items = withContext(dispatcher) {
+            itemAPI.getItems(apiToken, limit)
+        }
 
         // Answer, only test the data adapter layer if needed - At the moment this isn't separated
         return items.map {
