@@ -4,6 +4,7 @@ import com.squareup.moshi.Moshi
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSource
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSourceImpl
 import net.davidcrotty.itemcatalogue.data.item.RemoteItemDataSource
+import net.davidcrotty.itemcatalogue.model.Configuration
 import net.davidcrotty.itemcatalogue.domain.ItemRepositoryImpl
 import okhttp3.OkHttpClient
 
@@ -17,6 +18,8 @@ class DndCatalogueAppGraphImpl : DndCatalogueAppContainer {
         )
     }
 
+    private val configuration: Configuration by lazy { Configuration(pageLimit = 10) }
+
     private val itemsFetchedCache: ItemCacheDataSource by lazy {
         ItemCacheDataSourceImpl()
     }
@@ -25,7 +28,8 @@ class DndCatalogueAppGraphImpl : DndCatalogueAppContainer {
         return ItemScreenGraphImpl(
             ItemRepositoryImpl(
                 RemoteItemDataSource(apiFactory.getInstance()),
-                itemsFetchedCache
+                itemsFetchedCache,
+                configuration
             )
         )
     }

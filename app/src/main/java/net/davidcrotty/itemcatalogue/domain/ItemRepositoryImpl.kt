@@ -7,15 +7,17 @@ import net.davidcrotty.itemcatalogue.data.item.exception.ServerError
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
+import net.davidcrotty.itemcatalogue.model.Configuration
 
 class ItemRepositoryImpl(
     private val itemDataSource: ItemDataSource,
-    private val indexCache: ItemCacheDataSource
+    private val indexCache: ItemCacheDataSource,
+    private val config: Configuration
 ) : ItemRepository {
     override suspend fun getItems(): ItemRepository.ItemStatus {
         // two successful calls should return different lists
         val itemData = try {
-            itemDataSource.fetchAfter("next id")
+            itemDataSource.fetchAfter("next id", config.pageLimit)
         } catch (e: ContentNotFound) {
             return ItemRepository.ItemStatus.Unavailable
         } catch (e: ServerError) {

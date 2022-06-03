@@ -48,8 +48,9 @@ internal class ItemRepositoryImplTest {
             )
         ))
         val sut = ItemRepositoryImpl(
-            itemDataSource = mockk { coEvery { fetchAfter(any()) } returns apiItems },
-            indexCache = mockk()
+            itemDataSource = mockk { coEvery { fetchAfter(any(), any()) } returns apiItems },
+            indexCache = mockk(),
+            config = mockk(relaxed = true)
         )
 
         // when fetching items
@@ -65,10 +66,11 @@ internal class ItemRepositoryImplTest {
 
     @Test
     fun `when items cannot be found`() {
-        val api: ItemDataSource = mockk { coEvery { fetchAfter(any()) } throws ContentNotFound() }
+        val api: ItemDataSource = mockk { coEvery { fetchAfter(any(), any()) } throws ContentNotFound() }
         val sut = ItemRepositoryImpl(
             itemDataSource = api,
-            indexCache = mockk()
+            indexCache = mockk(),
+            config = mockk(relaxed = true)
         )
 
         val itemResult = runBlocking {
@@ -81,10 +83,11 @@ internal class ItemRepositoryImplTest {
 
     @Test
     fun `when server errors`() {
-        val api: ItemDataSource = mockk { coEvery { fetchAfter(any()) } throws ServerError() }
+        val api: ItemDataSource = mockk { coEvery { fetchAfter(any(), any()) } throws ServerError() }
         val sut = ItemRepositoryImpl(
             itemDataSource = api,
-            indexCache = mockk()
+            indexCache = mockk(),
+            config = mockk(relaxed = true)
         )
 
         val itemResult = runBlocking {

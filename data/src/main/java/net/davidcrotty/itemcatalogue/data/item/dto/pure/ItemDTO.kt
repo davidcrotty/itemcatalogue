@@ -1,6 +1,6 @@
 package net.davidcrotty.itemcatalogue.data.item.dto.pure
 
-class ItemDTO(
+data class ItemDTO(
     val id: String,
     val type: String,
     val subtype: String,

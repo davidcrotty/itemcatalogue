@@ -1,7 +1,7 @@
 !tape
 name: when calling api
 interactions:
-- recorded: 2022-04-15T11:51:46.303Z
+- recorded: 2022-06-03T21:32:32.520Z
   request:
     method: GET
     uri: https://us-central1-dnd-tools-cb5b7.cloudfunctions.net/api/item
@@ -11,18 +11,53 @@ interactions:
     status: 200
     headers:
       alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
-      content-length: '2080'
+      content-length: '6931'
       content-type: application/json; charset=utf-8
-      date: Fri, 15 Apr 2022 11:51:46 GMT
-      etag: W/"820-+/XsugAKb2ThaOqv6yjLHYoLYnE"
-      function-execution-id: uf878q266nrh
+      date: Fri, 03 Jun 2022 21:32:32 GMT
+      etag: W/"1b13-1pT+W+j9EmRpb0puW2NWj2+/4I0"
+      function-execution-id: otjz1o16zbu9
       server: Google Frontend
       vary: Origin
-      x-cloud-trace-context: a75c52dd4f47020e19455d46cd8128a5;o=1
+      x-cloud-trace-context: 443d9c5b2085afe4a6f9ea112b0a5ebe;o=1
       x-powered-by: Express
     body: '[{"_id":"624842bb3c93ea918aa9585c","type":"Weapon","subtype":"sword","caption":"damage combat","description":"The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1","thumbnail":"https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg","detail_image":"https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450","stats":{"rules_text":"Proficiency
       with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it","name":"battleaxe","type":"Martial Melee Weapon","Weight":"4 lbs","Damage":"1d8 Slashing","properties":["Versatile 1d10"]}},{"_id":"62595c094d73bccd99d1eebf","type":"Weapon","subtype":"sword","caption":"damage
       combat","description":"The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1","thumbnail":"https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg","detail_image":"https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450","stats":{"rules_text":"Proficiency
       with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it","name":"battleaxe","type":"Martial Melee Weapon","Weight":"4 lbs","Damage":"1d8 Slashing","properties":["Versatile 1d10"]}},{"_id":"62595c284d73bccd99d1eec1","type":"Weapon","subtype":"sword","caption":"damage
       combat","description":"The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1","thumbnail":"https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg","detail_image":"https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450","stats":{"rules_text":"Proficiency
+      with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it","name":"battleaxe","type":"Martial Melee Weapon","Weight":"4 lbs","Damage":"1d8 Slashing","properties":["Versatile 1d10"]}},{"_id":"6282a6cf9d8ec0cf218e9d9d","type":"Weapon","subtype":"sword","caption":"damage
+      combat","description":"The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1","thumbnail":"https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg","detail_image":"https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450","stats":{"rules_text":"Proficiency
+      with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it","name":"battleaxe","type":"Martial Melee Weapon","Weight":"4 lbs","Damage":"1d8 Slashing","properties":["Versatile 1d10"]}},{"_id":"6282a70b9d8ec0cf218e9d9f","type":"Weapon","subtype":"sword","caption":"damage
+      combat","description":"The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1","thumbnail":"https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg","detail_image":"https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450","stats":{"rules_text":"Proficiency
+      with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it","name":"battleaxe","type":"Martial Melee Weapon","Weight":"4 lbs","Damage":"1d8 Slashing","properties":["Versatile 1d10"]}},{"_id":"6282a71f9d8ec0cf218e9da0","type":"Weapon","subtype":"sword","caption":"damage
+      combat","description":"The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1","thumbnail":"https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg","detail_image":"https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450","stats":{"rules_text":"Proficiency
+      with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it","name":"battleaxe","type":"Martial Melee Weapon","Weight":"4 lbs","Damage":"1d8 Slashing","properties":["Versatile 1d10"]}},{"_id":"6282a7379d8ec0cf218e9da1","type":"Weapon","subtype":"sword","caption":"damage
+      combat","description":"The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1","thumbnail":"https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg","detail_image":"https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450","stats":{"rules_text":"Proficiency
+      with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it","name":"battleaxe","type":"Martial Melee Weapon","Weight":"4 lbs","Damage":"1d8 Slashing","properties":["Versatile 1d10"]}},{"_id":"6282a7549d8ec0cf218e9da2","type":"Weapon","subtype":"sword","caption":"damage
+      combat","description":"The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1","thumbnail":"https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg","detail_image":"https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450","stats":{"rules_text":"Proficiency
+      with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it","name":"battleaxe","type":"Martial Melee Weapon","Weight":"4 lbs","Damage":"1d8 Slashing","properties":["Versatile 1d10"]}},{"_id":"6282a78c9d8ec0cf218e9da3","type":"Weapon","subtype":"sword","caption":"damage
+      combat","description":"The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1","thumbnail":"https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg","detail_image":"https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450","stats":{"rules_text":"Proficiency
+      with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it","name":"battleaxe","type":"Martial Melee Weapon","Weight":"4 lbs","Damage":"1d8 Slashing","properties":["Versatile 1d10"]}},{"_id":"6282a7ac9d8ec0cf218e9da4","type":"Weapon","subtype":"sword","caption":"damage
+      combat","description":"The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1","thumbnail":"https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg","detail_image":"https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450","stats":{"rules_text":"Proficiency
+      with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it","name":"battleaxe","type":"Martial Melee Weapon","Weight":"4 lbs","Damage":"1d8 Slashing","properties":["Versatile 1d10"]}}]'
+- recorded: 2022-06-03T21:49:12.842Z
+  request:
+    method: GET
+    uri: https://us-central1-dnd-tools-cb5b7.cloudfunctions.net/api/item?limit=1
+    headers:
+      Authorization: eyJhbGciOiJSUzI1NiIsImtpZCI6IjcyOTE4OTQ1MGQ0OTAyODU3MDQyNTI2NmYwM2U3MzdmNDVhZjI5MzIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzMjU1NTk0MDU1OS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjMyNTU1OTQwNTU5LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAxMjU2NTc5MjEwMTUyOTIxMjQ4IiwiZW1haWwiOiJkYXZpZGNyb3R0eXdvcmtAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJELU55V1BuM2RTZmFQaEhYazZzb293IiwiaWF0IjoxNjQ3ODA3ODA0LCJleHAiOjE2NDc4MTE0MDR9.CPf-NVaEljIdTMF48bx2VB9K1uKVQnF-gUZpkylAxP58JNZK5DRbK6FW1GfAKZoMZVHtR4Xz48jkdq5gXXsM-WfqSTmiXBsKEGk84gkYWtwAG-3h-ObDmEq3L75FPHdloT0eoXqMAM57M9JvTmiDmWtSkJF6puNqFUEK8TITE8JTjkhxWZ_-JYiHsPi1FDZZT03zVlzqs-Gx1--o8OXww52Q7y8F5z5_75RDvV7qf6MKnq3q4Nyjc27qsSZv0Tfri5QZfgVz3QFnu6e-K1LsH8VuCZf7J3idvDpIc6FIlK-tFzR0lG0xythi7ImTEdkIxgdFgdjWZ09YC36KmzJE3A
+  response:
+    status: 200
+    headers:
+      alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
+      content-length: '694'
+      content-type: application/json; charset=utf-8
+      date: Fri, 03 Jun 2022 21:49:12 GMT
+      etag: W/"2b6-FknLlqMPt7T8rpro3EanIo45xRY"
+      function-execution-id: hzt6wwjjz98b
+      server: Google Frontend
+      vary: Origin
+      x-cloud-trace-context: a8e07fd05d95f7420c02b4f5cd916799;o=1
+      x-powered-by: Express
+    body: '[{"_id":"624842bb3c93ea918aa9585c","type":"Weapon","subtype":"sword","caption":"damage combat","description":"The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1","thumbnail":"https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg","detail_image":"https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450","stats":{"rules_text":"Proficiency
       with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it","name":"battleaxe","type":"Martial Melee Weapon","Weight":"4 lbs","Damage":"1d8 Slashing","properties":["Versatile 1d10"]}}]'
