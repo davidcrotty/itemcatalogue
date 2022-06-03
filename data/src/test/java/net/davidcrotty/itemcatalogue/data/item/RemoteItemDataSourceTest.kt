@@ -22,7 +22,7 @@ internal class RemoteItemDataSourceTest {
 
     private val config = OkReplayConfig.Builder()
         .tapeRoot(File("src/test/resources/remote_item_api"))
-        .defaultMode(TapeMode.WRITE_ONLY)
+        .defaultMode(TapeMode.READ_ONLY)
         .interceptor(testInterceptor)
         .build()
 

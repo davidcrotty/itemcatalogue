@@ -22,7 +22,7 @@ interactions:
       x-powered-by: Express
     body: '[{"_id":"624842bb3c93ea918aa9585c","type":"Weapon","subtype":"sword","caption":"damage combat","description":"The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1","thumbnail":"https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg","detail_image":"https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450","stats":{"rules_text":"Proficiency
       with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it","name":"battleaxe","type":"Martial Melee Weapon","Weight":"4 lbs","Damage":"1d8 Slashing","properties":["Versatile 1d10"]}}]'
-- recorded: 2022-06-03T22:41:10.341Z
+- recorded: 2022-06-03T22:48:55.769Z
   request:
     method: GET
     uri: https://us-central1-dnd-tools-cb5b7.cloudfunctions.net/api/item?limit=1
@@ -34,12 +34,12 @@ interactions:
       alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000,h3-Q050=":443"; ma=2592000,h3-Q046=":443"; ma=2592000,h3-Q043=":443"; ma=2592000,quic=":443"; ma=2592000; v="46,43"
       content-length: '694'
       content-type: application/json; charset=utf-8
-      date: Fri, 03 Jun 2022 22:41:10 GMT
+      date: Fri, 03 Jun 2022 22:48:55 GMT
       etag: W/"2b6-FknLlqMPt7T8rpro3EanIo45xRY"
-      function-execution-id: 0ayr63rv91cr
+      function-execution-id: 0ayrqmgipkld
       server: Google Frontend
       vary: Origin
-      x-cloud-trace-context: 0b58b60d77def986fb6dc00898a230ba;o=1
+      x-cloud-trace-context: bec05c3668537abdec1c7db07fe46f0f;o=1
       x-powered-by: Express
     body: '[{"_id":"624842bb3c93ea918aa9585c","type":"Weapon","subtype":"sword","caption":"damage combat","description":"The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1","thumbnail":"https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg","detail_image":"https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450","stats":{"rules_text":"Proficiency
       with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it","name":"battleaxe","type":"Martial Melee Weapon","Weight":"4 lbs","Damage":"1d8 Slashing","properties":["Versatile 1d10"]}}]'

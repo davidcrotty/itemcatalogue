@@ -10,6 +10,6 @@ interface ItemAPI {
     suspend fun getItems(
         @Header("Authorization") token: String,
         @Query("limit") limit: Int,
-        @Query("lastId") lastId: String? = null
+        @Query("lastid") lastId: String? = null
     ): List<ItemMoshiDTO>
 }
