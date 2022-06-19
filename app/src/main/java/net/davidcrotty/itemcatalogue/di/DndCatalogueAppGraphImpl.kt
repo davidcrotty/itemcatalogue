@@ -18,7 +18,7 @@ class DndCatalogueAppGraphImpl : DndCatalogueAppContainer {
         )
     }
 
-    private val configuration: Configuration by lazy { Configuration(pageLimit = 10) }
+    private val configuration: Configuration by lazy { Configuration(pageLimit = 6) }
 
     private val itemsFetchedCache: ItemCacheDataSource by lazy {
         ItemCacheDataSourceImpl()

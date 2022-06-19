@@ -48,7 +48,8 @@ fun ItemListTemplate(
 
                 if (index >= itemListState.feedItems.size - 1) {
                     LaunchedEffect(itemListState.feedItems.size) {
-                        fetchMore?.invoke()
+                        Log.d("ItemList", "fetching more")
+                        fetchMore.invoke()
                     }
                 }
 
@@ -68,6 +69,7 @@ fun ItemListTemplate(
 
         if (listState.layoutInfo.visibleItemsInfo.isEmpty()) {
             LaunchedEffect(key1 = itemListState.feedItems) {
+                Log.d("ItemList", "fetching more")
                 fetchMore.invoke()
             }
         }
