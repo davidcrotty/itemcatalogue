@@ -7,11 +7,7 @@ Happ/src/test/java/net/davidcrotty/itemcatalogue/helpers/CoroutineTest.kt,e/0/e
 Qapp/src/test/java/net/davidcrotty/itemcatalogue/helpers/TestCoroutineExtension.kt,4/e/4ee777ec7adb9c90e664e6e7bf3b11595b7362d5
 }
 Mdomain/items/src/main/java/net/davidcrotty/itemcatalogue/items/entity/Item.kt,b/0/b08a826a1b8202b09108f436f74c4316b802f781
-{
-Kapp/src/main/java/net/davidcrotty/itemcatalogue/viewmodel/ItemsViewModel.kt,5/c/5cb2cde78f8713fb70ef70e58ebca0788e6a87fc
 
 Oapp/src/test/java/net/davidcrotty/itemcatalogue/viewmodel/ItemsViewModelTest.kt,d/4/d4d312d2ad1818a2569dce01790fa5637fba2f9a
 @
 build.gradle.kts,d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d
-@
-app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
