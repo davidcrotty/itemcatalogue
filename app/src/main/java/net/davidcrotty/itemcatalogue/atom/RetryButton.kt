@@ -3,6 +3,7 @@ package net.davidcrotty.itemcatalogue.atom
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
@@ -11,8 +12,8 @@ import net.davidcrotty.itemcatalogue.R
 
 @Composable
 @Preview
-fun RetryButton() {
-    IconButton(onClick = { /*TODO*/ }) {
+fun RetryButton(modifier: Modifier = Modifier) {
+    IconButton(onClick = { /*TODO*/ }, modifier = modifier) {
         Icon(imageVector = ImageVector.vectorResource(id = R.drawable.restart_alt_48px), contentDescription = stringResource(
             id = R.string.retry_button
         ))

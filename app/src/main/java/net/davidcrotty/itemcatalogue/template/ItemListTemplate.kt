@@ -18,6 +18,7 @@ import net.davidcrotty.itemcatalogue.model.FeedItem
 import net.davidcrotty.itemcatalogue.model.ListTemplateState
 import net.davidcrotty.itemcatalogue.model.LoadingState
 import net.davidcrotty.itemcatalogue.molecule.FeedLoadingIndicator
+import net.davidcrotty.itemcatalogue.molecule.FeedRetryIndicator
 import net.davidcrotty.itemcatalogue.organism.ItemCard
 
 @Composable
@@ -57,7 +58,7 @@ fun ItemListTemplate(
             item {
                 when(itemListState.loadingState) {
                     is LoadingState.Retry -> {
-                        RetryButton()
+                        FeedRetryIndicator()
                     } else -> {
                         FeedLoadingIndicator()
                     }
