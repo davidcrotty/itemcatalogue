@@ -147,7 +147,7 @@ internal class ItemRepositoryImplTest {
         }
 
         // Then status should raise Unavailable with ItemsNotFound exception
-        assertEquals(ItemRepository.ItemStatus.Unavailable, itemResult)
+        assertEquals(ItemRepository.ItemStatus.RecoverableError, itemResult)
     }
 
 }

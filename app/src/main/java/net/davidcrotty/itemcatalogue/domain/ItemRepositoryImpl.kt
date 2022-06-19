@@ -20,7 +20,7 @@ class ItemRepositoryImpl(
         } catch (e: ContentNotFound) {
             return ItemRepository.ItemStatus.Unavailable
         } catch (e: ContentFailedToFetch) {
-            return ItemRepository.ItemStatus.Unavailable
+            return ItemRepository.ItemStatus.RecoverableError
         }
 
         val items = itemData.map { dto ->
