@@ -68,6 +68,7 @@ internal class ItemsViewModelTest : CoroutineTest {
         )
 
         sut.fetchItems()
+        testScheduler.advanceUntilIdle()
 
         // TODO test existing items not lost
         val result = sut.listState.value
