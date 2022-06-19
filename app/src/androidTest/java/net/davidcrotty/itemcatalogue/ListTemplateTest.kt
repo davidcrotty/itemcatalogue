@@ -22,4 +22,13 @@ class ListTemplateTest {
         composeTestRule.onNodeWithContentDescription("Item Feed Loading indicator").assertExists()
     }
 
+    @Test
+    fun when_rendering_retry_button_visible() {
+        composeTestRule.setContent {
+            ItemListTemplate(itemListState = ListTemplateState(emptyList(), LoadingState.Retry))
+        }
+
+        composeTestRule.onNodeWithContentDescription("Item Feed Retry indicator").assertExists()
+    }
+
 }

@@ -13,6 +13,7 @@ import androidx.compose.ui.semantics.semantics
 import net.davidcrotty.itemcatalogue.atom.ListDivider
 import net.davidcrotty.itemcatalogue.model.FeedItem
 import net.davidcrotty.itemcatalogue.model.ListTemplateState
+import net.davidcrotty.itemcatalogue.model.LoadingState
 import net.davidcrotty.itemcatalogue.molecule.FeedLoadingIndicator
 import net.davidcrotty.itemcatalogue.organism.ItemCard
 
@@ -50,7 +51,13 @@ fun ItemListTemplate(
             }
 
             item {
-                FeedLoadingIndicator()
+                when(itemListState.loadingState) {
+                    is LoadingState.Retry -> {
+
+                    } else -> {
+                        FeedLoadingIndicator()
+                    }
+                }
             }
         }
 
