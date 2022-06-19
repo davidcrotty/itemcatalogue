@@ -44,6 +44,13 @@ class ListTemplateViewModel(
                         LoadingState.CanLoadMore
                     )
                 )
+            } else if (fetchResult is ItemRepository.ItemStatus.RecoverableError) {
+                _items.emit(
+                    ListTemplateState(
+                        feedItems = listState.value.feedItems,
+                        loadingState = LoadingState.Retry
+                    )
+                )
             }
         }
     }

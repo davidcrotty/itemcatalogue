@@ -1,6 +1,7 @@
 package net.davidcrotty.itemcatalogue.viewmodel
 
 import io.mockk.coEvery
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -9,7 +10,10 @@ import net.davidcrotty.itemcatalogue.helpers.CoroutineTest
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
+import net.davidcrotty.itemcatalogue.items.usecase.GetFeedUsecase
 import net.davidcrotty.itemcatalogue.model.FeedItem
+import net.davidcrotty.itemcatalogue.model.ListTemplateState
+import net.davidcrotty.itemcatalogue.model.LoadingState
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -52,5 +56,25 @@ internal class ItemsViewModelTest : CoroutineTest {
             )
         )
         assertEquals(expected, state)
+    }
+
+    @Test
+    fun `when fetching items with recoverable error`() {
+        val getFeedUsecase: GetFeedUsecase = mockk {
+            coEvery { getFeed() } returns ItemRepository.ItemStatus.RecoverableError
+        }
+        val sut = ListTemplateViewModel(
+            getFeedUsecase = getFeedUsecase
+        )
+
+        sut.fetchItems()
+
+        // TODO test existing items not lost
+        val result = sut.listState.value
+        val expected = ListTemplateState(
+            feedItems = emptyList(),
+            loadingState = LoadingState.Retry
+        )
+        assertEquals(expected, result)
     }
 }

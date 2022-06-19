@@ -5,4 +5,5 @@ data class ListTemplateState(val feedItems: List<FeedItem>, val loadingState: Lo
 sealed class LoadingState {
     object CanLoadMore: LoadingState()
     object NoContent: LoadingState()
+    object Retry: LoadingState()
 }
