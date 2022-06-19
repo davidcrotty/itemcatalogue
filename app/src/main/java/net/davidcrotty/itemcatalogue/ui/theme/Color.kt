@@ -24,3 +24,5 @@ val Grey800 = Color(0xFFb3b3b3)
 val Grey900 = Color(0xFFD3CECD)
 
 val Red500 = Color(0xFF9B4D43)
+val Red600 = Color(0xFFCF6679)
+val Red800 = Color(0xFFC70332)
