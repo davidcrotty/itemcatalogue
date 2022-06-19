@@ -5,9 +5,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import net.davidcrotty.itemcatalogue.data.item.api.ItemAPI
 import net.davidcrotty.itemcatalogue.data.item.dto.pure.ItemDTO
+import net.davidcrotty.itemcatalogue.data.item.exception.ContentFailedToFetch
 import net.davidcrotty.itemcatalogue.data.item.exception.ContentNotFound
-import net.davidcrotty.itemcatalogue.items.entity.Item
 import retrofit2.HttpException
+import java.io.IOException
 
 class RemoteItemDataSource(
     private val itemAPI: ItemAPI,
@@ -29,6 +30,8 @@ class RemoteItemDataSource(
                 } else {
                     throw e
                 }
+            } catch (e: IOException) {
+                throw ContentFailedToFetch()
             }
         }
 
