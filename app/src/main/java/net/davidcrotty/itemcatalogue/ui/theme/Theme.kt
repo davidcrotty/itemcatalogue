@@ -17,15 +17,15 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 // TODO KMM exposing this as an accessable website for designers is a great idea
 private val DarkColorPalette = darkColors(
-    primary = Purple200,
+    primary = Red600,
     primaryVariant = Purple700,
-    secondary = Red600
+    secondary = Teal200
 )
 
 private val LightColorPalette = lightColors(
-    primary = Purple500,
+    primary = Red800,
     primaryVariant = Purple700,
-    secondary = Red800,
+    secondary = Teal200,
     surface = White300,
     background = White100,
     onSurface = Grey900

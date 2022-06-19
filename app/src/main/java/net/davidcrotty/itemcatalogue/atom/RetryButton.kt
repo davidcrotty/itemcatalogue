@@ -16,7 +16,7 @@ import net.davidcrotty.itemcatalogue.R
 fun RetryButton(modifier: Modifier = Modifier) {
     IconButton(onClick = { /*TODO*/ }, modifier = modifier) {
         Icon(imageVector = ImageVector.vectorResource(id = R.drawable.restart_alt_48px),
-            tint = MaterialTheme.colors.secondary,
+            tint = MaterialTheme.colors.primary,
             contentDescription = stringResource(
             id = R.string.retry_button
         ))
