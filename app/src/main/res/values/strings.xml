@@ -5,4 +5,5 @@
     <string name="item_detail_image">Item detail image</string>
     <string name="item_feed_loading">Item Feed Loading indicator</string>
     <string name="dungeon_item_feed">Dungeon item feed</string>
+    <string name="retry_button">Item Feed Retry indicator</string>
 </resources>

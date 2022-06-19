@@ -13,6 +13,7 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.ListDivider
+import net.davidcrotty.itemcatalogue.atom.RetryButton
 import net.davidcrotty.itemcatalogue.model.FeedItem
 import net.davidcrotty.itemcatalogue.model.ListTemplateState
 import net.davidcrotty.itemcatalogue.model.LoadingState
@@ -56,7 +57,7 @@ fun ItemListTemplate(
             item {
                 when(itemListState.loadingState) {
                     is LoadingState.Retry -> {
-
+                        RetryButton()
                     } else -> {
                         FeedLoadingIndicator()
                     }
