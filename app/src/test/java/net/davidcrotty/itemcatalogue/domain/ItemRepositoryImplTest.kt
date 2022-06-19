@@ -6,8 +6,8 @@ import kotlinx.coroutines.runBlocking
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSource
 import net.davidcrotty.itemcatalogue.data.item.ItemDataSource
 import net.davidcrotty.itemcatalogue.data.item.dto.pure.ItemDTO
+import net.davidcrotty.itemcatalogue.data.item.exception.ContentFailedToFetch
 import net.davidcrotty.itemcatalogue.data.item.exception.ContentNotFound
-import net.davidcrotty.itemcatalogue.data.item.exception.ServerError
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
@@ -134,8 +134,8 @@ internal class ItemRepositoryImplTest {
     }
 
     @Test
-    fun `when server errors`() {
-        val api: ItemDataSource = mockk { coEvery { fetchAfter(any(), any()) } throws ServerError() }
+    fun `when content is unavailable`() {
+        val api: ItemDataSource = mockk { coEvery { fetchAfter(any(), any()) } throws ContentFailedToFetch() }
         val sut = ItemRepositoryImpl(
             itemDataSource = api,
             indexCache = mockk(relaxed = true),
