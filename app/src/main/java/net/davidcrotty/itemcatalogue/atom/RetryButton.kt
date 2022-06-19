@@ -8,13 +8,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.tooling.preview.Preview
 import net.davidcrotty.itemcatalogue.R
 
 @Composable
-@Preview
-fun RetryButton(modifier: Modifier = Modifier) {
-    IconButton(onClick = { /*TODO*/ }, modifier = modifier) {
+fun RetryButton(modifier: Modifier = Modifier, onClick: () -> Unit) {
+    IconButton(onClick = onClick, modifier = modifier) {
         Icon(imageVector = ImageVector.vectorResource(id = R.drawable.restart_alt_48px),
             tint = MaterialTheme.colors.primary,
             contentDescription = stringResource(

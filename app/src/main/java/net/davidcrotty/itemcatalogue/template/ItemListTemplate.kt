@@ -25,7 +25,7 @@ import net.davidcrotty.itemcatalogue.organism.ItemCard
 fun ItemListTemplate(
     itemListState: ListTemplateState,
     navigate: ((path: String) -> Unit)? = null,
-    fetchMore: (() -> Unit)? = null
+    fetchMore: (() -> Unit)
 ) {
     Surface {
         val listState = rememberLazyListState()
@@ -58,7 +58,7 @@ fun ItemListTemplate(
             item {
                 when(itemListState.loadingState) {
                     is LoadingState.Retry -> {
-                        FeedRetryIndicator()
+                        FeedRetryIndicator(fetchMore)
                     } else -> {
                         FeedLoadingIndicator()
                     }
@@ -68,7 +68,7 @@ fun ItemListTemplate(
 
         if (listState.layoutInfo.visibleItemsInfo.isEmpty()) {
             LaunchedEffect(key1 = itemListState.feedItems) {
-                fetchMore?.invoke()
+                fetchMore.invoke()
             }
         }
     }

@@ -10,13 +10,11 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.tooling.preview.Preview
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.RetryButton
 
 @Composable
-@Preview
-fun FeedRetryIndicator() {
+fun FeedRetryIndicator(retry: () -> Unit) {
     val retryContentDescription = stringResource(id = R.string.feed_retry_button)
     Box(
         contentAlignment = Alignment.TopCenter,
@@ -27,7 +25,8 @@ fun FeedRetryIndicator() {
         RetryButton(
             modifier = Modifier.semantics {
                 contentDescription = retryContentDescription
-            }
+            },
+            onClick = retry
         )
     }
 }
