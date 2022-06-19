@@ -8,8 +8,10 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.ListDivider
 import net.davidcrotty.itemcatalogue.model.FeedItem
 import net.davidcrotty.itemcatalogue.model.ListTemplateState
@@ -27,8 +29,9 @@ fun ItemListTemplate(
         val listState = rememberLazyListState()
         Log.d("ListTemplate", "item size: ${itemListState.feedItems.size}")
 
+        val dungeonItemFeed = stringResource(id = R.string.dungeon_item_feed)
         LazyColumn(Modifier.semantics {
-            contentDescription = "Dungeon item feed"
+            contentDescription = dungeonItemFeed
         }) {
             itemsIndexed(
                 itemListState.feedItems
