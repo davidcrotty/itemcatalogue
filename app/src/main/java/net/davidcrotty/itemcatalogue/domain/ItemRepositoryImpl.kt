@@ -36,9 +36,6 @@ class ItemRepositoryImpl(
             item
         }
 
-        // add to cache
-
-        // return all items
         itemCache.storeItems(items)
 
         return ItemRepository.ItemStatus.Available(itemCache.fetchStoredItems())

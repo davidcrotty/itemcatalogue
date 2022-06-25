@@ -94,12 +94,33 @@ internal class ItemRepositoryImplTest {
             )
         )
 
+        val remoteItem = Item(
+            id = ID(id),
+            url = thumbnail,
+            type = type,
+            title = caption,
+            description = description
+        )
+
         val mockDataSource: ItemDataSource = mockk {
             coEvery { fetchAfter("next id", any()) } returns apiItems
         }
+        val storedItem = Item(
+            id = ID("id"),
+            url = thumbnail,
+            type = type,
+            title = caption,
+            description = description
+        )
+        val storedItemList = listOf(
+            storedItem,
+            remoteItem
+        )
         val indexCache: ItemCacheDataSource = mockk {
             every { getLastID() } returns ID("next id")
             every { setLastID(any()) } just Runs
+            every { storeItems(any()) } just Runs
+            every { fetchStoredItems() } returns storedItemList
         }
         val sut = ItemRepositoryImpl(
             mockDataSource,
@@ -111,17 +132,14 @@ internal class ItemRepositoryImplTest {
             sut.getItems()
         }
 
-        val expectedItems = ItemRepository.ItemStatus.Available(listOf(
-            Item(
-                id = ID(id),
-                url = thumbnail,
-                type = type,
-                title = caption,
-                description = description
-            )
-        ))
-        assertEquals(expectedItems, items)
+        val expectedItems = listOf(
+            storedItem,
+            remoteItem
+        )
+        val expectedStatus = ItemRepository.ItemStatus.Available(expectedItems)
+        assertEquals(expectedStatus, items)
         verify { indexCache.setLastID(ID(id)) }
+        verify { indexCache.storeItems(listOf(remoteItem)) }
     }
 
     @Test
