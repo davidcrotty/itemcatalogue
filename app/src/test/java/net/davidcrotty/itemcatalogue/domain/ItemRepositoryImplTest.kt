@@ -37,11 +37,25 @@ internal class ItemRepositoryImplTest {
                 detailImage = forge.aString()
             )
         )
-        val indexCache: ItemCacheDataSource = mockk(relaxed = true)
+        val expectedItems = listOf(
+            Item(
+                id = ID("id"),
+                url = thumbnail,
+                type = type,
+                title = caption,
+                description = description
+            )
+        )
+
+        val itemCache: ItemCacheDataSource = mockk {
+            every { setLastID(any()) } just Runs
+            every { fetchStoredItems() } returns expectedItems
+            every { storeItems(any()) } just Runs
+        }
 
         val sut = ItemRepositoryImpl(
             itemDataSource = mockk { coEvery { fetchAfter(any(), any()) } returns apiItems },
-            itemCache = indexCache,
+            itemCache = itemCache,
             config = mockk(relaxed = true)
         )
 
@@ -53,19 +67,11 @@ internal class ItemRepositoryImplTest {
 
 
         // Then should return items
-        val expectedItems = listOf(
-            Item(
-                id = ID("id"),
-                url = thumbnail,
-                type = type,
-                title = caption,
-                description = description
-            )
-        )
         val expectedItemStatus = ItemRepository.ItemStatus.Available(expectedItems)
         assertEquals(expectedItemStatus, items)
-        verify { indexCache.setLastID(ID("id")) }
-        verify { indexCache.storeItems(expectedItems) }
+        verify { itemCache.setLastID(ID("id")) }
+        verify { itemCache.storeItems(expectedItems) }
+        verify { itemCache.fetchStoredItems() }
     }
 
     @Test

@@ -41,6 +41,6 @@ class ItemRepositoryImpl(
         // return all items
         itemCache.storeItems(items)
 
-        return ItemRepository.ItemStatus.Available(items)
+        return ItemRepository.ItemStatus.Available(itemCache.fetchStoredItems())
     }
 }
