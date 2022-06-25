@@ -47,7 +47,7 @@ internal class ItemRepositoryImplTest {
             )
         )
 
-        val itemCache: ItemCacheDataSource = mockk {
+        val itemCache: ItemCacheDataSource = mockk(relaxed = true) {
             every { setLastID(any()) } just Runs
             every { fetchStoredItems() } returns expectedItems
             every { storeItems(any()) } just Runs
