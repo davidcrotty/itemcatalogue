@@ -41,7 +41,7 @@ internal class ItemRepositoryImplTest {
 
         val sut = ItemRepositoryImpl(
             itemDataSource = mockk { coEvery { fetchAfter(any(), any()) } returns apiItems },
-            indexCache = indexCache,
+            itemCache = indexCache,
             config = mockk(relaxed = true)
         )
 
@@ -53,7 +53,7 @@ internal class ItemRepositoryImplTest {
 
 
         // Then should return items
-        val expectedItems = ItemRepository.ItemStatus.Available(listOf(
+        val expectedItems = listOf(
             Item(
                 id = ID("id"),
                 url = thumbnail,
@@ -61,9 +61,11 @@ internal class ItemRepositoryImplTest {
                 title = caption,
                 description = description
             )
-        ))
-        assertEquals(expectedItems, items)
+        )
+        val expectedItemStatus = ItemRepository.ItemStatus.Available(expectedItems)
+        assertEquals(expectedItemStatus, items)
         verify { indexCache.setLastID(ID("id")) }
+        verify { indexCache.storeItems(expectedItems) }
     }
 
     @Test
@@ -121,7 +123,7 @@ internal class ItemRepositoryImplTest {
         val api: ItemDataSource = mockk { coEvery { fetchAfter(any(), any()) } throws ContentNotFound() }
         val sut = ItemRepositoryImpl(
             itemDataSource = api,
-            indexCache = mockk(relaxed = true),
+            itemCache = mockk(relaxed = true),
             config = mockk(relaxed = true)
         )
 
@@ -138,7 +140,7 @@ internal class ItemRepositoryImplTest {
         val api: ItemDataSource = mockk { coEvery { fetchAfter(any(), any()) } throws ContentFailedToFetch() }
         val sut = ItemRepositoryImpl(
             itemDataSource = api,
-            indexCache = mockk(relaxed = true),
+            itemCache = mockk(relaxed = true),
             config = mockk(relaxed = true)
         )
 

@@ -11,12 +11,12 @@ import net.davidcrotty.itemcatalogue.model.Configuration
 
 class ItemRepositoryImpl(
     private val itemDataSource: ItemDataSource,
-    private val indexCache: ItemCacheDataSource,
+    private val itemCache: ItemCacheDataSource,
     private val config: Configuration
 ) : ItemRepository {
     override suspend fun getItems(): ItemRepository.ItemStatus {
         val itemData = try {
-            itemDataSource.fetchAfter(indexCache.getLastID()?.value, config.pageLimit)
+            itemDataSource.fetchAfter(itemCache.getLastID()?.value, config.pageLimit)
         } catch (e: ContentNotFound) {
             return ItemRepository.ItemStatus.Unavailable
         } catch (e: ContentFailedToFetch) {
@@ -32,9 +32,14 @@ class ItemRepositoryImpl(
                 title = dto.caption,
                 description = dto.description
             )
-            indexCache.setLastID(id)
+            this.itemCache.setLastID(id)
             item
         }
+
+        // add to cache
+
+        // return all items
+        itemCache.storeItems(items)
 
         return ItemRepository.ItemStatus.Available(items)
     }
