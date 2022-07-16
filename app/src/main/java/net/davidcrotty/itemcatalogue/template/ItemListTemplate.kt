@@ -1,6 +1,7 @@
 package net.davidcrotty.itemcatalogue.template
 
 import android.util.Log
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -32,7 +33,7 @@ fun ItemListTemplate(
         Log.d("ListTemplate", "item size: ${itemListState.feedItems.size}")
 
         val dungeonItemFeed = stringResource(id = R.string.dungeon_item_feed)
-        LazyColumn(Modifier.semantics {
+        LazyColumn(Modifier.fillMaxHeight().semantics {
             contentDescription = dungeonItemFeed
         }) {
             itemsIndexed(
