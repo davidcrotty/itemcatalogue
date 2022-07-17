@@ -12,8 +12,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <!-- TODO alternative file for s and above -->
         <item name="android:windowSplashScreenBackground" tools:targetApi="s">@color/red800</item>
-        <item name="android:windowBackground">@color/red800</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/sword</item>
     </style>
 
     <style name="Theme.MyApplication.NoActionBar">
