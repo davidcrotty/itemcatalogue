@@ -32,6 +32,9 @@ class MainActivity : ComponentActivity() {
 
     }
 
+    // ui is told to restart on error (no network and no cache)
+    // loading is kicked off for feed
+
     @OptIn(ExperimentalAnimationGraphicsApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
