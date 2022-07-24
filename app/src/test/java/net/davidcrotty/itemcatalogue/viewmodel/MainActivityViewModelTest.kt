@@ -31,7 +31,7 @@ class MainActivityViewModelTest {
 
         sut.preloadApplication()
 
-        assertEquals(true, sut.shouldKeepSplashOnScreen())
+        assertEquals(false, sut.shouldKeepSplashOnScreen())
         assertEquals(true, sut.launchErrorDialogShown.value)
     }
 

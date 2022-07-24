@@ -20,6 +20,7 @@ class MainActivityViewModel(private val preloadUseCase: PreloadUseCase) : ViewMo
             }
             is PreloadStatus.Error -> {
                 _launchErrorDialogShown.value = true
+                applicationLoadState = ApplicationLoadState.Success
             }
         }
     }
