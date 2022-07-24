@@ -5,7 +5,7 @@ import net.davidcrotty.itemcatalogue.items.model.PreloadStatus
 import net.davidcrotty.itemcatalogue.items.usecase.PreloadUseCase
 import net.davidcrotty.itemcatalogue.model.ApplicationLoadState
 
-class MainActivityViewModel(val preloadUseCase: PreloadUseCase) : ViewModel() {
+class MainActivityViewModel(private val preloadUseCase: PreloadUseCase) : ViewModel() {
 
     var applicationLoadState: ApplicationLoadState = ApplicationLoadState.Loading
 

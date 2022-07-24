@@ -21,4 +21,5 @@ class MainActivityViewModelTest {
 
         assertEquals(ApplicationLoadState.Success, sut.applicationLoadState)
     }
+
 }

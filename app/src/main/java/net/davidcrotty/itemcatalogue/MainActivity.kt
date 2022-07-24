@@ -4,33 +4,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.graphics.ExperimentalAnimationGraphicsApi
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
+import net.davidcrotty.itemcatalogue.model.ApplicationLoadState
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigatorImpl
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
 
     private val dndContainer by lazy { applicationContext.applicationContext as DndCatalogueAppContainer }
-
-    private val viewModel = LaunchViewModel()
-
-    class LaunchViewModel : ViewModel() {
-
-        var dismissSplashScreen = true
-
-        fun loadFeed() {
-            viewModelScope.launch {
-                delay(5000)
-                dismissSplashScreen = false
-            }
-        }
-
-    }
 
     // ui is told to restart on error (no network and no cache)
     // loading is kicked off for feed
@@ -39,8 +21,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
-        splashScreen.setKeepOnScreenCondition { viewModel.dismissSplashScreen }
-        viewModel.loadFeed()
+        val viewModel = dndContainer.mainActivityGraph().viewModel()
+        splashScreen.setKeepOnScreenCondition { viewModel.applicationLoadState is ApplicationLoadState.Success }
+        viewModel.preloadApplication()
         setContent {
             val controller = rememberNavController()
             val navigator = NavigatorImpl(controller)

@@ -33,4 +33,8 @@ class DndCatalogueAppGraphImpl : DndCatalogueAppContainer {
             )
         )
     }
+
+    override fun mainActivityGraph(): MainActivityGraph {
+        return MainActivityGraphImpl()
+    }
 }

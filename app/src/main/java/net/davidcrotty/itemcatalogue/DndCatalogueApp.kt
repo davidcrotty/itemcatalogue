@@ -1,10 +1,7 @@
 package net.davidcrotty.itemcatalogue
 
 import android.app.Application
-import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
-import net.davidcrotty.itemcatalogue.di.DndCatalogueAppGraphImpl
-import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
-import net.davidcrotty.itemcatalogue.di.RemoteItemAPIFactory
+import net.davidcrotty.itemcatalogue.di.*
 
 class DndCatalogueApp : Application(), DndCatalogueAppContainer {
 
@@ -17,5 +14,9 @@ class DndCatalogueApp : Application(), DndCatalogueAppContainer {
 
     override fun itemScreenGraph(): ItemScreenGraph {
         return graph.itemScreenGraph()
+    }
+
+    override fun mainActivityGraph(): MainActivityGraph {
+        return graph.mainActivityGraph()
     }
 }
