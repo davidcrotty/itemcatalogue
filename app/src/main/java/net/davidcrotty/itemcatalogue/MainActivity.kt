@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         val viewModel = dndContainer.mainActivityGraph().viewModel()
-        splashScreen.setKeepOnScreenCondition { viewModel.applicationLoadState is ApplicationLoadState.Success }
+        splashScreen.setKeepOnScreenCondition { viewModel.applicationLoadState !is ApplicationLoadState.Success }
         viewModel.preloadApplication()
         setContent {
             val controller = rememberNavController()
