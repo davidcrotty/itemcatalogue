@@ -2,9 +2,9 @@
 
     <style name="Theme.MyApplication.Starting" parent="Theme.SplashScreen">
         <item name="postSplashScreenTheme">@style/Theme.MyApplication.NoActionBar</item>
-        <item name="windowSplashScreenBackground" tools:targetApi="s">#903749</item>
-        <item name="windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/sword</item>
-        <item name="windowSplashScreenAnimationDuration" tools:targetApi="s">1133</item>
+        <item name="windowSplashScreenBackground">#903749</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/sword</item>
+        <item name="windowSplashScreenAnimationDuration">1133</item>
     </style>
 
     <!-- Base application theme. -->
