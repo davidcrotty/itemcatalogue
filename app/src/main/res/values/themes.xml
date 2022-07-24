@@ -12,11 +12,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
         <!-- TODO alternative file for s and above -->
         <item name="android:windowSplashScreenBackground" tools:targetApi="s">#903749</item>
         <item name="android:windowSplashScreenAnimatedIcon" tools:targetApi="s">@drawable/sword</item>
-        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">1000</item>
-        <item name="android:windowSplashScreenIconBackgroundColor" tools:targetApi="s">#903749</item>
+        <item name="android:windowSplashScreenAnimationDuration" tools:targetApi="s">1133</item>
     </style>
 
     <style name="Theme.MyApplication.NoActionBar">
