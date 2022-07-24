@@ -21,4 +21,18 @@ class MainActivityViewModelTest {
         assertEquals(false, sut.shouldKeepSplashOnScreen())
     }
 
+    @Test
+    fun `test preloading application failure`() {
+        val sut = MainActivityViewModel(
+            preloadUseCase = mockk {
+                every { execute() } returns PreloadStatus.Error
+            }
+        )
+
+        sut.preloadApplication()
+
+        assertEquals(true, sut.shouldKeepSplashOnScreen())
+        assertEquals(true, sut.launchErrorDialogShown.value)
+    }
+
 }
