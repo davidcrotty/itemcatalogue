@@ -31,18 +31,18 @@ class MainActivity : ComponentActivity() {
         setContent {
             val controller = rememberNavController()
             val navigator = NavigatorImpl(controller)
-            Box(
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .fillMaxWidth()
-            ) {
-                val image = AnimatedImageVector.animatedVectorResource(R.drawable.sword)
-                val atEnd by remember { mutableStateOf(false) }
-                Icon(
-                    painter = rememberAnimatedVectorPainter(image, atEnd),
-                    contentDescription = null // decorative element
-                )
-            }
+//            Box(
+//                modifier = Modifier
+//                    .fillMaxHeight()
+//                    .fillMaxWidth()
+//            ) {
+//                val image = AnimatedImageVector.animatedVectorResource(R.drawable.sword)
+//                val atEnd by remember { mutableStateOf(false) }
+//                Icon(
+//                    painter = rememberAnimatedVectorPainter(image, atEnd),
+//                    contentDescription = null // decorative element
+//                )
+//            }
 //            ComposeWrapper(
 //                controller, dndContainer.itemScreenGraph()
 //            ) {
