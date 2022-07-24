@@ -21,6 +21,7 @@ import net.davidcrotty.itemcatalogue.technology.navigation.NavigatorImpl
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.delay
@@ -47,6 +48,7 @@ class MainActivity : ComponentActivity() {
 
     @OptIn(ExperimentalAnimationGraphicsApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         viewModel.loadFeed()
         setContent {
