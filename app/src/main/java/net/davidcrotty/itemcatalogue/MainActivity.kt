@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
             val showErrorDialog by viewModel.launchErrorDialogShown.collectAsState()
             if(showErrorDialog) {
                 CatalogueTemplateTheme {
-                    AlertDialog(onDismissRequest = { /*TODO*/ },
+                    AlertDialog(onDismissRequest = {  },
                     title = {
                         Text(text = "Unable to launch application")
                     },
