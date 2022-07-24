@@ -7,7 +7,6 @@ import androidx.compose.animation.graphics.ExperimentalAnimationGraphicsApi
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
-import net.davidcrotty.itemcatalogue.model.ApplicationLoadState
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigatorImpl
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +21,7 @@ class MainActivity : ComponentActivity() {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         val viewModel = dndContainer.mainActivityGraph().viewModel()
-        splashScreen.setKeepOnScreenCondition { viewModel.applicationLoadState !is ApplicationLoadState.Success }
+        splashScreen.setKeepOnScreenCondition { viewModel.shouldKeepSplashOnScreen() }
         viewModel.preloadApplication()
         setContent {
             val controller = rememberNavController()

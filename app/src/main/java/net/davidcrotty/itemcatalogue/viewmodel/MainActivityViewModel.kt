@@ -15,4 +15,8 @@ class MainActivityViewModel(private val preloadUseCase: PreloadUseCase) : ViewMo
             applicationLoadState = ApplicationLoadState.Success
         }
     }
+
+    fun shouldKeepSplashOnScreen(): Boolean {
+        return applicationLoadState !is ApplicationLoadState.Success
+    }
 }
