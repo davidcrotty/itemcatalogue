@@ -20,12 +20,12 @@ class MainActivityViewModel(private val preloadUseCase: PreloadUseCase) : ViewMo
             }
             is PreloadStatus.Error -> {
                 _launchErrorDialogShown.value = true
-                applicationLoadState = ApplicationLoadState.Success
+                applicationLoadState = ApplicationLoadState.Failed
             }
         }
     }
 
     fun shouldKeepSplashOnScreen(): Boolean {
-        return applicationLoadState !is ApplicationLoadState.Success
+        return applicationLoadState is ApplicationLoadState.Loading
     }
 }
