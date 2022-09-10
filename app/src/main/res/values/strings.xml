@@ -7,4 +7,6 @@
     <string name="dungeon_item_feed">Dungeon item feed</string>
     <string name="retry_button">Retry button</string>
     <string name="feed_retry_button">Item Feed Retry indicator</string>
+    <string name="dialog_title_unable_to_launch_application">Unable to launch application</string>
+    <string name="dialog_description_connectivity_error">Please check network connectivity and try again</string>
 </resources>
