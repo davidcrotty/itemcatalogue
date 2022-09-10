@@ -1,7 +1,9 @@
 package net.davidcrotty.itemcatalogue.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 import net.davidcrotty.itemcatalogue.items.model.PreloadStatus
 import net.davidcrotty.itemcatalogue.items.usecase.PreloadUseCase
 import net.davidcrotty.itemcatalogue.model.ApplicationLoadState
@@ -14,13 +16,15 @@ class MainActivityViewModel(private val preloadUseCase: PreloadUseCase) : ViewMo
     private val _launchErrorDialogShown = MutableStateFlow(false)
 
     fun preloadApplication() {
-        when(preloadUseCase.execute()) {
-            is PreloadStatus.Loaded -> {
-                applicationLoadState = ApplicationLoadState.Success
-            }
-            is PreloadStatus.Error -> {
-                _launchErrorDialogShown.value = true
-                applicationLoadState = ApplicationLoadState.Failed
+        viewModelScope.launch {
+            when(preloadUseCase.execute()) {
+                is PreloadStatus.Loaded -> {
+                    applicationLoadState = ApplicationLoadState.Success
+                }
+                is PreloadStatus.Error -> {
+                    _launchErrorDialogShown.value = true
+                    applicationLoadState = ApplicationLoadState.Failed
+                }
             }
         }
     }

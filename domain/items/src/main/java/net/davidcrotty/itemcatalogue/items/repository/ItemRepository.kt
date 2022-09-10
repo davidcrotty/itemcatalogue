@@ -7,7 +7,7 @@ interface ItemRepository {
     sealed class ItemStatus {
         data class Available(val items: List<Item>) : ItemStatus()
         object RecoverableError: ItemStatus()
-        object Unavailable : ItemStatus()
+        object UnrecoverableError : ItemStatus()
     }
 
     suspend fun getItems(): ItemStatus

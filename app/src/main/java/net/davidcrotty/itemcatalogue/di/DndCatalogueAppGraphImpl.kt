@@ -35,6 +35,12 @@ class DndCatalogueAppGraphImpl : DndCatalogueAppContainer {
     }
 
     override fun mainActivityGraph(): MainActivityGraph {
-        return MainActivityGraphImpl()
+        return MainActivityGraphImpl(
+            ItemRepositoryImpl(
+                RemoteItemDataSource(apiFactory.getInstance()),
+                itemsFetchedCache,
+                configuration
+            )
+        )
     }
 }

@@ -18,7 +18,7 @@ class ItemRepositoryImpl(
         val itemData = try {
             itemDataSource.fetchAfter(itemCache.getLastID()?.value, config.pageLimit)
         } catch (e: ContentNotFound) {
-            return ItemRepository.ItemStatus.Unavailable
+            return ItemRepository.ItemStatus.UnrecoverableError
         } catch (e: ContentFailedToFetch) {
             return ItemRepository.ItemStatus.RecoverableError
         }
