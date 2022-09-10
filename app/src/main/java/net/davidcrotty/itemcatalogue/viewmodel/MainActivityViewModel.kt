@@ -10,9 +10,9 @@ import net.davidcrotty.itemcatalogue.model.ApplicationLoadState
 
 class MainActivityViewModel(private val preloadUseCase: PreloadUseCase) : ViewModel() {
 
-    var applicationLoadState: ApplicationLoadState = ApplicationLoadState.Loading
     val launchErrorDialogShown
         get() = _launchErrorDialogShown
+    private var applicationLoadState: ApplicationLoadState = ApplicationLoadState.Loading
     private val _launchErrorDialogShown = MutableStateFlow(false)
 
     fun preloadApplication() {
