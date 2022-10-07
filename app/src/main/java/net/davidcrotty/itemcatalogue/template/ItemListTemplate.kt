@@ -33,9 +33,14 @@ fun ItemListTemplate(
         Log.d("ListTemplate", "item size: ${itemListState.feedItems.size}")
 
         val dungeonItemFeed = stringResource(id = R.string.dungeon_item_feed)
-        LazyColumn(Modifier.fillMaxHeight().semantics {
-            contentDescription = dungeonItemFeed
-        }) {
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxHeight()
+                .semantics {
+                    contentDescription = dungeonItemFeed
+                },
+            state = listState
+        ) {
             itemsIndexed(
                 itemListState.feedItems
             ) { index, dungeonItem ->
@@ -58,10 +63,11 @@ fun ItemListTemplate(
             }
 
             item {
-                when(itemListState.loadingState) {
+                when (itemListState.loadingState) {
                     is LoadingState.Retry -> {
                         FeedRetryIndicator(fetchMore)
-                    } else -> {
+                    }
+                    else -> {
                         FeedLoadingIndicator()
                     }
                 }
