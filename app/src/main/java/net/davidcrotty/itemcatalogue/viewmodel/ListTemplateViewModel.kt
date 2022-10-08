@@ -20,9 +20,11 @@ class ListTemplateViewModel(
     val listState: StateFlow<ListTemplateState>
         get() = _items
 
-    private val _items = MutableStateFlow(ListTemplateState(emptyList(), LoadingState.CanLoadMore))
+    private var initialPresentation = false
+    private val _items = MutableStateFlow(ListTemplateState(emptyList(), LoadingState.CanLoadMore, initialPresentation))
 
     fun fetchItems() {
+        initialPresentation = true
         viewModelScope.launch {
             // keep track of next set of models, each invoke picks up next set from returned
 
@@ -41,14 +43,16 @@ class ListTemplateViewModel(
                 _items.emit(
                     ListTemplateState(
                         feedModels,
-                        LoadingState.CanLoadMore
+                        LoadingState.CanLoadMore,
+                        initialPresentation
                     )
                 )
             } else if (fetchResult is ItemRepository.ItemStatus.RecoverableError) {
                 _items.emit(
                     ListTemplateState(
                         feedItems = listState.value.feedItems,
-                        loadingState = LoadingState.Retry
+                        loadingState = LoadingState.Retry,
+                        initialPresentation
                     )
                 )
             }

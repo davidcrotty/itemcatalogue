@@ -23,6 +23,24 @@ internal class ItemsViewModelTest : CoroutineTest {
     override var testScheduler = TestCoroutineScheduler()
 
     @Test
+    fun when_performing_initial_fetch() {
+        // given a list that hasn't been rendered yet
+        val sut = ListTemplateViewModel(
+            mockk {
+                coEvery { getFeed() } returns ItemRepository.ItemStatus.Available(emptyList())
+            }
+        )
+
+        // when fetching list
+        sut.fetchItems()
+        testScheduler.advanceUntilIdle()
+        val state = sut.listState.value
+
+        // then should only perform one fetch
+        assertEquals(true, state.isInitialFetch)
+    }
+
+    @Test
     fun when_fetching_items() = runBlocking {
         // Given a valid item list
 
@@ -74,7 +92,8 @@ internal class ItemsViewModelTest : CoroutineTest {
         val result = sut.listState.value
         val expected = ListTemplateState(
             feedItems = emptyList(),
-            loadingState = LoadingState.Retry
+            loadingState = LoadingState.Retry,
+            isInitialFetch = true
         )
         assertEquals(expected, result)
     }
