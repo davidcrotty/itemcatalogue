@@ -20,6 +20,15 @@ class ListTemplateTest {
     val composeTestRule = createComposeRule()
 
     @Test
+    fun when_testing_initial_fetch() {
+        val fetchMore = {}
+
+        composeTestRule.setContent {
+            ItemListTemplate(itemListState = ListTemplateState(emptyList(), LoadingState.CanLoadMore,), {}, fetchMore)
+        }
+    }
+
+    @Test
     fun when_rendering_loading_icon_visible() {
         composeTestRule.setContent {
             ItemListTemplate(itemListState = ListTemplateState(emptyList(), LoadingState.CanLoadMore)) {}
