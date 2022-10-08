@@ -74,7 +74,7 @@ fun ItemListTemplate(
             }
         }
 
-        if (listState.layoutInfo.visibleItemsInfo.isEmpty()) {
+        if (itemListState.isInitialFetch) {
             LaunchedEffect(key1 = itemListState.feedItems) {
                 Log.d("ItemList", "fetching more")
                 fetchMore.invoke()

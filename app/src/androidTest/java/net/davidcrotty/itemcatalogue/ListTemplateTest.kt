@@ -4,6 +4,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.performClick
 import io.mockk.*
+import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.flow.MutableStateFlow
 import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
 import net.davidcrotty.itemcatalogue.model.ListTemplateState
@@ -21,11 +22,18 @@ class ListTemplateTest {
 
     @Test
     fun when_testing_initial_fetch() {
-        val fetchMore = {}
+        var timesInvoked = 0
+        val fetchMore = {
+            timesInvoked++
+            Unit
+        }
+        val initialFetch = true
 
         composeTestRule.setContent {
-            ItemListTemplate(itemListState = ListTemplateState(emptyList(), LoadingState.CanLoadMore,), {}, fetchMore)
+            ItemListTemplate(itemListState = ListTemplateState(emptyList(), LoadingState.CanLoadMore, initialFetch), {}, fetchMore)
         }
+
+        assertEquals(1, timesInvoked)
     }
 
     @Test
