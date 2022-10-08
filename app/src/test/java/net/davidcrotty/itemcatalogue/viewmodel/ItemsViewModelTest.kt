@@ -37,7 +37,7 @@ internal class ItemsViewModelTest : CoroutineTest {
         val state = sut.listState.value
 
         // then should only perform one fetch
-        assertEquals(true, state.isInitialFetch)
+        assertEquals(false, state.isInitialFetch)
     }
 
     @Test
@@ -93,7 +93,7 @@ internal class ItemsViewModelTest : CoroutineTest {
         val expected = ListTemplateState(
             feedItems = emptyList(),
             loadingState = LoadingState.Retry,
-            isInitialFetch = true
+            isInitialFetch = false
         )
         assertEquals(expected, result)
     }

@@ -20,11 +20,11 @@ class ListTemplateViewModel(
     val listState: StateFlow<ListTemplateState>
         get() = _items
 
-    private var initialPresentation = false
+    private var initialPresentation = true
     private val _items = MutableStateFlow(ListTemplateState(emptyList(), LoadingState.CanLoadMore, initialPresentation))
 
     fun fetchItems() {
-        initialPresentation = true
+        initialPresentation = false
         viewModelScope.launch {
             // keep track of next set of models, each invoke picks up next set from returned
 

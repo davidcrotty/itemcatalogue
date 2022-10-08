@@ -42,7 +42,7 @@ class ItemListScreenTest {
 
         composeTestRule.onNodeWithContentDescription("Dungeon item feed").performScrollToIndex(numberOfItems)
 
-        verify(exactly = 2) { viewModel.fetchItems() }
+        verify(exactly = 1) { viewModel.fetchItems() }
     }
 
     private fun generateFeedItemList(number: Int): List<FeedItem> {
