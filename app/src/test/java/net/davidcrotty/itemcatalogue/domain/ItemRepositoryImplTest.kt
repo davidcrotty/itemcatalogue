@@ -215,9 +215,8 @@ internal class ItemRepositoryImplTest {
             sut.getItem(itemID())
         }
 
-        // Then should return a cache miss
+        // Then should return unavailable
         assertEquals(ItemRepository.ItemStatus.Unavailable, result)
-
     }
 
     private fun item(id: String): Item {
