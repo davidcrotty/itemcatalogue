@@ -15,7 +15,6 @@
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/domain" />
             <option value="$PROJECT_DIR$/domain/items" />
-            <option value="$PROJECT_DIR$/listfeature" />
           </set>
         </option>
       </GradleProjectSettings>
