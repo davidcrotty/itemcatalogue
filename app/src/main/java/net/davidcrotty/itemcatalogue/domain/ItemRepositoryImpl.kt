@@ -42,6 +42,10 @@ class ItemRepositoryImpl(
     }
 
     override suspend fun getItem(id: String): ItemRepository.ItemStatus {
-        TODO("Not yet implemented")
+        return when (val result = itemCache.fetchItem(ID(id))) {
+            is ItemCacheDataSource.CacheResult.Hit -> {
+                ItemRepository.ItemStatus.Available(result.item)
+            }
+        }
     }
 }

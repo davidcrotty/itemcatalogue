@@ -23,4 +23,8 @@ class ItemCacheDataSourceImpl : ItemCacheDataSource {
     override fun fetchStoredItems(): List<Item> {
         return storedItems
     }
+
+    override fun fetchItem(id: ID): ItemCacheDataSource.CacheResult {
+        TODO("Not yet implemented")
+    }
 }

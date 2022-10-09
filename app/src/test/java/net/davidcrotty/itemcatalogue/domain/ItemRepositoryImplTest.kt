@@ -179,23 +179,39 @@ internal class ItemRepositoryImplTest {
     @Test
     fun `when fetching a single item`() {
         // Given fetching a single item succeeds
+        val item = item(itemID())
+        val cacheResult = ItemCacheDataSource.CacheResult.Hit(item)
         val sut = ItemRepositoryImpl(
-            mockk(),
-            mockk(),
-            mockk()
+            remoteItemDataSource = mockk(),
+            itemCache = mockk {
+                every { fetchItem(ID(itemID())) } returns cacheResult
+            },
+            config = mockk()
         )
 
         // when fetching an item
-        runBlocking {
+        val result = runBlocking {
             sut.getItem(itemID())
         }
 
-        // then should return the item
+        // then should return the item entity
+        val expected = ItemRepository.ItemStatus.Available(item)
+        assertEquals(expected, result)
     }
 
     @Test
     fun `when fetching a single item fails`() {
 
+    }
+
+    private fun item(id: String): Item {
+        return Item(
+            id = ID(id),
+            url = forge.aString(),
+            type = forge.aString(),
+            title = forge.aString(),
+            description = forge.aString()
+        )
     }
 
     private fun itemID(): String {
