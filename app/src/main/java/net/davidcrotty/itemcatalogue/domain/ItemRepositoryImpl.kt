@@ -46,6 +46,9 @@ class ItemRepositoryImpl(
             is ItemCacheDataSource.CacheResult.Hit -> {
                 ItemRepository.ItemStatus.Available(result.item)
             }
+            is ItemCacheDataSource.CacheResult.Miss -> {
+                ItemRepository.ItemStatus.Unavailable
+            }
         }
     }
 }

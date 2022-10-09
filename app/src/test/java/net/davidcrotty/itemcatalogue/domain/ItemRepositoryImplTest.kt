@@ -201,6 +201,22 @@ internal class ItemRepositoryImplTest {
 
     @Test
     fun `when fetching a single item fails`() {
+        // Given a fetch for an item fails
+        val sut = ItemRepositoryImpl(
+            remoteItemDataSource = mockk(),
+            itemCache = mockk {
+                every { fetchItem(ID(itemID())) } returns ItemCacheDataSource.CacheResult.Miss
+            },
+            config = mockk()
+        )
+
+        // when fetching item
+        val result = runBlocking {
+            sut.getItem(itemID())
+        }
+
+        // Then should return a cache miss
+        assertEquals(ItemRepository.ItemStatus.Unavailable, result)
 
     }
 

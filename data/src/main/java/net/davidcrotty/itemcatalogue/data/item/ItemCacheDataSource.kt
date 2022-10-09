@@ -7,6 +7,7 @@ interface ItemCacheDataSource {
 
     sealed class CacheResult {
         data class Hit(val item: Item) : CacheResult()
+        object Miss : CacheResult()
     }
 
     fun getLastID(): ID?
