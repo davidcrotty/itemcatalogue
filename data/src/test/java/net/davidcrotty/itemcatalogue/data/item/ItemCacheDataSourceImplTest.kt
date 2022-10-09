@@ -28,7 +28,7 @@ internal class ItemCacheDataSourceImplTest {
             title = forge.aString(),
             description = forge.aString()
         )
-        val sut = ItemCacheDataSourceImpl()
+        val sut = ItemCacheDataSourceImpl(mutableMapOf())
 
         // when storing items
         sut.storeItems(listOf(itemA))
@@ -37,5 +37,36 @@ internal class ItemCacheDataSourceImplTest {
         // Then should be able to retrieve same list of items
         val storedItems = sut.fetchStoredItems()
         assertEquals(listOf(itemA, itemB), storedItems)
+    }
+
+    @Test
+    fun `when fetching cached item`() {
+        // Given has has a stored item
+        val id = ID(itemID())
+        val item = item(itemID())
+        val expected = ItemCacheDataSource.CacheResult.Hit(item)
+        val sut = ItemCacheDataSourceImpl(mutableMapOf<ID, Item>().apply {
+            put(id, item)
+        })
+
+        // When fetching cached item by id
+        val result = sut.fetchItem(ID(itemID()))
+
+        // Then item should be returned
+        assertEquals(expected, result)
+    }
+
+    private fun itemID(): String {
+        return "624842bb3c93ea918aa9585c"
+    }
+
+    private fun item(id: String): Item {
+        return Item(
+            id = ID(id),
+            url = forge.aString(),
+            type = forge.aString(),
+            title = forge.aString(),
+            description = forge.aString()
+        )
     }
 }

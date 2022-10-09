@@ -45,7 +45,7 @@ internal class RemoteItemNetworkTest {
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .client(okHttp)
             .build()
-        val sut = RemoteItemDataSource(
+        val sut = RemoteItemDataSourceImpl(
             retrofit.create(ItemAPI::class.java)
         )
 
@@ -81,7 +81,7 @@ internal class RemoteItemNetworkTest {
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .client(okHttp)
             .build()
-        val sut = RemoteItemDataSource(
+        val sut = RemoteItemDataSourceImpl(
             retrofit.create(ItemAPI::class.java)
         )
 

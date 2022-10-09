@@ -7,6 +7,7 @@ import net.davidcrotty.itemcatalogue.data.item.RemoteItemDataSource
 import net.davidcrotty.itemcatalogue.data.item.RemoteItemDataSourceImpl
 import net.davidcrotty.itemcatalogue.model.Configuration
 import net.davidcrotty.itemcatalogue.domain.ItemRepositoryImpl
+import net.davidcrotty.itemcatalogue.items.entity.Item
 import okhttp3.OkHttpClient
 
 class DndCatalogueAppGraphImpl : DndCatalogueAppContainer {
@@ -22,7 +23,7 @@ class DndCatalogueAppGraphImpl : DndCatalogueAppContainer {
     private val configuration: Configuration by lazy { Configuration(pageLimit = 6) }
 
     private val itemsFetchedCache: ItemCacheDataSource by lazy {
-        ItemCacheDataSourceImpl()
+        ItemCacheDataSourceImpl(mutableMapOf())
     }
 
     override fun itemScreenGraph(): ItemScreenGraph {

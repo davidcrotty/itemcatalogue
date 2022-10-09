@@ -20,7 +20,7 @@ internal class RemoteItemDataSourceTest {
         val itemAPI: ItemAPI = mockk {
             coEvery { getItems(any(), any(), any()) } throws IOException()
         }
-        val sut = RemoteItemDataSource(
+        val sut = RemoteItemDataSourceImpl(
             itemAPI = itemAPI
         )
 
