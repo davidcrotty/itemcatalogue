@@ -2,7 +2,6 @@ package net.davidcrotty.itemcatalogue.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -30,7 +29,7 @@ class ListTemplateViewModel(
 
             // if a 4xx response received, throw NotFoundException, state gets changed
             val fetchResult = getFeedUsecase.getFeed()
-            if (fetchResult is ItemRepository.ItemStatus.Available) {
+            if (fetchResult is ItemRepository.ItemListStatus.Available) {
                 val feedModels = fetchResult.items.map { entity ->
                     FeedItem(
                         url = entity.url,
@@ -47,7 +46,7 @@ class ListTemplateViewModel(
                         initialPresentation
                     )
                 )
-            } else if (fetchResult is ItemRepository.ItemStatus.RecoverableError) {
+            } else if (fetchResult is ItemRepository.ItemListStatus.RecoverableError) {
                 _items.emit(
                     ListTemplateState(
                         feedItems = listState.value.feedItems,

@@ -14,7 +14,7 @@ internal class PreloadUseCaseImplTest {
     fun `test when preloading content`() {
         // Given the feed resource is able to be loaded
         val itemRepo = mockk<ItemRepository> {
-            coEvery { getItems() } returns ItemRepository.ItemStatus.Available(emptyList())
+            coEvery { getItems() } returns ItemRepository.ItemListStatus.Available(emptyList())
         }
 
         val sut = PreloadUseCaseImpl(
@@ -34,7 +34,7 @@ internal class PreloadUseCaseImplTest {
     fun `test when preloading content fails with an unrecoverable error`() {
         // Given the feed resource is able NOT able to be loaded
         val itemRepo = mockk<ItemRepository> {
-            coEvery { getItems() } returns ItemRepository.ItemStatus.UnrecoverableError
+            coEvery { getItems() } returns ItemRepository.ItemListStatus.UnrecoverableError
         }
 
         val sut = PreloadUseCaseImpl(
@@ -54,7 +54,7 @@ internal class PreloadUseCaseImplTest {
     fun `test when preloading content fails with an recoverable error`() {
         // Given the feed resource is able NOT able to be loaded
         val itemRepo = mockk<ItemRepository> {
-            coEvery { getItems() } returns ItemRepository.ItemStatus.RecoverableError
+            coEvery { getItems() } returns ItemRepository.ItemListStatus.RecoverableError
         }
 
         val sut = PreloadUseCaseImpl(

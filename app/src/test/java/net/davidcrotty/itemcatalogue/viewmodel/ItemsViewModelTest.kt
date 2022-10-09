@@ -1,7 +1,6 @@
 package net.davidcrotty.itemcatalogue.viewmodel
 
 import io.mockk.coEvery
-import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
@@ -27,7 +26,7 @@ internal class ItemsViewModelTest : CoroutineTest {
         // given a list that hasn't been rendered yet
         val sut = ListTemplateViewModel(
             mockk {
-                coEvery { getFeed() } returns ItemRepository.ItemStatus.Available(emptyList())
+                coEvery { getFeed() } returns ItemRepository.ItemListStatus.Available(emptyList())
             }
         )
 
@@ -44,7 +43,7 @@ internal class ItemsViewModelTest : CoroutineTest {
     fun when_fetching_items() = runBlocking {
         // Given a valid item list
 
-        val itemList = ItemRepository.ItemStatus.Available(listOf(
+        val itemList = ItemRepository.ItemListStatus.Available(listOf(
             Item(
                 id = ID("id"),
                 url = "url",
@@ -79,7 +78,7 @@ internal class ItemsViewModelTest : CoroutineTest {
     @Test
     fun `when fetching items with recoverable error`() {
         val getFeedUsecase: GetFeedUsecase = mockk {
-            coEvery { getFeed() } returns ItemRepository.ItemStatus.RecoverableError
+            coEvery { getFeed() } returns ItemRepository.ItemListStatus.RecoverableError
         }
         val sut = ListTemplateViewModel(
             getFeedUsecase = getFeedUsecase

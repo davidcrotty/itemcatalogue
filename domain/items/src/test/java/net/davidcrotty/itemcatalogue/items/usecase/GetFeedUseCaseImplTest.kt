@@ -2,7 +2,6 @@ package net.davidcrotty.itemcatalogue.items.usecase
 
 import fr.xgouchet.elmyr.Forge
 import io.mockk.coEvery
-import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import net.davidcrotty.itemcatalogue.items.entity.ID
@@ -18,7 +17,7 @@ internal class GetFeedUseCaseImplTest {
     @Test
     fun `when retrieving an item list`() {
         // Given a list of items
-        val expectedItems = ItemRepository.ItemStatus.Available(listOf(
+        val expectedItems = ItemRepository.ItemListStatus.Available(listOf(
             Item(
                 id = ID("id"),
                 url = forge.aString(),
@@ -35,7 +34,7 @@ internal class GetFeedUseCaseImplTest {
         )
 
         // when fetching an item feed
-        var items: ItemRepository.ItemStatus
+        var items: ItemRepository.ItemListStatus
         runBlocking {
             items = sut.getFeed()
         }

@@ -60,15 +60,15 @@ internal class ItemRepositoryImplTest {
         )
 
         // when fetching items
-        var items: ItemRepository.ItemStatus?
+        var items: ItemRepository.ItemListStatus?
         runBlocking {
             items = sut.getItems()
         }
 
 
         // Then should return items
-        val expectedItemStatus = ItemRepository.ItemStatus.Available(expectedItems)
-        assertEquals(expectedItemStatus, items)
+        val expectedItemListStatus = ItemRepository.ItemListStatus.Available(expectedItems)
+        assertEquals(expectedItemListStatus, items)
         verify { itemCache.setLastID(ID("id")) }
         verify { itemCache.storeItems(expectedItems) }
         verify { itemCache.fetchStoredItems() }
@@ -136,7 +136,7 @@ internal class ItemRepositoryImplTest {
             storedItem,
             remoteItem
         )
-        val expectedStatus = ItemRepository.ItemStatus.Available(expectedItems)
+        val expectedStatus = ItemRepository.ItemListStatus.Available(expectedItems)
         assertEquals(expectedStatus, items)
         verify { indexCache.setLastID(ID(id)) }
         verify { indexCache.storeItems(listOf(remoteItem)) }
@@ -156,7 +156,7 @@ internal class ItemRepositoryImplTest {
         }
 
         // Then status should raise Unavailable with ItemsNotFound exception
-        assertEquals(ItemRepository.ItemStatus.UnrecoverableError, itemResult)
+        assertEquals(ItemRepository.ItemListStatus.UnrecoverableError, itemResult)
     }
 
     @Test
@@ -173,7 +173,7 @@ internal class ItemRepositoryImplTest {
         }
 
         // Then status should raise Unavailable with ItemsNotFound exception
-        assertEquals(ItemRepository.ItemStatus.RecoverableError, itemResult)
+        assertEquals(ItemRepository.ItemListStatus.RecoverableError, itemResult)
     }
 
 }

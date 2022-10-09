@@ -14,13 +14,13 @@ class ItemRepositoryImpl(
     private val itemCache: ItemCacheDataSource,
     private val config: Configuration
 ) : ItemRepository {
-    override suspend fun getItems(): ItemRepository.ItemStatus {
+    override suspend fun getItems(): ItemRepository.ItemListStatus {
         val itemData = try {
             itemDataSource.fetchAfter(itemCache.getLastID()?.value, config.pageLimit)
         } catch (e: ContentNotFound) {
-            return ItemRepository.ItemStatus.UnrecoverableError
+            return ItemRepository.ItemListStatus.UnrecoverableError
         } catch (e: ContentFailedToFetch) {
-            return ItemRepository.ItemStatus.RecoverableError
+            return ItemRepository.ItemListStatus.RecoverableError
         }
 
         val items = itemData.map { dto ->
@@ -38,6 +38,10 @@ class ItemRepositoryImpl(
 
         itemCache.storeItems(items)
 
-        return ItemRepository.ItemStatus.Available(itemCache.fetchStoredItems())
+        return ItemRepository.ItemListStatus.Available(itemCache.fetchStoredItems())
+    }
+
+    override suspend fun getItem(id: String): ItemRepository.ItemStatus {
+        TODO("Not yet implemented")
     }
 }

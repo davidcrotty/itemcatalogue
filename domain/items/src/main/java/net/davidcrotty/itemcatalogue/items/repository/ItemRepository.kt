@@ -5,10 +5,16 @@ import net.davidcrotty.itemcatalogue.items.entity.Item
 interface ItemRepository {
 
     sealed class ItemStatus {
-        data class Available(val items: List<Item>) : ItemStatus()
-        object RecoverableError: ItemStatus()
-        object UnrecoverableError : ItemStatus()
+        data class Available(val item: Item) : ItemStatus()
     }
 
-    suspend fun getItems(): ItemStatus
+    sealed class ItemListStatus {
+        data class Available(val items: List<Item>) : ItemListStatus()
+        object RecoverableError: ItemListStatus()
+        object UnrecoverableError : ItemListStatus()
+    }
+
+    suspend fun getItems(): ItemListStatus
+
+    suspend fun getItem(id: String): ItemStatus
 }

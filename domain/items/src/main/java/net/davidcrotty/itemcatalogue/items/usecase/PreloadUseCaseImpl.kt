@@ -5,7 +5,7 @@ import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 
 class PreloadUseCaseImpl(private val itemRepository: ItemRepository) : PreloadUseCase {
     override suspend fun execute(): PreloadStatus {
-        if (itemRepository.getItems() is ItemRepository.ItemStatus.Available) {
+        if (itemRepository.getItems() is ItemRepository.ItemListStatus.Available) {
             return PreloadStatus.Loaded
         }
         return PreloadStatus.Error
