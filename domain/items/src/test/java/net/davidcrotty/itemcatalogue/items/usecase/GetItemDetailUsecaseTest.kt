@@ -17,7 +17,7 @@ class GetItemDetailUsecaseTest {
     @Test
     fun `when retrieving item detail`() {
         // Given a request for item detail
-        val itemID = "624842bb3c93ea918aa9585c"
+        val itemID = itemID()
         val expectedItemDetail = ItemRepository.ItemStatus.Available(item(itemID))
         val sut = GetItemUsecaseImpl(
             mockk {
@@ -47,8 +47,27 @@ class GetItemDetailUsecaseTest {
         )
     }
 
+    private fun itemID(): String {
+        return "624842bb3c93ea918aa9585c"
+    }
+
     @Test
     fun `when retrieving item detail unavailable`() {
+        // Given a request for an item fails
+        val sut = GetItemUsecaseImpl(
+            mockk {
+                coEvery { getItem(itemID()) } returns ItemRepository.ItemStatus.Unavailable
+            }
+        )
 
+        // when fetching an item
+        val result = runBlocking {
+            sut.execute(itemID())
+        }
+
+        assertEquals(
+            ItemRepository.ItemStatus.Unavailable,
+            result
+        )
     }
 }

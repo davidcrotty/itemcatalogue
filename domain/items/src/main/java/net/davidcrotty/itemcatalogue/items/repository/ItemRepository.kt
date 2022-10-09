@@ -6,6 +6,7 @@ interface ItemRepository {
 
     sealed class ItemStatus {
         data class Available(val item: Item) : ItemStatus()
+        object Unavailable : ItemStatus()
     }
 
     sealed class ItemListStatus {
