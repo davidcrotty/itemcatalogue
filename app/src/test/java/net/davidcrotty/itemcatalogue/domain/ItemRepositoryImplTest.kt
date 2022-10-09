@@ -4,7 +4,7 @@ import fr.xgouchet.elmyr.Forge
 import io.mockk.*
 import kotlinx.coroutines.runBlocking
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSource
-import net.davidcrotty.itemcatalogue.data.item.ItemDataSource
+import net.davidcrotty.itemcatalogue.data.item.RemoteItemDataSource
 import net.davidcrotty.itemcatalogue.data.item.dto.pure.ItemDTO
 import net.davidcrotty.itemcatalogue.data.item.exception.ContentFailedToFetch
 import net.davidcrotty.itemcatalogue.data.item.exception.ContentNotFound
@@ -54,7 +54,7 @@ internal class ItemRepositoryImplTest {
         }
 
         val sut = ItemRepositoryImpl(
-            itemDataSource = mockk { coEvery { fetchAfter(any(), any()) } returns apiItems },
+            remoteItemDataSource = mockk { coEvery { fetchAfter(any(), any()) } returns apiItems },
             itemCache = itemCache,
             config = mockk(relaxed = true)
         )
@@ -102,7 +102,7 @@ internal class ItemRepositoryImplTest {
             description = description
         )
 
-        val mockDataSource: ItemDataSource = mockk {
+        val mockDataSource: RemoteItemDataSource = mockk {
             coEvery { fetchAfter("next id", any()) } returns apiItems
         }
         val storedItem = Item(
@@ -144,9 +144,9 @@ internal class ItemRepositoryImplTest {
 
     @Test
     fun `when items cannot be found`() {
-        val api: ItemDataSource = mockk { coEvery { fetchAfter(any(), any()) } throws ContentNotFound() }
+        val api: RemoteItemDataSource = mockk { coEvery { fetchAfter(any(), any()) } throws ContentNotFound() }
         val sut = ItemRepositoryImpl(
-            itemDataSource = api,
+            remoteItemDataSource = api,
             itemCache = mockk(relaxed = true),
             config = mockk(relaxed = true)
         )
@@ -161,9 +161,9 @@ internal class ItemRepositoryImplTest {
 
     @Test
     fun `when content is unavailable`() {
-        val api: ItemDataSource = mockk { coEvery { fetchAfter(any(), any()) } throws ContentFailedToFetch() }
+        val api: RemoteItemDataSource = mockk { coEvery { fetchAfter(any(), any()) } throws ContentFailedToFetch() }
         val sut = ItemRepositoryImpl(
-            itemDataSource = api,
+            remoteItemDataSource = api,
             itemCache = mockk(relaxed = true),
             config = mockk(relaxed = true)
         )
@@ -176,4 +176,29 @@ internal class ItemRepositoryImplTest {
         assertEquals(ItemRepository.ItemListStatus.RecoverableError, itemResult)
     }
 
+    @Test
+    fun `when fetching a single item`() {
+        // Given fetching a single item succeeds
+        val sut = ItemRepositoryImpl(
+            mockk(),
+            mockk(),
+            mockk()
+        )
+
+        // when fetching an item
+        runBlocking {
+            sut.getItem(itemID())
+        }
+
+        // then should return the item
+    }
+
+    @Test
+    fun `when fetching a single item fails`() {
+
+    }
+
+    private fun itemID(): String {
+        return "624842bb3c93ea918aa9585c"
+    }
 }

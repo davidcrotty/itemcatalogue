@@ -4,6 +4,7 @@ import com.squareup.moshi.Moshi
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSource
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSourceImpl
 import net.davidcrotty.itemcatalogue.data.item.RemoteItemDataSource
+import net.davidcrotty.itemcatalogue.data.item.RemoteItemDataSourceImpl
 import net.davidcrotty.itemcatalogue.model.Configuration
 import net.davidcrotty.itemcatalogue.domain.ItemRepositoryImpl
 import okhttp3.OkHttpClient
@@ -27,7 +28,7 @@ class DndCatalogueAppGraphImpl : DndCatalogueAppContainer {
     override fun itemScreenGraph(): ItemScreenGraph {
         return ItemScreenGraphImpl(
             ItemRepositoryImpl(
-                RemoteItemDataSource(apiFactory.getInstance()),
+                RemoteItemDataSourceImpl(apiFactory.getInstance()),
                 itemsFetchedCache,
                 configuration
             )
@@ -37,7 +38,7 @@ class DndCatalogueAppGraphImpl : DndCatalogueAppContainer {
     override fun mainActivityGraph(): MainActivityGraph {
         return MainActivityGraphImpl(
             ItemRepositoryImpl(
-                RemoteItemDataSource(apiFactory.getInstance()),
+                RemoteItemDataSourceImpl(apiFactory.getInstance()),
                 itemsFetchedCache,
                 configuration
             )
