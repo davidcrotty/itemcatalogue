@@ -10,6 +10,7 @@ import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 import net.davidcrotty.itemcatalogue.items.usecase.GetItemUsecase
+import net.davidcrotty.itemcatalogue.model.ImageResult
 import net.davidcrotty.itemcatalogue.model.ItemDetail
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -21,7 +22,7 @@ class ItemDetailViewModelTest : CoroutineTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun `when fetching item detail`() {
+    fun `when fetching item detail with valid image`() {
         // Given a viewmodel
         val itemID = forge.aString()
         val item = Item(
@@ -50,10 +51,15 @@ class ItemDetailViewModelTest : CoroutineTest {
             title = item.title,
             type = item.type,
             description = item.description,
-            image = item.url
+            image = ImageResult.Image(item.url)
         )
         assertEquals(expected, state.itemDetail)
         assertEquals(false, state.isLoading)
+    }
+
+    @Test
+    fun `when fetching item detail without valid image`() {
+        TODO("Not implemented")
     }
 
     @Test
