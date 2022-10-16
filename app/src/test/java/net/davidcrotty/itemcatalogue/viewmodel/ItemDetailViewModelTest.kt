@@ -24,6 +24,7 @@ class ItemDetailViewModelTest : CoroutineTest {
     @Test
     fun `when fetching item detail with valid image`() {
         // Given a viewmodel
+        // And valid item detail
         val itemID = forge.aString()
         val item = Item(
             id = ID(itemID),
@@ -39,7 +40,6 @@ class ItemDetailViewModelTest : CoroutineTest {
             )
         }
         val sut = ItemDetailViewModel(itemDetailUsecaseMock)
-        // And valid item detail
 
         // When fetching an item detail
         sut.renderItemDetail(itemID)
@@ -59,7 +59,38 @@ class ItemDetailViewModelTest : CoroutineTest {
 
     @Test
     fun `when fetching item detail without valid image`() {
-        TODO("Not implemented")
+        // Given a viewmodel
+        // And valid item detail without a valid image
+        val itemID = forge.aString()
+        val item = Item(
+            id = ID(itemID),
+            url = "",
+            type = forge.aString(),
+            title = forge.aString(),
+            description = forge.aString()
+        )
+
+        val itemDetailUsecaseMock = mockk<GetItemUsecase> {
+            coEvery { execute(itemID) } returns ItemRepository.ItemStatus.Available(
+                item
+            )
+        }
+        val sut = ItemDetailViewModel(itemDetailUsecaseMock)
+
+        // When fetching an item detail
+        sut.renderItemDetail(itemID)
+        testScheduler.advanceUntilIdle()
+
+        // Then state should contain a valid item detail
+        val state = sut.itemDetailState.value
+        val expected = ItemDetail(
+            title = item.title,
+            type = item.type,
+            description = item.description,
+            image = ImageResult.Unavailable
+        )
+        assertEquals(expected, state.itemDetail)
+        assertEquals(false, state.isLoading)
     }
 
     @Test
