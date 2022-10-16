@@ -17,9 +17,7 @@ class ItemDetailViewModel(private val getItemUsecase: GetItemUsecase) : ViewMode
 
     fun renderItemDetail(id: String) {
         viewModelScope.launch {
-            val itemResult = getItemUsecase.execute(id)
-
-            when(itemResult) {
+            when(val itemResult = getItemUsecase.execute(id)) {
                 is ItemRepository.ItemStatus.Available -> {
                     val item = itemResult.item
                     _itemDetailState.value = ItemDetailState(
