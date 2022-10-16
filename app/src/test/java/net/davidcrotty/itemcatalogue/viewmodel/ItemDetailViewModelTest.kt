@@ -12,6 +12,7 @@ import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 import net.davidcrotty.itemcatalogue.items.usecase.GetItemUsecase
 import net.davidcrotty.itemcatalogue.model.ImageResult
 import net.davidcrotty.itemcatalogue.model.ItemDetail
+import net.davidcrotty.itemcatalogue.model.ItemDetailState
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -95,7 +96,25 @@ class ItemDetailViewModelTest : CoroutineTest {
 
     @Test
     fun `when fetching item detail error`() {
-        TODO("Not implemented")
+        // given item viewmodel
+        val itemID = forge.aString()
+        val itemDetailUsecaseMock = mockk<GetItemUsecase> {
+            coEvery { execute(itemID) } returns ItemRepository.ItemStatus.Unavailable
+        }
+        val sut = ItemDetailViewModel(itemDetailUsecaseMock)
+
+        // When fetching an item detail
+        sut.renderItemDetail(itemID)
+        testScheduler.advanceUntilIdle()
+
+        // Then state should contain information of error
+        val state = sut.itemDetailState.value
+        val expected = ItemDetailState(
+            hasError = true,
+            isLoading = false
+        )
+        assertEquals(expected, state)
+        assertEquals(false, state.isLoading)
     }
 
 }

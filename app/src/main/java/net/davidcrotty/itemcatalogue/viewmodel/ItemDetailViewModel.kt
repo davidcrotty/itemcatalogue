@@ -18,7 +18,7 @@ class ItemDetailViewModel(private val getItemUsecase: GetItemUsecase) : ViewMode
 
     fun renderItemDetail(id: String) {
         viewModelScope.launch {
-            when(val itemResult = getItemUsecase.execute(id)) {
+            when (val itemResult = getItemUsecase.execute(id)) {
                 is ItemRepository.ItemStatus.Available -> {
                     val item = itemResult.item
                     val imageResult = resolveImageResult(item.url)
@@ -33,7 +33,10 @@ class ItemDetailViewModel(private val getItemUsecase: GetItemUsecase) : ViewMode
                     )
                 }
                 is ItemRepository.ItemStatus.Unavailable -> {
-                    TODO("Not implemented")
+                    _itemDetailState.value = ItemDetailState(
+                        isLoading = false,
+                        hasError = true
+                    )
                 }
             }
         }
