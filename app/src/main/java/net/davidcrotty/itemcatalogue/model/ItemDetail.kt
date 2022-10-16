@@ -4,5 +4,5 @@ data class ItemDetail(
     val title: String? = "",
     val type: String? = "",
     val description: String? = "",
-    val image: ImageResult // TODO create image type to ensure 3rd parties can handle bad input
+    val image: ImageResult
 )
