@@ -4,6 +4,7 @@ import fr.xgouchet.elmyr.Forge
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineScheduler
 import net.davidcrotty.itemcatalogue.helpers.CoroutineTest
 import net.davidcrotty.itemcatalogue.items.entity.ID
@@ -19,6 +20,7 @@ class ItemDetailViewModelTest : CoroutineTest {
     override var testScheduler = TestCoroutineScheduler()
     private val forge = Forge()
 
+    @OptIn(ExperimentalCoroutinesApi::class)
     @Test
     fun `when fetching item detail`() {
         // Given a viewmodel
