@@ -36,10 +36,11 @@ class NavigationTest {
                 every { itemViewModel() } returns itemViewModel
             }
             NavigationHandler(controller = navController, itemScreenGraph = itemScreenGraph, navigator = sut)
-        }
 
-        // act:
-        // invoke the nav
+            // act:
+            // invoke the nav
+            sut.navigate(path)
+        }
 
         // assert:
         // error page is displayed
