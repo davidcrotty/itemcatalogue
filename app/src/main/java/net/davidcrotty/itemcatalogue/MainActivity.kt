@@ -17,7 +17,6 @@ class MainActivity : ComponentActivity() {
 
     private val dndContainer by lazy { applicationContext.applicationContext as DndCatalogueAppContainer }
 
-    @OptIn(ExperimentalAnimationGraphicsApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
@@ -35,6 +34,8 @@ class MainActivity : ComponentActivity() {
                     ComposeWrapper(
                         controller, dndContainer.itemScreenGraph()
                     ) {
+                        // Navigation handler, gets injected, factory pattern to receive nav controller
+                        // write this as failing test first, expect error page
                         navigator.navigate(it)
                     }
                 }
