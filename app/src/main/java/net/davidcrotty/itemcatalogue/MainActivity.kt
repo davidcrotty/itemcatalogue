@@ -10,6 +10,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
 import net.davidcrotty.itemcatalogue.organism.PreloadApplicationErrorDialog
+import net.davidcrotty.itemcatalogue.technology.navigation.NavigationHandler
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigatorImpl
 import net.davidcrotty.itemcatalogue.ui.theme.CatalogueTemplateTheme
 
@@ -26,18 +27,16 @@ class MainActivity : ComponentActivity() {
         setContent {
             val showErrorDialog by viewModel.launchErrorDialogShown.collectAsState()
             CatalogueTemplateTheme {
-                if(showErrorDialog) {
+                if (showErrorDialog) {
                     PreloadApplicationErrorDialog() // TODO does navigation allow emission of error dialogues? if so can go in compose wrapper
                 } else {
                     val controller = rememberNavController()
                     val navigator = NavigatorImpl(controller)
-                    ComposeWrapper(
-                        controller, dndContainer.itemScreenGraph()
-                    ) {
-                        // Navigation handler, gets injected, factory pattern to receive nav controller
-                        // write this as failing test first, expect error page
-                        navigator.navigate(it)
-                    }
+                    NavigationHandler(
+                        controller = controller,
+                        itemScreenGraph = dndContainer.itemScreenGraph(),
+                        navigator = navigator
+                    )
                 }
             }
         }
