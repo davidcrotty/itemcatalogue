@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalCoroutinesApi::class)
+
 package net.davidcrotty.itemcatalogue.viewmodel
 
 import fr.xgouchet.elmyr.Forge
