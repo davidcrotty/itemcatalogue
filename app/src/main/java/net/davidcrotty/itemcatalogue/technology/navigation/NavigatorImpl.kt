@@ -4,10 +4,9 @@ import androidx.navigation.NavController
 
 class NavigatorImpl(private val navController: NavController) : Navigator {
     override fun navigate(path: String): Navigator.NavigationResult {
-        // tech error would surface up to gateway which would tell it what to do on error
         try {
             navController.navigate(path)
-        } catch (e: Exception) {
+        } catch (e: IllegalArgumentException) {
             return Navigator.NavigationResult.Failure
         }
 
