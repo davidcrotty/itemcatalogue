@@ -10,7 +10,7 @@ import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
 import net.davidcrotty.itemcatalogue.model.ListTemplateState
 import net.davidcrotty.itemcatalogue.model.LoadingState
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigationHandler
-import net.davidcrotty.itemcatalogue.technology.navigation.NavigationResult
+import net.davidcrotty.itemcatalogue.technology.navigation.Navigator
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigatorImpl
 import net.davidcrotty.itemcatalogue.viewmodel.ListTemplateViewModel
 import org.junit.Rule
@@ -22,11 +22,39 @@ class NavigationTest {
     val composeTestRule = createComposeRule()
 
     // TODO list:
-    // Nav failure - should not crash and error screen
+    // Navigate - Log error
+
+    @Test
+    fun test_when_navigating_invalid_path() {
+        val path = "invalid"
+        composeTestRule.setContent {
+            val navController = rememberNavController()
+            val sut = NavigatorImpl(navController)
+            val itemViewModel = mockk<ListTemplateViewModel> {
+                every { listState } returns MutableStateFlow(
+                    ListTemplateState(
+                        emptyList(),
+                        LoadingState.Retry
+                    )
+                )
+            }
+            val itemScreenGraph = mockk<ItemScreenGraph> {
+                every { itemViewModel() } returns itemViewModel
+            }
+            NavigationHandler(
+                controller = navController,
+                itemScreenGraph = itemScreenGraph,
+                navigator = sut
+            )
+
+            val result = sut.navigate(path)
+
+            assertEquals(Navigator.NavigationResult.Failure, result)
+        }
+    }
 
     @Test
     fun test_when_navigating_valid_path() {
-        // Given an invalid path to navigate to
         val path = "itemList"
 
         composeTestRule.setContent {
@@ -40,15 +68,10 @@ class NavigationTest {
             }
             NavigationHandler(controller = navController, itemScreenGraph = itemScreenGraph, navigator = sut)
 
-            // act:
-            // invoke the nav
             val result = sut.navigate(path)
 
-            assertEquals(NavigationResult.Success, result)
+            assertEquals(Navigator.NavigationResult.Success, result)
         }
-
-        // assert:
-        // command for error page is sent, or success
     }
 
 }
