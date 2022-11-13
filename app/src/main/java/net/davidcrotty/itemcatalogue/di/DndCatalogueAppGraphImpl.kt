@@ -1,5 +1,6 @@
 package net.davidcrotty.itemcatalogue.di
 
+import androidx.navigation.NavController
 import com.squareup.moshi.Moshi
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSource
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSourceImpl
@@ -8,6 +9,10 @@ import net.davidcrotty.itemcatalogue.data.item.RemoteItemDataSourceImpl
 import net.davidcrotty.itemcatalogue.model.Configuration
 import net.davidcrotty.itemcatalogue.domain.ItemRepositoryImpl
 import net.davidcrotty.itemcatalogue.items.entity.Item
+import net.davidcrotty.itemcatalogue.technology.navigation.NavFactory
+import net.davidcrotty.itemcatalogue.technology.navigation.NavFactoryImpl
+import net.davidcrotty.itemcatalogue.technology.navigation.Navigator
+import net.davidcrotty.itemcatalogue.technology.navigation.NavigatorImpl
 import okhttp3.OkHttpClient
 
 class DndCatalogueAppGraphImpl : DndCatalogueAppContainer {
@@ -43,6 +48,12 @@ class DndCatalogueAppGraphImpl : DndCatalogueAppContainer {
                 itemsFetchedCache,
                 configuration
             )
+        )
+    }
+
+    override fun navigator(navController: () -> NavController): Navigator {
+        return NavigatorImpl(
+            NavFactoryImpl(navController)
         )
     }
 }

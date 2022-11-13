@@ -1,7 +1,9 @@
 package net.davidcrotty.itemcatalogue
 
 import android.app.Application
+import androidx.navigation.NavController
 import net.davidcrotty.itemcatalogue.di.*
+import net.davidcrotty.itemcatalogue.technology.navigation.Navigator
 
 class DndCatalogueApp : Application(), DndCatalogueAppContainer {
 
@@ -18,5 +20,9 @@ class DndCatalogueApp : Application(), DndCatalogueAppContainer {
 
     override fun mainActivityGraph(): MainActivityGraph {
         return graph.mainActivityGraph()
+    }
+
+    override fun navigator(navController: () -> NavController): Navigator {
+        return graph.navigator(navController)
     }
 }
