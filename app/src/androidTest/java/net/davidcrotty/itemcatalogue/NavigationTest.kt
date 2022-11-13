@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
 import net.davidcrotty.itemcatalogue.model.ListTemplateState
 import net.davidcrotty.itemcatalogue.model.LoadingState
+import net.davidcrotty.itemcatalogue.technology.navigation.NavFactoryImpl
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigationHandler
 import net.davidcrotty.itemcatalogue.technology.navigation.Navigator
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigatorImpl
@@ -29,7 +30,8 @@ class NavigationTest {
         val path = "invalid"
         composeTestRule.setContent {
             val navController = rememberNavController()
-            val sut = NavigatorImpl(navController)
+            val navFactory = NavFactoryImpl { navController }
+            val sut = NavigatorImpl(navFactory)
             val itemViewModel = mockk<ListTemplateViewModel> {
                 every { listState } returns MutableStateFlow(
                     ListTemplateState(
@@ -59,7 +61,8 @@ class NavigationTest {
 
         composeTestRule.setContent {
             val navController = rememberNavController()
-            val sut = NavigatorImpl(navController)
+            val navFactory = NavFactoryImpl { navController }
+            val sut = NavigatorImpl(navFactory)
             val itemViewModel = mockk<ListTemplateViewModel> {
                 every { listState } returns MutableStateFlow(ListTemplateState(emptyList(), LoadingState.Retry))
             }
