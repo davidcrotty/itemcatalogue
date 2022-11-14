@@ -23,7 +23,7 @@ import net.davidcrotty.itemcatalogue.ui.theme.Typography
 @Preview
 @Composable
 fun ItemDetailScreen(
-    url: String = "https://cutewallpaper.org/21/dungeon-master-wallpaper/Dungeon-Masters-Guide-Dungeons-and-Dragons.jpg",
+    url: String = "https://www.dndbeyond.com/attachments/2/666/armor.jpg",
     background: Color = MaterialTheme.colors.background) {
     Box(modifier = Modifier.background(background)) {
         Box(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium))) {

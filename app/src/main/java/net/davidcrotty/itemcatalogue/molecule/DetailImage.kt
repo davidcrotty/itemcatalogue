@@ -17,9 +17,10 @@ import net.davidcrotty.itemcatalogue.ui.theme.LocalValues
 @Composable
 fun DetailImage(
     modifier: Modifier = Modifier,
-    url: String = "https://www.dndbeyond.com/avatars/thumbnails/9170/66/1000/1000/637199798951570191.png",
+    url: String = "https://www.dndbeyond.com/attachments/2/666/armor.jpg",
     background: Color = MaterialTheme.colors.surface
 ) {
+    // TODO scale to fit
     AsyncImage(
         modifier = modifier
             .aspectRatio(4f / 3f)
