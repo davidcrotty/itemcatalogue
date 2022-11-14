@@ -20,6 +20,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import coil.compose.rememberImagePainter
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.BackgroundImage
+import net.davidcrotty.itemcatalogue.molecule.DetailImage
 import net.davidcrotty.itemcatalogue.organism.StatTable
 import net.davidcrotty.itemcatalogue.ui.theme.TableTheme
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
@@ -40,10 +41,10 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
         Box(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium))) {
             Box {
                 ConstraintLayout {
-                    val (breadcrumbs, spacer, title, image, subtitle) = createRefs()
-                    Text("Items > Weapons", style = Typography.caption, modifier = Modifier.constrainAs(breadcrumbs) {
+                    val (detailImage, breadcrumbs, spacer, title, subtitle) = createRefs()
+                    DetailImage(modifier = Modifier.height(100.dp).constrainAs(detailImage) {
                         top.linkTo(parent.top)
-                    }) // TODO write bread crumbs function/widget
+                    })
                     Spacer(modifier = Modifier
                         .height(dimensionResource(id = R.dimen.padding_medium))
                         .constrainAs(spacer) {
@@ -57,28 +58,8 @@ fun ItemDetailScreen(url: String = "https://cutewallpaper.org/21/dungeon-master-
                         )
                     ),
                     modifier = Modifier.constrainAs(title) {
-                        top.linkTo(spacer.bottom)
+                        top.linkTo(detailImage.bottom)
                     })
-                    Text("Damage Combat", style = Typography.subtitle1.copy(
-                        shadow = Shadow(
-                            color = Color.Black,
-                            offset = Offset(4f, 4f),
-                            blurRadius = 8f
-                        )
-                    ), modifier = Modifier.constrainAs(subtitle) {
-                        top.linkTo(title.bottom)
-                    })
-                    // TODO fix image bounds so layout is stable and can be done in one pass
-                    Image(
-                        painter = rememberImagePainter("https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450"),
-                        contentDescription = stringResource(id = R.string.item_detail_image),
-                        modifier = Modifier
-                            .constrainAs(image) {
-                                top.linkTo(breadcrumbs.top)
-                                start.linkTo(title.end)
-                            }
-                            .size(240.dp)
-                    )
                 }
             }
             Column {
