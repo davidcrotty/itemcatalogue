@@ -3,6 +3,8 @@ package net.davidcrotty.itemcatalogue
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.test.printToLog
 import net.davidcrotty.itemcatalogue.molecule.DetailImage
 import org.junit.Rule
 import org.junit.Test
@@ -18,6 +20,7 @@ class DetailImageTest {
             DetailImage()
         }
 
-        composeTestRule.onNodeWithContentDescription("Detail image").assertIsDisplayed()
+        composeTestRule.onRoot().printToLog("DetailImageTest")
+        composeTestRule.onNodeWithContentDescription("Detail Image").assertIsDisplayed()
     }
 }
