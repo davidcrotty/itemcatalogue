@@ -31,7 +31,7 @@ class DndCatalogueAppGraphImpl : DndCatalogueAppContainer {
         ItemCacheDataSourceImpl(mutableMapOf())
     }
 
-    override fun itemScreenGraph(): ItemScreenGraph {
+    override fun itemListScreenGraph(): ItemScreenGraph {
         return ItemScreenGraphImpl(
             ItemRepositoryImpl(
                 RemoteItemDataSourceImpl(apiFactory.getInstance()),
@@ -48,6 +48,14 @@ class DndCatalogueAppGraphImpl : DndCatalogueAppContainer {
                 itemsFetchedCache,
                 configuration
             )
+        )
+    }
+
+    override fun itemDetailGraph(): ItemDetailGraph {
+        return ItemDetailGraphImpl(
+            RemoteItemDataSourceImpl(apiFactory.getInstance()),
+            itemsFetchedCache,
+            configuration
         )
     }
 

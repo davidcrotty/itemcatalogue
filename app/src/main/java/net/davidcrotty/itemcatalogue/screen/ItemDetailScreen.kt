@@ -7,30 +7,36 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ConstraintLayout
 import net.davidcrotty.itemcatalogue.R
+import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
+import net.davidcrotty.itemcatalogue.di.DndCatalogueAppGraphImpl
 import net.davidcrotty.itemcatalogue.molecule.DetailImage
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
+import net.davidcrotty.itemcatalogue.viewmodel.ItemDetailViewModel
 
 
-@Preview
 @Composable
 fun ItemDetailScreen(
     titleText: String = "Fire Sword", // TODO lookup compose preview model to keep signature clean
-    url: String = "https://i0.wp.com/www.chaoticanwriter.com/chaoticanwriter.com/wp-content/uploads/2022/03/flamge-tongue-magic-items.jpg?fit=1000%2C1000&ssl=1",
-    background: Color = MaterialTheme.colors.background
+    background: Color = MaterialTheme.colors.background,
+    appGraph: DndCatalogueAppContainer
 ) {
+    val detailViewModel = appGraph.itemDetailGraph().itemDetailViewModel()
+    detailViewModel.renderItemDetail("")
+    val itemScreen = detailViewModel.itemDetailState.collectAsState()
     Box(modifier = Modifier.background(background)) {
         Box {
             ConstraintLayout {
                 val (detailImage, breadcrumbs, spacer, title) = createRefs()
                 DetailImage(modifier = Modifier.constrainAs(detailImage) {
                     top.linkTo(parent.top)
-                }, url)
+                }, image = itemScreen.value.itemDetail.image)
                 Spacer(modifier = Modifier
                     .height(dimensionResource(id = R.dimen.padding_medium))
                     .constrainAs(spacer) {

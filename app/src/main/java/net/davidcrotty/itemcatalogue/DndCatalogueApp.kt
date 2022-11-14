@@ -14,12 +14,16 @@ class DndCatalogueApp : Application(), DndCatalogueAppContainer {
     }
 
 
-    override fun itemScreenGraph(): ItemScreenGraph {
-        return graph.itemScreenGraph()
+    override fun itemListScreenGraph(): ItemScreenGraph {
+        return graph.itemListScreenGraph()
     }
 
     override fun mainActivityGraph(): MainActivityGraph {
         return graph.mainActivityGraph()
+    }
+
+    override fun itemDetailGraph(): ItemDetailGraph {
+        return graph.itemDetailGraph()
     }
 
     override fun navigator(navController: () -> NavController): Navigator {

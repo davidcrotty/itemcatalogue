@@ -4,7 +4,8 @@ import androidx.navigation.NavController
 import net.davidcrotty.itemcatalogue.technology.navigation.Navigator
 
 interface DndCatalogueAppContainer {
-    fun itemScreenGraph(): ItemScreenGraph
+    fun itemListScreenGraph(): ItemScreenGraph
     fun mainActivityGraph(): MainActivityGraph
+    fun itemDetailGraph(): ItemDetailGraph
     fun navigator(navController: () -> NavController): Navigator
 }

@@ -46,7 +46,8 @@ class NavigationTest {
             NavigationHandler(
                 controller = navController,
                 itemScreenGraph = itemScreenGraph,
-                navigator = sut
+                navigator = sut,
+                appContainer = mockk()
             )
 
             val result = sut.navigate(path)
@@ -69,7 +70,7 @@ class NavigationTest {
             val itemScreenGraph = mockk<ItemScreenGraph> {
                 every { itemViewModel() } returns itemViewModel
             }
-            NavigationHandler(controller = navController, itemScreenGraph = itemScreenGraph, navigator = sut)
+            NavigationHandler(controller = navController, itemScreenGraph = itemScreenGraph, navigator = sut, appContainer = mockk())
 
             val result = sut.navigate(path)
 
