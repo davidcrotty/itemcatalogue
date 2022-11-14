@@ -1,6 +1,7 @@
 package net.davidcrotty.itemcatalogue.model
 
 data class FeedItem(
+    val id: String,
     val url: String,
     val type: String,
     val title: String,

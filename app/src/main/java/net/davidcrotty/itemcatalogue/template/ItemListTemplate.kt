@@ -45,7 +45,7 @@ fun ItemListTemplate(
                 itemListState.feedItems
             ) { index, dungeonItem ->
                 ItemCard(dungeonItem, onClick = {
-                    navigate?.invoke("item")
+                    navigate?.invoke("item/${dungeonItem.id}")
                 })
 
                 if (index < itemListState.feedItems.lastIndex) {

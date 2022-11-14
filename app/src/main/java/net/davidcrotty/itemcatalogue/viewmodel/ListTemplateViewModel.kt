@@ -20,7 +20,13 @@ class ListTemplateViewModel(
         get() = _items
 
     private var initialPresentation = true
-    private val _items = MutableStateFlow(ListTemplateState(emptyList(), LoadingState.CanLoadMore, initialPresentation))
+    private val _items = MutableStateFlow(
+        ListTemplateState(
+            emptyList(),
+            LoadingState.CanLoadMore,
+            initialPresentation
+        )
+    )
 
     fun fetchItems() {
         initialPresentation = false
@@ -32,6 +38,7 @@ class ListTemplateViewModel(
             if (fetchResult is ItemRepository.ItemListStatus.Available) {
                 val feedModels = fetchResult.items.map { entity ->
                     FeedItem(
+                        id = entity.id.value,
                         url = entity.url,
                         type = entity.type,
                         title = entity.title,
@@ -57,23 +64,4 @@ class ListTemplateViewModel(
             }
         }
     }
-
-    // usecase will fetch, contract provided by domain
-    // repo will fetch, contract provided by domain
-    // entity - provided by domain
-
-    // app provides impl for uc:
-    // fetchFeedItems -> repo
-
-    // app provides impl for repo:
-    // Repo keeps id of last item in list for fetch, next call uses that - else api call
-    // repo also stores and fetches from its cache of prior items
-
-    // other rules it may add would be setting an expiry on cache items and check expiry on cache items (on pull down to refresh or restart for example)
-
-    // data module would contain gateways and impl for retrofit call
-
-    // technologies ie: retrofit would provide their interface via their own module
-
-    // Questions: Would a usecase impl sit inside a domain module or the feature? (My take: feature because it may depend on other technologies (ie will need at least delegating to)
 }

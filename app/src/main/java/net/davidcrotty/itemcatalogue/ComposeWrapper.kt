@@ -2,8 +2,10 @@ package net.davidcrotty.itemcatalogue
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
 import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
 import net.davidcrotty.itemcatalogue.screen.ItemDetailScreen
@@ -16,6 +18,9 @@ fun ComposeWrapper(navController: NavHostController, itemScreenGraph: ItemScreen
         composable("itemList") {
             ItemListScreen(itemScreenGraph = itemScreenGraph, navigate = { navigate(it) })
         }
-        composable("item") { ItemDetailScreen(appGraph = container) }
+        composable("item/{itemId}", arguments = listOf(navArgument("itemId") {
+            type = NavType.StringType
+            nullable = false
+        })) { ItemDetailScreen(appGraph = container) }
     }
 }
