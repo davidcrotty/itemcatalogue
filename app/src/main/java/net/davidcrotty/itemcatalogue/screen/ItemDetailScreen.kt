@@ -23,10 +23,10 @@ import net.davidcrotty.itemcatalogue.ui.theme.Typography
 @Preview
 @Composable
 fun ItemDetailScreen(
-    url: String = "https://www.dndbeyond.com/attachments/2/666/armor.jpg",
+    url: String = "https://i0.wp.com/www.chaoticanwriter.com/chaoticanwriter.com/wp-content/uploads/2022/03/flamge-tongue-magic-items.jpg?fit=1000%2C1000&ssl=1",
     background: Color = MaterialTheme.colors.background) {
     Box(modifier = Modifier.background(background)) {
-        Box(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_medium))) {
+        Box {
             Box {
                 ConstraintLayout {
                     val (detailImage, breadcrumbs, spacer, title) = createRefs()

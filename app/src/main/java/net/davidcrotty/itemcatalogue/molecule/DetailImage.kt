@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.AsyncImage
 import net.davidcrotty.itemcatalogue.ui.theme.LocalValues
@@ -17,14 +18,13 @@ import net.davidcrotty.itemcatalogue.ui.theme.LocalValues
 @Composable
 fun DetailImage(
     modifier: Modifier = Modifier,
-    url: String = "https://www.dndbeyond.com/attachments/2/666/armor.jpg",
+    url: String = "https://i0.wp.com/www.chaoticanwriter.com/chaoticanwriter.com/wp-content/uploads/2022/03/flamge-tongue-magic-items.jpg?fit=1000%2C1000&ssl=1",
     background: Color = MaterialTheme.colors.surface
 ) {
-    // TODO scale to fit
     AsyncImage(
         modifier = modifier
             .aspectRatio(4f / 3f)
-            .clip(RoundedCornerShape(LocalValues.current.large.value))
-            .background(background), model = url, contentDescription = "Detail Image"
+            .background(background), model = url, contentDescription = "Detail Image",
+        contentScale = ContentScale.Crop
     )
 }
