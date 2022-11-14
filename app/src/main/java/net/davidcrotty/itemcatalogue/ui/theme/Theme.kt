@@ -15,7 +15,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
-// TODO KMM exposing this as an accessable website for designers is a great idea
 private val DarkColorPalette = darkColors(
     primary = Red600,
     primaryVariant = Purple700,
@@ -29,15 +28,6 @@ private val LightColorPalette = lightColors(
     surface = White300,
     background = White100,
     onSurface = Grey900
-
-    /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
 )
 
 @Deprecated("Not used currently, was used as an example of custom theming", replaceWith = ReplaceWith("CatalogueTemplateTheme"))
