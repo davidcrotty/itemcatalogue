@@ -13,6 +13,7 @@ import net.davidcrotty.itemcatalogue.di.ItemDetailGraph
 import net.davidcrotty.itemcatalogue.model.ImageResult
 import net.davidcrotty.itemcatalogue.model.ItemDetail
 import net.davidcrotty.itemcatalogue.model.ItemDetailState
+import net.davidcrotty.itemcatalogue.model.ItemIDStatus
 import net.davidcrotty.itemcatalogue.screen.ItemDetailScreen
 import net.davidcrotty.itemcatalogue.viewmodel.ItemDetailViewModel
 import org.junit.Rule
@@ -28,7 +29,7 @@ class ItemDetailScreenTest {
         // given a url returned from vm
         val url = "https://i0.wp.com/www.chaoticanwriter.com/chaoticanwriter.com/wp-content/uploads/2022/03/flamge-tongue-magic-items.jpg"
         val viewModel = mockk<ItemDetailViewModel>() {
-            every { renderItemDetail("") } just Runs
+            every { renderItemDetail() } just Runs
             every { itemDetailState } returns MutableStateFlow(
                 ItemDetailState(
                     itemDetail = ItemDetail(
@@ -37,15 +38,9 @@ class ItemDetailScreenTest {
                 )
             )
         }
-        val detailGraph = mockk<ItemDetailGraph> {
-            every { itemDetailViewModel() } returns viewModel
-        }
-        val containerMock = mockk<DndCatalogueAppContainer> {
-            every { itemDetailGraph() } returns detailGraph
-        }
 
         composeTestRule.setContent {
-            ItemDetailScreen(appGraph = containerMock)
+            ItemDetailScreen(detailViewModel = viewModel)
         }
 
         composeTestRule.onNodeWithContentDescription("Detail Image").assertIsDisplayed()
