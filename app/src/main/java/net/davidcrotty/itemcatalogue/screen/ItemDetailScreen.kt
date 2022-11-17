@@ -11,11 +11,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ConstraintLayout
 import net.davidcrotty.itemcatalogue.R
-import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
-import net.davidcrotty.itemcatalogue.di.DndCatalogueAppGraphImpl
 import net.davidcrotty.itemcatalogue.molecule.DetailImage
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
 import net.davidcrotty.itemcatalogue.viewmodel.ItemDetailViewModel
@@ -25,8 +22,7 @@ import net.davidcrotty.itemcatalogue.viewmodel.ItemDetailViewModel
 fun ItemDetailScreen(
     titleText: String = "Fire Sword", // TODO lookup compose preview model to keep signature clean
     background: Color = MaterialTheme.colors.background,
-    detailViewModel: ItemDetailViewModel,
-    itemID: String
+    detailViewModel: ItemDetailViewModel
 ) {
     detailViewModel.renderItemDetail()
     val itemScreen = detailViewModel.itemDetailState.collectAsState()

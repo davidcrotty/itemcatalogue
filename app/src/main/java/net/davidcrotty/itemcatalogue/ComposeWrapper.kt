@@ -34,8 +34,7 @@ fun ComposeWrapper(
                 ItemIDStatus.Available(itemID)
             }
             ItemDetailScreen(
-                detailViewModel = container.itemDetailGraph().itemDetailViewModel { status },
-                itemID = navBackStackEntry.arguments?.getString("itemId") ?: ""
+                detailViewModel = container.itemDetailGraph().itemDetailViewModel { status }
             )
         }
     }
