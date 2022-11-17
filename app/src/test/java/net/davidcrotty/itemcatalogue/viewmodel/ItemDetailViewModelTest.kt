@@ -15,6 +15,7 @@ import net.davidcrotty.itemcatalogue.items.usecase.GetItemUsecase
 import net.davidcrotty.itemcatalogue.model.ImageResult
 import net.davidcrotty.itemcatalogue.model.ItemDetail
 import net.davidcrotty.itemcatalogue.model.ItemDetailState
+import net.davidcrotty.itemcatalogue.model.ItemIDStatus
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -42,10 +43,10 @@ class ItemDetailViewModelTest : CoroutineTest {
                 item
             )
         }
-        val sut = ItemDetailViewModel(itemDetailUsecaseMock)
+        val sut = ItemDetailViewModel(itemDetailUsecaseMock, ItemIDStatus.Available(itemID))
 
         // When fetching an item detail
-        sut.renderItemDetail(itemID)
+        sut.renderItemDetail()
         testScheduler.advanceUntilIdle()
 
         // Then state should contain a valid item detail
@@ -78,10 +79,10 @@ class ItemDetailViewModelTest : CoroutineTest {
                 item
             )
         }
-        val sut = ItemDetailViewModel(itemDetailUsecaseMock)
+        val sut = ItemDetailViewModel(itemDetailUsecaseMock, ItemIDStatus.Available(itemID))
 
         // When fetching an item detail
-        sut.renderItemDetail(itemID)
+        sut.renderItemDetail()
         testScheduler.advanceUntilIdle()
 
         // Then state should contain a valid item detail
@@ -103,10 +104,10 @@ class ItemDetailViewModelTest : CoroutineTest {
         val itemDetailUsecaseMock = mockk<GetItemUsecase> {
             coEvery { execute(itemID) } returns ItemRepository.ItemStatus.Unavailable
         }
-        val sut = ItemDetailViewModel(itemDetailUsecaseMock)
+        val sut = ItemDetailViewModel(itemDetailUsecaseMock, ItemIDStatus.Available(itemID))
 
         // When fetching an item detail
-        sut.renderItemDetail(itemID)
+        sut.renderItemDetail()
         testScheduler.advanceUntilIdle()
 
         // Then state should contain information of error

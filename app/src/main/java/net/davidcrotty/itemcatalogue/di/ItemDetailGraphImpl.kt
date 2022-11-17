@@ -5,6 +5,7 @@ import net.davidcrotty.itemcatalogue.data.item.RemoteItemDataSource
 import net.davidcrotty.itemcatalogue.domain.ItemRepositoryImpl
 import net.davidcrotty.itemcatalogue.items.usecase.GetItemUsecaseImpl
 import net.davidcrotty.itemcatalogue.model.Configuration
+import net.davidcrotty.itemcatalogue.model.ItemIDStatus
 import net.davidcrotty.itemcatalogue.viewmodel.ItemDetailViewModel
 
 class ItemDetailGraphImpl(
@@ -12,15 +13,16 @@ class ItemDetailGraphImpl(
     private val cacheDataSource: ItemCacheDataSource,
     private val configuration: Configuration
 ) : ItemDetailGraph {
-    override fun itemDetailViewModel(): ItemDetailViewModel {
+    override fun itemDetailViewModel(itemID: () -> ItemIDStatus): ItemDetailViewModel {
         return ItemDetailViewModel(
             GetItemUsecaseImpl(
                 ItemRepositoryImpl(
                     remoteItemDataSource,
                     cacheDataSource,
-                    configuration
+                    configuration,
                 )
-            )
+            ),
+            itemID()
         )
     }
 }

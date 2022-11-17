@@ -8,9 +8,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
 import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
+import net.davidcrotty.itemcatalogue.model.ItemIDStatus
 import net.davidcrotty.itemcatalogue.screen.ItemDetailScreen
 import net.davidcrotty.itemcatalogue.screen.ItemListScreen
-import net.davidcrotty.itemcatalogue.ui.theme.CatalogueTemplateTheme
 
 @Composable
 fun ComposeWrapper(
@@ -27,10 +27,14 @@ fun ComposeWrapper(
             type = NavType.StringType
             nullable = false
         })) { navBackStackEntry ->
-            // TODO, avoid passing empty, not clear - we can be explicit on types. even better factory extract this into
-            // a viewmodel so it can relay the unavailable information to the view via one path to reduce duplication
+            val itemID = navBackStackEntry.arguments?.getString("itemId")
+            val status = if (itemID == null) {
+                ItemIDStatus.Unavailable
+            } else {
+                ItemIDStatus.Available(itemID)
+            }
             ItemDetailScreen(
-                detailViewModel = container.itemDetailGraph().itemDetailViewModel(),
+                detailViewModel = container.itemDetailGraph().itemDetailViewModel { status },
                 itemID = navBackStackEntry.arguments?.getString("itemId") ?: ""
             )
         }

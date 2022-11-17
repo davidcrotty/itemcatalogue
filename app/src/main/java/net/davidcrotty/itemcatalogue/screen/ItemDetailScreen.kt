@@ -28,7 +28,7 @@ fun ItemDetailScreen(
     detailViewModel: ItemDetailViewModel,
     itemID: String
 ) {
-    detailViewModel.renderItemDetail(itemID)
+    detailViewModel.renderItemDetail()
     val itemScreen = detailViewModel.itemDetailState.collectAsState()
     Box(modifier = Modifier.background(background)) {
         Box {
