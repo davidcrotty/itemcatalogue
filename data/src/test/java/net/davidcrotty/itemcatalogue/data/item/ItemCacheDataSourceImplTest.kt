@@ -41,14 +41,14 @@ internal class ItemCacheDataSourceImplTest {
 
     @Test
     fun `when fetching cached item`() {
-        // Given has has a stored item
+        // Given has a memory cache store
         val id = ID(itemID())
         val item = item(itemID())
         val expected = ItemCacheDataSource.CacheResult.Hit(item)
-        val sut = ItemCacheDataSourceImpl(mutableMapOf<ID, Item>().apply {
-            put(id, item)
-        })
+        val sut = ItemCacheDataSourceImpl(mutableMapOf<ID, Item>())
 
+        // When storing an item
+        sut.storeItems(listOf(item))
         // When fetching cached item by id
         val result = sut.fetchItem(ID(itemID()))
 

@@ -3,7 +3,6 @@ package net.davidcrotty.itemcatalogue.data.item
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 
-// TODO cache impl is wrong we cant fetch items because we're only using storedItems not memoryCache
 class ItemCacheDataSourceImpl(private val memoryCache: MutableMap<ID, Item>) : ItemCacheDataSource {
 
     private var lastFetchedID: ID? = null
@@ -19,6 +18,9 @@ class ItemCacheDataSourceImpl(private val memoryCache: MutableMap<ID, Item>) : I
 
     override fun storeItems(list: List<Item>) {
         storedItems += list
+        for (item in list) {
+            memoryCache[item.id] = item
+        }
     }
 
     override fun fetchStoredItems(): List<Item> {
