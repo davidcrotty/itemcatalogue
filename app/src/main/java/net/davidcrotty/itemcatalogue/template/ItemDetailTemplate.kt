@@ -8,6 +8,8 @@ import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -15,6 +17,8 @@ import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.model.ImageResult
 import net.davidcrotty.itemcatalogue.model.ItemDetail
 import net.davidcrotty.itemcatalogue.molecule.DetailImage
+import net.davidcrotty.itemcatalogue.ui.theme.Black800
+import net.davidcrotty.itemcatalogue.ui.theme.DetailColors
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
 
 @Preview
@@ -49,6 +53,7 @@ fun ItemDetailTemplate(modifier: Modifier = Modifier,
                     // TODO underline with stick out tab for type beneath
                 }
                 Divider(
+                    color = DetailColors.current.divider,
                     modifier = Modifier
                         .padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
                         .constrainAs(divider) {
