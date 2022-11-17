@@ -17,5 +17,5 @@ fun ItemDetailScreen(
 ) {
     detailViewModel.renderItemDetail()
     val itemDetailState = detailViewModel.itemDetailState.collectAsState()
-    ItemDetailTemplate(Modifier.background(background), itemDetailState = itemDetailState.value)
+    ItemDetailTemplate(Modifier.background(background), itemDetail = itemDetailState.value.itemDetail)
 }
