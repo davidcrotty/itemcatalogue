@@ -66,6 +66,7 @@ internal class ItemsViewModelTest : CoroutineTest {
         val state = sut.listState.value.feedItems
         val expected = listOf(
             FeedItem(
+                id = "id",
                 url = "url",
                 type = "type",
                 title = "title",

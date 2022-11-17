@@ -13,7 +13,12 @@ import net.davidcrotty.itemcatalogue.screen.ItemListScreen
 import net.davidcrotty.itemcatalogue.ui.theme.CatalogueTemplateTheme
 
 @Composable
-fun ComposeWrapper(navController: NavHostController, itemScreenGraph: ItemScreenGraph, navigate: (path: String) -> Unit, container: DndCatalogueAppContainer) {
+fun ComposeWrapper(
+    navController: NavHostController,
+    itemScreenGraph: ItemScreenGraph,
+    navigate: (path: String) -> Unit,
+    container: DndCatalogueAppContainer
+) {
     NavHost(navController = navController, startDestination = "itemList") {
         composable("itemList") {
             ItemListScreen(itemScreenGraph = itemScreenGraph, navigate = { navigate(it) })
@@ -24,7 +29,10 @@ fun ComposeWrapper(navController: NavHostController, itemScreenGraph: ItemScreen
         })) { navBackStackEntry ->
             // TODO, avoid passing empty, not clear - we can be explicit on types. even better factory extract this into
             // a viewmodel so it can relay the unavailable information to the view via one path to reduce duplication
-            ItemDetailScreen(appGraph = container, itemID = navBackStackEntry.arguments?.getString("itemId") ?: "")
+            ItemDetailScreen(
+                detailViewModel = container.itemDetailGraph().itemDetailViewModel(),
+                itemID = navBackStackEntry.arguments?.getString("itemId") ?: ""
+            )
         }
     }
 }
