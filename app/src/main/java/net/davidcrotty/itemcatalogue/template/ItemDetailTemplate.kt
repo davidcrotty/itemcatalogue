@@ -19,7 +19,7 @@ import net.davidcrotty.itemcatalogue.ui.theme.Typography
 @Preview
 @Composable
 fun PreviewItemDetailTemplate() {
-    ItemDetailTemplate(itemDetail = ItemDetail("Fire sword", "weapon", "Lorem ipsum", ImageResult.Image("https://media-waterdeep.cursecdn.com/avatars/thumbnails/7/219/1000/1000/636284733648450283.jpeg")))
+    ItemDetailTemplate(itemDetail = ItemDetail("Fire sword", "weapon", "Lorem ipsum", ImageResult.Image("https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg")))
 }
 
 @Composable
