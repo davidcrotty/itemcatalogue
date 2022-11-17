@@ -8,8 +8,6 @@ import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -17,7 +15,6 @@ import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.model.ImageResult
 import net.davidcrotty.itemcatalogue.model.ItemDetail
 import net.davidcrotty.itemcatalogue.molecule.DetailImage
-import net.davidcrotty.itemcatalogue.ui.theme.Black800
 import net.davidcrotty.itemcatalogue.ui.theme.DetailColors
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
 
@@ -33,7 +30,7 @@ fun ItemDetailTemplate(modifier: Modifier = Modifier,
     Box(modifier = modifier) {
         Box {
             ConstraintLayout {
-                val (detailImage, divider, breadcrumbs, spacer, title) = createRefs()
+                val (detailImage, divider, breadcrumbs, spacer, title, type) = createRefs()
                 DetailImage(modifier = Modifier.constrainAs(detailImage) {
                     top.linkTo(parent.top)
                 }, image = itemDetail.image)
@@ -60,6 +57,9 @@ fun ItemDetailTemplate(modifier: Modifier = Modifier,
                             top.linkTo(title.bottom)
                         }
                 )
+                Text(modifier = Modifier.constrainAs(type) {
+                         top.linkTo(divider.bottom)
+                }, text = "Weapon")
             }
         }
     }
