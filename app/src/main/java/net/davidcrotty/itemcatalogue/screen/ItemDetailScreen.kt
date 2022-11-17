@@ -25,10 +25,11 @@ import net.davidcrotty.itemcatalogue.viewmodel.ItemDetailViewModel
 fun ItemDetailScreen(
     titleText: String = "Fire Sword", // TODO lookup compose preview model to keep signature clean
     background: Color = MaterialTheme.colors.background,
-    appGraph: DndCatalogueAppContainer
+    appGraph: DndCatalogueAppContainer,
+    itemID: String
 ) {
     val detailViewModel = appGraph.itemDetailGraph().itemDetailViewModel()
-    detailViewModel.renderItemDetail("")
+    detailViewModel.renderItemDetail(itemID)
     val itemScreen = detailViewModel.itemDetailState.collectAsState()
     Box(modifier = Modifier.background(background)) {
         Box {

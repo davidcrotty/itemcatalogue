@@ -21,6 +21,10 @@ fun ComposeWrapper(navController: NavHostController, itemScreenGraph: ItemScreen
         composable("item/{itemId}", arguments = listOf(navArgument("itemId") {
             type = NavType.StringType
             nullable = false
-        })) { ItemDetailScreen(appGraph = container) }
+        })) { navBackStackEntry ->
+            // TODO, avoid passing empty, not clear - we can be explicit on types. even better factory extract this into
+            // a viewmodel so it can relay the unavailable information to the view via one path to reduce duplication
+            ItemDetailScreen(appGraph = container, itemID = navBackStackEntry.arguments?.getString("itemId") ?: "")
+        }
     }
 }
