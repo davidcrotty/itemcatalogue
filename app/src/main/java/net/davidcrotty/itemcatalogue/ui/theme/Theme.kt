@@ -27,7 +27,7 @@ private val LightColorPalette = lightColors(
     secondary = Teal200,
     surface = White300,
     background = White100,
-    onSurface = Grey900
+    onSurface = Grey900,
 )
 
 @Deprecated("Not used currently, was used as an example of custom theming", replaceWith = ReplaceWith("CatalogueTemplateTheme"))

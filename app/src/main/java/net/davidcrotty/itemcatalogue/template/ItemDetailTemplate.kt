@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -28,7 +29,7 @@ fun ItemDetailTemplate(modifier: Modifier = Modifier,
     Box(modifier = modifier) {
         Box {
             ConstraintLayout {
-                val (detailImage, breadcrumbs, spacer, title) = createRefs()
+                val (detailImage, divider, breadcrumbs, spacer, title) = createRefs()
                 DetailImage(modifier = Modifier.constrainAs(detailImage) {
                     top.linkTo(parent.top)
                 }, image = itemDetail.image)
@@ -47,6 +48,13 @@ fun ItemDetailTemplate(modifier: Modifier = Modifier,
                             .padding(dimensionResource(id = R.dimen.padding_medium)))
                     // TODO underline with stick out tab for type beneath
                 }
+                Divider(
+                    modifier = Modifier
+                        .padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
+                        .constrainAs(divider) {
+                            top.linkTo(title.bottom)
+                        }
+                )
             }
         }
     }
