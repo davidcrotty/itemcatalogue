@@ -30,13 +30,16 @@ fun ItemDetailTemplate(modifier: Modifier = Modifier,
                     .constrainAs(spacer) {
                         top.linkTo(breadcrumbs.bottom)
                     })
-                Text(itemDetail.title.orEmpty(), style = Typography.h2,
-                    modifier = Modifier
-                        .constrainAs(title) {
-                            top.linkTo(detailImage.bottom)
-                        }
-                        .padding(dimensionResource(id = R.dimen.padding_medium)))
-                // TODO underline with stick out tab for type beneath
+                if (itemDetail.title != null) {
+                    Text(
+                        itemDetail.title, style = Typography.h2,
+                        modifier = Modifier
+                            .constrainAs(title) {
+                                top.linkTo(detailImage.bottom)
+                            }
+                            .padding(dimensionResource(id = R.dimen.padding_medium)))
+                    // TODO underline with stick out tab for type beneath
+                }
             }
         }
     }
