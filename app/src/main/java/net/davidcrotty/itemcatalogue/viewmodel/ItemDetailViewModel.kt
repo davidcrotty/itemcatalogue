@@ -37,19 +37,20 @@ private val id: ItemIDStatus
                         )
                     }
                     is ItemRepository.ItemStatus.Unavailable -> {
-                        _itemDetailState.value = ItemDetailState(
-                            isLoading = false,
-                            hasError = true
-                        )
+                        itemError()
                     }
                 }
             } else {
-                _itemDetailState.value = ItemDetailState(
-                    isLoading = false,
-                    hasError = true
-                )
+                itemError()
             }
         }
+    }
+
+    private fun itemError() {
+        _itemDetailState.value = ItemDetailState(
+            isLoading = false,
+            hasError = true
+        )
     }
 
     private fun resolveImageResult(url: String): ImageResult {
