@@ -6,7 +6,6 @@ import net.davidcrotty.itemcatalogue.items.entity.Item
 class ItemCacheDataSourceImpl(private val memoryCache: MutableMap<ID, Item>) : ItemCacheDataSource {
 
     private var lastFetchedID: ID? = null
-    private var storedItems: List<Item> = emptyList()
 
     override fun getLastID(): ID? {
         return lastFetchedID
@@ -17,14 +16,13 @@ class ItemCacheDataSourceImpl(private val memoryCache: MutableMap<ID, Item>) : I
     }
 
     override fun storeItems(list: List<Item>) {
-        storedItems += list
         for (item in list) {
             memoryCache[item.id] = item
         }
     }
 
     override fun fetchStoredItems(): List<Item> {
-        return storedItems
+        return memoryCache.toList().map { it.second }
     }
 
     override fun fetchItem(id: ID): ItemCacheDataSource.CacheResult {
