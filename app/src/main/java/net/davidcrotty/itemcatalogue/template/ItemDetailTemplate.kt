@@ -12,6 +12,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ConstraintLayout
 import net.davidcrotty.itemcatalogue.R
+import net.davidcrotty.itemcatalogue.atom.DividerLabel
 import net.davidcrotty.itemcatalogue.model.ImageResult
 import net.davidcrotty.itemcatalogue.model.ItemDetail
 import net.davidcrotty.itemcatalogue.molecule.DetailImage
@@ -49,17 +50,11 @@ fun ItemDetailTemplate(modifier: Modifier = Modifier,
                             .padding(dimensionResource(id = R.dimen.padding_medium)))
                     // TODO underline with stick out tab for type beneath
                 }
-                Divider(
-                    color = DetailColors.current.divider,
-                    modifier = Modifier
-                        .padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
-                        .constrainAs(divider) {
-                            top.linkTo(title.bottom)
-                        }
-                )
-                Text(modifier = Modifier.constrainAs(type) {
-                         top.linkTo(divider.bottom)
-                }, text = "Weapon")
+                if (itemDetail.type != null) {
+                    DividerLabel(text = itemDetail.type, modifier = Modifier.constrainAs(divider) {
+                        top.linkTo(title.bottom)
+                    })
+                }
             }
         }
     }
