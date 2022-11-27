@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.inset
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.*
@@ -46,12 +47,22 @@ fun DividerLabel(modifier: Modifier = Modifier, text: String) {
         drawRect(
             topLeft = Offset(insetX, 0f),
             color = Color.Black,
-            size = Size(width = textLayoutResult.size.width.toFloat() + (textOffset * 2), height = textLayoutResult.size.height.toFloat())
+            size = Size(width = textLayoutResult.size.width.toFloat() + (textOffset * 2), height = textLayoutResult.size.height.toFloat() + (textOffset / 2))
         )
         drawText(
             textLayoutResult,
             topLeft = Offset(x = size.width - textLayoutResult.size.width - textOffset, y = 0f),
             color = Color.White
+        )
+        drawPath(
+            path = Path().apply {
+                moveTo(insetX, textLayoutResult.size.height.toFloat() + (textOffset / 2))
+                lineTo(insetX, 0f)
+                lineTo(insetX - (textOffset * 2), 0f)
+                lineTo(insetX, textLayoutResult.size.height.toFloat() + (textOffset / 2))
+                close()
+            },
+            color = Color.Black
         )
     }
 }
