@@ -1,9 +1,6 @@
 package net.davidcrotty.itemcatalogue.template
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -22,12 +19,21 @@ import net.davidcrotty.itemcatalogue.ui.theme.Typography
 @Preview
 @Composable
 fun PreviewItemDetailTemplate() {
-    ItemDetailTemplate(itemDetail = ItemDetail("Fire sword", "weapon", "Lorem ipsum", ImageResult.Image("https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg")))
+    ItemDetailTemplate(
+        itemDetail = ItemDetail(
+            "Fire sword",
+            "weapon",
+            "Lorem ipsum",
+            ImageResult.Image("https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg")
+        )
+    )
 }
 
 @Composable
-fun ItemDetailTemplate(modifier: Modifier = Modifier,
-                       itemDetail: ItemDetail) {
+fun ItemDetailTemplate(
+    modifier: Modifier = Modifier,
+    itemDetail: ItemDetail
+) {
     Box(modifier = modifier) {
         Box {
             ConstraintLayout {
@@ -51,9 +57,14 @@ fun ItemDetailTemplate(modifier: Modifier = Modifier,
                     // TODO underline with stick out tab for type beneath
                 }
                 if (itemDetail.type != null) {
-                    DividerLabel(text = itemDetail.type, modifier = Modifier.constrainAs(divider) {
-                        top.linkTo(title.bottom)
-                    })
+                    DividerLabel(
+                        text = itemDetail.type, modifier = Modifier
+                            .constrainAs(divider) {
+                                top.linkTo(title.bottom)
+                            }
+                            .fillMaxSize()
+                            .padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
+                    )
                 }
             }
         }
