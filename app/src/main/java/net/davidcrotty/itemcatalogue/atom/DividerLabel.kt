@@ -6,12 +6,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.inset
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.*
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.davidcrotty.itemcatalogue.ui.theme.DetailColors
 import net.davidcrotty.itemcatalogue.R
+import net.davidcrotty.itemcatalogue.ui.theme.DetailColors
 
 
 @Preview
@@ -39,9 +42,16 @@ fun DividerLabel(modifier: Modifier = Modifier, text: String) {
             end = Offset(x = size.width, y = 0f),
             color = lineColour
         )
+        val insetX = size.width - textLayoutResult.size.width.toFloat() - (textOffset * 2)
+        drawRect(
+            topLeft = Offset(insetX, 0f),
+            color = Color.Black,
+            size = Size(width = textLayoutResult.size.width.toFloat() + (textOffset * 2), height = textLayoutResult.size.height.toFloat())
+        )
         drawText(
             textLayoutResult,
-            topLeft = Offset(x = size.width - textLayoutResult.size.width - textOffset, y = 0f)
+            topLeft = Offset(x = size.width - textLayoutResult.size.width - textOffset, y = 0f),
+            color = Color.White
         )
     }
 }
