@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.constraintlayout.compose.ConstraintLayout
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.DividerLabel
@@ -23,7 +24,7 @@ fun PreviewItemDetailTemplate() {
         itemDetail = ItemDetail(
             "Fire sword",
             "weapon",
-            "Lorem ipsum",
+            LoremIpsum(30).values.joinToString { it },
             ImageResult.Image("https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg")
         )
     )
