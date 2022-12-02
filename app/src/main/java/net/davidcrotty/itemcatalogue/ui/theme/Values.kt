@@ -3,7 +3,10 @@ package net.davidcrotty.itemcatalogue.ui.theme
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 class CornerRadius(val value: Float)
 
@@ -37,3 +40,18 @@ class DetailPalette(
 )
 
 val DetailColors = compositionLocalOf { DefaultDetailColors }
+
+val DefaultDecorativeType = DecorativeText()
+
+@Immutable
+class DecorativeText(
+    val label: SpanStyle = SpanStyle(
+        fontFamily = tiamat,
+        fontWeight = FontWeight.ExtraLight,
+        fontSize = 16.sp,
+        color = White900,
+        fontFeatureSettings = "c2sc, smcp"
+    )
+)
+
+val DecorativeType = compositionLocalOf { DefaultDecorativeType }

@@ -48,14 +48,6 @@ val TableTypography = Typography(
     )
 )
 
-val label = SpanStyle(
-    fontFamily = tiamat,
-    fontWeight = FontWeight.ExtraLight,
-    fontSize = 16.sp,
-    color = White900,
-    fontFeatureSettings = "c2sc, smcp"
-)
-
 val Typography = Typography(
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
