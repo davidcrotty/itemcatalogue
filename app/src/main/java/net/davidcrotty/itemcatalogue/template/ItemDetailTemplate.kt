@@ -1,6 +1,8 @@
 package net.davidcrotty.itemcatalogue.template
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -24,7 +26,7 @@ fun PreviewItemDetailTemplate() {
         itemDetail = ItemDetail(
             "Fire sword",
             "weapon",
-            LoremIpsum(30).values.joinToString { it },
+            LoremIpsum(200).values.joinToString { "$it " },
             ImageResult.Image("https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg")
         )
     )
@@ -35,8 +37,10 @@ fun ItemDetailTemplate(
     modifier: Modifier = Modifier,
     itemDetail: ItemDetail
 ) {
+    val scrollState = rememberScrollState()
+
     Box(modifier = modifier) {
-        Box {
+        Column(modifier = Modifier.verticalScroll(scrollState)) {
             ConstraintLayout {
                 val (detailImage, divider, breadcrumbs, spacer, title, description) = createRefs()
                 DetailImage(modifier = Modifier.constrainAs(detailImage) {
@@ -71,7 +75,7 @@ fun ItemDetailTemplate(
                         .constrainAs(description) {
                             top.linkTo(divider.bottom)
                         }
-                        .padding(horizontal = dimensionResource(id = R.dimen.padding_medium)))
+                        .padding(dimensionResource(id = R.dimen.padding_medium)))
                 }
             }
         }
