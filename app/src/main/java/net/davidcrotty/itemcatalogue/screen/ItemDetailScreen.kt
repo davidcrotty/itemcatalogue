@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import net.davidcrotty.itemcatalogue.molecule.DetailImage
 import net.davidcrotty.itemcatalogue.template.ItemDetailTemplate
 import net.davidcrotty.itemcatalogue.viewmodel.ItemDetailViewModel
 
@@ -17,5 +18,9 @@ fun ItemDetailScreen(
 ) {
     detailViewModel.renderItemDetail()
     val itemDetailState = detailViewModel.itemDetailState.collectAsState()
-    ItemDetailTemplate(Modifier.background(background), itemDetail = itemDetailState.value.itemDetail)
+
+    val itemDetail = itemDetailState.value.itemDetail
+    ItemDetailTemplate(Modifier.background(background), image = {
+        DetailImage(image = itemDetail.image)
+    }, itemDetail = itemDetail)
 }

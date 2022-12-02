@@ -23,6 +23,9 @@ import net.davidcrotty.itemcatalogue.ui.theme.Typography
 @Composable
 fun PreviewItemDetailTemplate() {
     ItemDetailTemplate(
+        image = {
+            ImageResult.Image("https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg")
+        },
         itemDetail = ItemDetail(
             "Fire sword",
             "weapon",
@@ -35,7 +38,8 @@ fun PreviewItemDetailTemplate() {
 @Composable
 fun ItemDetailTemplate(
     modifier: Modifier = Modifier,
-    itemDetail: ItemDetail
+    itemDetail: ItemDetail,
+    image: @Composable () -> Unit
 ) {
     val scrollState = rememberScrollState()
 
@@ -43,9 +47,11 @@ fun ItemDetailTemplate(
         Column(modifier = Modifier.verticalScroll(scrollState)) {
             ConstraintLayout {
                 val (detailImage, divider, breadcrumbs, spacer, title, description) = createRefs()
-                DetailImage(modifier = Modifier.constrainAs(detailImage) {
+                Box(modifier = Modifier.constrainAs(detailImage) {
                     top.linkTo(parent.top)
-                }, image = itemDetail.image)
+                }) {
+                    image()
+                }
                 Spacer(modifier = Modifier
                     .height(dimensionResource(id = R.dimen.padding_medium))
                     .constrainAs(spacer) {
@@ -74,10 +80,10 @@ fun ItemDetailTemplate(
                     Text(itemDetail.description,
                         style = Typography.body1,
                         modifier = Modifier
-                        .constrainAs(description) {
-                            top.linkTo(divider.bottom)
-                        }
-                        .padding(dimensionResource(id = R.dimen.padding_medium)))
+                            .constrainAs(description) {
+                                top.linkTo(divider.bottom)
+                            }
+                            .padding(dimensionResource(id = R.dimen.padding_medium)))
                 }
             }
         }
