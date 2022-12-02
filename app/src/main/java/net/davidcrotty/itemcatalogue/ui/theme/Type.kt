@@ -2,6 +2,7 @@ package net.davidcrotty.itemcatalogue.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -45,6 +46,14 @@ val TableTypography = Typography(
         fontSize = 14.sp,
         color = Red500
     )
+)
+
+val label = SpanStyle(
+    fontFamily = tiamat,
+    fontWeight = FontWeight.ExtraLight,
+    fontSize = 16.sp,
+    color = White900,
+    fontFeatureSettings = "c2sc, smcp"
 )
 
 val Typography = Typography(

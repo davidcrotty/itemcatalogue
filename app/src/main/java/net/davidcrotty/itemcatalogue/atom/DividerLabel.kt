@@ -16,6 +16,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.ui.theme.DetailColors
+import net.davidcrotty.itemcatalogue.ui.theme.Typography
+import net.davidcrotty.itemcatalogue.ui.theme.label
 
 
 @Preview
@@ -30,12 +32,16 @@ fun DividerLabelPreview() {
 @OptIn(ExperimentalTextApi::class)
 @Composable
 fun DividerLabel(modifier: Modifier = Modifier, text: String) {
-    // TODO change font
     // TODO allow colour to be modifiable
     val lineColour = DetailColors.current.divider
     val textMeasurer = rememberTextMeasurer()
+    val styledText = buildAnnotatedString {
+        withStyle(style = label) {
+            append(text)
+        }
+    }
     val textLayoutResult: TextLayoutResult =
-        textMeasurer.measure(text = AnnotatedString(text))
+        textMeasurer.measure(text = styledText)
     val textOffset = dimensionResource(id = R.dimen.padding_medium).value
 
     val slantStart = textLayoutResult.size.height.toFloat() + (textOffset / 2)
