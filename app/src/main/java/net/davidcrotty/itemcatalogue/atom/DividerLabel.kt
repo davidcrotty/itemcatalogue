@@ -2,6 +2,7 @@ package net.davidcrotty.itemcatalogue.atom
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -30,7 +31,6 @@ fun DividerLabelPreview() {
 @OptIn(ExperimentalTextApi::class)
 @Composable
 fun DividerLabel(modifier: Modifier = Modifier, text: String) {
-    // TODO allow colour to be modifiable
     val lineColour = DetailColors.current.divider
     val textMeasurer = rememberTextMeasurer()
     val styledText = buildAnnotatedString {
@@ -45,8 +45,9 @@ fun DividerLabel(modifier: Modifier = Modifier, text: String) {
     val slantStart = textLayoutResult.size.height.toFloat() + (textOffset / 2)
     val boxWidth = textLayoutResult.size.width.toFloat() + (textOffset * 2)
     val dividerColour = DetailColors.current.divider
+    val boxHeight = textLayoutResult.size.height.toFloat() + (textOffset / 2)
 
-    Canvas(modifier = modifier) {
+    Canvas(modifier = modifier.height(dimensionResource(id = R.dimen.divider_height))) {
         drawLine(
             strokeWidth = 1.dp.toPx(),
             start = Offset(x = 0f, y = 0f),
@@ -57,7 +58,7 @@ fun DividerLabel(modifier: Modifier = Modifier, text: String) {
         drawRect(
             topLeft = Offset(insetX, 0f),
             color = dividerColour,
-            size = Size(width = boxWidth, height = textLayoutResult.size.height.toFloat() + (textOffset / 2))
+            size = Size(width = boxWidth, height = boxHeight)
         )
         drawText(
             textLayoutResult,

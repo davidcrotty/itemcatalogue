@@ -37,7 +37,7 @@ fun ItemDetailTemplate(
     Box(modifier = modifier) {
         Box {
             ConstraintLayout {
-                val (detailImage, divider, breadcrumbs, spacer, title, type) = createRefs()
+                val (detailImage, divider, breadcrumbs, spacer, title, description) = createRefs()
                 DetailImage(modifier = Modifier.constrainAs(detailImage) {
                     top.linkTo(parent.top)
                 }, image = itemDetail.image)
@@ -61,9 +61,16 @@ fun ItemDetailTemplate(
                             .constrainAs(divider) {
                                 top.linkTo(title.bottom)
                             }
-                            .fillMaxSize()
+                            .fillMaxWidth()
                             .padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
                     )
+                }
+                if (itemDetail.description != null) {
+                    Text(itemDetail.description, modifier = Modifier
+                        .constrainAs(description) {
+                            top.linkTo(divider.bottom)
+                        }
+                        .padding(horizontal = dimensionResource(id = R.dimen.padding_medium)))
                 }
             }
         }
