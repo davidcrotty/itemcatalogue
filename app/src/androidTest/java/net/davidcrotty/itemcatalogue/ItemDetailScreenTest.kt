@@ -57,8 +57,18 @@ class ItemDetailScreenTest {
         composeTestRule.setContent {
             ItemDetailScreen(detailViewModel = viewModel)
         }
-        composeTestRule.onRoot().printToLog("ITEM_DETAIL_SCREEN")
         composeTestRule.onNodeWithContentDescription("Item Title").assertIsDisplayed()
+    }
+
+    @Test
+    fun when_rendering_title_unavailable() {
+        val viewModel = mockViewModel()
+
+        composeTestRule.setContent {
+            ItemDetailScreen(detailViewModel = viewModel)
+        }
+        composeTestRule.onRoot().printToLog("ITEM_DETAIL_SCREEN")
+        composeTestRule.onNodeWithContentDescription("Item Title").assertDoesNotExist()
     }
 
     private fun mockViewModel(): ItemDetailViewModel {

@@ -60,7 +60,7 @@ fun ItemDetailTemplate(
                     .constrainAs(spacer) {
                         top.linkTo(breadcrumbs.bottom)
                     })
-                if (itemDetail.title != null) {
+                if (!itemDetail.title.isNullOrEmpty()) {
                     val itemTitleLabel = stringResource(id = R.string.item_title)
                     Text(
                         itemDetail.title, style = Typography.h2,
