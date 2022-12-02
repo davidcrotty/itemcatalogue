@@ -36,7 +36,8 @@ val DefaultDetailColors = DetailPalette()
 
 @Immutable
 class DetailPalette(
-    val divider: Color = Black800
+    val divider: Color = Black800,
+    val textOnDivider: Color = White900
 )
 
 val DetailColors = compositionLocalOf { DefaultDetailColors }

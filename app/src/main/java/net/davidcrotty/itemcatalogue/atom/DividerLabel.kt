@@ -7,9 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.graphics.drawscope.inset
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.*
 import androidx.compose.ui.tooling.preview.Preview
@@ -17,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.ui.theme.DecorativeType
 import net.davidcrotty.itemcatalogue.ui.theme.DetailColors
+import net.davidcrotty.itemcatalogue.ui.theme.LocalColors
 
 
 @Preview
@@ -45,6 +44,7 @@ fun DividerLabel(modifier: Modifier = Modifier, text: String) {
 
     val slantStart = textLayoutResult.size.height.toFloat() + (textOffset / 2)
     val boxWidth = textLayoutResult.size.width.toFloat() + (textOffset * 2)
+    val dividerColour = DetailColors.current.divider
 
     Canvas(modifier = modifier) {
         drawLine(
@@ -56,13 +56,12 @@ fun DividerLabel(modifier: Modifier = Modifier, text: String) {
         val insetX = size.width - boxWidth
         drawRect(
             topLeft = Offset(insetX, 0f),
-            color = Color.Black,
+            color = dividerColour,
             size = Size(width = boxWidth, height = textLayoutResult.size.height.toFloat() + (textOffset / 2))
         )
         drawText(
             textLayoutResult,
-            topLeft = Offset(x = size.width - textLayoutResult.size.width - textOffset, y = 0f),
-            color = Color.White
+            topLeft = Offset(x = size.width - textLayoutResult.size.width - textOffset, y = 0f)
         )
         val slantCorner = insetX - (textOffset * 2)
         drawPath(
@@ -73,7 +72,7 @@ fun DividerLabel(modifier: Modifier = Modifier, text: String) {
                 lineTo(insetX, slantStart)
                 close()
             },
-            color = Color.Black
+            color = dividerColour
         )
     }
 }
