@@ -9,4 +9,6 @@
     <string name="feed_retry_button">Item Feed Retry indicator</string>
     <string name="dialog_title_unable_to_launch_application">Unable to launch application</string>
     <string name="dialog_description_connectivity_error">Please check network connectivity and try again</string>
+
+    <string name="item_title">Item Title</string>
 </resources>

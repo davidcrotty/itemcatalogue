@@ -8,6 +8,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -58,13 +61,17 @@ fun ItemDetailTemplate(
                         top.linkTo(breadcrumbs.bottom)
                     })
                 if (itemDetail.title != null) {
+                    val itemTitleLabel = stringResource(id = R.string.item_title)
                     Text(
                         itemDetail.title, style = Typography.h2,
                         modifier = Modifier
                             .constrainAs(title) {
                                 top.linkTo(detailImage.bottom)
                             }
-                            .padding(dimensionResource(id = R.dimen.padding_medium)))
+                            .padding(dimensionResource(id = R.dimen.padding_medium))
+                            .semantics {
+                                contentDescription = itemTitleLabel
+                            })
                 }
                 if (itemDetail.type != null) {
                     DividerLabel(

@@ -3,6 +3,8 @@ package net.davidcrotty.itemcatalogue
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onRoot
+import androidx.compose.ui.test.printToLog
 import io.mockk.Runs
 import io.mockk.every
 import io.mockk.just
@@ -15,6 +17,7 @@ import net.davidcrotty.itemcatalogue.model.ItemDetail
 import net.davidcrotty.itemcatalogue.model.ItemDetailState
 import net.davidcrotty.itemcatalogue.model.ItemIDStatus
 import net.davidcrotty.itemcatalogue.screen.ItemDetailScreen
+import net.davidcrotty.itemcatalogue.template.ItemDetailTemplate
 import net.davidcrotty.itemcatalogue.viewmodel.ItemDetailViewModel
 import org.junit.Rule
 import org.junit.Test
@@ -27,8 +30,41 @@ class ItemDetailScreenTest {
     @Test
     fun test_rendering_detail_image() {
         // given a url returned from vm
+        
+        val viewModel = mockViewModel()
+
+        composeTestRule.setContent {
+            ItemDetailScreen(detailViewModel = viewModel)
+        }
+
+        composeTestRule.onNodeWithContentDescription("Detail Image").assertIsDisplayed()
+    }
+    
+    @Test
+    fun when_rendering_title() {
+        val title = "Fire Sword"
+
+        val viewModel = mockViewModel()
+        every { viewModel.itemDetailState } returns MutableStateFlow(
+            ItemDetailState(
+                itemDetail = ItemDetail(
+                    image = ImageResult.Image(""),
+                    title = title
+                )
+            )
+        )
+        
+        composeTestRule.setContent {
+            ItemDetailScreen(detailViewModel = viewModel)
+        }
+        composeTestRule.onRoot().printToLog("ITEM_DETAIL_SCREEN")
+        composeTestRule.onNodeWithContentDescription("Item Title").assertIsDisplayed()
+    }
+
+    private fun mockViewModel(): ItemDetailViewModel {
         val url = "https://i0.wp.com/www.chaoticanwriter.com/chaoticanwriter.com/wp-content/uploads/2022/03/flamge-tongue-magic-items.jpg"
-        val viewModel = mockk<ItemDetailViewModel>() {
+        
+        return mockk<ItemDetailViewModel>() {
             every { renderItemDetail() } just Runs
             every { itemDetailState } returns MutableStateFlow(
                 ItemDetailState(
@@ -38,12 +74,5 @@ class ItemDetailScreenTest {
                 )
             )
         }
-
-        composeTestRule.setContent {
-            ItemDetailScreen(detailViewModel = viewModel)
-        }
-
-        composeTestRule.onNodeWithContentDescription("Detail Image").assertIsDisplayed()
     }
-
 }
