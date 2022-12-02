@@ -54,7 +54,6 @@ fun ItemDetailTemplate(
                                 top.linkTo(detailImage.bottom)
                             }
                             .padding(dimensionResource(id = R.dimen.padding_medium)))
-                    // TODO underline with stick out tab for type beneath
                 }
                 if (itemDetail.type != null) {
                     DividerLabel(

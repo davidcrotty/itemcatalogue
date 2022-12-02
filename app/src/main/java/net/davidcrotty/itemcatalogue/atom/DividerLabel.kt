@@ -30,11 +30,16 @@ fun DividerLabelPreview() {
 @OptIn(ExperimentalTextApi::class)
 @Composable
 fun DividerLabel(modifier: Modifier = Modifier, text: String) {
+    // TODO change font
+    // TODO allow colour to be modifiable
     val lineColour = DetailColors.current.divider
     val textMeasurer = rememberTextMeasurer()
     val textLayoutResult: TextLayoutResult =
         textMeasurer.measure(text = AnnotatedString(text))
     val textOffset = dimensionResource(id = R.dimen.padding_medium).value
+
+    val slantStart = textLayoutResult.size.height.toFloat() + (textOffset / 2)
+    val boxWidth = textLayoutResult.size.width.toFloat() + (textOffset * 2)
 
     Canvas(modifier = modifier) {
         drawLine(
@@ -43,23 +48,24 @@ fun DividerLabel(modifier: Modifier = Modifier, text: String) {
             end = Offset(x = size.width, y = 0f),
             color = lineColour
         )
-        val insetX = size.width - textLayoutResult.size.width.toFloat() - (textOffset * 2)
+        val insetX = size.width - boxWidth
         drawRect(
             topLeft = Offset(insetX, 0f),
             color = Color.Black,
-            size = Size(width = textLayoutResult.size.width.toFloat() + (textOffset * 2), height = textLayoutResult.size.height.toFloat() + (textOffset / 2))
+            size = Size(width = boxWidth, height = textLayoutResult.size.height.toFloat() + (textOffset / 2))
         )
         drawText(
             textLayoutResult,
             topLeft = Offset(x = size.width - textLayoutResult.size.width - textOffset, y = 0f),
             color = Color.White
         )
+        val slantCorner = insetX - (textOffset * 2)
         drawPath(
             path = Path().apply {
-                moveTo(insetX, textLayoutResult.size.height.toFloat() + (textOffset / 2))
+                moveTo(insetX, slantStart)
                 lineTo(insetX, 0f)
-                lineTo(insetX - (textOffset * 2), 0f)
-                lineTo(insetX, textLayoutResult.size.height.toFloat() + (textOffset / 2))
+                lineTo(slantCorner, 0f)
+                lineTo(insetX, slantStart)
                 close()
             },
             color = Color.Black
