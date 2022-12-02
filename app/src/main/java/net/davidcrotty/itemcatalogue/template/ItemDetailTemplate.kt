@@ -71,7 +71,9 @@ fun ItemDetailTemplate(
                     )
                 }
                 if (itemDetail.description != null) {
-                    Text(itemDetail.description, modifier = Modifier
+                    Text(itemDetail.description,
+                        style = Typography.body1,
+                        modifier = Modifier
                         .constrainAs(description) {
                             top.linkTo(divider.bottom)
                         }
