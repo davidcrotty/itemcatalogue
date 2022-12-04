@@ -34,6 +34,11 @@ fun PreviewItemDetailTemplate() {
                 )
             )
         },
+        title = {
+            Text(
+                "Fire sword", style = Typography.h2
+            )
+        },
         itemDetail = ItemDetail(
             "Fire sword",
             "weapon",
@@ -47,7 +52,8 @@ fun PreviewItemDetailTemplate() {
 fun ItemDetailTemplate(
     modifier: Modifier = Modifier,
     itemDetail: ItemDetail,
-    image: @Composable () -> Unit
+    image: @Composable () -> Unit,
+    title: @Composable () -> Unit
 ) {
     val scrollState = rememberScrollState()
 
@@ -67,16 +73,18 @@ fun ItemDetailTemplate(
                     })
                 if (!itemDetail.title.isNullOrEmpty()) {
                     val itemTitleLabel = stringResource(id = R.string.item_title)
-                    Text(
-                        itemDetail.title, style = Typography.h2,
-                        modifier = Modifier
+                    Box(
+                        Modifier
                             .constrainAs(title) {
                                 top.linkTo(detailImage.bottom)
                             }
                             .padding(dimensionResource(id = R.dimen.padding_medium))
                             .semantics {
                                 contentDescription = itemTitleLabel
-                            })
+                            }
+                    ) {
+                        title()
+                    }
                 } else {
                     Spacer(modifier = Modifier.constrainAs(title) {
                         top.linkTo(detailImage.bottom)

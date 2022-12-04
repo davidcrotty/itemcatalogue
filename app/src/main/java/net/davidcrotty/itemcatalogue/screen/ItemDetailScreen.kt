@@ -1,14 +1,22 @@
 package net.davidcrotty.itemcatalogue.screen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.molecule.DetailImage
 import net.davidcrotty.itemcatalogue.template.ItemDetailTemplate
 import net.davidcrotty.itemcatalogue.ui.theme.LocalDetailColors
+import net.davidcrotty.itemcatalogue.ui.theme.Typography
 import net.davidcrotty.itemcatalogue.viewmodel.ItemDetailViewModel
 
 
@@ -21,8 +29,17 @@ fun ItemDetailScreen(
     val itemDetailState = detailViewModel.itemDetailState.collectAsState()
 
     val itemDetail = itemDetailState.value.itemDetail
-    // TODO render rest of screen when tapping armour correctly (ie: no title screws layout of template)
+
     ItemDetailTemplate(Modifier.background(background), image = {
-        DetailImage(modifier = Modifier.background(LocalDetailColors.current.detailImageBackground), image = itemDetail.image)
-    }, itemDetail = itemDetail)
+        DetailImage(
+            modifier = Modifier.background(LocalDetailColors.current.detailImageBackground),
+            image = itemDetail.image
+        )
+    },
+    title = {
+        Text(
+            itemDetail.title.orEmpty(), style = Typography.h2
+        )
+    }
+    ,itemDetail = itemDetail)
 }
