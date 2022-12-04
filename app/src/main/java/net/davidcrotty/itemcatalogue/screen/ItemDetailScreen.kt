@@ -1,6 +1,7 @@
 package net.davidcrotty.itemcatalogue.screen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -13,6 +14,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import net.davidcrotty.itemcatalogue.R
+import net.davidcrotty.itemcatalogue.atom.DividerLabel
 import net.davidcrotty.itemcatalogue.molecule.DetailImage
 import net.davidcrotty.itemcatalogue.template.ItemDetailTemplate
 import net.davidcrotty.itemcatalogue.ui.theme.LocalDetailColors
@@ -39,6 +41,13 @@ fun ItemDetailScreen(
     title = {
         Text(
             itemDetail.title.orEmpty(), style = Typography.h2
+        )
+    },
+    divider = {
+        DividerLabel(
+            text = itemDetail.type.orEmpty(), modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
         )
     }
     ,itemDetail = itemDetail)

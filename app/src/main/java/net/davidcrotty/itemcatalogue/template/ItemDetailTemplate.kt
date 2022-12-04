@@ -39,6 +39,13 @@ fun PreviewItemDetailTemplate() {
                 "Fire sword", style = Typography.h2
             )
         },
+        divider = {
+            DividerLabel(
+                text = "weapon", modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
+            )
+        },
         itemDetail = ItemDetail(
             "Fire sword",
             "weapon",
@@ -53,7 +60,8 @@ fun ItemDetailTemplate(
     modifier: Modifier = Modifier,
     itemDetail: ItemDetail,
     image: @Composable () -> Unit,
-    title: @Composable () -> Unit
+    title: @Composable () -> Unit,
+    divider: @Composable () -> Unit
 ) {
     val scrollState = rememberScrollState()
 
@@ -91,14 +99,11 @@ fun ItemDetailTemplate(
                     })
                 }
                 if (itemDetail.type != null) {
-                    DividerLabel(
-                        text = itemDetail.type, modifier = Modifier
-                            .constrainAs(divider) {
-                                top.linkTo(title.bottom)
-                            }
-                            .fillMaxWidth()
-                            .padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
-                    )
+                    Box(Modifier.constrainAs(divider) {
+                        top.linkTo(title.bottom)
+                    }) {
+                        divider()
+                    }
                 } else {
                     Spacer(modifier = Modifier.constrainAs(divider) {
                         top.linkTo(title.bottom)
