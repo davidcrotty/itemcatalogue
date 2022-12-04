@@ -77,6 +77,10 @@ fun ItemDetailTemplate(
                             .semantics {
                                 contentDescription = itemTitleLabel
                             })
+                } else {
+                    Spacer(modifier = Modifier.constrainAs(title) {
+                        top.linkTo(detailImage.bottom)
+                    })
                 }
                 if (itemDetail.type != null) {
                     DividerLabel(

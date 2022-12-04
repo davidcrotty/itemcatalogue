@@ -21,6 +21,7 @@ fun ItemDetailScreen(
     val itemDetailState = detailViewModel.itemDetailState.collectAsState()
 
     val itemDetail = itemDetailState.value.itemDetail
+    // TODO render rest of screen when tapping armour correctly (ie: no title screws layout of template)
     ItemDetailTemplate(Modifier.background(background), image = {
         DetailImage(modifier = Modifier.background(LocalDetailColors.current.detailImageBackground), image = itemDetail.image)
     }, itemDetail = itemDetail)
