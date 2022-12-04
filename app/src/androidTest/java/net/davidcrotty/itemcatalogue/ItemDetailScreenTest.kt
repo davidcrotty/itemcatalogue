@@ -28,7 +28,7 @@ class ItemDetailScreenTest {
     @Test
     fun test_rendering_detail_image() {
         // given a url returned from vm
-        
+        // TODO reduce scope of this test
         val viewModel = mockViewModel()
 
         composeTestRule.setContent {

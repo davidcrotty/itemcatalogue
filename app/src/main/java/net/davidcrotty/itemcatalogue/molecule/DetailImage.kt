@@ -29,9 +29,15 @@ fun DetailImage(
             )
         }
         is ImageResult.Unavailable -> {
+            // change size of image
+            // change colour of image
+            // change background of image
             Image(
                 painter = painterResource(id = R.drawable.detail_image_unavailable_48px),
-                contentDescription = "Detail Image Unavailable"
+                contentDescription = "Detail Image Unavailable",
+                modifier = modifier
+                    .aspectRatio(4f / 3f)
+                    .background(background)
             )
         }
     }

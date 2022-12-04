@@ -27,7 +27,7 @@ import net.davidcrotty.itemcatalogue.ui.theme.Typography
 fun PreviewItemDetailTemplate() {
     ItemDetailTemplate(
         image = {
-            ImageResult.Image("https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg")
+            DetailImage(image = ImageResult.Unavailable)
         },
         itemDetail = ItemDetail(
             "Fire sword",
