@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.model.ImageResult
@@ -23,13 +24,14 @@ fun DetailImage(
     modifier: Modifier = Modifier,
     background: Color = LocalDetailColors.current.detailImageBackground
 ) {
-    // TODO extract localisation to resources
     when (image) {
         is ImageResult.Image -> {
             AsyncImage(
                 modifier = modifier
                     .aspectRatio(4f / 3f)
-                    .background(background), model = image.url, contentDescription = "Detail Image",
+                    .background(background), model = image.url, contentDescription = stringResource(
+                    id = R.string.detail_image
+                ),
                 contentScale = ContentScale.Crop
             )
         }
@@ -42,7 +44,7 @@ fun DetailImage(
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.detail_image_unavailable_48px),
-                    contentDescription = "Detail Image Unavailable",
+                    contentDescription = stringResource(id = R.string.detail_image_unavailable),
                     colorFilter = ColorFilter.tint(LocalDetailColors.current.svgTint)
                 )
             }
