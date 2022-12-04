@@ -9,15 +9,13 @@ import io.mockk.Runs
 import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
+import junit.framework.TestCase.assertTrue
 import kotlinx.coroutines.flow.MutableStateFlow
-import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
-import net.davidcrotty.itemcatalogue.di.ItemDetailGraph
 import net.davidcrotty.itemcatalogue.model.ImageResult
 import net.davidcrotty.itemcatalogue.model.ItemDetail
 import net.davidcrotty.itemcatalogue.model.ItemDetailState
-import net.davidcrotty.itemcatalogue.model.ItemIDStatus
+import net.davidcrotty.itemcatalogue.molecule.DetailImage
 import net.davidcrotty.itemcatalogue.screen.ItemDetailScreen
-import net.davidcrotty.itemcatalogue.template.ItemDetailTemplate
 import net.davidcrotty.itemcatalogue.viewmodel.ItemDetailViewModel
 import org.junit.Rule
 import org.junit.Test
@@ -38,6 +36,17 @@ class ItemDetailScreenTest {
         }
 
         composeTestRule.onNodeWithContentDescription("Detail Image").assertIsDisplayed()
+    }
+
+    @Test
+    fun when_image_not_available() {
+        val imageResult = ImageResult.Unavailable
+
+        composeTestRule.setContent {
+            DetailImage(image = imageResult)
+        }
+
+        composeTestRule.onNodeWithContentDescription("Detail Image Unavailable").assertIsDisplayed()
     }
     
     @Test
