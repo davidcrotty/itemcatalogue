@@ -91,6 +91,10 @@ fun ItemDetailTemplate(
                             .fillMaxWidth()
                             .padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
                     )
+                } else {
+                    Spacer(modifier = Modifier.constrainAs(divider) {
+                        top.linkTo(title.bottom)
+                    })
                 }
                 if (itemDetail.description != null) {
                     Text(itemDetail.description,
@@ -100,6 +104,10 @@ fun ItemDetailTemplate(
                                 top.linkTo(divider.bottom)
                             }
                             .padding(dimensionResource(id = R.dimen.padding_medium)))
+                } else {
+                    Spacer(modifier = Modifier.constrainAs(description) {
+                        top.linkTo(divider.bottom)
+                    })
                 }
             }
         }
