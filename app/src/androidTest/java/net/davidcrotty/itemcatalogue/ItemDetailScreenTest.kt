@@ -27,12 +27,10 @@ class ItemDetailScreenTest {
 
     @Test
     fun test_rendering_detail_image() {
-        // given a url returned from vm
-        // TODO reduce scope of this test
-        val viewModel = mockViewModel()
+        val imageResult = ImageResult.Image("https://i0.wp.com/www.chaoticanwriter.com/chaoticanwriter.com/wp-content/uploads/2022/03/flamge-tongue-magic-items.jpg")
 
         composeTestRule.setContent {
-            ItemDetailScreen(detailViewModel = viewModel)
+            DetailImage(image = imageResult)
         }
 
         composeTestRule.onNodeWithContentDescription("Detail Image").assertIsDisplayed()
