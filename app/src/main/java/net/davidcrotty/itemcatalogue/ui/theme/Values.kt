@@ -37,10 +37,12 @@ val DefaultDetailColors = DetailPalette()
 @Immutable
 class DetailPalette(
     val divider: Color = Black800,
-    val textOnDivider: Color = White900
+    val textOnDivider: Color = White900,
+    val svgTint: Color = Black800,
+    val detailImageBackground: Color = White500
 )
 
-val DetailColors = compositionLocalOf { DefaultDetailColors }
+val LocalDetailColors = compositionLocalOf { DefaultDetailColors }
 
 val DefaultDecorativeType = DecorativeText()
 

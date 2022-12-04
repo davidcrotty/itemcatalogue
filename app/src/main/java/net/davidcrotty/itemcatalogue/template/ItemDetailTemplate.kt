@@ -1,5 +1,6 @@
 package net.davidcrotty.itemcatalogue.template
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -19,7 +20,7 @@ import net.davidcrotty.itemcatalogue.atom.DividerLabel
 import net.davidcrotty.itemcatalogue.model.ImageResult
 import net.davidcrotty.itemcatalogue.model.ItemDetail
 import net.davidcrotty.itemcatalogue.molecule.DetailImage
-import net.davidcrotty.itemcatalogue.ui.theme.DetailColors
+import net.davidcrotty.itemcatalogue.ui.theme.LocalDetailColors
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
 
 @Preview
@@ -27,7 +28,11 @@ import net.davidcrotty.itemcatalogue.ui.theme.Typography
 fun PreviewItemDetailTemplate() {
     ItemDetailTemplate(
         image = {
-            DetailImage(image = ImageResult.Unavailable)
+            DetailImage(
+                image = ImageResult.Unavailable, modifier = Modifier.background(
+                    LocalDetailColors.current.detailImageBackground
+                )
+            )
         },
         itemDetail = ItemDetail(
             "Fire sword",

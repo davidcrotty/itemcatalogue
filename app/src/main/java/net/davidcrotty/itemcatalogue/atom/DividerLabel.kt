@@ -15,8 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.ui.theme.DecorativeType
-import net.davidcrotty.itemcatalogue.ui.theme.DetailColors
-import net.davidcrotty.itemcatalogue.ui.theme.LocalColors
+import net.davidcrotty.itemcatalogue.ui.theme.LocalDetailColors
 
 
 @Preview
@@ -31,7 +30,7 @@ fun DividerLabelPreview() {
 @OptIn(ExperimentalTextApi::class)
 @Composable
 fun DividerLabel(modifier: Modifier = Modifier, text: String) {
-    val lineColour = DetailColors.current.divider
+    val lineColour = LocalDetailColors.current.divider
     val textMeasurer = rememberTextMeasurer()
     val styledText = buildAnnotatedString {
         withStyle(style = DecorativeType.current.label) {
@@ -44,7 +43,7 @@ fun DividerLabel(modifier: Modifier = Modifier, text: String) {
 
     val slantStart = textLayoutResult.size.height.toFloat() + (textOffset / 2)
     val boxWidth = textLayoutResult.size.width.toFloat() + (textOffset * 2)
-    val dividerColour = DetailColors.current.divider
+    val dividerColour = LocalDetailColors.current.divider
     val boxHeight = textLayoutResult.size.height.toFloat() + (textOffset / 2)
 
     Canvas(modifier = modifier.height(dimensionResource(id = R.dimen.divider_height))) {

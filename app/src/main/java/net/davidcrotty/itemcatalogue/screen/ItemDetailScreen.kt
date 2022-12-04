@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import net.davidcrotty.itemcatalogue.molecule.DetailImage
 import net.davidcrotty.itemcatalogue.template.ItemDetailTemplate
+import net.davidcrotty.itemcatalogue.ui.theme.LocalDetailColors
 import net.davidcrotty.itemcatalogue.viewmodel.ItemDetailViewModel
 
 
@@ -21,6 +22,6 @@ fun ItemDetailScreen(
 
     val itemDetail = itemDetailState.value.itemDetail
     ItemDetailTemplate(Modifier.background(background), image = {
-        DetailImage(image = itemDetail.image)
+        DetailImage(modifier = Modifier.background(LocalDetailColors.current.detailImageBackground), image = itemDetail.image)
     }, itemDetail = itemDetail)
 }
