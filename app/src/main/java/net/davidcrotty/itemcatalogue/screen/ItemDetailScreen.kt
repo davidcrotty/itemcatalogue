@@ -32,23 +32,30 @@ fun ItemDetailScreen(
 
     val itemDetail = itemDetailState.value.itemDetail
 
-    ItemDetailTemplate(Modifier.background(background), image = {
-        DetailImage(
-            modifier = Modifier.background(LocalDetailColors.current.detailImageBackground),
-            image = itemDetail.image
-        )
-    },
-    title = {
-        Text(
-            itemDetail.title.orEmpty(), style = Typography.h2
-        )
-    },
-    divider = {
-        DividerLabel(
-            text = itemDetail.type.orEmpty(), modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
-        )
-    }
-    ,itemDetail = itemDetail)
+    ItemDetailTemplate(
+        Modifier.background(background), image = {
+            DetailImage(
+                modifier = Modifier.background(LocalDetailColors.current.detailImageBackground),
+                image = itemDetail.image
+            )
+        },
+        title = {
+            Text(
+                itemDetail.title.orEmpty(), style = Typography.h2
+            )
+        },
+        divider = {
+            DividerLabel(
+                text = itemDetail.type.orEmpty(),
+                modifier = Modifier.fillMaxWidth()
+            )
+        },
+        description = {
+            Text(
+                itemDetail.description.orEmpty(),
+                style = Typography.body1
+            )
+        },
+        itemDetail = itemDetail
+    )
 }

@@ -46,6 +46,12 @@ fun PreviewItemDetailTemplate() {
                     .padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
             )
         },
+        description = {
+            Text(
+                LoremIpsum(200).values.joinToString { "$it " },
+                style = Typography.body1
+            )
+        },
         itemDetail = ItemDetail(
             "Fire sword",
             "weapon",
@@ -61,7 +67,8 @@ fun ItemDetailTemplate(
     itemDetail: ItemDetail,
     image: @Composable () -> Unit,
     title: @Composable () -> Unit,
-    divider: @Composable () -> Unit
+    divider: @Composable () -> Unit,
+    description: @Composable () -> Unit
 ) {
     val scrollState = rememberScrollState()
 
@@ -99,9 +106,13 @@ fun ItemDetailTemplate(
                     })
                 }
                 if (itemDetail.type != null) {
-                    Box(Modifier.constrainAs(divider) {
-                        top.linkTo(title.bottom)
-                    }) {
+                    Box(
+                        Modifier
+                            .constrainAs(divider) {
+                                top.linkTo(title.bottom)
+                            }
+                            .padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
+                    ) {
                         divider()
                     }
                 } else {
@@ -110,13 +121,13 @@ fun ItemDetailTemplate(
                     })
                 }
                 if (itemDetail.description != null) {
-                    Text(itemDetail.description,
-                        style = Typography.body1,
-                        modifier = Modifier
-                            .constrainAs(description) {
-                                top.linkTo(divider.bottom)
-                            }
-                            .padding(dimensionResource(id = R.dimen.padding_medium)))
+                    Box(modifier = Modifier
+                        .constrainAs(description) {
+                            top.linkTo(divider.bottom)
+                        }
+                        .padding(dimensionResource(id = R.dimen.padding_medium))) {
+                        description()
+                    }
                 } else {
                     Spacer(modifier = Modifier.constrainAs(description) {
                         top.linkTo(divider.bottom)
