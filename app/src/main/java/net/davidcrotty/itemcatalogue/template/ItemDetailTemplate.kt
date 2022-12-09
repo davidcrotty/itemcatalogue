@@ -75,7 +75,7 @@ fun ItemDetailTemplate(
     Box(modifier = modifier) {
         Column(modifier = Modifier.verticalScroll(scrollState)) {
             ConstraintLayout {
-                val (detailImage, divider, breadcrumbs, spacer, title, description) = createRefs()
+                val (detailImage, dividerRef, breadcrumbs, spacer, titleRef, descriptionRef) = createRefs()
                 Box(modifier = Modifier.constrainAs(detailImage) {
                     top.linkTo(parent.top)
                 }) {
@@ -90,7 +90,7 @@ fun ItemDetailTemplate(
                     val itemTitleLabel = stringResource(id = R.string.item_title)
                     Box(
                         Modifier
-                            .constrainAs(title) {
+                            .constrainAs(titleRef) {
                                 top.linkTo(detailImage.bottom)
                             }
                             .padding(dimensionResource(id = R.dimen.padding_medium))
@@ -101,36 +101,36 @@ fun ItemDetailTemplate(
                         title()
                     }
                 } else {
-                    Spacer(modifier = Modifier.constrainAs(title) {
+                    Spacer(modifier = Modifier.constrainAs(titleRef) {
                         top.linkTo(detailImage.bottom)
                     })
                 }
                 if (itemDetail.type != null) {
                     Box(
                         Modifier
-                            .constrainAs(divider) {
-                                top.linkTo(title.bottom)
+                            .constrainAs(dividerRef) {
+                                top.linkTo(titleRef.bottom)
                             }
                             .padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
                     ) {
                         divider()
                     }
                 } else {
-                    Spacer(modifier = Modifier.constrainAs(divider) {
-                        top.linkTo(title.bottom)
+                    Spacer(modifier = Modifier.constrainAs(dividerRef) {
+                        top.linkTo(titleRef.bottom)
                     })
                 }
                 if (itemDetail.description != null) {
                     Box(modifier = Modifier
-                        .constrainAs(description) {
-                            top.linkTo(divider.bottom)
+                        .constrainAs(descriptionRef) {
+                            top.linkTo(dividerRef.bottom)
                         }
                         .padding(dimensionResource(id = R.dimen.padding_medium))) {
                         description()
                     }
                 } else {
-                    Spacer(modifier = Modifier.constrainAs(description) {
-                        top.linkTo(divider.bottom)
+                    Spacer(modifier = Modifier.constrainAs(descriptionRef) {
+                        top.linkTo(dividerRef.bottom)
                     })
                 }
             }
