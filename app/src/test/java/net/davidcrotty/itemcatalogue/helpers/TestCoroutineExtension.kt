@@ -7,7 +7,7 @@ import org.junit.jupiter.api.extension.*
 class TestCoroutineExtension : TestInstancePostProcessor, BeforeAllCallback,
     AfterAllCallback {
 
-    val testScheduler = TestCoroutineScheduler()
+    private val testScheduler = TestCoroutineScheduler()
     private val testDispatcher = StandardTestDispatcher(testScheduler)
 
     override fun postProcessTestInstance(testInstance: Any?, context: ExtensionContext?) {

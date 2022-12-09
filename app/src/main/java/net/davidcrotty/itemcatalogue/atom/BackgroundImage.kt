@@ -10,14 +10,14 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntSize
-import coil.compose.rememberImagePainter
+import coil.compose.rememberAsyncImagePainter
 import net.davidcrotty.itemcatalogue.R
 
 @Composable
 fun BackgroundImage(url: String, gradient: Brush = Brush.verticalGradient(), onGloballyPositioned: ((IntSize) -> Unit)?) {
     Box {
         Image(
-            painter = rememberImagePainter(url),
+            painter = rememberAsyncImagePainter(url),
             contentDescription = stringResource(id = R.string.item_background),
             contentScale = ContentScale.Crop,
             modifier = Modifier.onGloballyPositioned {
