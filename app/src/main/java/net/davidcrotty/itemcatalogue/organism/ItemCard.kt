@@ -14,8 +14,6 @@ import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.model.FeedItem
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
 
-// TODO design in a search feature, this is usually a common requirement
-// TODO move to listFeature, atoms lower into a styleguide/catalogue
 @OptIn(ExperimentalMaterialApi::class)
 @Preview
 @Composable
