@@ -5,6 +5,7 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -12,6 +13,7 @@ import net.davidcrotty.itemcatalogue.atom.Thumbnail
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.model.FeedItem
+import net.davidcrotty.itemcatalogue.molecule.ItemCost
 import net.davidcrotty.itemcatalogue.ui.theme.Typography
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -37,10 +39,13 @@ fun ItemCard(
                 .fillMaxWidth()
         ) {
             Thumbnail(imageSource = item.url)
-            Column(modifier = Modifier.padding(start = 16.dp)) {
+            Column(modifier = Modifier.padding(start = 16.dp),
+            verticalArrangement = Arrangement.Bottom) {
                 Text(item.type, maxLines = 1, style = Typography.body2)
                 Text(item.title, maxLines = 1, style = Typography.h2)
-                Text(item.description, maxLines = 3)
+                Box(Modifier.size(152.dp, 32.dp)){
+                    ItemCost(gold = 1, silver = 2, copper = 3)
+                }
             }
         }
     }

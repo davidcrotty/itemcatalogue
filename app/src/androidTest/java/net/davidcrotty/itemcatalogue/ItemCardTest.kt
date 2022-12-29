@@ -18,6 +18,11 @@ class ItemCardTest {
     // render cost with no amount (should be 0)
 
     @Test
+    fun when_rendering_cost_with_no_amounts() {
+
+    }
+
+    @Test
     fun when_rendering_cost() {
         val gold = 1
         val silver = 20
