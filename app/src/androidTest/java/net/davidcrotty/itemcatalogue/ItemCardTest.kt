@@ -35,9 +35,13 @@ class ItemCardTest {
                 copper = copper
             )
         }
+        composeTestRule.onRoot().printToLog("ITEM_CARD_TEST")
+
         // Then should see cost rendered
         composeTestRule.onNodeWithContentDescription("Item cost").assertIsDisplayed()
         composeTestRule.onNodeWithContentDescription("1 Gold").assertIsDisplayed()
+        composeTestRule.onNodeWithContentDescription("20 Silver").assertIsDisplayed()
+        composeTestRule.onNodeWithContentDescription("50 Copper").assertIsDisplayed()
     }
 
     @Test

@@ -16,4 +16,6 @@
 
     <string name="item_cost">Item cost</string>
     <string name="gold_cost">%1$d Gold</string>
+    <string name="silver_cost">%1$d Silver</string>
+    <string name="copper_cost">%1$d Copper</string>
 </resources>
