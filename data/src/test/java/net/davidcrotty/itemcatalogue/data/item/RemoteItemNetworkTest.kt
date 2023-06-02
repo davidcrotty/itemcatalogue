@@ -8,6 +8,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import net.davidcrotty.itemcatalogue.data.item.api.ItemAPI
 import net.davidcrotty.itemcatalogue.data.item.dto.pure.ItemDTO
+import net.davidcrotty.itemcatalogue.data.item.exception.ContentFailedToFetch
 import okhttp3.OkHttpClient
 import okreplay.*
 import org.junit.Assert.assertEquals
@@ -32,6 +33,26 @@ internal class RemoteItemNetworkTest {
 
     @get:Rule
     val recorder = RecorderRule(config)
+
+    @Test(expected = ContentFailedToFetch::class)
+    @OkReplay
+    fun `when server errors`() {
+        val moshi = Moshi.Builder().build()
+        val okHttp = OkHttpClient.Builder().addInterceptor(testInterceptor).build()
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://us-central1-dnd-tools-cb5b7.cloudfunctions.net/")
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .client(okHttp)
+            .build()
+        val sut = RemoteItemDataSourceImpl(
+            retrofit.create(ItemAPI::class.java)
+        )
+
+        runBlocking {
+            sut.fetchAfter(null, 1)
+        }
+    }
 
     @Test
     @OkReplay

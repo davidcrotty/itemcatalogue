@@ -23,12 +23,13 @@ class RemoteItemDataSourceImpl(
     override suspend fun fetchAfter(id: String?, limit: Int): List<ItemDTO> {
         val items = withContext(dispatcher) {
             try {
+                // TODO log trace ids for logging
                 itemAPI.getItems(apiToken, limit, id)
             } catch (e: HttpException) {
                 if (e.code() == 404) {
                     throw ContentNotFound()
                 } else {
-                    throw e
+                    throw ContentFailedToFetch()
                 }
             } catch (e: IOException) {
                 throw ContentFailedToFetch()
