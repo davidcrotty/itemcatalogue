@@ -2,6 +2,7 @@ package net.davidcrotty.itemcatalogue.di
 
 import androidx.navigation.NavController
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSource
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSourceImpl
 import net.davidcrotty.itemcatalogue.data.item.RemoteItemDataSource
@@ -19,7 +20,7 @@ class DndCatalogueAppGraphImpl : DndCatalogueAppContainer {
 
     private val apiFactory: RemoteItemAPIFactory by lazy {
         RemoteItemAPIFactoryImpl(
-            moshi = Moshi.Builder().build(),
+            moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build(),
             okHttp = OkHttpClient.Builder().build(),
             baseUrl = "https://us-central1-dnd-tools-cb5b7.cloudfunctions.net/"
         )
