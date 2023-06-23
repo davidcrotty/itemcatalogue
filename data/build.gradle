@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'com.google.devtools.ksp' version '1.7.20-1.0.7'
 }
 
 def mockkVersion = "1.12.3"
@@ -44,7 +43,6 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
-    ksp "com.squareup.moshi:moshi-kotlin-codegen:1.13.0"
 
     testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
     testImplementation "org.junit.vintage:junit-vintage-engine:$junitVersion"
