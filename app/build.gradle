@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "net.davidcrotty.itemcatalogue"
-        minSdk = 21
+        minSdk = 24
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -84,9 +84,11 @@ dependencies {
 
     implementation project(":domain:items")
     implementation project(":data")
+    implementation project(":theme")
+
     // Official Utils around compose
-    implementation("io.coil-kt:coil-compose:2.2.2")
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.13.0")
+    implementation "io.coil-kt:coil-compose:2.2.2"
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.13.0"
 
     testImplementation "org.junit.jupiter:junit-jupiter-engine:5.8.2"
     testImplementation "io.mockk:mockk:$mockkVersion"

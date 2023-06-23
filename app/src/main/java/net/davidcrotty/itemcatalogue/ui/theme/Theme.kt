@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import net.davidcrotty.itemcatalogue.theme.Shapes
 
 private val DarkColorPalette = darkColors(
     primary = Red600,
