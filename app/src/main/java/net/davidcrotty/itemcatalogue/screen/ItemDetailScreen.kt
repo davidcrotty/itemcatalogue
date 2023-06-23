@@ -25,7 +25,7 @@ import net.davidcrotty.itemcatalogue.viewmodel.ItemDetailViewModel
 @Composable
 fun ItemDetailScreen(
     background: Color = MaterialTheme.colors.background,
-    detailViewModel: ItemDetailViewModel
+    detailViewModel: ItemDetailViewModel // TODO pass contract through to keep them decoupled, depend on abstractions not concretions
 ) {
     detailViewModel.renderItemDetail()
     val itemDetailState = detailViewModel.itemDetailState.collectAsState()
