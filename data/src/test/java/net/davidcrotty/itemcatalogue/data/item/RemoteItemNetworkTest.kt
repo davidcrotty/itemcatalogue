@@ -1,6 +1,7 @@
 package net.davidcrotty.itemcatalogue.data.item
 
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
@@ -20,7 +21,6 @@ import java.io.File
 import java.io.IOException
 
 
-@OptIn(ExperimentalCoroutinesApi::class)
 internal class RemoteItemNetworkTest {
 
     private val testInterceptor = OkReplayInterceptor()
@@ -37,7 +37,7 @@ internal class RemoteItemNetworkTest {
     @Test(expected = ContentFailedToFetch::class)
     @OkReplay
     fun `when server errors`() {
-        val moshi = Moshi.Builder().build()
+        val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
         val okHttp = OkHttpClient.Builder().addInterceptor(testInterceptor).build()
 
         val retrofit = Retrofit.Builder()
@@ -58,7 +58,7 @@ internal class RemoteItemNetworkTest {
     @OkReplay
     fun `when fetching initial items`() {
         // given an api returns a valid list of items
-        val moshi = Moshi.Builder().build()
+        val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
         val okHttp = OkHttpClient.Builder().addInterceptor(testInterceptor).build()
 
         val retrofit = Retrofit.Builder()
@@ -94,7 +94,7 @@ internal class RemoteItemNetworkTest {
     @OkReplay
     fun `when fetching subsequent items`() {
         // given an api returns a valid list of items
-        val moshi = Moshi.Builder().build()
+        val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
         val okHttp = OkHttpClient.Builder().addInterceptor(testInterceptor).build()
 
         val retrofit = Retrofit.Builder()
