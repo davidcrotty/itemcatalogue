@@ -11,6 +11,7 @@ import net.davidcrotty.itemcatalogue.theme.Black800
 import net.davidcrotty.itemcatalogue.theme.Red500
 import net.davidcrotty.itemcatalogue.theme.White500
 import net.davidcrotty.itemcatalogue.theme.White900
+import net.davidcrotty.itemcatalogue.theme.tiamat
 
 class CornerRadius(val value: Float)
 

@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.model.StatLine
-import net.davidcrotty.itemcatalogue.ui.theme.TableTypography
+import net.davidcrotty.itemcatalogue.theme.TableTypography
 
 @Composable
 fun StatHeadingLine(statLine: StatLine) {

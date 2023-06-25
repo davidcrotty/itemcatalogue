@@ -20,8 +20,8 @@ import net.davidcrotty.itemcatalogue.atom.DividerLabel
 import net.davidcrotty.itemcatalogue.model.ImageResult
 import net.davidcrotty.itemcatalogue.model.ItemDetail
 import net.davidcrotty.itemcatalogue.molecule.DetailImage
+import net.davidcrotty.itemcatalogue.theme.Typography
 import net.davidcrotty.itemcatalogue.ui.theme.LocalDetailColors
-import net.davidcrotty.itemcatalogue.ui.theme.Typography
 
 @Preview
 @Composable

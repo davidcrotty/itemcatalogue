@@ -17,6 +17,7 @@ import net.davidcrotty.itemcatalogue.theme.Red600
 import net.davidcrotty.itemcatalogue.theme.Red800
 import net.davidcrotty.itemcatalogue.theme.Shapes
 import net.davidcrotty.itemcatalogue.theme.Teal200
+import net.davidcrotty.itemcatalogue.theme.Typography
 import net.davidcrotty.itemcatalogue.theme.White100
 import net.davidcrotty.itemcatalogue.theme.White300
 

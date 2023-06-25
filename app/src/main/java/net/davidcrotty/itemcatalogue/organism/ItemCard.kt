@@ -5,16 +5,13 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.davidcrotty.itemcatalogue.atom.Thumbnail
-import net.davidcrotty.itemcatalogue.items.entity.ID
-import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.model.FeedItem
 import net.davidcrotty.itemcatalogue.molecule.ItemCost
-import net.davidcrotty.itemcatalogue.ui.theme.Typography
+import net.davidcrotty.itemcatalogue.theme.Typography
 
 @OptIn(ExperimentalMaterialApi::class)
 @Preview

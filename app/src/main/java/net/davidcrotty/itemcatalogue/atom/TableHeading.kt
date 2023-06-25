@@ -2,7 +2,7 @@ package net.davidcrotty.itemcatalogue.atom
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import net.davidcrotty.itemcatalogue.ui.theme.TableTypography
+import net.davidcrotty.itemcatalogue.theme.TableTypography
 
 @Composable
 fun TableHeading(text: String) {
