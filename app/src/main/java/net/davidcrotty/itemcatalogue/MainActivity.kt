@@ -10,7 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
 import net.davidcrotty.itemcatalogue.organism.PreloadApplicationErrorDialog
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigationHandler
-import net.davidcrotty.itemcatalogue.ui.theme.CatalogueTemplateTheme
+import net.davidcrotty.itemcatalogue.theme.CatalogueTemplateTheme
 
 class MainActivity : ComponentActivity() {
 
