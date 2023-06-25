@@ -16,7 +16,7 @@ import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.model.ImageResult
-import net.davidcrotty.itemcatalogue.ui.theme.LocalDetailColors
+import net.davidcrotty.itemcatalogue.theme.LocalDetailColors
 
 @Composable
 fun DetailImage(

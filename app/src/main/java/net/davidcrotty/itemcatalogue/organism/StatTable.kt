@@ -15,7 +15,7 @@ import net.davidcrotty.itemcatalogue.atom.TableHeading
 import net.davidcrotty.itemcatalogue.model.StatLine
 import net.davidcrotty.itemcatalogue.molecule.StatHeadingLine
 import net.davidcrotty.itemcatalogue.molecule.StatList
-import net.davidcrotty.itemcatalogue.ui.theme.LocalColors
+import net.davidcrotty.itemcatalogue.theme.LocalColors
 
 @Composable
 fun StatTable() {

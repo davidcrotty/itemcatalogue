@@ -9,8 +9,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import coil.compose.rememberAsyncImagePainter
 import net.davidcrotty.itemcatalogue.R
-import net.davidcrotty.itemcatalogue.ui.theme.CornerRadius
-import net.davidcrotty.itemcatalogue.ui.theme.LocalValues
+import net.davidcrotty.itemcatalogue.theme.CornerRadius
+import net.davidcrotty.itemcatalogue.theme.LocalValues
 
 @Composable
 fun Thumbnail(imageSource: String,

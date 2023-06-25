@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.ui.theme
+package net.davidcrotty.itemcatalogue.theme
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf

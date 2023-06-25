@@ -14,8 +14,8 @@ import androidx.compose.ui.text.*
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.davidcrotty.itemcatalogue.R
-import net.davidcrotty.itemcatalogue.ui.theme.DecorativeType
-import net.davidcrotty.itemcatalogue.ui.theme.LocalDetailColors
+import net.davidcrotty.itemcatalogue.theme.DecorativeType
+import net.davidcrotty.itemcatalogue.theme.LocalDetailColors
 
 
 @Preview
