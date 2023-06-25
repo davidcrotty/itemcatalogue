@@ -12,9 +12,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.CoinAmount
 import net.davidcrotty.itemcatalogue.model.CoinType
-import net.davidcrotty.itemcatalogue.ui.theme.Copper100
-import net.davidcrotty.itemcatalogue.ui.theme.Silver100
-import net.davidcrotty.itemcatalogue.ui.theme.Yellow500
+import net.davidcrotty.itemcatalogue.theme.Copper100
+import net.davidcrotty.itemcatalogue.theme.Silver100
+import net.davidcrotty.itemcatalogue.theme.Yellow500
 
 
 @Preview

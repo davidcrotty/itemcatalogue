@@ -1,20 +1,24 @@
 package net.davidcrotty.itemcatalogue.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.text.selection.LocalTextSelectionColors
-import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import net.davidcrotty.itemcatalogue.theme.Black800
+import net.davidcrotty.itemcatalogue.theme.Grey900
+import net.davidcrotty.itemcatalogue.theme.Purple700
+import net.davidcrotty.itemcatalogue.theme.Red600
+import net.davidcrotty.itemcatalogue.theme.Red800
 import net.davidcrotty.itemcatalogue.theme.Shapes
+import net.davidcrotty.itemcatalogue.theme.Teal200
+import net.davidcrotty.itemcatalogue.theme.White100
+import net.davidcrotty.itemcatalogue.theme.White300
 
 private val DarkColorPalette = darkColors(
     primary = Red600,

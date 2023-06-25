@@ -11,7 +11,6 @@ import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.TableItem
 import net.davidcrotty.itemcatalogue.model.StatLine
 import net.davidcrotty.itemcatalogue.ui.theme.LocalColors
-import net.davidcrotty.itemcatalogue.ui.theme.Red500
 
 @Composable
 fun StatList(statLineList: List<StatLine>) {

@@ -7,6 +7,10 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import net.davidcrotty.itemcatalogue.theme.Black800
+import net.davidcrotty.itemcatalogue.theme.Red500
+import net.davidcrotty.itemcatalogue.theme.White500
+import net.davidcrotty.itemcatalogue.theme.White900
 
 class CornerRadius(val value: Float)
 
@@ -37,7 +41,6 @@ val DefaultDetailColors = DetailPalette()
 @Immutable
 class DetailPalette(
     val divider: Color = Black800,
-    val textOnDivider: Color = White900,
     val svgTint: Color = Black800,
     val detailImageBackground: Color = White500
 )

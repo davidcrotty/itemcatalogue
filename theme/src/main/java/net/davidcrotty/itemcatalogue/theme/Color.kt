@@ -1,9 +1,8 @@
-package net.davidcrotty.itemcatalogue.ui.theme
+package net.davidcrotty.itemcatalogue.theme
 
 import android.content.Context
 import androidx.compose.ui.graphics.Color
 import androidx.core.content.ContextCompat
-import net.davidcrotty.itemcatalogue.R
 
 val Purple200 = Color(0xFFBB86FC)
 val Purple500 = Color(0xFF6200EE)

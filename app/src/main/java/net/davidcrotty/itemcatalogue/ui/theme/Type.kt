@@ -1,8 +1,6 @@
 package net.davidcrotty.itemcatalogue.ui.theme
 
 import androidx.compose.material.Typography
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -10,6 +8,12 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import net.davidcrotty.itemcatalogue.R
+import net.davidcrotty.itemcatalogue.theme.Grey500
+import net.davidcrotty.itemcatalogue.theme.Grey800
+import net.davidcrotty.itemcatalogue.theme.Red500
+import net.davidcrotty.itemcatalogue.theme.White500
+import net.davidcrotty.itemcatalogue.theme.Yellow100
+import net.davidcrotty.itemcatalogue.theme.Yellow300
 
 // serif to pair with roboto sans-serif
 val tiamat = FontFamily(
