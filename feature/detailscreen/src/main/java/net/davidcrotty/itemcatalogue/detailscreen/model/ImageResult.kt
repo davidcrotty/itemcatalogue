@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.model
+package net.davidcrotty.itemcatalogue.detailscreen.model
 
 sealed class ImageResult {
     data class Image(val url: String): ImageResult()

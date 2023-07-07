@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -17,8 +16,8 @@ import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.constraintlayout.compose.ConstraintLayout
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.atom.DividerLabel
-import net.davidcrotty.itemcatalogue.model.ImageResult
-import net.davidcrotty.itemcatalogue.model.ItemDetail
+import net.davidcrotty.itemcatalogue.detailscreen.model.ImageResult
+import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetail
 import net.davidcrotty.itemcatalogue.molecule.DetailImage
 import net.davidcrotty.itemcatalogue.theme.Typography
 import net.davidcrotty.itemcatalogue.theme.LocalDetailColors

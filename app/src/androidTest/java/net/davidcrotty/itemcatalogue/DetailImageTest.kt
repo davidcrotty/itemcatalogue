@@ -3,7 +3,7 @@ package net.davidcrotty.itemcatalogue
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
-import net.davidcrotty.itemcatalogue.model.ImageResult
+import net.davidcrotty.itemcatalogue.detailscreen.model.ImageResult
 import net.davidcrotty.itemcatalogue.molecule.DetailImage
 import org.junit.Rule
 import org.junit.Test

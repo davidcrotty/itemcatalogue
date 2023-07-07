@@ -4,7 +4,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -15,7 +14,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
 import net.davidcrotty.itemcatalogue.R
-import net.davidcrotty.itemcatalogue.model.ImageResult
+import net.davidcrotty.itemcatalogue.detailscreen.model.ImageResult
 import net.davidcrotty.itemcatalogue.theme.LocalDetailColors
 
 @Composable

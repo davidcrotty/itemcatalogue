@@ -9,14 +9,12 @@ import io.mockk.Runs
 import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
-import junit.framework.TestCase.assertTrue
 import kotlinx.coroutines.flow.MutableStateFlow
-import net.davidcrotty.itemcatalogue.model.ImageResult
-import net.davidcrotty.itemcatalogue.model.ItemDetail
-import net.davidcrotty.itemcatalogue.model.ItemDetailState
-import net.davidcrotty.itemcatalogue.molecule.DetailImage
+import net.davidcrotty.itemcatalogue.detailscreen.model.ImageResult
+import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetail
+import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetailState
 import net.davidcrotty.itemcatalogue.screen.ItemDetailScreen
-import net.davidcrotty.itemcatalogue.viewmodel.ItemDetailViewModel
+import net.davidcrotty.itemcatalogue.detailscreen.presentation.ItemDetailViewModel
 import org.junit.Rule
 import org.junit.Test
 

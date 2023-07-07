@@ -13,7 +13,7 @@ import net.davidcrotty.itemcatalogue.molecule.DetailImage
 import net.davidcrotty.itemcatalogue.template.ItemDetailTemplate
 import net.davidcrotty.itemcatalogue.theme.Typography
 import net.davidcrotty.itemcatalogue.theme.LocalDetailColors
-import net.davidcrotty.itemcatalogue.viewmodel.ItemDetailViewModel
+import net.davidcrotty.itemcatalogue.detailscreen.presentation.ItemDetailViewModel
 
 
 @Composable

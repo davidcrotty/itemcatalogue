@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.viewmodel
+package net.davidcrotty.itemcatalogue.detailscreen.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -7,10 +7,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 import net.davidcrotty.itemcatalogue.items.usecase.GetItemUsecase
-import net.davidcrotty.itemcatalogue.model.ImageResult
-import net.davidcrotty.itemcatalogue.model.ItemDetail
-import net.davidcrotty.itemcatalogue.model.ItemDetailState
-import net.davidcrotty.itemcatalogue.model.ItemIDStatus
+import net.davidcrotty.itemcatalogue.detailscreen.model.ImageResult
+import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetail
+import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetailState
+import net.davidcrotty.itemcatalogue.detailscreen.model.ItemIDStatus
 
 class ItemDetailViewModel(private val getItemUsecase: GetItemUsecase,
 private val id: ItemIDStatus

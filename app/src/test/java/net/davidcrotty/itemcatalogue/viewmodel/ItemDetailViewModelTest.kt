@@ -7,15 +7,16 @@ import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineScheduler
+import net.davidcrotty.itemcatalogue.detailscreen.presentation.ItemDetailViewModel
 import net.davidcrotty.itemcatalogue.helpers.CoroutineTest
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 import net.davidcrotty.itemcatalogue.items.usecase.GetItemUsecase
-import net.davidcrotty.itemcatalogue.model.ImageResult
-import net.davidcrotty.itemcatalogue.model.ItemDetail
-import net.davidcrotty.itemcatalogue.model.ItemDetailState
-import net.davidcrotty.itemcatalogue.model.ItemIDStatus
+import net.davidcrotty.itemcatalogue.detailscreen.model.ImageResult
+import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetail
+import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetailState
+import net.davidcrotty.itemcatalogue.detailscreen.model.ItemIDStatus
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 

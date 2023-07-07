@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.model
+package net.davidcrotty.itemcatalogue.detailscreen.model
 
 sealed class ItemIDStatus {
     data class Available(val value: String) : ItemIDStatus()

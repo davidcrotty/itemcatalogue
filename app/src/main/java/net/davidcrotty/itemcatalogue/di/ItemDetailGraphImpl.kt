@@ -5,8 +5,8 @@ import net.davidcrotty.itemcatalogue.data.item.RemoteItemDataSource
 import net.davidcrotty.itemcatalogue.domain.ItemRepositoryImpl
 import net.davidcrotty.itemcatalogue.items.usecase.GetItemUsecaseImpl
 import net.davidcrotty.itemcatalogue.model.Configuration
-import net.davidcrotty.itemcatalogue.model.ItemIDStatus
-import net.davidcrotty.itemcatalogue.viewmodel.ItemDetailViewModel
+import net.davidcrotty.itemcatalogue.detailscreen.model.ItemIDStatus
+import net.davidcrotty.itemcatalogue.detailscreen.presentation.ItemDetailViewModel
 
 class ItemDetailGraphImpl(
     private val remoteItemDataSource: RemoteItemDataSource,

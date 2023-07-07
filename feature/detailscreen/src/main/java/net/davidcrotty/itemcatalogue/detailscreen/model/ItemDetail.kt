@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.model
+package net.davidcrotty.itemcatalogue.detailscreen.model
 
 data class ItemDetail(
     val title: String? = "",
