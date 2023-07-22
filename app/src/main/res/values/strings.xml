@@ -11,8 +11,6 @@
     <string name="dialog_description_connectivity_error">Please check network connectivity and try again</string>
 
     <string name="item_title">Item Title</string>
-    <string name="detail_image">Detail Image</string>
-    <string name="detail_image_unavailable">Detail Image Unavailable</string>
 
     <string name="item_cost">Item cost</string>
     <string name="gold_cost">%1$d Gold</string>

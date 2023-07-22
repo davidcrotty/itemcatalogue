@@ -18,7 +18,7 @@ import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.detailscreen.ui.atom.DividerLabel
 import net.davidcrotty.itemcatalogue.detailscreen.model.ImageResult
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetail
-import net.davidcrotty.itemcatalogue.molecule.DetailImage
+import net.davidcrotty.itemcatalogue.detailscreen.ui.molecule.DetailImage
 import net.davidcrotty.itemcatalogue.theme.Typography
 import net.davidcrotty.itemcatalogue.theme.LocalDetailColors
 

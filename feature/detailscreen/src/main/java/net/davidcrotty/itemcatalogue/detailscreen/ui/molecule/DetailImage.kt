@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.molecule
+package net.davidcrotty.itemcatalogue.detailscreen.ui.molecule
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -13,7 +13,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
-import net.davidcrotty.itemcatalogue.R
+import net.davidcrotty.itemcatalogue.detailscreen.R
 import net.davidcrotty.itemcatalogue.detailscreen.model.ImageResult
 import net.davidcrotty.itemcatalogue.theme.LocalDetailColors
 
