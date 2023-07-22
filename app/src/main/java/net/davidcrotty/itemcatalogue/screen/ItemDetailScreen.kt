@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import net.davidcrotty.itemcatalogue.atom.DividerLabel
+import net.davidcrotty.itemcatalogue.detailscreen.ui.atom.DividerLabel
 import net.davidcrotty.itemcatalogue.detailscreen.presentation.ItemDetailContract
 import net.davidcrotty.itemcatalogue.molecule.DetailImage
 import net.davidcrotty.itemcatalogue.template.ItemDetailTemplate

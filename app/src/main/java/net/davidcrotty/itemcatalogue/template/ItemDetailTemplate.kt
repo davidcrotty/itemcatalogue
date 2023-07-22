@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.constraintlayout.compose.ConstraintLayout
 import net.davidcrotty.itemcatalogue.R
-import net.davidcrotty.itemcatalogue.atom.DividerLabel
+import net.davidcrotty.itemcatalogue.detailscreen.ui.atom.DividerLabel
 import net.davidcrotty.itemcatalogue.detailscreen.model.ImageResult
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetail
 import net.davidcrotty.itemcatalogue.molecule.DetailImage

@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.atom
+package net.davidcrotty.itemcatalogue.detailscreen.ui.atom
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,9 +13,9 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.*
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.theme.DecorativeType
 import net.davidcrotty.itemcatalogue.theme.LocalDetailColors
+import net.davidcrotty.itemcatalogue.theme.R
 
 
 @Preview
