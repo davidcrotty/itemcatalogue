@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.helpers
+package net.davidcrotty.itemcatalogue.core.unittest
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.test.*

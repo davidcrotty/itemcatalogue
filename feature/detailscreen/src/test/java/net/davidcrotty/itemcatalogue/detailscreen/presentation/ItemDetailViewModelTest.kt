@@ -1,14 +1,13 @@
 @file:OptIn(ExperimentalCoroutinesApi::class)
 
-package net.davidcrotty.itemcatalogue.viewmodel
+package net.davidcrotty.itemcatalogue.detailscreen.presentation
 
 import fr.xgouchet.elmyr.Forge
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineScheduler
-import net.davidcrotty.itemcatalogue.detailscreen.presentation.ItemDetailViewModel
-import net.davidcrotty.itemcatalogue.helpers.CoroutineTest
+import net.davidcrotty.itemcatalogue.core.unittest.CoroutineTest
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository

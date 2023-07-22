@@ -5,7 +5,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestCoroutineScheduler
-import net.davidcrotty.itemcatalogue.helpers.CoroutineTest
+import net.davidcrotty.itemcatalogue.core.unittest.CoroutineTest
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 @ExperimentalCoroutinesApi
-internal class ItemsViewModelTest : CoroutineTest {
+internal class ItemsViewModelTest : net.davidcrotty.itemcatalogue.core.unittest.CoroutineTest {
 
     override var testScheduler = TestCoroutineScheduler()
 
