@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 @ExperimentalCoroutinesApi
-internal class ItemsViewModelTest : net.davidcrotty.itemcatalogue.core.unittest.CoroutineTest {
+internal class ItemsViewModelTest : CoroutineTest {
 
     override var testScheduler = TestCoroutineScheduler()
 
