@@ -12,14 +12,15 @@ import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetail
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetailState
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemIDStatus
 
-class ItemDetailViewModel(private val getItemUsecase: GetItemUsecase,
-private val id: ItemIDStatus
-) : ViewModel() {
+class ItemDetailViewModel(
+    private val getItemUsecase: GetItemUsecase,
+    private val id: ItemIDStatus
+) : ViewModel(), ItemDetailContract {
 
     private val _itemDetailState = MutableStateFlow<ItemDetailState>(ItemDetailState())
-    val itemDetailState: StateFlow<ItemDetailState> = _itemDetailState
+    override val itemDetailState: StateFlow<ItemDetailState> = _itemDetailState
 
-    fun renderItemDetail() {
+    override fun renderItemDetail() {
         viewModelScope.launch {
             if (id is ItemIDStatus.Available) {
                 when (val itemResult = getItemUsecase.execute(id.value)) {
@@ -36,6 +37,7 @@ private val id: ItemIDStatus
                             )
                         )
                     }
+
                     is ItemRepository.ItemStatus.Unavailable -> {
                         itemError()
                     }

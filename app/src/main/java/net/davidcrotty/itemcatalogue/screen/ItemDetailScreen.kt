@@ -9,17 +9,17 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import net.davidcrotty.itemcatalogue.atom.DividerLabel
+import net.davidcrotty.itemcatalogue.detailscreen.presentation.ItemDetailContract
 import net.davidcrotty.itemcatalogue.molecule.DetailImage
 import net.davidcrotty.itemcatalogue.template.ItemDetailTemplate
-import net.davidcrotty.itemcatalogue.theme.Typography
 import net.davidcrotty.itemcatalogue.theme.LocalDetailColors
-import net.davidcrotty.itemcatalogue.detailscreen.presentation.ItemDetailViewModel
+import net.davidcrotty.itemcatalogue.theme.Typography
 
 
 @Composable
 fun ItemDetailScreen(
     background: Color = MaterialTheme.colors.background,
-    detailViewModel: ItemDetailViewModel // TODO pass contract through to keep them decoupled, depend on abstractions not concretions
+    detailViewModel: ItemDetailContract
 ) {
     detailViewModel.renderItemDetail()
     val itemDetailState = detailViewModel.itemDetailState.collectAsState()
