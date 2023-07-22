@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import net.davidcrotty.itemcatalogue.theme.DecorativeType
 import net.davidcrotty.itemcatalogue.theme.LocalDetailColors
 import net.davidcrotty.itemcatalogue.theme.R
+import net.davidcrotty.itemcatalogue.detailscreen.R as DetailScreenR
 
 
 @Preview
@@ -46,7 +47,7 @@ fun DividerLabel(modifier: Modifier = Modifier, text: String) {
     val dividerColour = LocalDetailColors.current.divider
     val boxHeight = textLayoutResult.size.height.toFloat() + (textOffset / 2)
 
-    Canvas(modifier = modifier.height(dimensionResource(id = R.dimen.divider_height))) {
+    Canvas(modifier = modifier.height(dimensionResource(id = DetailScreenR.dimen.divider_height))) {
         drawLine(
             strokeWidth = 1.dp.toPx(),
             start = Offset(x = 0f, y = 0f),
