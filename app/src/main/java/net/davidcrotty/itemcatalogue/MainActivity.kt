@@ -28,6 +28,7 @@ class MainActivity : ComponentActivity() {
                 if (showErrorDialog) {
                     PreloadApplicationErrorDialog()
                 } else {
+                    // make navigation testable
                     val controller = rememberNavController()
                     NavigationHandler(
                         controller = controller,
