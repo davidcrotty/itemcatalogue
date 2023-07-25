@@ -10,7 +10,7 @@ import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
 import net.davidcrotty.itemcatalogue.model.ListTemplateState
 import net.davidcrotty.itemcatalogue.model.LoadingState
 import net.davidcrotty.itemcatalogue.technology.navigation.NavFactoryImpl
-import net.davidcrotty.itemcatalogue.technology.navigation.NavigationHandler
+import net.davidcrotty.itemcatalogue.technology.navigation.NavigationGraph
 import net.davidcrotty.itemcatalogue.technology.navigation.Navigator
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigatorImpl
 import net.davidcrotty.itemcatalogue.viewmodel.ListTemplateViewModel
@@ -43,7 +43,7 @@ class NavigationTest {
             val itemScreenGraph = mockk<ItemScreenGraph> {
                 every { itemViewModel() } returns itemViewModel
             }
-            NavigationHandler(
+            NavigationGraph(
                 controller = navController,
                 itemScreenGraph = itemScreenGraph,
                 navigator = sut,
@@ -70,7 +70,7 @@ class NavigationTest {
             val itemScreenGraph = mockk<ItemScreenGraph> {
                 every { itemViewModel() } returns itemViewModel
             }
-            NavigationHandler(controller = navController, itemScreenGraph = itemScreenGraph, navigator = sut, appContainer = mockk())
+            NavigationGraph(controller = navController, itemScreenGraph = itemScreenGraph, navigator = sut, appContainer = mockk())
 
             val result = sut.navigate(path)
 

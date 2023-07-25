@@ -13,7 +13,7 @@ import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
 import net.davidcrotty.itemcatalogue.screen.ItemListScreen
 
 @Composable
-fun NavigationHandler(
+fun NavigationGraph(
     controller: NavHostController,
     itemScreenGraph: ItemScreenGraph,
     navigator: Navigator,

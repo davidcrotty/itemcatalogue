@@ -9,7 +9,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
 import net.davidcrotty.itemcatalogue.organism.PreloadApplicationErrorDialog
-import net.davidcrotty.itemcatalogue.technology.navigation.NavigationHandler
+import net.davidcrotty.itemcatalogue.technology.navigation.NavigationGraph
 import net.davidcrotty.itemcatalogue.theme.CatalogueTemplateTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
                 } else {
                     // make navigation testable
                     val controller = rememberNavController()
-                    NavigationHandler(
+                    NavigationGraph(
                         controller = controller,
                         itemScreenGraph = dndContainer.itemListScreenGraph(),
                         navigator = dndContainer.navigator { controller },
