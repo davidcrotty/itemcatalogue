@@ -9,7 +9,7 @@ import androidx.navigation.navArgument
 import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
 import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemIDStatus
-import net.davidcrotty.itemcatalogue.screen.ItemDetailScreen
+import net.davidcrotty.itemcatalogue.detailscreen.ui.screen.ItemDetailScreen
 import net.davidcrotty.itemcatalogue.screen.ItemListScreen
 
 @Composable

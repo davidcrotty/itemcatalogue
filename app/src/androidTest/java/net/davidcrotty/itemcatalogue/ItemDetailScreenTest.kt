@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import net.davidcrotty.itemcatalogue.detailscreen.model.ImageResult
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetail
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetailState
-import net.davidcrotty.itemcatalogue.screen.ItemDetailScreen
+import net.davidcrotty.itemcatalogue.detailscreen.ui.screen.ItemDetailScreen
 import net.davidcrotty.itemcatalogue.detailscreen.presentation.ItemDetailViewModel
 import org.junit.Rule
 import org.junit.Test

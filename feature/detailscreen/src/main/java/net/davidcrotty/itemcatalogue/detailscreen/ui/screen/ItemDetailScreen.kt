@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.screen
+package net.davidcrotty.itemcatalogue.detailscreen.ui.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
