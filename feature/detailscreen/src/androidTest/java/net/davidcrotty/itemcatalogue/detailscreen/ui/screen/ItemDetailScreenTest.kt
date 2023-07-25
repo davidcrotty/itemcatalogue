@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue
+package net.davidcrotty.itemcatalogue.detailscreen.ui.screen
 
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
@@ -13,7 +13,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import net.davidcrotty.itemcatalogue.detailscreen.model.ImageResult
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetail
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetailState
-import net.davidcrotty.itemcatalogue.detailscreen.ui.screen.ItemDetailScreen
 import net.davidcrotty.itemcatalogue.detailscreen.presentation.ItemDetailViewModel
 import org.junit.Rule
 import org.junit.Test
