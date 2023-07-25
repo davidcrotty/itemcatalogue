@@ -10,8 +10,6 @@
     <string name="dialog_title_unable_to_launch_application">Unable to launch application</string>
     <string name="dialog_description_connectivity_error">Please check network connectivity and try again</string>
 
-    <string name="item_title">Item Title</string>
-
     <string name="item_cost">Item cost</string>
     <string name="gold_cost">%1$d Gold</string>
     <string name="silver_cost">%1$d Silver</string>

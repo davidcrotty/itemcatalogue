@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.template
+package net.davidcrotty.itemcatalogue.detailscreen.ui.template
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -14,13 +14,14 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.constraintlayout.compose.ConstraintLayout
-import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.detailscreen.ui.atom.DividerLabel
 import net.davidcrotty.itemcatalogue.detailscreen.model.ImageResult
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetail
 import net.davidcrotty.itemcatalogue.detailscreen.ui.molecule.DetailImage
+import net.davidcrotty.itemcatalogue.detailscreen.R as DetailScreenR
 import net.davidcrotty.itemcatalogue.theme.Typography
 import net.davidcrotty.itemcatalogue.theme.LocalDetailColors
+import net.davidcrotty.itemcatalogue.theme.R
 
 @Preview
 @Composable
@@ -86,7 +87,7 @@ fun ItemDetailTemplate(
                         top.linkTo(breadcrumbs.bottom)
                     })
                 if (!itemDetail.title.isNullOrEmpty()) {
-                    val itemTitleLabel = stringResource(id = R.string.item_title)
+                    val itemTitleLabel = stringResource(id = DetailScreenR.string.item_title)
                     Box(
                         Modifier
                             .constrainAs(titleRef) {

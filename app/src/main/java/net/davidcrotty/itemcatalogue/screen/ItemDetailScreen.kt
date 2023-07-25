@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.Color
 import net.davidcrotty.itemcatalogue.detailscreen.ui.atom.DividerLabel
 import net.davidcrotty.itemcatalogue.detailscreen.presentation.ItemDetailContract
 import net.davidcrotty.itemcatalogue.detailscreen.ui.molecule.DetailImage
-import net.davidcrotty.itemcatalogue.template.ItemDetailTemplate
+import net.davidcrotty.itemcatalogue.detailscreen.ui.template.ItemDetailTemplate
 import net.davidcrotty.itemcatalogue.theme.LocalDetailColors
 import net.davidcrotty.itemcatalogue.theme.Typography
 

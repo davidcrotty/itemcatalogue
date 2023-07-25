@@ -2,4 +2,5 @@
 <resources>
     <string name="detail_image">Detail Image</string>
     <string name="detail_image_unavailable">Detail Image Unavailable</string>
+    <string name="item_title">Item Title</string>
 </resources>
