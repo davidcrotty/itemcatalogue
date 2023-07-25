@@ -33,7 +33,7 @@ fun NavigationGraph(
     appContainer: DndCatalogueAppContainer
 ) {
     Column {
-        TopAppBar(contentPadding = PaddingValues(16.dp)) {
+        TopAppBar(contentPadding = PaddingValues(horizontal = 16.dp)) {
             Box(Modifier.width(24.dp).height(24.dp).background(Color.Cyan)) {
 
             }
