@@ -39,18 +39,15 @@ fun ListItemTheme(
 
 @Composable
 fun CatalogueTemplateTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
     val colors = DarkColorPalette
 
     val systemUiController = rememberSystemUiController()
 
-    val context = LocalContext.current
     SideEffect {
         systemUiController.setStatusBarColor(
-            color = Black800(context),
-            darkIcons = !darkTheme
+            color = Black600
         )
     }
 
@@ -75,12 +72,14 @@ fun TableTheme(
 ) {
     val colors = DarkColorPalette
 
+    val appColors = AppColours()
     val tableColors = TableColors()
     val appTypography = ItemTypography()
 
     CompositionLocalProvider(
         LocalColors provides tableColors,
-        LocalFont provides appTypography
+        LocalFont provides appTypography,
+        LocalAppColours provides appColors
     ) {
         MaterialTheme(
             colors = colors,

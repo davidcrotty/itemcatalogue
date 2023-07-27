@@ -33,7 +33,7 @@ class ItemTypography(
     val screenTitle: TextStyle = TextStyle(
         fontSize = 16.sp,
         lineHeight = 22.4.sp,
-        fontWeight = FontWeight(700),
+        fontWeight = FontWeight(600),
         color = Color.White
     )
 )

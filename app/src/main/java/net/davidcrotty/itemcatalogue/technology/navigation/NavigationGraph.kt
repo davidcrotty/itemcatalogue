@@ -5,10 +5,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -23,6 +25,7 @@ import net.davidcrotty.itemcatalogue.detailscreen.ui.screen.ItemDetailScreen
 import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
 import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
 import net.davidcrotty.itemcatalogue.screen.ItemListScreen
+import net.davidcrotty.itemcatalogue.theme.LocalAppColours
 import net.davidcrotty.itemcatalogue.theme.LocalFont
 
 @Composable
@@ -33,9 +36,13 @@ fun NavigationGraph(
     appContainer: DndCatalogueAppContainer
 ) {
     Column {
-        TopAppBar(contentPadding = PaddingValues(horizontal = 16.dp)) {
-            Image(modifier = Modifier.width(24.dp).height(24.dp), painter = painterResource(id = R.drawable.ic_sword), contentDescription = "")
-            Text("Listings", Modifier.weight(1f, true), textAlign = TextAlign.Center, style = LocalFont.current.screenTitle)
+        Surface {
+            TopAppBar(contentPadding = PaddingValues(horizontal = 16.dp), backgroundColor = Color.Transparent, elevation = 0.dp) {
+                Image(modifier = Modifier
+                    .width(24.dp)
+                    .height(24.dp), painter = painterResource(id = R.drawable.ic_sword), contentDescription = "")
+                Text("Listings", Modifier.weight(1f, true), textAlign = TextAlign.Center, style = LocalFont.current.screenTitle)
+            }
         }
         NavHost(navController = controller, startDestination = "itemList") {
             composable("itemList") {
