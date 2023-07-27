@@ -13,7 +13,7 @@ import net.davidcrotty.itemcatalogue.R
 @Composable
 fun RetryButton(modifier: Modifier = Modifier, onClick: () -> Unit) {
     IconButton(onClick = onClick, modifier = modifier) {
-        Icon(imageVector = ImageVector.vectorResource(id = R.drawable.restart_alt_48px),
+        Icon(imageVector = ImageVector.vectorResource(id = R.drawable.restart_alt),
             tint = MaterialTheme.colors.primary,
             contentDescription = stringResource(
             id = R.string.retry_button

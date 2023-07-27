@@ -1,6 +1,9 @@
 package net.davidcrotty.itemcatalogue.theme
 
 import androidx.compose.material.Typography
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -22,6 +25,17 @@ val roboto = FontFamily(
 val mrseaves = FontFamily(
     Font(R.font.mrseave_regular, FontWeight.Normal),
     Font(R.font.mrseave_bold, FontWeight.Bold)
+)
+
+val LocalFont = compositionLocalOf { ItemTypography() }
+@Immutable
+class ItemTypography(
+    val screenTitle: TextStyle = TextStyle(
+        fontSize = 16.sp,
+        lineHeight = 22.4.sp,
+        fontWeight = FontWeight(700),
+        color = Color.White
+    )
 )
 
 val TableTypography = Typography(

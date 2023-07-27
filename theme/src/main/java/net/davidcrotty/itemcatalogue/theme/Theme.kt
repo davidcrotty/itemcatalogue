@@ -96,9 +96,11 @@ fun TableTheme(
     }
 
     val tableColors = TableColors()
+    val appTypography = ItemTypography()
 
     CompositionLocalProvider(
-        LocalColors provides tableColors
+        LocalColors provides tableColors,
+        LocalFont provides appTypography
     ) {
         MaterialTheme(
             colors = colors,
