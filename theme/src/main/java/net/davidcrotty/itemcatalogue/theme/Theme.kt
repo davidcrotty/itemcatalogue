@@ -14,16 +14,8 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 private val DarkColorPalette = darkColors(
     primary = Red600,
     primaryVariant = Purple700,
-    secondary = Teal200
-)
-
-private val LightColorPalette = lightColors(
-    primary = Red800,
-    primaryVariant = Purple700,
     secondary = Teal200,
-    surface = White300,
-    background = White100,
-    onSurface = Grey900,
+    surface = Black800
 )
 
 @Deprecated("Not used currently, was used as an example of custom theming", replaceWith = ReplaceWith("CatalogueTemplateTheme"))
@@ -32,11 +24,7 @@ fun ListItemTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colors = if (darkTheme) {
-        DarkColorPalette
-    } else {
-        LightColorPalette
-    }
+    val colors = DarkColorPalette
 
     val customThemeColors = colors.copy(
         surface = Color.Red
@@ -54,11 +42,7 @@ fun CatalogueTemplateTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colors = if (darkTheme) {
-        DarkColorPalette
-    } else {
-        LightColorPalette
-    }
+    val colors = DarkColorPalette
 
     val systemUiController = rememberSystemUiController()
 
@@ -89,11 +73,7 @@ fun TableTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colors = if (darkTheme) {
-        DarkColorPalette
-    } else {
-        LightColorPalette
-    }
+    val colors = DarkColorPalette
 
     val tableColors = TableColors()
     val appTypography = ItemTypography()
