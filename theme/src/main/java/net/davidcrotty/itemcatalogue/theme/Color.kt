@@ -33,6 +33,7 @@ val Silver100 = Color(0xFFADB5BD)
 
 val Red500 = Color(0xFF9B4D43)
 val Red600 = Color(0xFFCF6679)
+val Red700 = Color(0xFFbc0f0e)
 val Red800 = Color(0xFFC70332)
 
 val Copper100 = Color(0xFFEF8354)
@@ -40,5 +41,6 @@ val Copper100 = Color(0xFFEF8354)
 val LocalAppColours = compositionLocalOf { AppColours() }
 @Immutable
 class AppColours(
-    val background: Color = Black800
+    val background: Color = Black800,
+    val highlight: Color = Red700
 )

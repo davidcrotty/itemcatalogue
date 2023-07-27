@@ -1,15 +1,20 @@
 package net.davidcrotty.itemcatalogue.technology.navigation
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.ui.Alignment
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -37,16 +42,46 @@ fun NavigationGraph(
 ) {
     Column {
         Surface {
-            TopAppBar(contentPadding = PaddingValues(horizontal = 16.dp), backgroundColor = Color.Transparent, elevation = 0.dp) {
-                Image(modifier = Modifier
-                    .width(24.dp)
-                    .height(24.dp), painter = painterResource(id = R.drawable.ic_sword), contentDescription = "")
-                Text("Listings", Modifier.weight(1f, true), textAlign = TextAlign.Center, style = LocalFont.current.screenTitle)
+            TopAppBar(
+                contentPadding = PaddingValues(horizontal = 16.dp),
+                backgroundColor = Color.Transparent,
+                elevation = 0.dp
+            ) {
+                Box(
+                    Modifier
+                        .width(36.dp)
+                        .height(36.dp)
+                        .border(
+                            width = 1.dp, shape = CircleShape, brush = Brush.linearGradient(
+                                colors = listOf(
+                                    LocalAppColours.current.highlight,
+                                    LocalAppColours.current.highlight
+                                )
+                            )
+                        )
+                ) {
+                    Image(
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .width(24.dp)
+                            .height(24.dp),
+                        painter = painterResource(id = R.drawable.ic_sword),
+                        contentDescription = ""
+                    )
+                }
+                Text(
+                    "Listings",
+                    Modifier.weight(1f, true),
+                    textAlign = TextAlign.Center,
+                    style = LocalFont.current.screenTitle
+                )
             }
         }
         NavHost(navController = controller, startDestination = "itemList") {
             composable("itemList") {
-                ItemListScreen(itemScreenGraph = itemScreenGraph, navigate = { navigator.navigate(it) })
+                ItemListScreen(
+                    itemScreenGraph = itemScreenGraph,
+                    navigate = { navigator.navigate(it) })
             }
             composable("item/{itemId}", arguments = listOf(navArgument("itemId") {
                 type = NavType.StringType
@@ -62,6 +97,6 @@ fun NavigationGraph(
                     detailViewModel = appContainer.itemDetailGraph().itemDetailViewModel { status }
                 )
             }
-        }   
+        }
     }
 }
