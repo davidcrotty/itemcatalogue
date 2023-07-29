@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -29,6 +30,7 @@ import net.davidcrotty.itemcatalogue.detailscreen.model.ItemIDStatus
 import net.davidcrotty.itemcatalogue.detailscreen.ui.screen.ItemDetailScreen
 import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
 import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
+import net.davidcrotty.itemcatalogue.organism.ItemCatalogueAppBar
 import net.davidcrotty.itemcatalogue.screen.ItemListScreen
 import net.davidcrotty.itemcatalogue.theme.LocalAppColours
 import net.davidcrotty.itemcatalogue.theme.LocalFont
@@ -40,42 +42,14 @@ fun NavigationGraph(
     navigator: Navigator,
     appContainer: DndCatalogueAppContainer
 ) {
+    // write test for app bar component
+
+    // Nav Template
+    // Header
+    // Nav Graph
     Column {
         Surface {
-            TopAppBar(
-                contentPadding = PaddingValues(horizontal = 16.dp),
-                backgroundColor = Color.Transparent,
-                elevation = 0.dp
-            ) {
-                Box(
-                    Modifier
-                        .width(36.dp)
-                        .height(36.dp)
-                        .border(
-                            width = 1.dp, shape = CircleShape, brush = Brush.linearGradient(
-                                colors = listOf(
-                                    LocalAppColours.current.highlight,
-                                    LocalAppColours.current.highlight
-                                )
-                            )
-                        )
-                ) {
-                    Image(
-                        modifier = Modifier
-                            .align(Alignment.Center)
-                            .width(24.dp)
-                            .height(24.dp),
-                        painter = painterResource(id = R.drawable.ic_sword),
-                        contentDescription = ""
-                    )
-                }
-                Text(
-                    "Listings",
-                    Modifier.weight(1f, true),
-                    textAlign = TextAlign.Center,
-                    style = LocalFont.current.screenTitle
-                )
-            }
+            ItemCatalogueAppBar(title = stringResource(id = R.string.listing_title))
         }
         NavHost(navController = controller, startDestination = "itemList") {
             composable("itemList") {

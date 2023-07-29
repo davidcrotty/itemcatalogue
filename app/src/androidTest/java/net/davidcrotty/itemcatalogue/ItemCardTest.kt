@@ -3,7 +3,6 @@ package net.davidcrotty.itemcatalogue
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import io.mockk.mockk
-import io.mockk.slot
 import io.mockk.verify
 import net.davidcrotty.itemcatalogue.molecule.ItemCost
 import net.davidcrotty.itemcatalogue.organism.ItemCard
