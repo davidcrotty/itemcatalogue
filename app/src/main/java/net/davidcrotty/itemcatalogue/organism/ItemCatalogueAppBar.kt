@@ -51,7 +51,7 @@ fun ItemCatalogueAppBar(title: String = LocalContext.current.getString(R.string.
                     .width(24.dp)
                     .height(24.dp),
                 painter = painterResource(id = R.drawable.ic_sword),
-                contentDescription = ""
+                contentDescription = LocalContext.current.getString(R.string.screen_icon)
             )
         }
         val titleSemantic = LocalContext.current.getString(R.string.screen_name)
