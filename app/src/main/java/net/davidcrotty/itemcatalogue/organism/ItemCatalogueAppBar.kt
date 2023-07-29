@@ -55,20 +55,22 @@ fun ItemCatalogueAppBar(title: String = LocalContext.current.getString(R.string.
                 contentDescription = LocalContext.current.getString(R.string.screen_icon)
             )
         }
-        scope.screenTitle(title = title)
-    }
-}
-
-@Composable
-private fun RowScope.screenTitle(title: String) {
-    val titleSemantic = LocalContext.current.getString(R.string.screen_name)
-    Text(
-        title,
+        val titleSemantic = LocalContext.current.getString(R.string.screen_name)
+        screenTitle(modifier =
         Modifier
             .weight(1f, true)
             .semantics {
                 contentDescription = titleSemantic
-            },
+            }, title = title
+        )
+    }
+}
+
+@Composable
+private fun screenTitle(modifier: Modifier, title: String) {
+    Text(
+        title,
+        modifier,
         textAlign = TextAlign.Center,
         style = LocalFont.current.screenTitle
     )
