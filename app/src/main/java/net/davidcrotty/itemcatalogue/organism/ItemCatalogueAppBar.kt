@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
@@ -16,7 +17,6 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.style.TextAlign
@@ -32,6 +32,7 @@ fun ItemCatalogueAppBar(title: String = LocalContext.current.getString(R.string.
         backgroundColor = Color.Transparent,
         elevation = 0.dp
     ) {
+        val scope = this
         Box(
             Modifier
                 .width(36.dp)
@@ -54,16 +55,21 @@ fun ItemCatalogueAppBar(title: String = LocalContext.current.getString(R.string.
                 contentDescription = LocalContext.current.getString(R.string.screen_icon)
             )
         }
-        val titleSemantic = LocalContext.current.getString(R.string.screen_name)
-        Text(
-            title,
-            Modifier
-                .weight(1f, true)
-                .semantics {
-                    contentDescription = titleSemantic
-                },
-            textAlign = TextAlign.Center,
-            style = LocalFont.current.screenTitle
-        )
+        scope.screenTitle(title = title)
     }
+}
+
+@Composable
+private fun RowScope.screenTitle(title: String) {
+    val titleSemantic = LocalContext.current.getString(R.string.screen_name)
+    Text(
+        title,
+        Modifier
+            .weight(1f, true)
+            .semantics {
+                contentDescription = titleSemantic
+            },
+        textAlign = TextAlign.Center,
+        style = LocalFont.current.screenTitle
+    )
 }
