@@ -28,6 +28,5 @@ val Red700 = Color(0xFFbc0f0e)
 val LocalAppColours = compositionLocalOf { AppColours() }
 @Immutable
 class AppColours(
-    val background: Color = Black800,
     val highlight: Color = Red700
 )
