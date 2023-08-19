@@ -32,7 +32,6 @@ fun ItemCatalogueAppBar(title: String = LocalContext.current.getString(R.string.
         backgroundColor = Color.Transparent,
         elevation = 0.dp
     ) {
-        val scope = this
         Box(
             Modifier
                 .width(36.dp)
