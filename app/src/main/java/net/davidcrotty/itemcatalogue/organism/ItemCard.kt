@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.LocalTextStyle
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -15,8 +16,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.model.FeedItem
-import net.davidcrotty.itemcatalogue.molecule.ItemCost
-import net.davidcrotty.itemcatalogue.theme.CornerRadius
+import net.davidcrotty.itemcatalogue.theme.LocalFont
 import net.davidcrotty.itemcatalogue.theme.LocalValues
 import net.davidcrotty.itemcatalogue.theme.Typography
 
@@ -38,31 +38,32 @@ fun ItemCard(
     }){
         Row(
             modifier = Modifier
-                .height(160.dp)
+                .height(92.dp)
                 .padding(16.dp)
                 .fillMaxWidth()
         ) {
-            Thumbnail(imageSource = item.url)
+            Thumbnail(
+                Modifier.aspectRatio(1f)
+                    .clip(RoundedCornerShape(LocalValues.current.large.value)),
+                imageSource = item.url)
             Column(modifier = Modifier.padding(start = 16.dp),
-            verticalArrangement = Arrangement.Bottom) {
-                Text(item.type, maxLines = 1, style = Typography.body2)
-                Text(item.title, maxLines = 1, style = Typography.h2)
-                Box(Modifier.size(152.dp, 32.dp)){
-                    ItemCost(gold = 1, silver = 2, copper = 3)
-                }
+            verticalArrangement = Arrangement.Center) {
+                Text(item.type, maxLines = 1, style = LocalFont.current.itemTitle)
+                Text(item.title, maxLines = 1, style = LocalFont.current.itemDescription)
             }
         }
     }
 }
 
 @Composable
-private fun Thumbnail(imageSource: String,
-              cornerRadius: CornerRadius = LocalValues.current.large) {
+private fun Thumbnail(
+              modifier: Modifier = Modifier,
+              imageSource: String) {
     Image(
         painter = rememberAsyncImagePainter(imageSource),
         contentDescription = stringResource(id = R.string.list_image),
         // will constrain its height to tow height
-        modifier = Modifier.aspectRatio(1f).clip(RoundedCornerShape(cornerRadius.value))
+        modifier = modifier
     )
 }
 
