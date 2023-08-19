@@ -28,8 +28,7 @@ val DefaultTableColors = TableColors()
 
 @Immutable
 class TableColors(
-    val divider: Color = Red500,
-    val background: Color = White900
+    val divider: Color = Grey600
 )
 
 val LocalColors = compositionLocalOf { DefaultTableColors }

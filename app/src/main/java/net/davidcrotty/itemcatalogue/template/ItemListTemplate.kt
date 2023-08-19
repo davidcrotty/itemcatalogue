@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.Divider
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -13,14 +15,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import net.davidcrotty.itemcatalogue.R
-import net.davidcrotty.itemcatalogue.atom.ListDivider
-import net.davidcrotty.itemcatalogue.atom.RetryButton
-import net.davidcrotty.itemcatalogue.model.FeedItem
 import net.davidcrotty.itemcatalogue.model.ListTemplateState
 import net.davidcrotty.itemcatalogue.model.LoadingState
 import net.davidcrotty.itemcatalogue.molecule.FeedLoadingIndicator
 import net.davidcrotty.itemcatalogue.molecule.FeedRetryIndicator
 import net.davidcrotty.itemcatalogue.organism.ItemCard
+import net.davidcrotty.itemcatalogue.theme.LocalColors
 
 @Composable
 fun ItemListTemplate(
@@ -81,4 +81,11 @@ fun ItemListTemplate(
             }
         }
     }
+}
+
+@Composable
+private fun ListDivider() {
+    Divider(
+        color = LocalColors.current.divider
+    )
 }
