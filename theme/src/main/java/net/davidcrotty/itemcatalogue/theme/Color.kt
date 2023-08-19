@@ -1,42 +1,29 @@
 package net.davidcrotty.itemcatalogue.theme
 
-import android.content.Context
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
-import androidx.core.content.ContextCompat
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
+val Purple500 = Color(0xFF9b7fed)
 val Purple700 = Color(0xFF3700B3)
 val Teal200 = Color(0xFF03DAC5)
 
 val Black600 = Color(0xFF202b33)
 val Black800 = Color(0xFF10161A)
-fun Black800(context: Context): Color = Color(ContextCompat.getColor(context, R.color.black800))
 
 val White900 = Color(0xFFF5F3DC)
 val White500 = Color(0xFFFBFBFC)
-val White300 = Color(0xFFFCFAF9)
-val White100 = Color(0xFFFFFFFF)
 
-val Yellow500 = Color(0xFFFFC300)
 val Yellow300 = Color(0xFFE6BB2A)
 val Yellow100 = Color(0xFF9F9266)
 
 val Grey500 = Color(0xFF48494b)
 val Grey600 = Color(0xFF899ba7)
 val Grey800 = Color(0xFFb3b3b3)
-val Grey900 = Color(0xFFD3CECD)
-
-val Silver100 = Color(0xFFADB5BD)
 
 val Red500 = Color(0xFF9B4D43)
 val Red600 = Color(0xFFCF6679)
 val Red700 = Color(0xFFbc0f0e)
-val Red800 = Color(0xFFC70332)
-
-val Copper100 = Color(0xFFEF8354)
 
 val LocalAppColours = compositionLocalOf { AppColours() }
 @Immutable
