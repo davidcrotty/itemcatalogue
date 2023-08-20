@@ -5,6 +5,7 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import net.davidcrotty.itemcatalogue.theme.Black800
@@ -12,6 +13,10 @@ import net.davidcrotty.itemcatalogue.theme.Red500
 import net.davidcrotty.itemcatalogue.theme.White500
 import net.davidcrotty.itemcatalogue.theme.White900
 import net.davidcrotty.itemcatalogue.theme.tiamat
+
+object Padding {
+    val medium: Dp = 16.dp
+}
 
 class CornerRadius(val value: Float)
 

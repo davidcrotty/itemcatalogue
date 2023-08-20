@@ -39,8 +39,8 @@ fun ItemCard(
     }){
         Row(
             modifier = Modifier
-                .height(92.dp)
-                .padding(16.dp)
+                .height(LocalCatalogTemplateValues.current.itemCardToken.itemHeight)
+                .padding(LocalCatalogTemplateValues.current.itemCardToken.itemPadding)
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -56,7 +56,7 @@ fun ItemCard(
                     )
                     .clip(thumbnailShape),
                 imageSource = item.url)
-            Column(modifier = Modifier.padding(start = 16.dp),
+            Column(modifier = Modifier.padding(start = LocalCatalogTemplateValues.current.itemCardToken.itemPadding),
             verticalArrangement = Arrangement.Center) {
                 Text(item.type, maxLines = 1, style = LocalCatalogTemplateValues.current.itemCardToken.itemTitle)
                 Text(item.title, maxLines = 1, style = LocalCatalogTemplateValues.current.itemCardToken.itemSubtitle)

@@ -35,18 +35,6 @@ class ItemTypography(
         lineHeight = 22.4.sp,
         fontWeight = FontWeight(600),
         color = Color.White
-    ),
-    val itemTitle: TextStyle = TextStyle(
-        fontSize = 18.sp,
-        lineHeight = 22.4.sp,
-        fontWeight = FontWeight(700),
-        color = Color.White
-    ),
-    val itemDescription: TextStyle = TextStyle(
-        fontSize = 14.sp,
-        lineHeight = 16.8.sp,
-        fontWeight = FontWeight(700),
-        color = Grey600
     )
 )
 

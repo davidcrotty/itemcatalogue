@@ -23,5 +23,7 @@ class ItemCardToken(
         color = Grey600
     ),
     val imageBorderColor: Color = Purple500,
-    val imageBorderStroke: Dp = 1.dp
+    val imageBorderStroke: Dp = 1.dp,
+    val itemPadding: Dp = Padding.medium,
+    val itemHeight: Dp = 92.dp
 )
