@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.model.FeedItem
+import net.davidcrotty.itemcatalogue.theme.LocalCatalogTemplateValues
 import net.davidcrotty.itemcatalogue.theme.LocalFont
 import net.davidcrotty.itemcatalogue.theme.LocalValues
 import net.davidcrotty.itemcatalogue.theme.Purple500
@@ -60,8 +61,8 @@ fun ItemCard(
                 imageSource = item.url)
             Column(modifier = Modifier.padding(start = 16.dp),
             verticalArrangement = Arrangement.Center) {
-                Text(item.type, maxLines = 1, style = LocalFont.current.itemTitle)
-                Text(item.title, maxLines = 1, style = LocalFont.current.itemDescription)
+                Text(item.type, maxLines = 1, style = LocalCatalogTemplateValues.current.itemCardToken.itemTitle)
+                Text(item.title, maxLines = 1, style = LocalCatalogTemplateValues.current.itemCardToken.itemSubtitle)
             }
         }
     }

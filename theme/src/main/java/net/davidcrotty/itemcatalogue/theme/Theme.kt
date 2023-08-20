@@ -1,15 +1,20 @@
 package net.davidcrotty.itemcatalogue.theme
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.runtime.compositionLocalOf
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+
+val LocalCatalogTemplateValues = compositionLocalOf { DefaultCatalogueTemplateValues }
+
+val DefaultCatalogueTemplateValues = CatalogTemplateValues()
+
+class CatalogTemplateValues(
+    val itemCardToken: ItemCardToken = ItemCardToken()
+)
 
 private val DarkColorPalette = darkColors(
     primary = Red600,
@@ -32,10 +37,12 @@ fun CatalogueTemplateTheme(
         )
     }
 
-    val values = CornerRadiusSizes() // TODO wrap as this becomes more complex
+    val localValues = CornerRadiusSizes() // TODO wrap as this becomes more complex
+    val localCatalogTemplateValues = CatalogTemplateValues()
 
     CompositionLocalProvider(
-        LocalValues provides values
+        LocalValues provides localValues,
+        LocalCatalogTemplateValues provides localCatalogTemplateValues
     ) {
         MaterialTheme(
             colors = colors,
