@@ -22,6 +22,7 @@ import net.davidcrotty.itemcatalogue.theme.ItemCardToken
 import net.davidcrotty.itemcatalogue.theme.LocalCatalogTemplateValues
 import net.davidcrotty.itemcatalogue.theme.LocalValues
 
+@Preview
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ItemCard(
@@ -48,7 +49,8 @@ fun ItemCard(
         ) {
             val thumbnailShape = RoundedCornerShape(LocalValues.current.large.value)
             Thumbnail(
-                Modifier.aspectRatio(1f)
+                Modifier
+                    .aspectRatio(1f)
                     .border(
                         border = BorderStroke(
                             designToken.imageBorderStroke,
