@@ -18,13 +18,15 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.model.FeedItem
+import net.davidcrotty.itemcatalogue.theme.ItemCardToken
 import net.davidcrotty.itemcatalogue.theme.LocalCatalogTemplateValues
 import net.davidcrotty.itemcatalogue.theme.LocalValues
 
 @OptIn(ExperimentalMaterialApi::class)
-@Preview
 @Composable
 fun ItemCard(
+    modifier: Modifier = Modifier,
+    designToken: ItemCardToken = LocalCatalogTemplateValues.current.itemCardToken,
     item: FeedItem = FeedItem(
         id = "1",
         url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large",
@@ -39,8 +41,8 @@ fun ItemCard(
     }){
         Row(
             modifier = Modifier
-                .height(LocalCatalogTemplateValues.current.itemCardToken.itemHeight)
-                .padding(LocalCatalogTemplateValues.current.itemCardToken.itemPadding)
+                .height(designToken.itemHeight)
+                .padding(designToken.itemPadding)
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -49,17 +51,17 @@ fun ItemCard(
                 Modifier.aspectRatio(1f)
                     .border(
                         border = BorderStroke(
-                            LocalCatalogTemplateValues.current.itemCardToken.imageBorderStroke,
-                            LocalCatalogTemplateValues.current.itemCardToken.imageBorderColor
+                            designToken.imageBorderStroke,
+                            designToken.imageBorderColor
                         ),
                         shape = thumbnailShape
                     )
                     .clip(thumbnailShape),
                 imageSource = item.url)
-            Column(modifier = Modifier.padding(start = LocalCatalogTemplateValues.current.itemCardToken.itemPadding),
+            Column(modifier = Modifier.padding(start = designToken.itemPadding),
             verticalArrangement = Arrangement.Center) {
-                Text(item.type, maxLines = 1, style = LocalCatalogTemplateValues.current.itemCardToken.itemTitle)
-                Text(item.title, maxLines = 1, style = LocalCatalogTemplateValues.current.itemCardToken.itemSubtitle)
+                Text(item.type, maxLines = 1, style = designToken.itemTitle)
+                Text(item.title, maxLines = 1, style = designToken.itemSubtitle)
             }
         }
     }
