@@ -18,25 +18,6 @@ private val DarkColorPalette = darkColors(
     surface = Black800
 )
 
-@Deprecated("Not used currently, was used as an example of custom theming", replaceWith = ReplaceWith("CatalogueTemplateTheme"))
-@Composable
-fun ListItemTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
-) {
-    val colors = DarkColorPalette
-
-    val customThemeColors = colors.copy(
-        surface = Color.Red
-    )
-    CompositionLocalProvider{
-        MaterialTheme(
-            content = content,
-            colors = customThemeColors
-        )
-    }
-}
-
 @Composable
 fun CatalogueTemplateTheme(
     content: @Composable () -> Unit
@@ -55,31 +36,6 @@ fun CatalogueTemplateTheme(
 
     CompositionLocalProvider(
         LocalValues provides values
-    ) {
-        MaterialTheme(
-            colors = colors,
-            typography = Typography,
-            shapes = Shapes,
-            content = content
-        )
-    }
-}
-
-@Composable
-fun TableTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
-) {
-    val colors = DarkColorPalette
-
-    val appColors = AppColours()
-    val tableColors = TableColors()
-    val appTypography = ItemTypography()
-
-    CompositionLocalProvider(
-        LocalColors provides tableColors,
-        LocalFont provides appTypography,
-        LocalAppColours provides appColors
     ) {
         MaterialTheme(
             colors = colors,
