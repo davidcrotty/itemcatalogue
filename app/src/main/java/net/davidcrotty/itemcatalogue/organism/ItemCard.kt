@@ -12,20 +12,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.model.FeedItem
 import net.davidcrotty.itemcatalogue.theme.LocalCatalogTemplateValues
-import net.davidcrotty.itemcatalogue.theme.LocalFont
 import net.davidcrotty.itemcatalogue.theme.LocalValues
-import net.davidcrotty.itemcatalogue.theme.Purple500
 
 @OptIn(ExperimentalMaterialApi::class)
 @Preview
@@ -54,7 +48,10 @@ fun ItemCard(
             Thumbnail(
                 Modifier.aspectRatio(1f)
                     .border(
-                        border = BorderStroke(1.dp, Purple500),
+                        border = BorderStroke(
+                            LocalCatalogTemplateValues.current.itemCardToken.imageBorderStroke,
+                            LocalCatalogTemplateValues.current.itemCardToken.imageBorderColor
+                        ),
                         shape = thumbnailShape
                     )
                     .clip(thumbnailShape),
