@@ -23,4 +23,12 @@ object Modules {
         implementation(Libraries.moshi),
         implementation(Libraries.moshiKotlin)
     )
+
+    val detail = listOf(
+        platform(Libraries.compose),
+        implementation(Libraries.composeUi),
+        implementation(Libraries.composeMaterial),
+        implementation(Libraries.composeAnimation),
+        implementation(Libraries.composeTooling)
+    )
 }
