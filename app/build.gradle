@@ -73,7 +73,3 @@ dependencies {
     androidTestImplementation "io.mockk:mockk-android:$mockkVersion"
     androidTestImplementation "io.mockk:mockk-agent-jvm:$mockkVersion"
 }
-
-tasks.withType(Test) {
-    useJUnitPlatform()
-}

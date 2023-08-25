@@ -39,7 +39,3 @@ dependencies {
     testImplementation "com.airbnb.okreplay:okreplay:$okReplayVersion"
     testImplementation "com.airbnb.okreplay:junit:$okReplayVersion"
 }
-
-tasks.withType(Test) {
-    useJUnitPlatform()
-}
