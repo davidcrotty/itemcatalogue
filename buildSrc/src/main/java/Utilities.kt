@@ -7,6 +7,9 @@ import org.gradle.kotlin.dsl.closureOf
 
 object Utilities {
 
+    fun platform(library: String) =
+        mapOf("platform" to library)
+
     fun implementation(library: String, options: ExternalDependency.() -> Unit = {}) =
         dependency(configuration = "implementation", library = library, options = closureOf(options))
 
@@ -17,11 +20,15 @@ object Utilities {
     fun addModules(handler: DependencyHandler, vararg modules: List<Map<String, Any>>) {
         modules.forEach { module ->
             module.forEach { item ->
-                handler.add(
-                    item["configuration"] as String,
-                    item["dependency"] as String,
-                    item["options"] as Closure<*>
-                )
+                if (item["platform"] != null) {
+                     handler.platform(item["platform"] as String)
+                } else {
+                    handler.add(
+                        item["configuration"] as String,
+                        item["dependency"] as String,
+                        item["options"] as Closure<*>
+                    )
+                }
             }
         }
     }

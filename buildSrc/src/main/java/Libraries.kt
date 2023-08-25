@@ -5,4 +5,5 @@ object Libraries {
     val retrofitMoshiConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
     val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
+    val compose = "androidx.compose:compose-bom:${Versions.compose}"
 }
