@@ -28,19 +28,6 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.7"
     }
-    packagingOptions {
-        resources {
-            excludes += [
-                    'META-INF/AL2.0',
-                    'META-INF/LGPL2.1',
-                    'META-INF/LICENSE.md',
-                    'META-INF/LICENSE-notice.md'
-            ]
-        }
-        jniLibs {
-            useLegacyPackaging true
-        }
-    }
 }
 
 dependencies {
