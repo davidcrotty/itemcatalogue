@@ -95,8 +95,7 @@ dependencies {
     implementation project(":data")
     implementation project(":theme")
 
-    // Official Utils around compose
-    implementation "io.coil-kt:coil-compose:2.2.2"
+    implementation Libraries.coil
 
     testImplementation project(":core:unittest")
     testImplementation "org.junit.jupiter:junit-jupiter-engine:5.8.2"
