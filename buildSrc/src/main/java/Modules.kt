@@ -10,7 +10,11 @@ object Modules {
         implementation(Libraries.retrofitMoshiConverter),
         implementation(Libraries.moshi),
         implementation(Libraries.moshiKotlin),
-        platform(Libraries.compose)
+        platform(Libraries.compose),
+        implementation(Libraries.composeUi),
+        implementation(Libraries.composeMaterial),
+        implementation(Libraries.composeAnimation),
+        implementation(Libraries.composeTooling)
     )
 
     val data = listOf(

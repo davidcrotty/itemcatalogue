@@ -6,4 +6,8 @@ object Libraries {
     val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
     val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
     val compose = "androidx.compose:compose-bom:${Versions.compose}"
+    val composeUi = "androidx.compose.ui:ui"
+    val composeMaterial = "androidx.compose.material:material"
+    val composeAnimation = "androidx.compose.animation:animation-graphics"
+    val composeTooling = "androidx.compose.ui:ui-tooling"
 }
