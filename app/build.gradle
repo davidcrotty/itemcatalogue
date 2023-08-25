@@ -9,19 +9,10 @@ def forgeVersion = "1.3.1"
 def retrofitVersion = "2.9.0"
 
 android {
-    buildToolsVersion = "30.0.3"
+    namespace 'net.davidcrotty.itemcatalogue'
 
     defaultConfig {
         applicationId = "net.davidcrotty.itemcatalogue"
-        minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary true
-        }
     }
 
     buildTypes {
@@ -31,14 +22,6 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-        freeCompilerArgs = ["-opt-in=kotlin.RequiresOptIn"]
-    }
     buildFeatures {
         compose = true
     }
@@ -58,12 +41,6 @@ android {
             useLegacyPackaging true
         }
     }
-    configurations {
-        androidTestImplementation {
-            exclude group: "io.mockk", module: "mockk-agent-jvm"
-        }
-    }
-    namespace 'net.davidcrotty.itemcatalogue'
 }
 
 dependencies {

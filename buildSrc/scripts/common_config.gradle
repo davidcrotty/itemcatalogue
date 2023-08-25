@@ -1,3 +1,33 @@
 android {
     compileSdk = 33
+    buildToolsVersion = "30.0.3"
+
+    defaultConfig {
+        minSdk = 24
+        targetSdk = 33
+        versionCode = 1
+        versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    compileOptions {
+        compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_1_8
+            targetCompatibility = JavaVersion.VERSION_1_8
+        }
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs = ["-opt-in=kotlin.RequiresOptIn"]
+    }
+    configurations {
+        androidTestImplementation {
+            exclude group: "io.mockk", module: "mockk-agent-jvm"
+        }
+    }
 }
