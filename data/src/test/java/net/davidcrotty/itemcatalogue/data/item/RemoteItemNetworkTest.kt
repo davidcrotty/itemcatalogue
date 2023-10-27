@@ -10,6 +10,7 @@ import kotlinx.coroutines.runBlocking
 import net.davidcrotty.itemcatalogue.data.item.api.ItemAPI
 import net.davidcrotty.itemcatalogue.data.item.dto.pure.ItemDTO
 import net.davidcrotty.itemcatalogue.data.item.exception.ContentFailedToFetch
+import net.davidcrotty.itemcatalogue.data.item.exception.ContentNotFound
 import okhttp3.OkHttpClient
 import okreplay.*
 import org.junit.Assert.assertEquals
@@ -34,7 +35,7 @@ internal class RemoteItemNetworkTest {
     @get:Rule
     val recorder = RecorderRule(config)
 
-    @Test(expected = ContentFailedToFetch::class)
+    @Test(expected = ContentNotFound::class)
     @OkReplay
     fun `when server errors`() {
         val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
