@@ -26,7 +26,8 @@ class RemoteItemDataSourceImpl(
                 // TODO log trace ids for logging
                 itemAPI.getItems(apiToken, limit, id)
             } catch (e: HttpException) {
-                if (e.code() == 404) {
+                val httpCode = e.code()
+                if (httpCode == 404 || httpCode == 500) {
                     throw ContentNotFound()
                 } else {
                     throw ContentFailedToFetch()
