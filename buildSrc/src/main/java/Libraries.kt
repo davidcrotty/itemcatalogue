@@ -15,5 +15,6 @@ object Libraries {
     val composeAnimation = "androidx.compose.animation:animation-graphics"
     val composeTooling = "androidx.compose.ui:ui-tooling"
 
+    val lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifecycle}"
     val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.viewModel}"
 }

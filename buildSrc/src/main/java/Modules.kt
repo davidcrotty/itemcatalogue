@@ -16,7 +16,8 @@ object Modules {
         implementation(Libraries.composeAnimation),
         implementation(Libraries.composeTooling),
         implementation(Libraries.appCompat),
-        implementation(Libraries.material)
+        implementation(Libraries.material),
+        implementation(Libraries.lifecycle)
     )
 
     val data = listOf(
