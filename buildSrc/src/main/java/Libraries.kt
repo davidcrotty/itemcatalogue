@@ -1,4 +1,6 @@
 object Libraries {
+    val androidCore = "androidx.core:core-ktx:${Versions.androidCore}"
+
     val coil = "io.coil-kt:coil-compose:${Versions.coil}"
     val splashScreen = "androidx.core:core-splashscreen:${Versions.splashScreen}"
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"

@@ -31,4 +31,8 @@ object Modules {
         implementation(Libraries.composeAnimation),
         implementation(Libraries.composeTooling)
     )
+
+    val androidCommon = listOf(
+        implementation(Libraries.androidCore)
+    )
 }

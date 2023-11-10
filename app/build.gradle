@@ -32,11 +32,23 @@ android {
 dependencies { handler ->
     Utilities.addModules(
             handler,
-            Modules.application
+            Modules.application,
+            Modules.androidCommon
     )
+
+    // Structure as:
+
+    // technologySpecific, ie: Compose, then
+    // commonAndroid..
+    // commonData..
+    // commonFeature..
+
+    // then specific module needs ie: detail/feeddata etc...
+
+    // specific tech's make sense as they can be managed together/update together if not in a BOM (also module by feature wont work as gradle overrides, will create confusion).
     debugImplementation "androidx.compose.ui:ui-test-manifest"
 
-    implementation "androidx.core:core-ktx:1.10.1"
+
     implementation "androidx.appcompat:appcompat:1.6.1"
     implementation "com.google.android.material:material:1.9.0"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
