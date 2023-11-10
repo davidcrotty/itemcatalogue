@@ -1,4 +1,5 @@
 object Versions {
+    val activityCompose = "1.7.2"
     val androidCore = "1.10.1"
     val appCompat = "1.6.1"
     val material = "1.9.0"

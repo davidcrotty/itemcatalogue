@@ -1,4 +1,5 @@
 object Libraries {
+    val activityCompose = "androidx.activity:activity-compose:${Versions.activityCompose}"
     val androidCore = "androidx.core:core-ktx:${Versions.androidCore}"
     val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     val material = "com.google.android.material:material:${Versions.material}"
