@@ -10,4 +10,5 @@ object Versions {
     val moshi = "1.13.0"
 
     val compose = "2023.05.01"
+    val viewModel = "2.6.1"
 }

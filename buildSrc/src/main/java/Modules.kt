@@ -33,7 +33,8 @@ object Modules {
         implementation(Libraries.composeAnimation),
         implementation(Libraries.composeTooling),
         implementation(Libraries.appCompat),
-        implementation(Libraries.material)
+        implementation(Libraries.material),
+        implementation(Libraries.viewModel)
     )
 
     val androidCommon = listOf(
