@@ -6,11 +6,13 @@ object Libraries {
 
     val coil = "io.coil-kt:coil-compose:${Versions.coil}"
     val constraintCompose = "androidx.constraintlayout:constraintlayout-compose:${Versions.constraintCompose}"
+    val jUnitJupiterEngine = "org.junit.jupiter:junit-jupiter-engine:${Versions.jUnitEngine}"
     val splashScreen = "androidx.core:core-splashscreen:${Versions.splashScreen}"
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     val retrofitMoshiConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
     val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
+    val mockK = "io.mockk:mockk:${Versions.mockK}"
     val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navigationCompose}"
     val compose = "androidx.compose:compose-bom:${Versions.compose}"
     val composeUi = "androidx.compose.ui:ui"

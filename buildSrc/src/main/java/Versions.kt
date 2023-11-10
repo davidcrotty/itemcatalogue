@@ -6,10 +6,12 @@ object Versions {
 
     val coil = "2.2.2"
     val constraintCompose = "1.0.1"
+    val jUnitEngine = "5.8.2"
     val splashScreen = "1.0.1"
 
     val retrofit = "2.9.0"
     val moshi = "1.13.0"
+    val mockK = "1.13.3"
     val navigationCompose = "2.6.0"
 
     val compose = "2023.05.01"

@@ -1,6 +1,7 @@
 import groovy.lang.Closure
 import org.gradle.api.artifacts.ExternalDependency
 import Utilities.implementation
+import Utilities.testImplementation
 import Utilities.platform
 
 object Modules {
@@ -45,5 +46,12 @@ object Modules {
 
     val androidCommon = listOf(
         implementation(Libraries.androidCore)
+    )
+
+    val unitTest = listOf(
+        testImplementation(Libraries.jUnitJupiterEngine),
+        testImplementation(Libraries.mockK),
+        testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"),
+        testImplementation("com.github.xgouchet.Elmyr:core:1.3.1")
     )
 }

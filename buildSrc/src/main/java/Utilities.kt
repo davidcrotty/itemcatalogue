@@ -16,6 +16,9 @@ object Utilities {
     fun dependency(configuration: String, library: String, options: Closure<*>) =
         mapOf("configuration" to configuration, "dependency" to library, "options" to options)
 
+    fun testImplementation(library: String, options: ExternalDependency.() -> Unit = {}) =
+        dependency(configuration = "testImplementation", library = library, options = closureOf(options))
+
     @JvmStatic
     fun addModules(handler: DependencyHandler, vararg modules: List<Map<String, Any>>) {
         modules.forEach { module ->
