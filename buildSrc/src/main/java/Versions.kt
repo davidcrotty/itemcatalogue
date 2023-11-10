@@ -5,6 +5,7 @@ object Versions {
     val material = "1.9.0"
 
     val coil = "2.2.2"
+    val constraintCompose = "1.0.1"
     val splashScreen = "1.0.1"
 
     val retrofit = "2.9.0"

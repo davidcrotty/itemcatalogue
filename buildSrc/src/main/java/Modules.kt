@@ -37,7 +37,8 @@ object Modules {
         implementation(Libraries.composeTooling),
         implementation(Libraries.appCompat),
         implementation(Libraries.material),
-        implementation(Libraries.viewModel)
+        implementation(Libraries.viewModel),
+        implementation(Libraries.constraintCompose)
     )
 
     val androidCommon = listOf(

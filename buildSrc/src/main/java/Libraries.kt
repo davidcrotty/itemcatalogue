@@ -5,6 +5,7 @@ object Libraries {
     val material = "com.google.android.material:material:${Versions.material}"
 
     val coil = "io.coil-kt:coil-compose:${Versions.coil}"
+    val constraintCompose = "androidx.constraintlayout:constraintlayout-compose:${Versions.constraintCompose}"
     val splashScreen = "androidx.core:core-splashscreen:${Versions.splashScreen}"
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     val retrofitMoshiConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
