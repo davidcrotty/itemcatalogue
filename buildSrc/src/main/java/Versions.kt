@@ -1,5 +1,7 @@
 object Versions {
     val androidCore = "1.10.1"
+    val appCompat = "1.6.1"
+
     val coil = "2.2.2"
     val splashScreen = "1.0.1"
 

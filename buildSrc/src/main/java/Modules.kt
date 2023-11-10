@@ -14,7 +14,8 @@ object Modules {
         implementation(Libraries.composeUi),
         implementation(Libraries.composeMaterial),
         implementation(Libraries.composeAnimation),
-        implementation(Libraries.composeTooling)
+        implementation(Libraries.composeTooling),
+        implementation(Libraries.appCompat)
     )
 
     val data = listOf(
@@ -29,7 +30,8 @@ object Modules {
         implementation(Libraries.composeUi),
         implementation(Libraries.composeMaterial),
         implementation(Libraries.composeAnimation),
-        implementation(Libraries.composeTooling)
+        implementation(Libraries.composeTooling),
+        implementation(Libraries.appCompat)
     )
 
     val androidCommon = listOf(

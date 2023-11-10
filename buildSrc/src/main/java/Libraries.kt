@@ -1,5 +1,6 @@
 object Libraries {
     val androidCore = "androidx.core:core-ktx:${Versions.androidCore}"
+    val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
 
     val coil = "io.coil-kt:coil-compose:${Versions.coil}"
     val splashScreen = "androidx.core:core-splashscreen:${Versions.splashScreen}"
