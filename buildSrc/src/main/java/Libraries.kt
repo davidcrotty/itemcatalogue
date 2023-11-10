@@ -6,6 +6,8 @@ object Libraries {
 
     val coil = "io.coil-kt:coil-compose:${Versions.coil}"
     val constraintCompose = "androidx.constraintlayout:constraintlayout-compose:${Versions.constraintCompose}"
+    val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
+    val elmyr = "com.github.xgouchet.Elmyr:core:${Versions.elmyr}"
     val jUnitJupiterEngine = "org.junit.jupiter:junit-jupiter-engine:${Versions.jUnitEngine}"
     val splashScreen = "androidx.core:core-splashscreen:${Versions.splashScreen}"
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"

@@ -51,7 +51,7 @@ object Modules {
     val unitTest = listOf(
         testImplementation(Libraries.jUnitJupiterEngine),
         testImplementation(Libraries.mockK),
-        testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"),
-        testImplementation("com.github.xgouchet.Elmyr:core:1.3.1")
+        testImplementation(Libraries.coroutinesTest),
+        testImplementation(Libraries.elmyr)
     )
 }

@@ -6,6 +6,8 @@ object Versions {
 
     val coil = "2.2.2"
     val constraintCompose = "1.0.1"
+    val coroutinesTest = "1.6.4"
+    val elmyr = "1.3.1"
     val jUnitEngine = "5.8.2"
     val splashScreen = "1.0.1"
 

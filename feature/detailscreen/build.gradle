@@ -29,7 +29,8 @@ dependencies { handler ->
     Utilities.addModules(
             handler,
             Modules.detail,
-            Modules.androidCommon
+            Modules.androidCommon,
+            Modules.unitTest
     )
 
     debugImplementation "androidx.compose.ui:ui-test-manifest"
@@ -38,11 +39,8 @@ dependencies { handler ->
     implementation project(":theme")
 
     testImplementation project(":core:unittest")
-    testImplementation "io.mockk:mockk:$mockkVersion"
+
     testImplementation "io.mockk:mockk-agent-jvm:$mockkVersion"
-    testImplementation "com.github.xgouchet.Elmyr:core:$forgeVersion"
-    testImplementation "org.junit.jupiter:junit-jupiter-engine:5.8.2"
-    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
 
     androidTestImplementation "io.mockk:mockk-android:$mockkVersion"
     androidTestImplementation "io.mockk:mockk-agent-jvm:$mockkVersion"
