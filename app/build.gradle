@@ -53,8 +53,6 @@ dependencies { handler ->
     implementation project(":data")
     implementation project(":theme")
 
-    implementation Libraries.coil
-
     testImplementation project(":core:unittest")
     testImplementation "org.junit.jupiter:junit-jupiter-engine:5.8.2"
     testImplementation "io.mockk:mockk:$mockkVersion"

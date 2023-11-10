@@ -19,7 +19,8 @@ object Modules {
         implementation(Libraries.material),
         implementation(Libraries.lifecycle),
         implementation(Libraries.activityCompose),
-        implementation(Libraries.navigationCompose)
+        implementation(Libraries.navigationCompose),
+        implementation(Libraries.coil)
     )
 
     val data = listOf(
@@ -38,7 +39,8 @@ object Modules {
         implementation(Libraries.appCompat),
         implementation(Libraries.material),
         implementation(Libraries.viewModel),
-        implementation(Libraries.constraintCompose)
+        implementation(Libraries.constraintCompose),
+        implementation(Libraries.coil)
     )
 
     val androidCommon = listOf(

@@ -26,7 +26,6 @@ import net.davidcrotty.itemcatalogue.theme.LocalValues
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ItemCard(
-    modifier: Modifier = Modifier,
     designToken: ItemCardToken = LocalCatalogTemplateValues.current.itemCardToken,
     item: FeedItem = FeedItem(
         id = "1",
