@@ -9,6 +9,7 @@ object Versions {
 
     val retrofit = "2.9.0"
     val moshi = "1.13.0"
+    val navigationCompose = "2.6.0"
 
     val compose = "2023.05.01"
 

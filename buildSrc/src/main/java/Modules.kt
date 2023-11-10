@@ -18,7 +18,8 @@ object Modules {
         implementation(Libraries.appCompat),
         implementation(Libraries.material),
         implementation(Libraries.lifecycle),
-        implementation(Libraries.activityCompose)
+        implementation(Libraries.activityCompose),
+        implementation(Libraries.navigationCompose)
     )
 
     val data = listOf(

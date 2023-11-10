@@ -10,6 +10,7 @@ object Libraries {
     val retrofitMoshiConverter = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
     val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
+    val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navigationCompose}"
     val compose = "androidx.compose:compose-bom:${Versions.compose}"
     val composeUi = "androidx.compose.ui:ui"
     val composeMaterial = "androidx.compose.material:material"
