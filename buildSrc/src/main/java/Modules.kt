@@ -1,3 +1,4 @@
+import Utilities.androidTestImplementation
 import groovy.lang.Closure
 import org.gradle.api.artifacts.ExternalDependency
 import Utilities.implementation
@@ -53,5 +54,10 @@ object Modules {
         testImplementation(Libraries.mockK),
         testImplementation(Libraries.coroutinesTest),
         testImplementation(Libraries.elmyr)
+    )
+
+    val instrumentedTest = listOf(
+        androidTestImplementation(Libraries.mockKAndroid),
+        androidTestImplementation(Libraries.mockKJVMAgent)
     )
 }

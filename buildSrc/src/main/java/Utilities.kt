@@ -19,6 +19,9 @@ object Utilities {
     fun testImplementation(library: String, options: ExternalDependency.() -> Unit = {}) =
         dependency(configuration = "testImplementation", library = library, options = closureOf(options))
 
+    fun androidTestImplementation(library: String, options: ExternalDependency.() -> Unit = {}) =
+        dependency(configuration = "androidTestImplementation", library = library, options = closureOf(options))
+
     @JvmStatic
     fun addModules(handler: DependencyHandler, vararg modules: List<Map<String, Any>>) {
         modules.forEach { module ->

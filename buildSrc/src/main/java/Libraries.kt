@@ -15,6 +15,8 @@ object Libraries {
     val moshi = "com.squareup.moshi:moshi:${Versions.moshi}"
     val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
     val mockK = "io.mockk:mockk:${Versions.mockK}"
+    val mockKAndroid = "io.mockk:mockk-android:${Versions.mockK}"
+    val mockKJVMAgent = "io.mockk:mockk-agent-jvm:${Versions.mockK}"
     val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navigationCompose}"
     val compose = "androidx.compose:compose-bom:${Versions.compose}"
     val composeUi = "androidx.compose.ui:ui"
