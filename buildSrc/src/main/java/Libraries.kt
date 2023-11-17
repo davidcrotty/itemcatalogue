@@ -8,6 +8,7 @@ object Libraries {
 
     val coil = "io.coil-kt:coil-compose:${Versions.coil}"
     val constraintCompose = "androidx.constraintlayout:constraintlayout-compose:${Versions.constraintCompose}"
+    val composeManifest = "androidx.compose.ui:ui-test-manifest"
     val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
     val elmyr = "com.github.xgouchet.Elmyr:core:${Versions.elmyr}"
     val jUnitJupiterEngine = "org.junit.jupiter:junit-jupiter-engine:${Versions.jUnitEngine}"

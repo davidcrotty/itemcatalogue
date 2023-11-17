@@ -2,6 +2,7 @@ import Utilities.androidTestImplementation
 import Utilities.implementation
 import Utilities.testImplementation
 import Utilities.platform
+import Utilities.debugImplementation
 
 object Modules {
     val application = listOf(
@@ -44,7 +45,8 @@ object Modules {
     )
 
     val androidCommon = listOf(
-        implementation(Libraries.androidCore)
+        implementation(Libraries.androidCore),
+        debugImplementation(Libraries.composeManifest)
     )
 
     val unitTest = listOf(

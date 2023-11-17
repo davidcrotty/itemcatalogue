@@ -33,8 +33,6 @@ dependencies { handler ->
             Modules.instrumentedTest
     )
 
-    debugImplementation "androidx.compose.ui:ui-test-manifest"
-
     implementation project(":domain:items")
     implementation project(":theme")
 

@@ -16,6 +16,9 @@ object Utilities {
     fun dependency(configuration: String, library: String, options: Closure<*>) =
         mapOf("configuration" to configuration, "dependency" to library, "options" to options)
 
+    fun debugImplementation(library: String, options: ExternalDependency.() -> Unit = {}) =
+        dependency(configuration = "debugImplementation", library = library, options = closureOf(options))
+
     fun testImplementation(library: String, options: ExternalDependency.() -> Unit = {}) =
         dependency(configuration = "testImplementation", library = library, options = closureOf(options))
 
