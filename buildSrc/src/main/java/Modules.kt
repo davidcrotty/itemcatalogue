@@ -58,7 +58,9 @@ object Modules {
         testImplementation(Libraries.coroutinesTest),
         testImplementation(Libraries.elmyr),
         testImplementation(Libraries.mockKJVMAgent),
-        testImplementation(Libraries.moshiKotlin)
+        testImplementation(Libraries.moshiKotlin),
+        testImplementation(Libraries.okReplay),
+        testImplementation(Libraries.okReplayJunit)
     )
 
     val coreTest = listOf(

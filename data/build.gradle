@@ -4,8 +4,6 @@ plugins {
 }
 apply from: "$rootDir/buildSrc/scripts/common_config.gradle"
 
-def okReplayVersion = "1.6.0"
-
 android {
     namespace 'net.davidcrotty.itemcatalogue.data'
     buildTypes {
@@ -24,7 +22,4 @@ dependencies { handler ->
     )
 
     implementation project(":domain:items")
-
-    testImplementation "com.airbnb.okreplay:okreplay:$okReplayVersion"
-    testImplementation "com.airbnb.okreplay:junit:$okReplayVersion"
 }

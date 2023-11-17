@@ -12,6 +12,7 @@ object Versions {
     val elmyr = "1.3.1"
     val espressoCore = "3.5.1"
     val jUnitEngine = "5.8.2"
+    val okReplay = "1.6.0"
     val splashScreen = "1.0.1"
 
     val retrofit = "2.9.0"
