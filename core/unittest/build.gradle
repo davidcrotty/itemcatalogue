@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 }
+apply from: "$rootDir/buildSrc/scripts/common_config.gradle"
 
 android {
     namespace 'net.davidcrotty.itemcatalogue.core.unittest'
@@ -30,7 +31,9 @@ android {
     }
 }
 
-dependencies {
-    implementation "org.junit.jupiter:junit-jupiter-engine:5.8.2"
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
+dependencies { handler ->
+    Utilities.addModules(
+            handler,
+            Modules.coreTest
+    )
 }

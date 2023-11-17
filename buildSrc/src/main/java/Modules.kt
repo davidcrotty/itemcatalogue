@@ -57,6 +57,11 @@ object Modules {
         testImplementation(Libraries.mockKJVMAgent)
     )
 
+    val coreTest = listOf(
+        implementation(Libraries.jUnitJupiterEngine),
+        implementation(Libraries.coroutinesTest)
+    )
+
     val instrumentedTest = listOf(
         androidTestImplementation(Libraries.mockKAndroid),
         androidTestImplementation(Libraries.mockKJVMAgent),
