@@ -57,6 +57,8 @@ object Modules {
     val instrumentedTest = listOf(
         androidTestImplementation(Libraries.mockKAndroid),
         androidTestImplementation(Libraries.mockKJVMAgent),
-        androidTestImplementation(Libraries.composeJUnit4)
+        androidTestImplementation(Libraries.composeJUnit4),
+        androidTestImplementation(Libraries.androidJunitExtention),
+        androidTestImplementation(Libraries.androidEspressoCore)
     )
 }

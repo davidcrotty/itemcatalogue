@@ -1,4 +1,5 @@
 object Versions {
+    val androidJUnitExtention = "1.1.5"
     val activityCompose = "1.7.2"
     val androidCore = "1.10.1"
     val appCompat = "1.6.1"
@@ -8,6 +9,7 @@ object Versions {
     val constraintCompose = "1.0.1"
     val coroutinesTest = "1.6.4"
     val elmyr = "1.3.1"
+    val espressoCore = "3.5.1"
     val jUnitEngine = "5.8.2"
     val splashScreen = "1.0.1"
 
