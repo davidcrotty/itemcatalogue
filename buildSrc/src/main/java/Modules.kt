@@ -53,7 +53,8 @@ object Modules {
         testImplementation(Libraries.jUnitJupiterEngine),
         testImplementation(Libraries.mockK),
         testImplementation(Libraries.coroutinesTest),
-        testImplementation(Libraries.elmyr)
+        testImplementation(Libraries.elmyr),
+        testImplementation(Libraries.mockKJVMAgent)
     )
 
     val instrumentedTest = listOf(
