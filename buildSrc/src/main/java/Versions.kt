@@ -7,6 +7,7 @@ object Versions {
 
     val coil = "2.2.2"
     val constraintCompose = "1.0.1"
+    val coroutines = "1.7.3"
     val coroutinesTest = "1.6.4"
     val elmyr = "1.3.1"
     val espressoCore = "3.5.1"

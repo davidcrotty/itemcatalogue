@@ -28,7 +28,9 @@ object Modules {
         implementation(Libraries.retrofit),
         implementation(Libraries.retrofitMoshiConverter),
         implementation(Libraries.moshi),
-        implementation(Libraries.moshiKotlin)
+        implementation(Libraries.moshiKotlin),
+        implementation(Libraries.coroutines),
+        implementation(Libraries.coroutinesAndroid)
     )
 
     val detail = listOf(

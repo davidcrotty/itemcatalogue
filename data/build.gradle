@@ -21,14 +21,11 @@ android {
 }
 
 dependencies { handler ->
-    implementation project(":domain:items")
-
     Utilities.addModules(
             handler, Modules.data
     )
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation project(":domain:items")
 
     testImplementation "com.squareup.moshi:moshi-kotlin:1.13.0"
     testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
