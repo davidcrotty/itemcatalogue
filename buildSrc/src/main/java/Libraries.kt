@@ -14,6 +14,7 @@ object Libraries {
     val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesTest}"
     val elmyr = "com.github.xgouchet.Elmyr:core:${Versions.elmyr}"
     val jUnitJupiterEngine = "org.junit.jupiter:junit-jupiter-engine:${Versions.jUnitEngine}"
+    val jUnitVintageEngine = "org.junit.vintage:junit-vintage-engine:${Versions.jUnitEngine}"
     val composeJUnit4 = "androidx.compose.ui:ui-test-junit4"
     val splashScreen = "androidx.core:core-splashscreen:${Versions.splashScreen}"
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
