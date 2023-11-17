@@ -21,6 +21,6 @@ android {
 dependencies { handler ->
     Utilities.addModules(
             handler,
-            Modules.unitTest
+            Modules.jvmTest
     )
 }

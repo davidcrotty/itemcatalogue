@@ -51,12 +51,13 @@ object Modules {
         debugImplementation(Libraries.composeManifest)
     )
 
-    val unitTest = listOf(
+    val jvmTest = listOf(
         testImplementation(Libraries.jUnitJupiterEngine),
         testImplementation(Libraries.mockK),
         testImplementation(Libraries.coroutinesTest),
         testImplementation(Libraries.elmyr),
-        testImplementation(Libraries.mockKJVMAgent)
+        testImplementation(Libraries.mockKJVMAgent),
+        testImplementation(Libraries.moshiKotlin)
     )
 
     val coreTest = listOf(

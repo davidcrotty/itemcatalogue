@@ -27,7 +27,7 @@ dependencies { handler ->
             handler,
             Modules.detail,
             Modules.androidCommon,
-            Modules.unitTest,
+            Modules.jvmTest,
             Modules.instrumentedTest
     )
 
