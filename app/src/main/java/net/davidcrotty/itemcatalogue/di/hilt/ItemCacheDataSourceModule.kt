@@ -9,6 +9,7 @@ import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSource
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSourceImpl
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -22,6 +23,7 @@ abstract class ItemCacheDataSourceModule {
 @InstallIn(SingletonComponent::class)
 object ItemCacheModule {
 
+    @Singleton
     @Provides
     fun provideMap(): MutableMap<ID, Item> {
         return mutableMapOf()
