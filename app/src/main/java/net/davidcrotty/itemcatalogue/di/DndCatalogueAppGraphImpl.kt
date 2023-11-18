@@ -5,12 +5,9 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSource
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSourceImpl
-import net.davidcrotty.itemcatalogue.data.item.RemoteItemDataSource
 import net.davidcrotty.itemcatalogue.data.item.RemoteItemDataSourceImpl
-import net.davidcrotty.itemcatalogue.model.Configuration
+import net.davidcrotty.itemcatalogue.model.PagingConfiguration
 import net.davidcrotty.itemcatalogue.domain.ItemRepositoryImpl
-import net.davidcrotty.itemcatalogue.items.entity.Item
-import net.davidcrotty.itemcatalogue.technology.navigation.NavFactory
 import net.davidcrotty.itemcatalogue.technology.navigation.NavFactoryImpl
 import net.davidcrotty.itemcatalogue.technology.navigation.Navigator
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigatorImpl
@@ -27,7 +24,7 @@ class DndCatalogueAppGraphImpl @Inject constructor(): DndCatalogueAppContainer {
         )
     }
 
-    private val configuration: Configuration by lazy { Configuration(pageLimit = 6) }
+    private val pagingConfiguration: PagingConfiguration by lazy { PagingConfiguration(pageLimit = 6) }
 
     private val itemsFetchedCache: ItemCacheDataSource by lazy {
         ItemCacheDataSourceImpl(mutableMapOf())
@@ -38,7 +35,7 @@ class DndCatalogueAppGraphImpl @Inject constructor(): DndCatalogueAppContainer {
             ItemRepositoryImpl(
                 RemoteItemDataSourceImpl(apiFactory.getInstance()),
                 itemsFetchedCache,
-                configuration
+                pagingConfiguration
             )
         )
     }
@@ -48,7 +45,7 @@ class DndCatalogueAppGraphImpl @Inject constructor(): DndCatalogueAppContainer {
             ItemRepositoryImpl(
                 RemoteItemDataSourceImpl(apiFactory.getInstance()),
                 itemsFetchedCache,
-                configuration
+                pagingConfiguration
             )
         )
     }
@@ -57,7 +54,7 @@ class DndCatalogueAppGraphImpl @Inject constructor(): DndCatalogueAppContainer {
         return ItemDetailGraphImpl(
             RemoteItemDataSourceImpl(apiFactory.getInstance()),
             itemsFetchedCache,
-            configuration
+            pagingConfiguration
         )
     }
 

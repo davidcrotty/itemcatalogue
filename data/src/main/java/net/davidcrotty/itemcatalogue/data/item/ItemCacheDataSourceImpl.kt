@@ -2,8 +2,9 @@ package net.davidcrotty.itemcatalogue.data.item
 
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
+import javax.inject.Inject
 
-class ItemCacheDataSourceImpl(private val memoryCache: MutableMap<ID, Item>) : ItemCacheDataSource {
+class ItemCacheDataSourceImpl @Inject constructor(private val memoryCache: MutableMap<ID, Item>) : ItemCacheDataSource {
 
     private var lastFetchedID: ID? = null
 

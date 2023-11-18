@@ -7,13 +7,13 @@ import net.davidcrotty.itemcatalogue.data.item.exception.ContentNotFound
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
-import net.davidcrotty.itemcatalogue.model.Configuration
+import net.davidcrotty.itemcatalogue.model.PagingConfiguration
 import javax.inject.Inject
 
 class ItemRepositoryImpl @Inject constructor(
     private val remoteItemDataSource: RemoteItemDataSource,
     private val itemCache: ItemCacheDataSource,
-    private val config: Configuration
+    private val config: PagingConfiguration
 ) : ItemRepository {
     override suspend fun getItems(): ItemRepository.ItemListStatus {
         val itemData = try {
