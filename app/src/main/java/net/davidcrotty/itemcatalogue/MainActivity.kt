@@ -7,11 +7,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
+import dagger.hilt.android.AndroidEntryPoint
 import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
 import net.davidcrotty.itemcatalogue.organism.PreloadApplicationErrorDialog
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigationGraph
 import net.davidcrotty.itemcatalogue.theme.CatalogueTemplateTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val dndContainer by lazy { applicationContext.applicationContext as DndCatalogueAppContainer }
