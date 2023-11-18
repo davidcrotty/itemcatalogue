@@ -23,4 +23,6 @@ dependencies { handler ->
             handler,
             Modules.jvmTest
     )
+
+    implementation "javax.inject:javax.inject:1"
 }

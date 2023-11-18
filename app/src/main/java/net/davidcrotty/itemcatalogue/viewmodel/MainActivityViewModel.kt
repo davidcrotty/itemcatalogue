@@ -2,13 +2,16 @@ package net.davidcrotty.itemcatalogue.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import net.davidcrotty.itemcatalogue.items.model.PreloadStatus
 import net.davidcrotty.itemcatalogue.items.usecase.PreloadUseCase
 import net.davidcrotty.itemcatalogue.model.ApplicationLoadState
+import javax.inject.Inject
 
-class MainActivityViewModel(private val preloadUseCase: PreloadUseCase) : ViewModel() {
+@HiltViewModel
+class MainActivityViewModel @Inject constructor(private val preloadUseCase: PreloadUseCase) : ViewModel() {
 
     val launchErrorDialogShown
         get() = _launchErrorDialogShown

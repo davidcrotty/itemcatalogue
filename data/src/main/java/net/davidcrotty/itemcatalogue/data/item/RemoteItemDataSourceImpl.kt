@@ -9,8 +9,9 @@ import net.davidcrotty.itemcatalogue.data.item.exception.ContentFailedToFetch
 import net.davidcrotty.itemcatalogue.data.item.exception.ContentNotFound
 import retrofit2.HttpException
 import java.io.IOException
+import javax.inject.Inject
 
-class RemoteItemDataSourceImpl(
+class RemoteItemDataSourceImpl @Inject constructor(
     private val itemAPI: ItemAPI,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : RemoteItemDataSource {

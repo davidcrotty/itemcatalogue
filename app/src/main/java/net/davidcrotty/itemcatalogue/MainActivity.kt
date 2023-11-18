@@ -23,6 +23,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
+        // construct the vm, use the graph to feed in, as in same component this should work
         val viewModel = dndContainer.mainActivityGraph().viewModel()
         splashScreen.setKeepOnScreenCondition { viewModel.shouldKeepSplashOnScreen() }
         viewModel.preloadApplication()

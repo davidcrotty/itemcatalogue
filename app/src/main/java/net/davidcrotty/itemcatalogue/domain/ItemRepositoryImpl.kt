@@ -8,8 +8,9 @@ import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 import net.davidcrotty.itemcatalogue.model.Configuration
+import javax.inject.Inject
 
-class ItemRepositoryImpl(
+class ItemRepositoryImpl @Inject constructor(
     private val remoteItemDataSource: RemoteItemDataSource,
     private val itemCache: ItemCacheDataSource,
     private val config: Configuration

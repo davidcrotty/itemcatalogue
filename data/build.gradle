@@ -22,4 +22,5 @@ dependencies { handler ->
     )
 
     implementation project(":domain:items")
+    implementation "javax.inject:javax.inject:1"
 }
