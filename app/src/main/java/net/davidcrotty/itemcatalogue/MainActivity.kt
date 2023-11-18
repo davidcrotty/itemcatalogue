@@ -12,11 +12,13 @@ import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
 import net.davidcrotty.itemcatalogue.organism.PreloadApplicationErrorDialog
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigationGraph
 import net.davidcrotty.itemcatalogue.theme.CatalogueTemplateTheme
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val dndContainer by lazy { applicationContext.applicationContext as DndCatalogueAppContainer }
+    @Inject
+    lateinit var dndContainer: DndCatalogueAppContainer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()

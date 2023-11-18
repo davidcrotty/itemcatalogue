@@ -15,8 +15,9 @@ import net.davidcrotty.itemcatalogue.technology.navigation.NavFactoryImpl
 import net.davidcrotty.itemcatalogue.technology.navigation.Navigator
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigatorImpl
 import okhttp3.OkHttpClient
+import javax.inject.Inject
 
-class DndCatalogueAppGraphImpl : DndCatalogueAppContainer {
+class DndCatalogueAppGraphImpl @Inject constructor(): DndCatalogueAppContainer {
 
     private val apiFactory: RemoteItemAPIFactory by lazy {
         RemoteItemAPIFactoryImpl(
