@@ -42,11 +42,6 @@ fun NavigationGraph(
     navigator: Navigator,
     appContainer: DndCatalogueAppContainer
 ) {
-    // write test for app bar component
-
-    // Nav Template
-    // Header
-    // Nav Graph
     Column {
         Surface {
             ItemCatalogueAppBar(title = stringResource(id = R.string.listing_title))

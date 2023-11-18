@@ -2,6 +2,7 @@ package net.davidcrotty.itemcatalogue.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -10,8 +11,10 @@ import net.davidcrotty.itemcatalogue.items.usecase.GetFeedUsecase
 import net.davidcrotty.itemcatalogue.model.FeedItem
 import net.davidcrotty.itemcatalogue.model.ListTemplateState
 import net.davidcrotty.itemcatalogue.model.LoadingState
+import javax.inject.Inject
 
-class ListTemplateViewModel(
+@HiltViewModel
+class ListTemplateViewModel @Inject constructor(
     private val getFeedUsecase: GetFeedUsecase
 ) : ViewModel() {
 
