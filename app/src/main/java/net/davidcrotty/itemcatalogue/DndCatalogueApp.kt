@@ -11,17 +11,8 @@ class DndCatalogueApp : Application(), DndCatalogueAppContainer {
 
     private val graph: DndCatalogueAppContainer by lazy { DndCatalogueAppGraphImpl() }
 
-    override fun onCreate() {
-        super.onCreate()
-    }
-
-
     override fun itemListScreenGraph(): ItemScreenGraph {
         return graph.itemListScreenGraph()
-    }
-
-    override fun mainActivityGraph(): MainActivityGraph {
-        return graph.mainActivityGraph()
     }
 
     override fun itemDetailGraph(): ItemDetailGraph {

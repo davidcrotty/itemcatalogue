@@ -40,16 +40,6 @@ class DndCatalogueAppGraphImpl @Inject constructor(): DndCatalogueAppContainer {
         )
     }
 
-    override fun mainActivityGraph(): MainActivityGraph {
-        return MainActivityGraphImpl(
-            ItemRepositoryImpl(
-                RemoteItemDataSourceImpl(apiFactory.getInstance()),
-                itemsFetchedCache,
-                pagingConfiguration
-            )
-        )
-    }
-
     override fun itemDetailGraph(): ItemDetailGraph {
         return ItemDetailGraphImpl(
             RemoteItemDataSourceImpl(apiFactory.getInstance()),
