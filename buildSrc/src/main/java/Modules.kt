@@ -25,6 +25,10 @@ object Modules {
         implementation(Libraries.hiltNavigationCompose)
     )
 
+    val feature = listOf(
+        implementation("com.google.dagger:hilt-android:${Versions.hilt}")
+    )
+
     val data = listOf(
         implementation(Libraries.retrofit),
         implementation(Libraries.retrofitMoshiConverter),

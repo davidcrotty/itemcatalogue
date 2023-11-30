@@ -36,12 +36,12 @@ dependencies { handler ->
     Utilities.addModules(
             handler,
             Modules.application,
+            Modules.feature,
             Modules.androidCommon,
             Modules.jvmTest,
             Modules.instrumentedTest
     )
 
-    implementation "com.google.dagger:hilt-android:${Versions.hilt}"
     kapt "com.google.dagger:hilt-compiler:${Versions.hilt}"
 
     implementation project(":feature:detailscreen")

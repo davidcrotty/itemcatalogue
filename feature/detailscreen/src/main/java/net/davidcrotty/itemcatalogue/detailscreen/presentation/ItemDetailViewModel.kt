@@ -2,6 +2,7 @@ package net.davidcrotty.itemcatalogue.detailscreen.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -12,6 +13,7 @@ import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetail
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetailState
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemIDStatus
 
+@HiltViewModel
 class ItemDetailViewModel(
     private val getItemUsecase: GetItemUsecase,
     private val id: ItemIDStatus
