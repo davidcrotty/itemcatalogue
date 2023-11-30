@@ -65,13 +65,10 @@ class ListTemplateTest {
             )
             every { fetchItems() } just Runs
         }
-        val itemGraph = mockk<ItemScreenGraph> {
-            every { itemViewModel() } returns viewModel
-        }
 
         composeTestRule.setContent {
             ItemListScreen(
-                itemGraph
+                viewModel
             )
         }
 

@@ -28,7 +28,7 @@ class DndCatalogueAppGraphImpl @Inject constructor(): DndCatalogueAppContainer {
     private val pagingConfiguration: PagingConfiguration by lazy { PagingConfiguration(pageLimit = 6) }
 
     private val itemsFetchedCache: ItemCacheDataSource by lazy {
-        ItemCacheDataSourceImpl(CacheModule.itemCache)
+        ItemCacheDataSourceImpl(CacheModule.provideCache())
     }
 
     override fun itemListScreenGraph(): ItemScreenGraph {

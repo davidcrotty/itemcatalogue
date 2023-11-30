@@ -1,25 +1,10 @@
 package net.davidcrotty.itemcatalogue.technology.navigation
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.ui.Alignment
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -32,8 +17,6 @@ import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
 import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
 import net.davidcrotty.itemcatalogue.organism.ItemCatalogueAppBar
 import net.davidcrotty.itemcatalogue.screen.ItemListScreen
-import net.davidcrotty.itemcatalogue.theme.LocalAppColours
-import net.davidcrotty.itemcatalogue.theme.LocalFont
 
 @Composable
 fun NavigationGraph(
@@ -48,9 +31,7 @@ fun NavigationGraph(
         }
         NavHost(navController = controller, startDestination = "itemList") {
             composable("itemList") {
-                ItemListScreen(
-                    itemScreenGraph = itemScreenGraph,
-                    navigate = { navigator.navigate(it) })
+                ItemListScreen { navigator.navigate(it) }
             }
             composable("item/{itemId}", arguments = listOf(navArgument("itemId") {
                 type = NavType.StringType

@@ -1,10 +1,14 @@
 package net.davidcrotty.itemcatalogue
 
-import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
-import io.mockk.*
+import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.performScrollToIndex
+import io.mockk.Runs
+import io.mockk.every
+import io.mockk.just
+import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.flow.MutableStateFlow
-import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
 import net.davidcrotty.itemcatalogue.model.FeedItem
 import net.davidcrotty.itemcatalogue.model.ListTemplateState
 import net.davidcrotty.itemcatalogue.model.LoadingState
@@ -18,6 +22,7 @@ class ItemListScreenTest {
     @get:Rule
     val composeTestRule = createComposeRule()
 
+
     @Test
     fun when_fetching_more_items() {
         val numberOfItems = 5
@@ -30,13 +35,10 @@ class ItemListScreenTest {
             )
             every { fetchItems() } just Runs
         }
-        val itemGraph = mockk<ItemScreenGraph> {
-            every { itemViewModel() } returns viewModel
-        }
 
         composeTestRule.setContent {
-            ItemListScreen(
-                itemGraph
+            ItemListScreen( // hiltvm has no idea where to get stuff from
+                viewModel
             )
         }
 
