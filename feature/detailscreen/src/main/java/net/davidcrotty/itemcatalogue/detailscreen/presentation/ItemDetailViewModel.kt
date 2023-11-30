@@ -1,5 +1,6 @@
 package net.davidcrotty.itemcatalogue.detailscreen.presentation
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,20 +13,32 @@ import net.davidcrotty.itemcatalogue.detailscreen.model.ImageResult
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetail
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetailState
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemIDStatus
+import javax.inject.Inject
 
 @HiltViewModel
-class ItemDetailViewModel(
+class ItemDetailViewModel @Inject constructor(
     private val getItemUsecase: GetItemUsecase,
-    private val id: ItemIDStatus
+    private val savedStateHandle: SavedStateHandle
 ) : ViewModel(), ItemDetailContract {
+
+    private val id: ItemIDStatus by lazy {
+        val itemID = savedStateHandle.get<String>("itemId")
+        val status = if (itemID == null) {
+            ItemIDStatus.Unavailable
+        } else {
+            ItemIDStatus.Available(itemID)
+        }
+        status
+    }
 
     private val _itemDetailState = MutableStateFlow<ItemDetailState>(ItemDetailState())
     override val itemDetailState: StateFlow<ItemDetailState> = _itemDetailState
 
     override fun renderItemDetail() {
         viewModelScope.launch {
-            if (id is ItemIDStatus.Available) {
-                when (val itemResult = getItemUsecase.execute(id.value)) {
+            val localId = this@ItemDetailViewModel.id
+            if (localId is ItemIDStatus.Available) {
+                when (val itemResult = getItemUsecase.execute(localId.value)) {
                     is ItemRepository.ItemStatus.Available -> {
                         val item = itemResult.item
                         val imageResult = resolveImageResult(item.url)

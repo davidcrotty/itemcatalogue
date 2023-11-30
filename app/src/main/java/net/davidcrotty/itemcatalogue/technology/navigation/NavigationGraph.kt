@@ -22,10 +22,8 @@ import net.davidcrotty.itemcatalogue.screen.ItemListScreen
 @Composable
 fun NavigationGraph(
     controller: NavHostController,
-    appContainer: DndCatalogueAppContainer,
     itemListScreenFactory: @Composable () -> Unit
 ) {
-    // can inject screens in
     Column {
         Surface {
             ItemCatalogueAppBar(title = stringResource(id = R.string.listing_title))
@@ -38,14 +36,9 @@ fun NavigationGraph(
                 type = NavType.StringType
                 nullable = false
             })) { navBackStackEntry ->
-                val itemID = navBackStackEntry.arguments?.getString("itemId")
-                val status = if (itemID == null) {
-                    ItemIDStatus.Unavailable
-                } else {
-                    ItemIDStatus.Available(itemID)
-                }
+
                 ItemDetailScreen(
-                    detailViewModel = appContainer.itemDetailGraph().itemDetailViewModel { status }
+                    detailViewModel = hiltViewModel() as ItemDetailViewModel
                 )
             }
         }

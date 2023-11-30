@@ -15,15 +15,6 @@ class ItemDetailGraphImpl(
     private val pagingConfiguration: PagingConfiguration
 ) : ItemDetailGraph {
     override fun itemDetailViewModel(itemID: () -> ItemIDStatus): ItemDetailContract{
-        return ItemDetailViewModel(
-            GetItemUsecaseImpl(
-                ItemRepositoryImpl(
-                    remoteItemDataSource,
-                    cacheDataSource,
-                    pagingConfiguration,
-                )
-            ),
-            itemID()
-        )
+        return null!!
     }
 }

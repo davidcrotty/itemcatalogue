@@ -4,12 +4,12 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import net.davidcrotty.itemcatalogue.items.usecase.GetFeedUseCaseImpl
-import net.davidcrotty.itemcatalogue.items.usecase.GetFeedUsecase
+import net.davidcrotty.itemcatalogue.items.usecase.GetItemUsecase
+import net.davidcrotty.itemcatalogue.items.usecase.GetItemUsecaseImpl
 
-@Module
 @InstallIn(SingletonComponent::class)
+@Module
 abstract class DetailModule {
     @Binds
-    abstract fun bind(getFeedUseCaseImpl: GetFeedUseCaseImpl): GetFeedUsecase
+    abstract fun bind(getFeedUseCaseImpl: GetItemUsecaseImpl): GetItemUsecase
 }

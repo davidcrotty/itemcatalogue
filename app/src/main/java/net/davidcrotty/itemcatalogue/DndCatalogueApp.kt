@@ -11,14 +11,6 @@ class DndCatalogueApp : Application(), DndCatalogueAppContainer {
 
     private val graph: DndCatalogueAppContainer by lazy { DndCatalogueAppGraphImpl() }
 
-    override fun itemListScreenGraph(): ItemScreenGraph {
-        return graph.itemListScreenGraph()
-    }
-
-    override fun itemDetailGraph(): ItemDetailGraph {
-        return graph.itemDetailGraph()
-    }
-
     override fun navigator(navController: () -> NavController): Navigator {
         return graph.navigator(navController)
     }

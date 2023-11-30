@@ -17,38 +17,6 @@ import javax.inject.Inject
 
 class DndCatalogueAppGraphImpl @Inject constructor(): DndCatalogueAppContainer {
 
-    private val apiFactory: RemoteItemAPIFactory by lazy {
-        RemoteItemAPIFactoryImpl(
-            moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build(),
-            okHttp = OkHttpClient.Builder().build(),
-            baseUrl = "https://us-central1-dnd-tools-cb5b7.cloudfunctions.net/"
-        )
-    }
-
-    private val pagingConfiguration: PagingConfiguration by lazy { PagingConfiguration(pageLimit = 6) }
-
-    private val itemsFetchedCache: ItemCacheDataSource by lazy {
-        ItemCacheDataSourceImpl(CacheModule.provideCache())
-    }
-
-    override fun itemListScreenGraph(): ItemScreenGraph {
-        return ItemScreenGraphImpl(
-            ItemRepositoryImpl(
-                RemoteItemDataSourceImpl(apiFactory.getInstance()),
-                itemsFetchedCache,
-                pagingConfiguration
-            )
-        )
-    }
-
-    override fun itemDetailGraph(): ItemDetailGraph {
-        return ItemDetailGraphImpl(
-            RemoteItemDataSourceImpl(apiFactory.getInstance()),
-            itemsFetchedCache,
-            pagingConfiguration
-        )
-    }
-
     override fun navigator(navController: () -> NavController): Navigator {
         return NavigatorImpl(
             NavFactoryImpl(navController)
