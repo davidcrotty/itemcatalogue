@@ -13,6 +13,7 @@ object Versions {
     val espressoCore = "3.5.1"
     val jUnitEngine = "5.8.2"
     val hilt = "2.44"
+    val hiltNavigationCompose = "1.1.0"
     val okReplay = "1.6.0"
     val splashScreen = "1.0.1"
 

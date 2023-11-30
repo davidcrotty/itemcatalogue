@@ -21,7 +21,8 @@ object Modules {
         implementation(Libraries.lifecycle),
         implementation(Libraries.activityCompose),
         implementation(Libraries.navigationCompose),
-        implementation(Libraries.coil)
+        implementation(Libraries.coil),
+        implementation(Libraries.hiltNavigationCompose)
     )
 
     val data = listOf(
