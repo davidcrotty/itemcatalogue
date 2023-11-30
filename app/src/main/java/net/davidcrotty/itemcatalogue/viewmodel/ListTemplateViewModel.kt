@@ -16,10 +16,10 @@ import javax.inject.Inject
 @HiltViewModel
 class ListTemplateViewModel @Inject constructor(
     private val getFeedUsecase: GetFeedUsecase
-) : ViewModel() {
+) : ViewModel(), ListTemplateContract {
 
     // TODO challenge why not emit this as an alltogether ui state? Yes, means less args passed around (clean code varadic args)
-    val listState: StateFlow<ListTemplateState>
+    override val listState: StateFlow<ListTemplateState>
         get() = _items
 
     private var initialPresentation = true
@@ -31,7 +31,7 @@ class ListTemplateViewModel @Inject constructor(
         )
     )
 
-    fun fetchItems() {
+    override fun fetchItems() {
         initialPresentation = false
         viewModelScope.launch {
             // keep track of next set of models, each invoke picks up next set from returned
