@@ -38,9 +38,7 @@ class NavigationTest {
                     )
                 )
             }
-            val itemScreenGraph = mockk<ItemScreenGraph> {
-                every { itemViewModel() } returns itemViewModel
-            }
+
             NavigationGraph(
                 controller = navController,
                 appContainer = mockk(),
