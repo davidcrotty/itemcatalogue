@@ -6,6 +6,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSource
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSourceImpl
 import net.davidcrotty.itemcatalogue.data.item.RemoteItemDataSourceImpl
+import net.davidcrotty.itemcatalogue.di.hilt.CacheModule
 import net.davidcrotty.itemcatalogue.model.PagingConfiguration
 import net.davidcrotty.itemcatalogue.domain.ItemRepositoryImpl
 import net.davidcrotty.itemcatalogue.technology.navigation.NavFactoryImpl
@@ -27,7 +28,7 @@ class DndCatalogueAppGraphImpl @Inject constructor(): DndCatalogueAppContainer {
     private val pagingConfiguration: PagingConfiguration by lazy { PagingConfiguration(pageLimit = 6) }
 
     private val itemsFetchedCache: ItemCacheDataSource by lazy {
-        ItemCacheDataSourceImpl(mutableMapOf())
+        ItemCacheDataSourceImpl(CacheModule.itemCache)
     }
 
     override fun itemListScreenGraph(): ItemScreenGraph {
