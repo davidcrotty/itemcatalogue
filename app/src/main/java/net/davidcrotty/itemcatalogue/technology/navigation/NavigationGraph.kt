@@ -12,6 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemIDStatus
+import net.davidcrotty.itemcatalogue.detailscreen.presentation.ItemDetailViewModel
 import net.davidcrotty.itemcatalogue.detailscreen.ui.screen.ItemDetailScreen
 import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
 import net.davidcrotty.itemcatalogue.di.ItemScreenGraph

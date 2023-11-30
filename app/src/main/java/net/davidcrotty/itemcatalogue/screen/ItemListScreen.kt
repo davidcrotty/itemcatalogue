@@ -9,7 +9,7 @@ import net.davidcrotty.itemcatalogue.viewmodel.ListTemplateContract
 import net.davidcrotty.itemcatalogue.viewmodel.ListTemplateViewModel
 
 @Composable
-fun ItemListScreen(itemsViewModel: ListTemplateContract = hiltViewModel(),
+fun ItemListScreen(itemsViewModel: ListTemplateContract = hiltViewModel() as ListTemplateViewModel,
                    navigate: ((path: String) -> Unit)? = null) {
     val feedState = itemsViewModel.listState.collectAsState()
     ItemListTemplate(feedState.value, navigate) {
