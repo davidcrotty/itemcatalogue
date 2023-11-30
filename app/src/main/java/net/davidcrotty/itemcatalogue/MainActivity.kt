@@ -11,6 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
 import net.davidcrotty.itemcatalogue.organism.PreloadApplicationErrorDialog
+import net.davidcrotty.itemcatalogue.screen.ItemListScreen
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigationGraph
 import net.davidcrotty.itemcatalogue.theme.CatalogueTemplateTheme
 import net.davidcrotty.itemcatalogue.viewmodel.MainActivityViewModel
@@ -41,7 +42,10 @@ class MainActivity : ComponentActivity() {
                         controller = controller,
                         itemScreenGraph = dndContainer.itemListScreenGraph(),
                         navigator = dndContainer.navigator { controller },
-                        appContainer = dndContainer
+                        appContainer = dndContainer,
+                        itemListScreenFactory = {
+                            ItemListScreen { dndContainer.navigator { controller }.navigate(it) }
+                        }
                     )
                 }
             }

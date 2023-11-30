@@ -23,15 +23,17 @@ fun NavigationGraph(
     controller: NavHostController,
     itemScreenGraph: ItemScreenGraph,
     navigator: Navigator,
-    appContainer: DndCatalogueAppContainer
+    appContainer: DndCatalogueAppContainer,
+    itemListScreenFactory: @Composable () -> Unit
 ) {
+    // can inject screens in
     Column {
         Surface {
             ItemCatalogueAppBar(title = stringResource(id = R.string.listing_title))
         }
         NavHost(navController = controller, startDestination = "itemList") {
             composable("itemList") {
-                ItemListScreen { navigator.navigate(it) }
+                itemListScreenFactory()
             }
             composable("item/{itemId}", arguments = listOf(navArgument("itemId") {
                 type = NavType.StringType

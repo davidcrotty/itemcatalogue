@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
 import net.davidcrotty.itemcatalogue.model.ListTemplateState
 import net.davidcrotty.itemcatalogue.model.LoadingState
+import net.davidcrotty.itemcatalogue.screen.ItemListScreen
 import net.davidcrotty.itemcatalogue.technology.navigation.NavFactoryImpl
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigationGraph
 import net.davidcrotty.itemcatalogue.technology.navigation.Navigator
@@ -21,9 +22,6 @@ class NavigationTest {
 
     @get:Rule
     val composeTestRule = createComposeRule()
-
-    // TODO list:
-    // Navigate - Log error
 
     @Test
     fun test_when_navigating_invalid_path() {
@@ -47,7 +45,8 @@ class NavigationTest {
                 controller = navController,
                 itemScreenGraph = itemScreenGraph,
                 navigator = sut,
-                appContainer = mockk()
+                appContainer = mockk(),
+                itemListScreenFactory =  { ItemListScreen(itemViewModel) { sut.navigate(it) } }
             )
 
             val result = sut.navigate(path)
@@ -70,7 +69,7 @@ class NavigationTest {
             val itemScreenGraph = mockk<ItemScreenGraph> {
                 every { itemViewModel() } returns itemViewModel
             }
-            NavigationGraph(controller = navController, itemScreenGraph = itemScreenGraph, navigator = sut, appContainer = mockk())
+            NavigationGraph(controller = navController, itemScreenGraph = itemScreenGraph, navigator = sut, appContainer = mockk(), itemListScreenFactory = { ItemListScreen(itemViewModel) { sut.navigate(it) } })
 
             val result = sut.navigate(path)
 
