@@ -2,8 +2,10 @@
 
 package net.davidcrotty.itemcatalogue.detailscreen.presentation
 
+import androidx.lifecycle.SavedStateHandle
 import fr.xgouchet.elmyr.Forge
 import io.mockk.coEvery
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineScheduler
@@ -43,7 +45,10 @@ class ItemDetailViewModelTest : CoroutineTest {
                 item
             )
         }
-        val sut = ItemDetailViewModel(itemDetailUsecaseMock, ItemIDStatus.Available(itemID))
+        val handle = mockk<SavedStateHandle> {
+            every { get<String>("itemId") } returns itemID
+        }
+        val sut = ItemDetailViewModel(itemDetailUsecaseMock, handle)
 
         // When fetching an item detail
         sut.renderItemDetail()
@@ -79,7 +84,11 @@ class ItemDetailViewModelTest : CoroutineTest {
                 item
             )
         }
-        val sut = ItemDetailViewModel(itemDetailUsecaseMock, ItemIDStatus.Available(itemID))
+
+        val handle = mockk<SavedStateHandle> {
+            every { get<String>("itemId") } returns itemID
+        }
+        val sut = ItemDetailViewModel(itemDetailUsecaseMock, handle)
 
         // When fetching an item detail
         sut.renderItemDetail()
@@ -104,7 +113,11 @@ class ItemDetailViewModelTest : CoroutineTest {
         val itemDetailUsecaseMock = mockk<GetItemUsecase> {
             coEvery { execute(itemID) } returns ItemRepository.ItemStatus.Unavailable
         }
-        val sut = ItemDetailViewModel(itemDetailUsecaseMock, ItemIDStatus.Available(itemID))
+
+        val handle = mockk<SavedStateHandle> {
+            every { get<String>("itemId") } returns itemID
+        }
+        val sut = ItemDetailViewModel(itemDetailUsecaseMock, handle)
 
         // When fetching an item detail
         sut.renderItemDetail()
