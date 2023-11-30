@@ -9,19 +9,14 @@ import androidx.compose.runtime.getValue
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import net.davidcrotty.itemcatalogue.di.DndCatalogueAppContainer
 import net.davidcrotty.itemcatalogue.organism.PreloadApplicationErrorDialog
 import net.davidcrotty.itemcatalogue.screen.ItemListScreen
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigationGraph
 import net.davidcrotty.itemcatalogue.theme.CatalogueTemplateTheme
 import net.davidcrotty.itemcatalogue.viewmodel.MainActivityViewModel
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
-    @Inject
-    lateinit var dndContainer: DndCatalogueAppContainer
 
     private val viewModel: MainActivityViewModel by viewModels()
 
@@ -41,7 +36,7 @@ class MainActivity : ComponentActivity() {
                     NavigationGraph(
                         controller = controller,
                         itemListScreenFactory = {
-                            ItemListScreen { dndContainer.navigator { controller }.navigate(it) }
+                            ItemListScreen { controller.navigate(it) }
                         }
                     )
                 }

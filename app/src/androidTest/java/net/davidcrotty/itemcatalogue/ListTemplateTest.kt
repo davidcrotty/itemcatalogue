@@ -6,7 +6,6 @@ import androidx.compose.ui.test.performClick
 import io.mockk.*
 import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.flow.MutableStateFlow
-import net.davidcrotty.itemcatalogue.di.ItemScreenGraph
 import net.davidcrotty.itemcatalogue.model.ListTemplateState
 import net.davidcrotty.itemcatalogue.model.LoadingState
 import net.davidcrotty.itemcatalogue.screen.ItemListScreen
