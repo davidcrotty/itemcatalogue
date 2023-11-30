@@ -43,8 +43,6 @@ class NavigationTest {
             }
             NavigationGraph(
                 controller = navController,
-                itemScreenGraph = itemScreenGraph,
-                navigator = sut,
                 appContainer = mockk(),
                 itemListScreenFactory =  { ItemListScreen(itemViewModel) { sut.navigate(it) } }
             )
@@ -66,10 +64,8 @@ class NavigationTest {
             val itemViewModel = mockk<ListTemplateViewModel> {
                 every { listState } returns MutableStateFlow(ListTemplateState(emptyList(), LoadingState.Retry))
             }
-            val itemScreenGraph = mockk<ItemScreenGraph> {
-                every { itemViewModel() } returns itemViewModel
-            }
-            NavigationGraph(controller = navController, itemScreenGraph = itemScreenGraph, navigator = sut, appContainer = mockk(), itemListScreenFactory = { ItemListScreen(itemViewModel) { sut.navigate(it) } })
+
+            NavigationGraph(controller = navController, appContainer = mockk(), itemListScreenFactory = { ItemListScreen(itemViewModel) { sut.navigate(it) } })
 
             val result = sut.navigate(path)
 

@@ -40,8 +40,6 @@ class MainActivity : ComponentActivity() {
                     val controller = rememberNavController()
                     NavigationGraph(
                         controller = controller,
-                        itemScreenGraph = dndContainer.itemListScreenGraph(),
-                        navigator = dndContainer.navigator { controller },
                         appContainer = dndContainer,
                         itemListScreenFactory = {
                             ItemListScreen { dndContainer.navigator { controller }.navigate(it) }

@@ -21,8 +21,6 @@ import net.davidcrotty.itemcatalogue.screen.ItemListScreen
 @Composable
 fun NavigationGraph(
     controller: NavHostController,
-    itemScreenGraph: ItemScreenGraph,
-    navigator: Navigator,
     appContainer: DndCatalogueAppContainer,
     itemListScreenFactory: @Composable () -> Unit
 ) {
