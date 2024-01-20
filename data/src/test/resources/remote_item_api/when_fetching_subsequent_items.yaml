@@ -6,7 +6,7 @@ interactions:
     method: GET
     uri: https://dnd-api-a4vdcpxg.uc.gateway.dev/item?limit=1&lastid=624842bb3c93ea918aa9585c
     headers:
-      x-api-key: AIzaSyAUFapRkt6PtJlZpdJfzUXSwqPky_vVZRk
+      x-api-key: redacted
   response:
     status: 200
     headers:
