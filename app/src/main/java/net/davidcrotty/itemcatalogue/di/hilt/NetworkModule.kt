@@ -26,7 +26,7 @@ object NetworkModule {
     fun provideItemAPI(okHttpClient: OkHttpClient, moshi: Moshi): ItemAPI {
         // log interceptor
         return Retrofit.Builder()
-            .baseUrl("https://us-central1-dnd-tools-cb5b7.cloudfunctions.net/")
+            .baseUrl("https://dnd-api-a4vdcpxg.uc.gateway.dev/")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .client(okHttpClient)
             .build()

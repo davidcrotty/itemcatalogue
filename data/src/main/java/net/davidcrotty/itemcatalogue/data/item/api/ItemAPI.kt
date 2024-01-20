@@ -6,7 +6,7 @@ import retrofit2.http.Header
 import retrofit2.http.Query
 
 interface ItemAPI {
-    @GET("api/item")
+    @GET("/item")
     suspend fun getItems(
         @Query("limit") limit: Int,
         @Query("lastid") lastId: String? = null
