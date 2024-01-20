@@ -16,7 +16,7 @@ class RemoteItemDataSourceImpl @Inject constructor(
     private val itemAPI: ItemAPI,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
     @Named("apiKey")
-    private val apiKey: String = ""
+    private val apiKey: String = "foo"
 ) : RemoteItemDataSource {
 
     // TODO make into object for queries

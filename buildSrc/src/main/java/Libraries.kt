@@ -25,6 +25,7 @@ object Libraries {
     val mockKAndroid = "io.mockk:mockk-android:${Versions.mockK}"
     val mockKJVMAgent = "io.mockk:mockk-agent-jvm:${Versions.mockK}"
     val navigationCompose = "androidx.navigation:navigation-compose:${Versions.navigationCompose}"
+    val okhttpLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
     val okReplay = "com.airbnb.okreplay:okreplay:${Versions.okReplay}"
     val okReplayJunit = "com.airbnb.okreplay:junit:${Versions.okReplay}"
     val compose = "androidx.compose:compose-bom:${Versions.compose}"

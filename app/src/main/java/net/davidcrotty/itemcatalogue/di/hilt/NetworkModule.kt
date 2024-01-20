@@ -8,9 +8,11 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import net.davidcrotty.itemcatalogue.BuildConfig
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.data.item.api.ItemAPI
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Named
@@ -25,6 +27,7 @@ object NetworkModule {
 
     @Provides
     fun provideItemAPI(okHttpClient: OkHttpClient, moshi: Moshi): ItemAPI {
+        // log interceptor
         return Retrofit.Builder()
             .baseUrl("https://us-central1-dnd-tools-cb5b7.cloudfunctions.net/")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
@@ -35,7 +38,13 @@ object NetworkModule {
 
     @Provides
     fun provideOkhttpClient(): OkHttpClient {
-        return OkHttpClient.Builder().build()
+        val clientBuilder = OkHttpClient.Builder()
+        if (BuildConfig.DEBUG) {
+            val loggingInterceptor = HttpLoggingInterceptor()
+            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+            clientBuilder.addInterceptor(loggingInterceptor)
+        }
+        return clientBuilder.build()
     }
 
     @Provides

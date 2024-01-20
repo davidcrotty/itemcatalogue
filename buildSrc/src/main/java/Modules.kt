@@ -18,6 +18,7 @@ object Modules {
         implementation(Libraries.composeTooling),
         implementation(Libraries.appCompat),
         implementation(Libraries.material),
+        implementation(Libraries.okhttpLogging),
         implementation(Libraries.lifecycle),
         implementation(Libraries.activityCompose),
         implementation(Libraries.navigationCompose),
