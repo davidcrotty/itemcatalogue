@@ -8,6 +8,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import net.davidcrotty.itemcatalogue.data.item.api.ItemAPI
+import net.davidcrotty.itemcatalogue.data.item.api.auth.AuthInterceptor
 import net.davidcrotty.itemcatalogue.data.item.dto.pure.ItemDTO
 import net.davidcrotty.itemcatalogue.data.item.exception.ContentFailedToFetch
 import net.davidcrotty.itemcatalogue.data.item.exception.ContentNotFound
@@ -39,10 +40,13 @@ internal class RemoteItemNetworkTest {
     @OkReplay
     fun `when server errors`() {
         val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
-        val okHttp = OkHttpClient.Builder().addInterceptor(testInterceptor).build()
+        val okHttp = OkHttpClient.Builder()
+            .addInterceptor(AuthInterceptor())
+            .addInterceptor(testInterceptor)
+            .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://us-central1-dnd-tools-cb5b7.cloudfunctions.net/")
+            .baseUrl("https://dnd-api-a4vdcpxg.uc.gateway.dev/")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .client(okHttp)
             .build()
@@ -60,10 +64,13 @@ internal class RemoteItemNetworkTest {
     fun `when fetching initial items`() {
         // given an api returns a valid list of items
         val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
-        val okHttp = OkHttpClient.Builder().addInterceptor(testInterceptor).build()
+        val okHttp = OkHttpClient.Builder()
+            .addInterceptor(AuthInterceptor())
+            .addInterceptor(testInterceptor)
+            .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://us-central1-dnd-tools-cb5b7.cloudfunctions.net/")
+            .baseUrl("https://dnd-api-a4vdcpxg.uc.gateway.dev/")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .client(okHttp)
             .build()
@@ -96,10 +103,13 @@ internal class RemoteItemNetworkTest {
     fun `when fetching subsequent items`() {
         // given an api returns a valid list of items
         val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
-        val okHttp = OkHttpClient.Builder().addInterceptor(testInterceptor).build()
+        val okHttp = OkHttpClient.Builder()
+            .addInterceptor(AuthInterceptor())
+            .addInterceptor(testInterceptor)
+            .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://us-central1-dnd-tools-cb5b7.cloudfunctions.net/")
+            .baseUrl("https://dnd-api-a4vdcpxg.uc.gateway.dev/")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .client(okHttp)
             .build()

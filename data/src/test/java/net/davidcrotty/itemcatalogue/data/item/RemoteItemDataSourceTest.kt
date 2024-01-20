@@ -28,7 +28,7 @@ internal class RemoteItemDataSourceTest {
         val itemLimit = 10
 
         val itemAPI = mockk<ItemAPI> {
-            coEvery { getItems(any(), itemLimit, previousItemID) } throws HttpException(
+            coEvery { getItems(itemLimit, previousItemID) } throws HttpException(
                 Response.error<List<ItemMoshiDTO>>(500, ResponseBody.create(null, ""))
             )
         }
@@ -47,7 +47,7 @@ internal class RemoteItemDataSourceTest {
     @Test
     fun `when a network error occurs`() {
         val itemAPI: ItemAPI = mockk {
-            coEvery { getItems(any(), any(), any()) } throws IOException()
+            coEvery { getItems(any(), any()) } throws IOException()
         }
         val sut = RemoteItemDataSourceImpl(
             itemAPI = itemAPI
