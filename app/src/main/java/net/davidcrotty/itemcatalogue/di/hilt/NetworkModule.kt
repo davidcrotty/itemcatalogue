@@ -11,6 +11,7 @@ import dagger.hilt.components.SingletonComponent
 import net.davidcrotty.itemcatalogue.BuildConfig
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.data.item.api.ItemAPI
+import net.davidcrotty.itemcatalogue.data.item.api.auth.AuthInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -20,10 +21,6 @@ import javax.inject.Named
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-
-    @Provides
-    @Named("apiKey")
-    fun provideApiKey(@ApplicationContext context: Context): String = "Bearer ${context.getString(R.string.dnd_tools_api_key)}"
 
     @Provides
     fun provideItemAPI(okHttpClient: OkHttpClient, moshi: Moshi): ItemAPI {
@@ -37,13 +34,18 @@ object NetworkModule {
     }
 
     @Provides
-    fun provideOkhttpClient(): OkHttpClient {
+    fun provideOkhttpClient(@ApplicationContext context: Context): OkHttpClient {
         val clientBuilder = OkHttpClient.Builder()
         if (BuildConfig.DEBUG) {
             val loggingInterceptor = HttpLoggingInterceptor()
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
             clientBuilder.addInterceptor(loggingInterceptor)
         }
+
+        clientBuilder.addInterceptor(
+            AuthInterceptor(context.getString(R.string.dnd_tools_api_key))
+        )
+
         return clientBuilder.build()
     }
 

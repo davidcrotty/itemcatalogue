@@ -14,9 +14,7 @@ import javax.inject.Named
 
 class RemoteItemDataSourceImpl @Inject constructor(
     private val itemAPI: ItemAPI,
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO,
-    @Named("apiKey")
-    private val apiKey: String = ""
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : RemoteItemDataSource {
 
     // TODO make into object for queries
@@ -24,7 +22,7 @@ class RemoteItemDataSourceImpl @Inject constructor(
         val items = withContext(dispatcher) {
             try {
                 // TODO log trace ids for logging
-                itemAPI.getItems(apiKey, limit, id)
+                itemAPI.getItems(limit, id)
             } catch (e: HttpException) {
                 val httpCode = e.code()
                 if (httpCode == 404 || httpCode == 500) {

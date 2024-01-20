@@ -8,7 +8,6 @@ import retrofit2.http.Query
 interface ItemAPI {
     @GET("api/item")
     suspend fun getItems(
-        @Header("Authorization") token: String,
         @Query("limit") limit: Int,
         @Query("lastid") lastId: String? = null
     ): List<ItemMoshiDTO>
