@@ -1,24 +1,24 @@
 !tape
 name: when server errors
 interactions:
-- recorded: 2024-01-20T20:03:11.951Z
+- recorded: 2023-06-02T14:48:58.801Z
   request:
     method: GET
     uri: https://dnd-api-a4vdcpxg.uc.gateway.dev/item?limit=1
     headers:
-      x-api-key: AIzaSyAUFapRkt6PtJlZpdJfzUXSwqPky_vVZRk
+      x-api-key:
+        AIzaSyAUFapRkt6PtJlZpdJfzUXSwqPky_vVZRk
   response:
-    status: 200
+    status: 500
     headers:
       alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      content-length: '694'
-      content-type: application/json; charset=utf-8
-      date: Sat, 20 Jan 2024 20:03:14 GMT
-      etag: W/"2b6-FknLlqMPt7T8rpro3EanIo45xRY"
-      function-execution-id: b65mhqppbgcz
+      content-length: '21'
+      content-type: text/plain; charset=utf-8
+      date: Fri, 02 Jun 2023 14:48:58 GMT
+      etag: W/"15-/6VXivhc2MKdLfIkLcUE47K6aH0"
+      function-execution-id: ltrkj4hvumc3
       server: Google Frontend
       vary: Origin
-      x-cloud-trace-context: 9ca2133fe3d4d97dc62c68173881f55f
+      x-cloud-trace-context: 5a1c02b174c4ee325460c617343dff1a;o=1
       x-powered-by: Express
-    body: '[{"_id":"624842bb3c93ea918aa9585c","type":"Weapon","subtype":"sword","caption":"damage combat","description":"The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1","thumbnail":"https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg","detail_image":"https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450","stats":{"rules_text":"Proficiency
-      with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it","name":"battleaxe","type":"Martial Melee Weapon","Weight":"4 lbs","Damage":"1d8 Slashing","properties":["Versatile 1d10"]}}]'
+    body: Internal Server Error
