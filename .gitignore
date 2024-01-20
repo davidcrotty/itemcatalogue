@@ -16,3 +16,4 @@
 local.properties
 .idea/sonarlint
 /*/build
+gradle/keys.properties

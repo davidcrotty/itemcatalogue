@@ -13,10 +13,18 @@ android {
         applicationId = "net.davidcrotty.itemcatalogue"
     }
 
+    def props = new Properties()
+    props.load(file("$rootProject.projectDir/gradle/keys.properties").newReader())
+
     buildTypes {
+        debug {
+            resValue "string", "dnd_tools_api_key", "$props.dndAPIKeyTest"
+        }
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules'
+            minifyEnabled = false
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+            signingConfig signingConfigs.debug // replace with your production signing key
+            resValue "string", "dnd_tools_api_key", "$props.dndAPIKeyProduction"
         }
     }
 
