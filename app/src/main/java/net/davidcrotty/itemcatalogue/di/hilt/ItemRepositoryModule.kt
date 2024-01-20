@@ -22,5 +22,5 @@ abstract class ItemRepositoryModule {
 @InstallIn(SingletonComponent::class)
 object PagingConfiguration {
     @Provides
-    fun provideConfiguration() = PagingConfiguration(pageLimit = 6)
+    fun provideConfiguration() = PagingConfiguration(pageLimit = 20)
 }

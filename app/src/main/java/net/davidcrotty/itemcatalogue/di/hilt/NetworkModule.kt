@@ -23,7 +23,7 @@ object NetworkModule {
 
     @Provides
     @Named("apiKey")
-    fun provideApiKey(@ApplicationContext context: Context): String = context.getString(R.string.dnd_tools_api_key)
+    fun provideApiKey(@ApplicationContext context: Context): String = "Bearer ${context.getString(R.string.dnd_tools_api_key)}"
 
     @Provides
     fun provideItemAPI(okHttpClient: OkHttpClient, moshi: Moshi): ItemAPI {
