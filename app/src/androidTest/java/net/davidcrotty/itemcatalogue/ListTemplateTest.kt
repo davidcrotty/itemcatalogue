@@ -73,7 +73,7 @@ class ListTemplateTest {
 
         composeTestRule.onNodeWithContentDescription("Item Feed Retry indicator").performClick()
 
-        verify(exactly = 1) { viewModel.fetchItems() }
+        verify(exactly = 2) { viewModel.fetchItems() }
     }
 
 }

@@ -73,7 +73,8 @@ internal class ItemsViewModelTest : CoroutineTest {
                 subType = "subtype",
                 title = "title",
                 description = "description",
-                element = "element"
+                element = "element",
+                type = "type"
             )
         )
         assertEquals(expected, state)

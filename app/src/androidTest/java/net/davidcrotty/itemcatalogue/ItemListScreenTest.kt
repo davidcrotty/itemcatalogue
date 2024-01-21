@@ -16,6 +16,7 @@ import net.davidcrotty.itemcatalogue.screen.ItemListScreen
 import net.davidcrotty.itemcatalogue.viewmodel.ListTemplateViewModel
 import org.junit.Rule
 import org.junit.Test
+import java.util.UUID
 
 class ItemListScreenTest {
 
@@ -44,13 +45,13 @@ class ItemListScreenTest {
 
         composeTestRule.onNodeWithContentDescription("Dungeon item feed").performScrollToIndex(numberOfItems)
 
-        verify(exactly = 1) { viewModel.fetchItems() }
+        verify(exactly = 2) { viewModel.fetchItems() }
     }
 
     private fun generateFeedItemList(number: Int): List<FeedItem> {
         val itemList = mutableListOf<FeedItem>()
         for (item in 0..number) {
-            itemList.add(FeedItem("", "", "", "", "", ""))
+            itemList.add(FeedItem(UUID.randomUUID().toString(), "", "", "", "", "", ""))
         }
         return itemList
     }
