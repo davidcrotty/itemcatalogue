@@ -20,6 +20,10 @@ class ItemCardToken(
     val borderColours: Map<String, Color> = elementMapToken
 )
 
+class ItemDetailToken(
+    val detailTitle: TextStyle = articleTitle
+)
+
 @Immutable
 class AppBarToken(
     val screenTitle: TextStyle = screenTitleToken

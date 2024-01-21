@@ -14,6 +14,7 @@ val DefaultCatalogueTemplateValues = CatalogTemplateValues()
 
 class CatalogTemplateValues(
     val itemCardToken: ItemCardToken = ItemCardToken(),
+    val itemDetailToken: ItemDetailToken = ItemDetailToken(),
     val backgroundToken: BackgroundColourToken = BackgroundColourToken()
 )
 

@@ -9,6 +9,7 @@ import net.davidcrotty.itemcatalogue.detailscreen.presentation.ItemDetailContrac
 import net.davidcrotty.itemcatalogue.detailscreen.ui.atom.DividerLabel
 import net.davidcrotty.itemcatalogue.detailscreen.ui.molecule.DetailImage
 import net.davidcrotty.itemcatalogue.detailscreen.ui.template.ItemDetailTemplate
+import net.davidcrotty.itemcatalogue.theme.LocalCatalogTemplateValues
 
 
 @Composable
@@ -28,7 +29,8 @@ fun ItemDetailScreen(
         },
         title = {
             Text(
-                itemDetail.title.orEmpty()
+                itemDetail.title.orEmpty(),
+                style = LocalCatalogTemplateValues.current.itemDetailToken.detailTitle
             )
         },
         divider = {

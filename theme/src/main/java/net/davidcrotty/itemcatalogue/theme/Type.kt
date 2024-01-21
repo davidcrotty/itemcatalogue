@@ -4,6 +4,7 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.DeviceFontFamilyName
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -14,15 +15,6 @@ val tiamat = FontFamily(
     Font(R.font.tiamat_light, FontWeight.Light),
     Font(R.font.tiamat_regular, FontWeight.Normal),
     Font(R.font.tiamat_medium, FontWeight.Medium)
-)
-
-val roboto = FontFamily(
-    Font(R.font.roboto_light, FontWeight.Light)
-)
-
-val mrseaves = FontFamily(
-    Font(R.font.mrseave_regular, FontWeight.Normal),
-    Font(R.font.mrseave_bold, FontWeight.Bold)
 )
 
 val LocalFont = compositionLocalOf { AppBarToken() }
@@ -46,4 +38,12 @@ internal val listItemSubheadingToken = TextStyle(
     lineHeight = 16.8.sp,
     fontWeight = FontWeight(700),
     color = Grey600
+)
+
+internal val articleTitle = TextStyle(
+    fontSize = 30.sp,
+    lineHeight = 39.sp,
+    fontWeight = FontWeight(700),
+    color = Color.White,
+    fontFamily = FontFamily(Font(DeviceFontFamilyName("sans-serif-condensed")))
 )
