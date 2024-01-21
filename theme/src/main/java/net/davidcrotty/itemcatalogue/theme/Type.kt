@@ -1,13 +1,11 @@
 package net.davidcrotty.itemcatalogue.theme
 
-import androidx.compose.material.Typography
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
@@ -27,13 +25,25 @@ val mrseaves = FontFamily(
     Font(R.font.mrseave_bold, FontWeight.Bold)
 )
 
-val LocalFont = compositionLocalOf { ItemTypography() }
-@Immutable
-class ItemTypography(
-    val screenTitle: TextStyle = TextStyle(
-        fontSize = 16.sp,
-        lineHeight = 22.4.sp,
-        fontWeight = FontWeight(600),
-        color = Color.White
-    )
+val LocalFont = compositionLocalOf { AppBarToken() }
+
+internal val screenTitleToken = TextStyle(
+    fontSize = 16.sp,
+    lineHeight = 22.4.sp,
+    fontWeight = FontWeight(600),
+    color = Color.White
+)
+
+internal val listItemTitleToken = TextStyle(
+    fontSize = 18.sp,
+    lineHeight = 22.4.sp,
+    fontWeight = FontWeight(700),
+    color = Color.White
+)
+
+internal val listItemSubheadingToken = TextStyle(
+    fontSize = 14.sp,
+    lineHeight = 16.8.sp,
+    fontWeight = FontWeight(700),
+    color = Grey600
 )
