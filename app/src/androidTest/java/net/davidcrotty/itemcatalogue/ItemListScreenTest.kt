@@ -37,7 +37,7 @@ class ItemListScreenTest {
         }
 
         composeTestRule.setContent {
-            ItemListScreen( // hiltvm has no idea where to get stuff from
+            ItemListScreen(
                 viewModel
             )
         }
