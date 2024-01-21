@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -59,39 +60,39 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    class AppStateHolder(
+    data class AppStateHolder(
         var appTitle: String,
         var appBarOverlayContent: Boolean
     )
 
     @Composable
     fun AppTemplate() {
-        var appTitle by remember { mutableStateOf("") }
+        var appState by remember { mutableStateOf(AppStateHolder("", false)) }
+        val controller = rememberNavController()
 
-        if (false) {
+        if (appState.appBarOverlayContent) {
             Box {
-                val controller = rememberNavController()
+
                 NavigationGraph(
                     controller = controller,
                     itemListScreenFactory = {
                         ItemListScreen { controller.navigate(it) }
                     },
-                    { appTitle = it },
-                    { false }
+                    { appState = appState.copy(appTitle = it) },
+                    { appState = appState.copy(appBarOverlayContent = it) }
                 )
-                ItemCatalogueAppBar(title = appTitle)
+                ItemCatalogueAppBar(title = appState.appTitle)
             }
         } else {
             Column {
-                ItemCatalogueAppBar(title = appTitle)
-                val controller = rememberNavController()
+                ItemCatalogueAppBar(title = appState.appTitle)
                 NavigationGraph(
                     controller = controller,
                     itemListScreenFactory = {
                         ItemListScreen { controller.navigate(it) }
                     },
-                    { appTitle = it },
-                    { false }
+                    { appState = appState.copy(appTitle = it) },
+                    { appState = appState.copy(appBarOverlayContent = it) }
                 )
             }
         }
