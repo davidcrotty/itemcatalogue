@@ -20,7 +20,6 @@ import net.davidcrotty.itemcatalogue.detailscreen.model.ImageResult
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetail
 import net.davidcrotty.itemcatalogue.detailscreen.ui.molecule.DetailImage
 import net.davidcrotty.itemcatalogue.detailscreen.R as DetailScreenR
-import net.davidcrotty.itemcatalogue.theme.Typography
 import net.davidcrotty.itemcatalogue.theme.LocalDetailColors
 import net.davidcrotty.itemcatalogue.theme.R
 
@@ -37,7 +36,7 @@ fun PreviewItemDetailTemplate() {
         },
         title = {
             Text(
-                "Fire sword", style = Typography.h2
+                "Fire sword"
             )
         },
         divider = {
@@ -49,8 +48,7 @@ fun PreviewItemDetailTemplate() {
         },
         description = {
             Text(
-                LoremIpsum(200).values.joinToString { "$it " },
-                style = Typography.body1
+                LoremIpsum(200).values.joinToString { "$it " }
             )
         },
         itemDetail = ItemDetail(
