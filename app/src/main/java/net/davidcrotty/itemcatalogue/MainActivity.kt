@@ -142,10 +142,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-@Composable
-fun rememberAppScreenState(
-    appState: MainActivity.AppStateHolder
-): MainActivity.AppStateHolder = remember {
-    appState
-}
