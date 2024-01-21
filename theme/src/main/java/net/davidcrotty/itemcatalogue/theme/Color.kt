@@ -15,6 +15,7 @@ val White900 = Color(0xFFF5F3DC)
 val White500 = Color(0xFFFBFBFC)
 
 val Yellow300 = Color(0xFFE6BB2A)
+val Yellow200 = Color(0xFFfacf57)
 val Yellow100 = Color(0xFF9F9266)
 
 val Grey500 = Color(0xFF48494b)
@@ -24,6 +25,8 @@ val Grey800 = Color(0xFFb3b3b3)
 val Red500 = Color(0xFF9B4D43)
 val Red600 = Color(0xFFCF6679)
 val Red700 = Color(0xFFbc0f0e)
+
+val Green400 = Color(0xFFd6d92b)
 
 val LocalAppColours = compositionLocalOf { AppColours() }
 @Immutable

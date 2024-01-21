@@ -22,8 +22,14 @@ class ItemCardToken(
         fontWeight = FontWeight(700),
         color = Grey600
     ),
-    val imageBorderColor: Color = Purple500,
+    val defaultImageBorderColor: Color = Purple500,
     val imageBorderStroke: Dp = 1.dp,
     val itemPadding: Dp = Padding.medium,
-    val itemHeight: Dp = 92.dp
+    val itemHeight: Dp = 92.dp,
+    val borderColours: Map<String, Color> = elementMapToken
 )
+
+private val elementMapToken: Map<String, Color> = mutableMapOf<String, Color>().apply {
+    put("acid", Green400)
+    put("radiant", Yellow200)
+}

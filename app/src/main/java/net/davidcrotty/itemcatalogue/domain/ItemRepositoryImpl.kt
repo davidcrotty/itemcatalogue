@@ -31,7 +31,8 @@ class ItemRepositoryImpl @Inject constructor(
                 url = dto.thumbnail,
                 type = dto.type,
                 title = dto.caption,
-                description = dto.description
+                description = dto.description,
+                element = dto.damageType
             )
             this.itemCache.setLastID(id)
             item

@@ -7,5 +7,6 @@ data class ItemDTO(
     val caption: String,
     val description: String,
     val thumbnail: String,
-    val detailImage: String
+    val detailImage: String,
+    val damageType: String
 )

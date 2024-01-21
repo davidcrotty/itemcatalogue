@@ -45,7 +45,8 @@ class ListTemplateViewModel @Inject constructor(
                         url = entity.url,
                         type = entity.type,
                         title = entity.title,
-                        description = entity.description
+                        description = entity.description,
+                        element = entity.element
                     )
                 }
 

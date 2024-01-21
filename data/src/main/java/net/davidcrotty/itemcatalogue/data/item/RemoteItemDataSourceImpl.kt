@@ -10,7 +10,6 @@ import net.davidcrotty.itemcatalogue.data.item.exception.ContentNotFound
 import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
-import javax.inject.Named
 
 class RemoteItemDataSourceImpl @Inject constructor(
     private val itemAPI: ItemAPI,
@@ -44,7 +43,8 @@ class RemoteItemDataSourceImpl @Inject constructor(
                 caption = it.caption,
                 description = it.description,
                 thumbnail = it.thumbnail,
-                detailImage = it.detailImage
+                detailImage = it.detailImage,
+                damageType = it.damageType.orEmpty()
             )
         }
     }
