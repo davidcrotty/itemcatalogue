@@ -29,7 +29,7 @@ class RemoteItemDataSourceImpl @Inject constructor(
                 } else {
                     throw ContentFailedToFetch()
                 }
-            } catch (e: IOException) {
+            } catch (e: Exception) {
                 throw ContentFailedToFetch()
             }
         }

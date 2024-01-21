@@ -11,6 +11,6 @@ class ItemMoshiDTO(
     val caption: String,
     val description: String,
     val thumbnail: String,
-    @Json(name = "detail_image") val detailImage: String,
+    @Json(name = "detail_image") val detailImage: String?,
     @Json(name = "damage_type") val damageType: String?
 )

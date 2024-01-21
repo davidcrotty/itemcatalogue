@@ -32,6 +32,9 @@ class ItemCardToken(
 private val elementMapToken: Map<String, Color> = mutableMapOf<String, Color>().apply {
     put("acid", Green400)
     put("radiant", Yellow200)
+    put("necrotic", Green700)
+    put("force", Red700)
+    put("cold", Blue800)
 }
 
 class BackgroundColourToken(val color: Color = Black800)

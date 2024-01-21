@@ -46,7 +46,7 @@ class ItemDetailViewModel @Inject constructor(
                             isLoading = false,
                             itemDetail = ItemDetail(
                                 title = item.title,
-                                type = item.type,
+                                type = item.subType,
                                 image = imageResult,
                                 description = item.description
                             )
