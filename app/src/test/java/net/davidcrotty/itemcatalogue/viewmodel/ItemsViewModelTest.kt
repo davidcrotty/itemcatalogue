@@ -68,7 +68,7 @@ internal class ItemsViewModelTest : CoroutineTest {
             FeedItem(
                 id = "id",
                 url = "url",
-                type = "type",
+                subType = "type",
                 title = "title",
                 description = "description"
             )

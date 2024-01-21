@@ -37,7 +37,9 @@ class ItemDetailViewModelTest : CoroutineTest {
             url = forge.aString(),
             type = forge.aString(),
             title = forge.aString(),
-            description = forge.aString()
+            description = forge.aString(),
+            subType = forge.aString(),
+            element = forge.aString()
         )
 
         val itemDetailUsecaseMock = mockk<GetItemUsecase> {
@@ -76,7 +78,9 @@ class ItemDetailViewModelTest : CoroutineTest {
             url = "",
             type = forge.aString(),
             title = forge.aString(),
-            description = forge.aString()
+            description = forge.aString(),
+            subType = forge.aString(),
+            element = forge.aString()
         )
 
         val itemDetailUsecaseMock = mockk<GetItemUsecase> {

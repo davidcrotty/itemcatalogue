@@ -23,7 +23,9 @@ internal class GetFeedUseCaseImplTest {
                 url = forge.aString(),
                 type = forge.aString(),
                 title = forge.aString(),
-                description = forge.aString()
+                description = forge.aString(),
+                subType = forge.aString(),
+                element = forge.aString()
             )
         ))
 

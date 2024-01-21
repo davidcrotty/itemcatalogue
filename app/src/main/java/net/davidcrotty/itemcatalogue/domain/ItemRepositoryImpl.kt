@@ -30,6 +30,7 @@ class ItemRepositoryImpl @Inject constructor(
                 id = id,
                 url = dto.thumbnail,
                 type = dto.type,
+                subType = dto.subtype,
                 title = dto.caption,
                 description = dto.description,
                 element = dto.damageType

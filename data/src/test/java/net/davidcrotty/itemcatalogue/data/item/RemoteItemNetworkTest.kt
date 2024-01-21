@@ -92,7 +92,8 @@ internal class RemoteItemNetworkTest {
                 caption = "damage combat",
                 description = "The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1",
                 thumbnail = "https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg",
-                detailImage = "https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450"
+                detailImage = "https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450",
+                damageType = "Physical"
             )
         )
         assertEquals(expected, result)
@@ -131,7 +132,8 @@ internal class RemoteItemNetworkTest {
                 caption = "damage combat",
                 description = "The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1",
                 thumbnail = "https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg",
-                detailImage = "https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450"
+                detailImage = "https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450",
+                damageType = "Physical"
             )
         )
 

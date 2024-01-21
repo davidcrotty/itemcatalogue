@@ -34,16 +34,13 @@ class ListTemplateViewModel @Inject constructor(
     override fun fetchItems() {
         initialPresentation = false
         viewModelScope.launch {
-            // keep track of next set of models, each invoke picks up next set from returned
-
-            // if a 4xx response received, throw NotFoundException, state gets changed
             val fetchResult = getFeedUsecase.getFeed()
             if (fetchResult is ItemRepository.ItemListStatus.Available) {
                 val feedModels = fetchResult.items.map { entity ->
                     FeedItem(
                         id = entity.id.value,
                         url = entity.url,
-                        type = entity.type,
+                        subType = entity.subType,
                         title = entity.title,
                         description = entity.description,
                         element = entity.element

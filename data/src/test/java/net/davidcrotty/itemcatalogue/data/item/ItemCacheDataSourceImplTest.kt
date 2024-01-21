@@ -18,7 +18,9 @@ internal class ItemCacheDataSourceImplTest {
             url = forge.aString(),
             type = forge.aString(),
             title = forge.aString(),
-            description = forge.aString()
+            description = forge.aString(),
+            subType = forge.aString(),
+            element = forge.aString()
         )
 
         val itemB = Item(
@@ -26,7 +28,9 @@ internal class ItemCacheDataSourceImplTest {
             url = forge.aString(),
             type = forge.aString(),
             title = forge.aString(),
-            description = forge.aString()
+            description = forge.aString(),
+            subType = forge.aString(),
+            element = forge.aString()
         )
         val sut = ItemCacheDataSourceImpl(mutableMapOf())
 
@@ -66,7 +70,9 @@ internal class ItemCacheDataSourceImplTest {
             url = forge.aString(),
             type = forge.aString(),
             title = forge.aString(),
-            description = forge.aString()
+            description = forge.aString(),
+            subType = forge.aString(),
+            element = forge.aString()
         )
     }
 }

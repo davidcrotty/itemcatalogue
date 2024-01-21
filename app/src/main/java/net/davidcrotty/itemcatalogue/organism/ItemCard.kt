@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.rememberAsyncImagePainter
@@ -30,7 +29,7 @@ fun ItemCard(
     item: FeedItem = FeedItem(
         id = "1",
         url = "https://pbs.twimg.com/media/Eg9TpoLU8AActiA?format=jpg&name=large",
-        type = "Type",
+        subType = "Type",
         title = "Title",
         description = ITEM_DESCRIPTION_PREVIEW,
         element = "acid"
@@ -62,8 +61,8 @@ fun ItemCard(
                 imageSource = item.url)
             Column(modifier = Modifier.padding(start = designToken.itemPadding),
             verticalArrangement = Arrangement.Center) {
-                Text(item.type, maxLines = 1, style = designToken.itemTitle)
-                Text(item.title, maxLines = 1, style = designToken.itemSubtitle)
+                Text(item.title, maxLines = 1, style = designToken.itemTitle)
+                Text(item.subType, maxLines = 1, style = designToken.itemSubtitle)
             }
         }
     }
