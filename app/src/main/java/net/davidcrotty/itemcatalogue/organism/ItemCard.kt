@@ -32,6 +32,7 @@ fun ItemCard(
         subType = "Type",
         title = "Title",
         description = ITEM_DESCRIPTION_PREVIEW,
+        type = "spell",
         element = "acid"
     ),
     onClick: (() -> Unit)? = null

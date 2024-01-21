@@ -40,6 +40,7 @@ class ListTemplateViewModel @Inject constructor(
                     FeedItem(
                         id = entity.id.value,
                         url = entity.url,
+                        type = entity.type,
                         subType = entity.subType,
                         title = entity.title,
                         description = entity.description,
