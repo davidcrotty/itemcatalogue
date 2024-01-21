@@ -53,6 +53,7 @@ dependencies { handler ->
     kapt "com.google.dagger:hilt-compiler:${Versions.hilt}"
 
     implementation project(":feature:detailscreen")
+    implementation project(":feature:listscreen")
     implementation project(":domain:items")
     implementation project(":data")
     implementation project(":theme")
