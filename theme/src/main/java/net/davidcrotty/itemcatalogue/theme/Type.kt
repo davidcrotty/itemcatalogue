@@ -38,27 +38,6 @@ class ItemTypography(
     )
 )
 
-val TableTypography = Typography(
-    h1 = TextStyle(
-        fontFamily = mrseaves,
-        fontWeight = FontWeight.Bold,
-        fontSize = 20.sp,
-        color = Red500
-    ),
-    subtitle1 = TextStyle(
-        fontFamily = mrseaves,
-        fontWeight = FontWeight.Bold,
-        fontSize = 14.sp,
-        color = Red500
-    ),
-    body1 = TextStyle(
-        fontFamily = mrseaves,
-        fontWeight = FontWeight.Normal,
-        fontSize = 14.sp,
-        color = Red500
-    )
-)
-
 val Typography = Typography(
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
@@ -97,7 +76,7 @@ val Typography = Typography(
         color = Yellow100,
         fontWeight = FontWeight.Light,
         fontStyle = FontStyle.Italic
-    ), // TODO looks like smaller subthemes depending on component, redothis
+    ),
     caption = TextStyle(
         fontFamily = roboto,
         fontSize = 14.sp,
