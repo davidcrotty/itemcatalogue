@@ -23,7 +23,7 @@ fun NavigationGraph(
         composable("itemList") {
             appStateChange(
                 MainActivity.AppStateHolder(
-                    stringResource(id = R.string.listing_title),
+                    stringResource(id = R.string.app_name),
                     false
                 )
             )

@@ -3,7 +3,6 @@
     <string name="detail_image">Detail Image</string>
     <string name="detail_image_unavailable">Detail Image Unavailable</string>
     <string name="item_title">Item Title</string>
-    <string name="listing_title">Listings</string>
     <string name="screen_name">Screen title</string>
     <string name="screen_icon">Screen logo</string>
 </resources>
