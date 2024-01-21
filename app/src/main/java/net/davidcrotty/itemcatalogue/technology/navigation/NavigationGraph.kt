@@ -12,17 +12,18 @@ import net.davidcrotty.itemcatalogue.MainActivity
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.detailscreen.presentation.ItemDetailViewModel
 import net.davidcrotty.itemcatalogue.detailscreen.ui.screen.ItemDetailScreen
+import net.davidcrotty.itemcatalogue.screen.model.AppStateHolder
 
 @Composable
 fun NavigationGraph(
     controller: NavHostController,
     itemListScreenFactory: @Composable () -> Unit,
-    appStateChange: (MainActivity.AppStateHolder) -> Unit
+    appStateChange: (AppStateHolder) -> Unit
 ) {
     NavHost(navController = controller, startDestination = "itemList") {
         composable("itemList") {
             appStateChange(
-                MainActivity.AppStateHolder(
+                AppStateHolder(
                     stringResource(id = R.string.app_name),
                     false
                 )
@@ -35,7 +36,7 @@ fun NavigationGraph(
             nullable = false
         })) { _ ->
             appStateChange(
-                MainActivity.AppStateHolder(
+                AppStateHolder(
                     "",
                     true
                 )
