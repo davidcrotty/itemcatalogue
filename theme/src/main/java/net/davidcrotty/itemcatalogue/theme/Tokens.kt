@@ -2,6 +2,7 @@ package net.davidcrotty.itemcatalogue.theme
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
@@ -25,7 +26,8 @@ class ItemDetailToken(
     val detailBody: TextStyle = articleBody,
     val dividerColour: Map<String, Color> = elementMapToken,
     val defaultDividerColor: Color = Purple500,
-    val noImageTint: Color = White900
+    val noImageTint: Color = White900,
+    val label: SpanStyle = spellType
 )
 
 @Immutable

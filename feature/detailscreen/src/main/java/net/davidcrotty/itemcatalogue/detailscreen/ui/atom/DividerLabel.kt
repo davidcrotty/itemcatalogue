@@ -13,7 +13,6 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.*
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import net.davidcrotty.itemcatalogue.theme.DecorativeType
 import net.davidcrotty.itemcatalogue.theme.LocalCatalogTemplateValues
 import net.davidcrotty.itemcatalogue.theme.R
 import net.davidcrotty.itemcatalogue.detailscreen.R as DetailScreenR
@@ -43,7 +42,7 @@ fun DividerLabel(modifier: Modifier = Modifier, text: String, element: String) {
     val lineColour = dividerColour
     val textMeasurer = rememberTextMeasurer()
     val styledText = buildAnnotatedString {
-        withStyle(style = DecorativeType.current.label) {
+        withStyle(style = LocalCatalogTemplateValues.current.itemDetailToken.label) {
             append(text)
         }
     }

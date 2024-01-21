@@ -3,6 +3,7 @@ package net.davidcrotty.itemcatalogue.theme
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.DeviceFontFamilyName
 import androidx.compose.ui.text.font.Font
@@ -51,4 +52,12 @@ internal val articleTitle = TextStyle(
 internal val articleBody = TextStyle(
     fontSize = 14.sp,
     color = Color.White
+)
+
+internal val spellType: SpanStyle = SpanStyle(
+    fontFamily = tiamat,
+    fontWeight = FontWeight.ExtraLight,
+    fontSize = 16.sp,
+    color = White900,
+    fontFeatureSettings = "c2sc, smcp"
 )

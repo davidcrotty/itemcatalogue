@@ -37,18 +37,3 @@ class TableColors(
 )
 
 val LocalColors = compositionLocalOf { DefaultTableColors }
-
-val DefaultDecorativeType = DecorativeText()
-
-@Immutable
-class DecorativeText(
-    val label: SpanStyle = SpanStyle(
-        fontFamily = tiamat,
-        fontWeight = FontWeight.ExtraLight,
-        fontSize = 16.sp,
-        color = White900,
-        fontFeatureSettings = "c2sc, smcp"
-    )
-)
-
-val DecorativeType = compositionLocalOf { DefaultDecorativeType }
