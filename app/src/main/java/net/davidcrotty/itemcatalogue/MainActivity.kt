@@ -4,15 +4,26 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.LocalContentColor
+import androidx.compose.material.Surface
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import net.davidcrotty.itemcatalogue.organism.PreloadApplicationErrorDialog
 import net.davidcrotty.itemcatalogue.screen.ItemListScreen
 import net.davidcrotty.itemcatalogue.technology.navigation.NavigationGraph
+import net.davidcrotty.itemcatalogue.theme.Black800
 import net.davidcrotty.itemcatalogue.theme.CatalogueTemplateTheme
+import net.davidcrotty.itemcatalogue.theme.LocalCatalogTemplateValues
+import net.davidcrotty.itemcatalogue.theme.LocalColors
 import net.davidcrotty.itemcatalogue.viewmodel.MainActivityViewModel
 
 @AndroidEntryPoint
@@ -29,16 +40,23 @@ class MainActivity : ComponentActivity() {
         setContent {
             val showErrorDialog by viewModel.launchErrorDialogShown.collectAsState()
             CatalogueTemplateTheme {
-                if (showErrorDialog) {
-                    PreloadApplicationErrorDialog()
-                } else {
-                    val controller = rememberNavController()
-                    NavigationGraph(
-                        controller = controller,
-                        itemListScreenFactory = {
-                            ItemListScreen { controller.navigate(it) }
-                        }
-                    )
+                Box(
+                    Modifier
+                        .background(LocalCatalogTemplateValues.current.backgroundToken.color)
+                        .fillMaxHeight()
+                        .fillMaxWidth()
+                ) {
+                    if (showErrorDialog) {
+                        PreloadApplicationErrorDialog()
+                    } else {
+                        val controller = rememberNavController()
+                        NavigationGraph(
+                            controller = controller,
+                            itemListScreenFactory = {
+                                ItemListScreen { controller.navigate(it) }
+                            }
+                        )
+                    }
                 }
             }
         }

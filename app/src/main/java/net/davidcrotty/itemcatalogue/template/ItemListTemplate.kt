@@ -28,7 +28,7 @@ fun ItemListTemplate(
     navigate: ((path: String) -> Unit)? = null,
     fetchMore: (() -> Unit)
 ) {
-    // TODO more flexible to chunk load based on predicated screen height?
+
     Surface {
         val listState = rememberLazyListState()
         Log.d("ListTemplate", "item size: ${itemListState.feedItems.size}")

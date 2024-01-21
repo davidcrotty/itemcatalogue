@@ -18,7 +18,6 @@ import net.davidcrotty.itemcatalogue.theme.Typography
 
 @Composable
 fun ItemDetailScreen(
-    background: Color = MaterialTheme.colors.background,
     detailViewModel: ItemDetailContract
 ) {
     detailViewModel.renderItemDetail()
@@ -27,9 +26,8 @@ fun ItemDetailScreen(
     val itemDetail = itemDetailState.value.itemDetail
 
     ItemDetailTemplate(
-        Modifier.background(background), image = {
+        image = {
             DetailImage(
-                modifier = Modifier.background(LocalDetailColors.current.detailImageBackground),
                 image = itemDetail.image
             )
         },

@@ -13,7 +13,8 @@ val LocalCatalogTemplateValues = compositionLocalOf { DefaultCatalogueTemplateVa
 val DefaultCatalogueTemplateValues = CatalogTemplateValues()
 
 class CatalogTemplateValues(
-    val itemCardToken: ItemCardToken = ItemCardToken()
+    val itemCardToken: ItemCardToken = ItemCardToken(),
+    val backgroundToken: BackgroundColourToken = BackgroundColourToken()
 )
 
 private val DarkColorPalette = darkColors(
@@ -37,7 +38,7 @@ fun CatalogueTemplateTheme(
         )
     }
 
-    val localValues = CornerRadiusSizes() // TODO wrap as this becomes more complex
+    val localValues = CornerRadiusSizes()
     val localCatalogTemplateValues = CatalogTemplateValues()
 
     CompositionLocalProvider(

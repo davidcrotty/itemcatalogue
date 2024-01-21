@@ -47,7 +47,7 @@ val DefaultDetailColors = DetailPalette()
 class DetailPalette(
     val divider: Color = Black800,
     val svgTint: Color = Black800,
-    val detailImageBackground: Color = White500
+    val detailImageBackground: Color = Black800
 )
 
 val LocalDetailColors = compositionLocalOf { DefaultDetailColors }
