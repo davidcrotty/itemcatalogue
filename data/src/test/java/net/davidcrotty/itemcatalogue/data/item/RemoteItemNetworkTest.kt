@@ -87,13 +87,13 @@ internal class RemoteItemNetworkTest {
         val expected = listOf(
             ItemDTO(
                 id = "624842bb3c93ea918aa9585c",
-                type = "Weapon",
-                subtype = "sword",
-                caption = "damage combat",
-                description = "The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1",
-                thumbnail = "https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg",
+                type = "Spell",
+                subtype = "Conjuration cantrip",
+                caption = "Acid Splash",
+                description = "You hurl a bubble of acid. Choose one creature you can see within range, or choose two creatures you can see within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage.",
+                thumbnail = "https://bg3.wiki/w/images/thumb/e/eb/Acid_Splash.webp/380px-Acid_Splash.webp.png",
                 detailImage = "https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450",
-                damageType = "Physical"
+                damageType = "acid"
             )
         )
         assertEquals(expected, result)
@@ -133,7 +133,7 @@ internal class RemoteItemNetworkTest {
                 description = "The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1",
                 thumbnail = "https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg",
                 detailImage = "https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450",
-                damageType = "Physical"
+                damageType = ""
             )
         )
 

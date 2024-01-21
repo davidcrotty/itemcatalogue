@@ -1,7 +1,7 @@
 !tape
 name: when fetching initial items
 interactions:
-- recorded: 2024-01-20T20:03:09.893Z
+- recorded: 2024-01-21T13:21:15.686Z
   request:
     method: GET
     uri: https://dnd-api-a4vdcpxg.uc.gateway.dev/item?limit=1
@@ -11,14 +11,15 @@ interactions:
     status: 200
     headers:
       alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
-      content-length: '694'
+      content-length: '872'
       content-type: application/json; charset=utf-8
-      date: Sat, 20 Jan 2024 20:03:12 GMT
-      etag: W/"2b6-FknLlqMPt7T8rpro3EanIo45xRY"
-      function-execution-id: b65mh2c8l5yf
+      date: Sun, 21 Jan 2024 13:21:15 GMT
+      etag: W/"368-BWydls5E9asXF+Sy7M8Co+cGcv0"
+      function-execution-id: 9bfx1ga13lp7
       server: Google Frontend
       vary: Origin
-      x-cloud-trace-context: eaceceb98be66ce12410925cb82cfbed;o=1
+      x-cloud-trace-context: 350037fb9b1e981f0d7a2be026b33075;o=1
       x-powered-by: Express
-    body: '[{"_id":"624842bb3c93ea918aa9585c","type":"Weapon","subtype":"sword","caption":"damage combat","description":"The black blade of this sword is crafted from a mysterious arcane alloy. You gain a +1","thumbnail":"https://www.scabard.com/user/Pochibella/image/10e63a407bbd6066ddb5444369e942ee.jpg","detail_image":"https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450","stats":{"rules_text":"Proficiency
-      with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it","name":"battleaxe","type":"Martial Melee Weapon","Weight":"4 lbs","Damage":"1d8 Slashing","properties":["Versatile 1d10"]}}]'
+    body: '[{"_id":"624842bb3c93ea918aa9585c","type":"Spell","subtype":"Conjuration cantrip","caption":"Acid Splash","description":"You hurl a bubble of acid. Choose one creature you can see within range, or choose two creatures you can see within range that
+      are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage.","thumbnail":"https://bg3.wiki/w/images/thumb/e/eb/Acid_Splash.webp/380px-Acid_Splash.webp.png","detail_image":"https://static.wikia.nocookie.net/elderscrolls/images/3/38/NordicBattleaxe.png/revision/latest?cb=20130309120450","stats":{"rules_text":"Proficiency
+      with a battleaxe allows you to add your proficiency bonus to the attack roll for any attack you make with it","name":"battleaxe","type":"Martial Melee Weapon","Weight":"4 lbs","Damage":"1d8 Slashing","properties":["Versatile 1d10"]},"damage_type":"acid"}]'
