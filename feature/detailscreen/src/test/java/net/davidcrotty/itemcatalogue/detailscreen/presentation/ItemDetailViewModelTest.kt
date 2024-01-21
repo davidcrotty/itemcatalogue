@@ -60,9 +60,10 @@ class ItemDetailViewModelTest : CoroutineTest {
         val state = sut.itemDetailState.value
         val expected = ItemDetail(
             title = item.title,
-            type = item.type,
+            type = item.subType,
             description = item.description,
-            image = ImageResult.Image(item.url)
+            image = ImageResult.Image(item.url),
+            element = item.element
         )
         assertEquals(expected, state.itemDetail)
         assertEquals(false, state.isLoading)
@@ -102,9 +103,10 @@ class ItemDetailViewModelTest : CoroutineTest {
         val state = sut.itemDetailState.value
         val expected = ItemDetail(
             title = item.title,
-            type = item.type,
+            type = item.subType,
             description = item.description,
-            image = ImageResult.Unavailable
+            image = ImageResult.Unavailable,
+            element = item.element
         )
         assertEquals(expected, state.itemDetail)
         assertEquals(false, state.isLoading)
