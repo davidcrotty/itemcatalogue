@@ -47,3 +47,8 @@ internal val articleTitle = TextStyle(
     color = Color.White,
     fontFamily = FontFamily(Font(DeviceFontFamilyName("sans-serif-condensed")))
 )
+
+internal val articleBody = TextStyle(
+    fontSize = 14.sp,
+    color = Color.White
+)

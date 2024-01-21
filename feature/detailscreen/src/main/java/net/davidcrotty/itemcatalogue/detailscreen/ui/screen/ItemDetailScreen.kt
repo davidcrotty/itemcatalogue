@@ -41,7 +41,8 @@ fun ItemDetailScreen(
         },
         description = {
             Text(
-                itemDetail.description.orEmpty()
+                itemDetail.description.orEmpty(),
+                style = LocalCatalogTemplateValues.current.itemDetailToken.detailBody
             )
         },
         itemDetail = itemDetail

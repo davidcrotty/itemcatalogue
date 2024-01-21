@@ -21,7 +21,8 @@ class ItemCardToken(
 )
 
 class ItemDetailToken(
-    val detailTitle: TextStyle = articleTitle
+    val detailTitle: TextStyle = articleTitle,
+    val detailBody: TextStyle = articleBody
 )
 
 @Immutable
