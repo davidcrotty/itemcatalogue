@@ -3,6 +3,7 @@ package net.davidcrotty.itemcatalogue.organism
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.height
@@ -26,41 +27,24 @@ import net.davidcrotty.itemcatalogue.theme.LocalAppColours
 import net.davidcrotty.itemcatalogue.theme.LocalFont
 
 @Composable
-fun ItemCatalogueAppBar(title: String = LocalContext.current.getString(R.string.app_name)) {
+fun ItemCatalogueAppBar(
+    title: String = LocalContext.current.getString(R.string.app_name),
+    icon: @Composable () -> Unit
+) {
     TopAppBar(
         contentPadding = PaddingValues(horizontal = 16.dp),
         backgroundColor = Color.Transparent,
         elevation = 0.dp
     ) {
-        Box(
-            Modifier
-                .width(36.dp)
-                .height(36.dp)
-                .border(
-                    width = 1.dp, shape = CircleShape, brush = Brush.linearGradient(
-                        colors = listOf(
-                            LocalAppColours.current.highlight,
-                            LocalAppColours.current.highlight
-                        )
-                    )
-                )
-        ) {
-            Image(
-                modifier = Modifier
-                    .align(Alignment.Center)
-                    .width(24.dp)
-                    .height(24.dp),
-                painter = painterResource(id = R.drawable.ic_sword),
-                contentDescription = LocalContext.current.getString(R.string.screen_icon)
-            )
-        }
+        icon()
         val titleSemantic = LocalContext.current.getString(R.string.screen_name)
-        screenTitle(modifier =
-        Modifier
-            .weight(1f, true)
-            .semantics {
-                contentDescription = titleSemantic
-            }, title = title
+        screenTitle(
+            modifier =
+            Modifier
+                .weight(1f, true)
+                .semantics {
+                    contentDescription = titleSemantic
+                }, title = title
         )
     }
 }
