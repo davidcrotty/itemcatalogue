@@ -50,7 +50,7 @@ class ItemListScreenTest {
     private fun generateFeedItemList(number: Int): List<FeedItem> {
         val itemList = mutableListOf<FeedItem>()
         for (item in 0..number) {
-            itemList.add(FeedItem("", "", "", "", ""))
+            itemList.add(FeedItem("", "", "", "", "", ""))
         }
         return itemList
     }

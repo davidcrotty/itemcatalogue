@@ -49,7 +49,9 @@ internal class ItemsViewModelTest : CoroutineTest {
                 url = "url",
                 type = "type",
                 title = "title",
-                description = "description"
+                description = "description",
+                subType = "subtype",
+                element = "element"
             )
         ))
         val sut = ListTemplateViewModel(
@@ -68,9 +70,10 @@ internal class ItemsViewModelTest : CoroutineTest {
             FeedItem(
                 id = "id",
                 url = "url",
-                subType = "type",
+                subType = "subtype",
                 title = "title",
-                description = "description"
+                description = "description",
+                element = "element"
             )
         )
         assertEquals(expected, state)

@@ -25,16 +25,19 @@ internal class ItemRepositoryImplTest {
         val type = forge.aString()
         val caption = forge.aString()
         val description = forge.aString()
+        val subType = forge.aString()
+        val element = forge.aString()
 
         val apiItems = listOf(
             ItemDTO(
                 id = "id",
                 type = type,
-                subtype = forge.aString(),
+                subtype = subType,
                 caption = caption,
                 description = description,
                 thumbnail = thumbnail,
-                detailImage = forge.aString()
+                detailImage = forge.aString(),
+                damageType = element
             )
         )
         val expectedItems = listOf(
@@ -43,7 +46,9 @@ internal class ItemRepositoryImplTest {
                 url = thumbnail,
                 type = type,
                 title = caption,
-                description = description
+                description = description,
+                subType = subType,
+                element = element
             )
         )
 
@@ -81,16 +86,19 @@ internal class ItemRepositoryImplTest {
         val caption = forge.aString()
         val description = forge.aString()
         val id = forge.aString()
+        val element = forge.aString()
+        val subType = forge.aString()
 
         val apiItems = listOf(
             ItemDTO(
                 id = id,
                 type = type,
-                subtype = forge.aString(),
+                subtype = subType,
                 caption = caption,
                 description = description,
                 thumbnail = thumbnail,
-                detailImage = forge.aString()
+                detailImage = forge.aString(),
+                damageType = element
             )
         )
 
@@ -99,7 +107,9 @@ internal class ItemRepositoryImplTest {
             url = thumbnail,
             type = type,
             title = caption,
-            description = description
+            description = description,
+            subType = subType,
+            element = element
         )
 
         val mockDataSource: RemoteItemDataSource = mockk {
@@ -110,7 +120,9 @@ internal class ItemRepositoryImplTest {
             url = thumbnail,
             type = type,
             title = caption,
-            description = description
+            description = description,
+            subType = subType,
+            element = element
         )
         val storedItemList = listOf(
             storedItem,
@@ -225,7 +237,9 @@ internal class ItemRepositoryImplTest {
             url = forge.aString(),
             type = forge.aString(),
             title = forge.aString(),
-            description = forge.aString()
+            description = forge.aString(),
+            subType = forge.aString(),
+            element = forge.aString()
         )
     }
 
