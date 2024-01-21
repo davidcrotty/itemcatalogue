@@ -20,7 +20,7 @@ class TopAppBarTest {
 
         // When rendering app bar
         composeTestRule.setContent {
-            ItemCatalogueAppBar(title)
+            ItemCatalogueAppBar(title, {})
         }
 
         // Then should have correct title passed
@@ -34,7 +34,7 @@ class TopAppBarTest {
 
         // When rendering the app bar
         composeTestRule.setContent {
-            ItemCatalogueAppBar()
+            ItemCatalogueAppBar { }
         }
 
         // Then should render the screen name
