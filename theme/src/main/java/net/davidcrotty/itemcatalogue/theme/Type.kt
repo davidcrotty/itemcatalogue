@@ -3,6 +3,9 @@ package net.davidcrotty.itemcatalogue.theme
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeJoin
+import androidx.compose.ui.graphics.drawscope.DrawStyle
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.DeviceFontFamilyName
@@ -58,6 +61,6 @@ internal val spellType: SpanStyle = SpanStyle(
     fontFamily = tiamat,
     fontWeight = FontWeight.ExtraLight,
     fontSize = 16.sp,
-    color = White900,
-    fontFeatureSettings = "c2sc, smcp"
+    color = Black800,
+    fontFeatureSettings = "c2sc, smcp",
 )
