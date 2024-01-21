@@ -38,20 +38,6 @@ class TableColors(
 
 val LocalColors = compositionLocalOf { DefaultTableColors }
 
-/**
- * Colors for detail screen palete
- */
-val DefaultDetailColors = DetailPalette()
-
-@Immutable
-class DetailPalette(
-    val divider: Color = Black800,
-    val svgTint: Color = Black800,
-    val detailImageBackground: Color = Black800
-)
-
-val LocalDetailColors = compositionLocalOf { DefaultDetailColors }
-
 val DefaultDecorativeType = DecorativeText()
 
 @Immutable

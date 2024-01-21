@@ -10,25 +10,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
 import net.davidcrotty.itemcatalogue.detailscreen.R
 import net.davidcrotty.itemcatalogue.detailscreen.model.ImageResult
-import net.davidcrotty.itemcatalogue.theme.LocalDetailColors
+import net.davidcrotty.itemcatalogue.theme.LocalCatalogTemplateValues
 
 @Composable
 fun DetailImage(
     image: ImageResult,
-    modifier: Modifier = Modifier,
-    background: Color = LocalDetailColors.current.detailImageBackground
+    modifier: Modifier = Modifier
 ) {
     when (image) {
         is ImageResult.Image -> {
             AsyncImage(
                 modifier = modifier
-                    .aspectRatio(4f / 3f)
-                    .background(background), model = image.url, contentDescription = stringResource(
+                    .aspectRatio(4f / 3f), model = image.url, contentDescription = stringResource(
                     id = R.string.detail_image
                 ),
                 contentScale = ContentScale.Crop
@@ -37,14 +36,13 @@ fun DetailImage(
         is ImageResult.Unavailable -> {
             Box(
                 modifier = modifier
-                    .aspectRatio(4f / 3f)
-                    .background(background),
+                    .aspectRatio(4f / 3f),
                 contentAlignment = Alignment.Center
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.detail_image_unavailable_48px),
                     contentDescription = stringResource(id = R.string.detail_image_unavailable),
-                    colorFilter = ColorFilter.tint(LocalDetailColors.current.svgTint)
+                    colorFilter = ColorFilter.tint(LocalCatalogTemplateValues.current.itemDetailToken.noImageTint)
                 )
             }
         }

@@ -14,7 +14,7 @@ import androidx.compose.ui.text.*
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import net.davidcrotty.itemcatalogue.theme.DecorativeType
-import net.davidcrotty.itemcatalogue.theme.LocalDetailColors
+import net.davidcrotty.itemcatalogue.theme.LocalCatalogTemplateValues
 import net.davidcrotty.itemcatalogue.theme.R
 import net.davidcrotty.itemcatalogue.detailscreen.R as DetailScreenR
 
@@ -25,13 +25,22 @@ fun DividerLabelPreview() {
     DividerLabel(
         Modifier
             .padding(top = 10.dp)
-            .fillMaxSize(), text = "Weapon")
+            .fillMaxSize(),
+        text = "Weapon",
+        element = "acid"
+    )
 }
 
 @OptIn(ExperimentalTextApi::class)
 @Composable
-fun DividerLabel(modifier: Modifier = Modifier, text: String) {
-    val lineColour = LocalDetailColors.current.divider
+fun DividerLabel(modifier: Modifier = Modifier, text: String, element: String) {
+    val dividerColour =
+        LocalCatalogTemplateValues.current.itemDetailToken.dividerColour.getOrDefault(
+            element,
+            LocalCatalogTemplateValues.current.itemDetailToken.defaultDividerColor
+        )
+
+    val lineColour = dividerColour
     val textMeasurer = rememberTextMeasurer()
     val styledText = buildAnnotatedString {
         withStyle(style = DecorativeType.current.label) {
@@ -44,7 +53,6 @@ fun DividerLabel(modifier: Modifier = Modifier, text: String) {
 
     val slantStart = textLayoutResult.size.height.toFloat() + (textOffset / 2)
     val boxWidth = textLayoutResult.size.width.toFloat() + (textOffset * 2)
-    val dividerColour = LocalDetailColors.current.divider
     val boxHeight = textLayoutResult.size.height.toFloat() + (textOffset / 2)
 
     Canvas(modifier = modifier.height(dimensionResource(id = DetailScreenR.dimen.divider_height))) {

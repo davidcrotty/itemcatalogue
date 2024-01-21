@@ -20,7 +20,6 @@ import net.davidcrotty.itemcatalogue.detailscreen.model.ImageResult
 import net.davidcrotty.itemcatalogue.detailscreen.model.ItemDetail
 import net.davidcrotty.itemcatalogue.detailscreen.ui.molecule.DetailImage
 import net.davidcrotty.itemcatalogue.detailscreen.R as DetailScreenR
-import net.davidcrotty.itemcatalogue.theme.LocalDetailColors
 import net.davidcrotty.itemcatalogue.theme.R
 
 @Preview
@@ -29,9 +28,7 @@ fun PreviewItemDetailTemplate() {
     ItemDetailTemplate(
         image = {
             DetailImage(
-                image = ImageResult.Unavailable, modifier = Modifier.background(
-                    LocalDetailColors.current.detailImageBackground
-                )
+                image = ImageResult.Unavailable
             )
         },
         title = {
@@ -43,7 +40,8 @@ fun PreviewItemDetailTemplate() {
             DividerLabel(
                 text = "weapon", modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
+                    .padding(horizontal = dimensionResource(id = R.dimen.padding_medium)),
+                element = "acid"
             )
         },
         description = {

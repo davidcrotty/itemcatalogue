@@ -36,7 +36,8 @@ fun ItemDetailScreen(
         divider = {
             DividerLabel(
                 text = itemDetail.type.orEmpty(),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                element = itemDetail.element
             )
         },
         description = {

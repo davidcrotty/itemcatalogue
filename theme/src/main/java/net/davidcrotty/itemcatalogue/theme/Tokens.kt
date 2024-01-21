@@ -22,7 +22,10 @@ class ItemCardToken(
 
 class ItemDetailToken(
     val detailTitle: TextStyle = articleTitle,
-    val detailBody: TextStyle = articleBody
+    val detailBody: TextStyle = articleBody,
+    val dividerColour: Map<String, Color> = elementMapToken,
+    val defaultDividerColor: Color = Purple500,
+    val noImageTint: Color = White900
 )
 
 @Immutable
