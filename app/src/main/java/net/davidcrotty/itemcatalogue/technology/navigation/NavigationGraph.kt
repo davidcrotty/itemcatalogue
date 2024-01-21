@@ -8,6 +8,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import net.davidcrotty.itemcatalogue.MainActivity
 import net.davidcrotty.itemcatalogue.R
 import net.davidcrotty.itemcatalogue.detailscreen.presentation.ItemDetailViewModel
 import net.davidcrotty.itemcatalogue.detailscreen.ui.screen.ItemDetailScreen
@@ -16,21 +17,29 @@ import net.davidcrotty.itemcatalogue.detailscreen.ui.screen.ItemDetailScreen
 fun NavigationGraph(
     controller: NavHostController,
     itemListScreenFactory: @Composable () -> Unit,
-    titleChange: (String) -> Unit,
-    overlayChange: (Boolean) -> Unit
+    appStateChange: (MainActivity.AppStateHolder) -> Unit
 ) {
     NavHost(navController = controller, startDestination = "itemList") {
         composable("itemList") {
-            titleChange(stringResource(id = R.string.listing_title))
-            overlayChange(false)
+            appStateChange(
+                MainActivity.AppStateHolder(
+                    stringResource(id = R.string.listing_title),
+                    false
+                )
+            )
+
             itemListScreenFactory()
         }
         composable("item/{itemId}", arguments = listOf(navArgument("itemId") {
             type = NavType.StringType
             nullable = false
         })) { _ ->
-            titleChange("")
-            overlayChange(true)
+            appStateChange(
+                MainActivity.AppStateHolder(
+                    "",
+                    true
+                )
+            )
             ItemDetailScreen(
                 detailViewModel = hiltViewModel() as ItemDetailViewModel
             )

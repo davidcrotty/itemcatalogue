@@ -72,14 +72,12 @@ class MainActivity : ComponentActivity() {
 
         if (appState.appBarOverlayContent) {
             Box {
-
                 NavigationGraph(
                     controller = controller,
                     itemListScreenFactory = {
                         ItemListScreen { controller.navigate(it) }
                     },
-                    { appState = appState.copy(appTitle = it) },
-                    { appState = appState.copy(appBarOverlayContent = it) }
+                    { appState = it }
                 )
                 ItemCatalogueAppBar(title = appState.appTitle)
             }
@@ -91,8 +89,7 @@ class MainActivity : ComponentActivity() {
                     itemListScreenFactory = {
                         ItemListScreen { controller.navigate(it) }
                     },
-                    { appState = appState.copy(appTitle = it) },
-                    { appState = appState.copy(appBarOverlayContent = it) }
+                    { appState = it }
                 )
             }
         }
