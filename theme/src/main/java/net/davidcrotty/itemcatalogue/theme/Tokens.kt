@@ -38,6 +38,8 @@ private val elementMapToken: Map<String, Color> = mutableMapOf<String, Color>().
     put("fire", Orange800)
     put("poison", Green800)
     put("lightning", Blue900)
+    put("heal", Teal300)
+    put("psychic", Purple500)
 }
 
 class BackgroundColourToken(val color: Color = Black800)

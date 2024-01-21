@@ -6,6 +6,8 @@ import androidx.compose.ui.graphics.Color
 
 val Purple500 = Color(0xFF9b7fed)
 val Purple700 = Color(0xFF3700B3)
+
+val Teal300 = Color(0xFF5bf3ed)
 val Teal200 = Color(0xFF03DAC5)
 
 val Blue900 = Color(0xFF1e58fc)
