@@ -11,7 +11,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "My Application"
+rootProject.name = "Item Catalogue"
 include(":app")
 include(":domain")
 include(":domain:items")

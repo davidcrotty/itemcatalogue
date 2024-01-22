@@ -16,7 +16,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.rememberAsyncImagePainter
 import net.davidcrotty.itemcatalogue.R
-import net.davidcrotty.itemcatalogue.model.FeedItem
 import net.davidcrotty.itemcatalogue.theme.ItemCardToken
 import net.davidcrotty.itemcatalogue.theme.LocalCatalogTemplateValues
 import net.davidcrotty.itemcatalogue.theme.LocalValues

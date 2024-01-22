@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.viewmodel
+package net.davidcrotty.itemcatalogue.listscreen.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,9 +8,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 import net.davidcrotty.itemcatalogue.items.usecase.GetFeedUsecase
-import net.davidcrotty.itemcatalogue.model.FeedItem
-import net.davidcrotty.itemcatalogue.model.ListTemplateState
-import net.davidcrotty.itemcatalogue.model.LoadingState
+import net.davidcrotty.itemcatalogue.listscreen.model.FeedItem
+import net.davidcrotty.itemcatalogue.listscreen.model.ListTemplateState
+import net.davidcrotty.itemcatalogue.listscreen.model.LoadingState
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,7 +18,6 @@ class ListTemplateViewModel @Inject constructor(
     private val getFeedUsecase: GetFeedUsecase
 ) : ViewModel(), ListTemplateContract {
 
-    // TODO challenge why not emit this as an alltogether ui state? Yes, means less args passed around (clean code varadic args)
     override val listState: StateFlow<ListTemplateState>
         get() = _items
 

@@ -9,11 +9,9 @@ import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.flow.MutableStateFlow
-import net.davidcrotty.itemcatalogue.model.FeedItem
 import net.davidcrotty.itemcatalogue.model.ListTemplateState
 import net.davidcrotty.itemcatalogue.model.LoadingState
 import net.davidcrotty.itemcatalogue.screen.ItemListScreen
-import net.davidcrotty.itemcatalogue.viewmodel.ListTemplateViewModel
 import org.junit.Rule
 import org.junit.Test
 import java.util.UUID

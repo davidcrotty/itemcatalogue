@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.model
+package net.davidcrotty.itemcatalogue.listscreen.model
 
 data class FeedItem(
     val id: String,

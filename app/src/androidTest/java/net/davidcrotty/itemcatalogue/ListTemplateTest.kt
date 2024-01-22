@@ -10,7 +10,6 @@ import net.davidcrotty.itemcatalogue.model.ListTemplateState
 import net.davidcrotty.itemcatalogue.model.LoadingState
 import net.davidcrotty.itemcatalogue.screen.ItemListScreen
 import net.davidcrotty.itemcatalogue.template.ItemListTemplate
-import net.davidcrotty.itemcatalogue.viewmodel.ListTemplateViewModel
 import org.junit.Rule
 import org.junit.Test
 

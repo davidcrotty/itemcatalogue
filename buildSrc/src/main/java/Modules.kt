@@ -27,7 +27,12 @@ object Modules {
     )
 
     val feature = listOf(
-        implementation("com.google.dagger:hilt-android:${Versions.hilt}")
+        implementation("com.google.dagger:hilt-android:${Versions.hilt}"),
+        implementation(Libraries.viewModel),
+        implementation(Libraries.composeUi),
+        implementation(Libraries.composeMaterial),
+        implementation(Libraries.composeAnimation),
+        implementation(Libraries.composeTooling)
     )
 
     val data = listOf(
@@ -47,7 +52,6 @@ object Modules {
         implementation(Libraries.composeTooling),
         implementation(Libraries.appCompat),
         implementation(Libraries.material),
-        implementation(Libraries.viewModel),
         implementation(Libraries.constraintCompose),
         implementation(Libraries.coil)
     )
