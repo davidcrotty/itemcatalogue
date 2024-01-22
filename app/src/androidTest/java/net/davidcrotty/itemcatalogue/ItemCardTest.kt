@@ -4,7 +4,7 @@ import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import io.mockk.mockk
 import io.mockk.verify
-import net.davidcrotty.itemcatalogue.organism.ItemCard
+import net.davidcrotty.itemcatalogue.listscreen.ui.ItemCard
 import org.junit.Rule
 import org.junit.Test
 
