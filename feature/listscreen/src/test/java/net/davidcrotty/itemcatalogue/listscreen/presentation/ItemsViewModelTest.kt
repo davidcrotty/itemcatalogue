@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.viewmodel
+package net.davidcrotty.itemcatalogue.listscreen.presentation
 
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -10,8 +10,9 @@ import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
 import net.davidcrotty.itemcatalogue.items.usecase.GetFeedUsecase
-import net.davidcrotty.itemcatalogue.model.ListTemplateState
-import net.davidcrotty.itemcatalogue.model.LoadingState
+import net.davidcrotty.itemcatalogue.listscreen.model.FeedItem
+import net.davidcrotty.itemcatalogue.listscreen.model.ListTemplateState
+import net.davidcrotty.itemcatalogue.listscreen.model.LoadingState
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
