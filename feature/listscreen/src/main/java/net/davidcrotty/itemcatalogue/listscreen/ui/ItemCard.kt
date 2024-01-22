@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.organism
+package net.davidcrotty.itemcatalogue.listscreen.ui
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -15,7 +15,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.rememberAsyncImagePainter
-import net.davidcrotty.itemcatalogue.R
+import net.davidcrotty.itemcatalogue.listscreen.R
+import net.davidcrotty.itemcatalogue.listscreen.model.FeedItem
 import net.davidcrotty.itemcatalogue.theme.ItemCardToken
 import net.davidcrotty.itemcatalogue.theme.LocalCatalogTemplateValues
 import net.davidcrotty.itemcatalogue.theme.LocalValues

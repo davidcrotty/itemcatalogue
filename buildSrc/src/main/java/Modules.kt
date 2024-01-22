@@ -56,6 +56,11 @@ object Modules {
         implementation(Libraries.coil)
     )
 
+    val list = listOf(
+        implementation(Libraries.coil),
+        implementation(Libraries.hiltNavigationCompose)
+    )
+
     val androidCommon = listOf(
         implementation(Libraries.androidCore),
         debugImplementation(Libraries.composeManifest)

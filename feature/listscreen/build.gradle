@@ -27,6 +27,7 @@ dependencies { handler ->
 
     Utilities.addModules(
             handler,
+            Modules.list,
             Modules.feature,
             Modules.androidCommon,
             Modules.jvmTest,

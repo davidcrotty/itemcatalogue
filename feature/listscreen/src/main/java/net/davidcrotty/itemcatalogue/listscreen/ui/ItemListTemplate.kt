@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.template
+package net.davidcrotty.itemcatalogue.listscreen.ui
 
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.lazy.LazyColumn
@@ -14,12 +14,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import kotlinx.coroutines.flow.filter
-import net.davidcrotty.itemcatalogue.R
-import net.davidcrotty.itemcatalogue.model.ListTemplateState
-import net.davidcrotty.itemcatalogue.model.LoadingState
-import net.davidcrotty.itemcatalogue.molecule.FeedLoadingIndicator
-import net.davidcrotty.itemcatalogue.molecule.FeedRetryIndicator
-import net.davidcrotty.itemcatalogue.organism.ItemCard
+import net.davidcrotty.itemcatalogue.listscreen.R
+import net.davidcrotty.itemcatalogue.listscreen.model.ListTemplateState
+import net.davidcrotty.itemcatalogue.listscreen.model.LoadingState
 import net.davidcrotty.itemcatalogue.theme.LocalColors
 
 @Composable

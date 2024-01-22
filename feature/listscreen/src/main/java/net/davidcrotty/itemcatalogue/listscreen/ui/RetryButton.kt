@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.atom
+package net.davidcrotty.itemcatalogue.listscreen.ui
 
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -8,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import net.davidcrotty.itemcatalogue.R
+import net.davidcrotty.itemcatalogue.listscreen.R
 
 @Composable
 fun RetryButton(modifier: Modifier = Modifier, onClick: () -> Unit) {

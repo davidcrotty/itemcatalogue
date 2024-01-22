@@ -1,12 +1,7 @@
 <resources>
     <string name="app_name">Spellbook</string>
-    <string name="list_image">List image</string>
     <string name="item_background">Item background</string>
     <string name="item_detail_image">Item detail image</string>
-    <string name="item_feed_loading">Item Feed Loading indicator</string>
-    <string name="dungeon_item_feed">Dungeon item feed</string>
-    <string name="retry_button">Retry button</string>
-    <string name="feed_retry_button">Item Feed Retry indicator</string>
     <string name="dialog_title_unable_to_launch_application">Unable to launch application</string>
     <string name="dialog_description_connectivity_error">Please check network connectivity and try again</string>
 

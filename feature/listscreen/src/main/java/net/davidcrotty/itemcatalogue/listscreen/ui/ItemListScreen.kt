@@ -1,9 +1,10 @@
-package net.davidcrotty.itemcatalogue.screen
+package net.davidcrotty.itemcatalogue.listscreen.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.hilt.navigation.compose.hiltViewModel
-import net.davidcrotty.itemcatalogue.template.ItemListTemplate
+import net.davidcrotty.itemcatalogue.listscreen.presentation.ListTemplateContract
+import net.davidcrotty.itemcatalogue.listscreen.presentation.ListTemplateViewModel
 
 @Composable
 fun ItemListScreen(itemsViewModel: ListTemplateContract = hiltViewModel() as ListTemplateViewModel,
