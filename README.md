@@ -7,7 +7,7 @@ Spellbook is an application that allows you to browse a list of spells available
 # Setup
 The project requires an API key to run, this has been temporarily made available in gradle/keys.properties for ease of setup.
 
-However it is security best practice to not include API keys in an application.
+However it is security best practice to not include API keys in an application. To provide security I will be rotating the key on 1/2/24
 
 # Structure
 The project is setup in the following structure:
