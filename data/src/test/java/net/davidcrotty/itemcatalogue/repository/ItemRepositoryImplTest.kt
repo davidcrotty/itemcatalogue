@@ -1,5 +1,6 @@
-package net.davidcrotty.itemcatalogue.domain
+package net.davidcrotty.itemcatalogue.repository
 
+import net.davidcrotty.itemcatalogue.data.item.repository.ItemRepositoryImpl
 import fr.xgouchet.elmyr.Forge
 import io.mockk.*
 import kotlinx.coroutines.runBlocking
