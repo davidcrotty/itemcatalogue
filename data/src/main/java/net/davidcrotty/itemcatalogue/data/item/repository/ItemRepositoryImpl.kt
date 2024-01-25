@@ -1,13 +1,13 @@
-package net.davidcrotty.itemcatalogue.domain
+package net.davidcrotty.itemcatalogue.data.item.repository
 
 import net.davidcrotty.itemcatalogue.data.item.ItemCacheDataSource
 import net.davidcrotty.itemcatalogue.data.item.RemoteItemDataSource
 import net.davidcrotty.itemcatalogue.data.item.exception.ContentFailedToFetch
 import net.davidcrotty.itemcatalogue.data.item.exception.ContentNotFound
+import net.davidcrotty.itemcatalogue.data.item.model.PagingConfiguration
 import net.davidcrotty.itemcatalogue.items.entity.ID
 import net.davidcrotty.itemcatalogue.items.entity.Item
 import net.davidcrotty.itemcatalogue.items.repository.ItemRepository
-import net.davidcrotty.itemcatalogue.model.PagingConfiguration
 import javax.inject.Inject
 
 class ItemRepositoryImpl @Inject constructor(

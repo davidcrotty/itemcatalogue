@@ -1,4 +1,4 @@
-package net.davidcrotty.itemcatalogue.model
+package net.davidcrotty.itemcatalogue.data.item.model
 
 import javax.inject.Inject
 

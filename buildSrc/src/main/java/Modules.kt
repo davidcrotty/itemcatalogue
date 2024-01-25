@@ -36,6 +36,7 @@ object Modules {
     )
 
     val data = listOf(
+        implementation("com.google.dagger:hilt-android:${Versions.hilt}"),
         implementation(Libraries.retrofit),
         implementation(Libraries.retrofitMoshiConverter),
         implementation(Libraries.moshi),
